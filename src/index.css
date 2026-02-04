@@ -2,95 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ioNova Design System - Navy/Blue Professional Palette */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Primary Brand Colors (HSL converted from hex) */
+    --navy-950: 220 60% 13%;      /* #0E1935 - Primary headlines, body text */
+    --navy-900: 230 57% 11%;      /* #111426 - Deep text accents */
+    --navy-800: 230 35% 15%;      /* #1A1E35 - Strong dividers */
+    --blue-700: 223 52% 30%;      /* #243574 - Sub-heads, key bars */
+    --blue-600: 217 51% 35%;      /* #2B4E86 - Links, gradients */
+    --blue-500: 211 52% 47%;      /* #3C75B5 - Primary action color */
+    --blue-400: 204 64% 62%;      /* #5EA1DC - Highlights, accent strips */
+    --sky-200: 199 78% 75%;       /* #8ECDF2 - Secondary highlight */
+    --teal-500: 186 50% 51%;      /* #43ADC1 - Secondary accent */
+    --cyan-400: 181 58% 59%;      /* #5FCFD0 - Highlight/accent */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Surface & Border Colors */
+    --bg: 240 14% 98%;            /* #F9F9FB - Default background */
+    --surface-1: 0 0% 100%;       /* #FFFFFF - Cards, containers */
+    --surface-2: 220 33% 96%;     /* #EFF2F7 - Raised panels */
+    --surface-3: 213 43% 92%;     /* #DFE8F2 - Section bands, borders */
+    --border-strong: 206 48% 85%; /* #C6DBED - Emphasis borders */
+    --text-muted: 210 14% 59%;    /* #8796A7 - Footnotes, labels */
+    --text-label: 210 29% 40%;    /* #466587 - Icon default, label text */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Semantic tokens mapped to brand */
+    --background: var(--bg);
+    --foreground: var(--navy-950);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --card: var(--surface-1);
+    --card-foreground: var(--navy-950);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --popover: var(--surface-1);
+    --popover-foreground: var(--navy-950);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --primary: var(--blue-500);
+    --primary-foreground: 0 0% 100%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--surface-2);
+    --secondary-foreground: var(--navy-900);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --muted: var(--surface-3);
+    --muted-foreground: var(--text-muted);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --accent: var(--blue-400);
+    --accent-foreground: var(--navy-950);
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: var(--surface-3);
+    --input: var(--surface-3);
+    --ring: var(--blue-500);
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--blue-600)), hsl(var(--blue-400)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--navy-950)), hsl(var(--blue-700)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--teal-500)), hsl(var(--cyan-400)));
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(var(--navy-950) / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(var(--navy-950) / 0.1), 0 2px 4px -2px hsl(var(--navy-950) / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(var(--navy-950) / 0.1), 0 4px 6px -4px hsl(var(--navy-950) / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(var(--navy-950) / 0.1), 0 8px 10px -6px hsl(var(--navy-950) / 0.1);
+    --shadow-glow: 0 0 40px hsl(var(--blue-400) / 0.3);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: var(--navy-950);
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: var(--navy-900);
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: var(--navy-900);
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: var(--blue-400);
+    --primary-foreground: var(--navy-950);
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: var(--navy-800);
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: var(--navy-800);
+    --muted-foreground: var(--text-muted);
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: var(--blue-500);
     --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: var(--navy-800);
+    --input: var(--navy-800);
+    --ring: var(--blue-400);
   }
 }
 
@@ -99,7 +104,100 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+
+  .bg-gradient-accent {
+    background-image: var(--gradient-accent);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 }
