@@ -1,9 +1,13 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { FileText, ArrowRight, Clock } from "lucide-react";
+import { FileText, ArrowRight, Clock, Loader2 } from "lucide-react";
+import { useGhostPosts } from "@/hooks/useGhostPosts";
+import { format } from "date-fns";
 
 const Resources = () => {
+  const { data: posts, isLoading, error } = useGhostPosts(9);
+
   return (
     <Layout>
       {/* Hero */}
@@ -70,65 +74,63 @@ const Resources = () => {
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {/* Article 1 */}
-            <article className="group overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all hover:-translate-y-1 hover:shadow-xl">
-              <div className="h-48 bg-gradient-primary" />
-              <div className="p-6">
-                <div className="mb-3 flex items-center gap-2 text-sm text-text-muted">
-                  <Clock className="h-4 w-4" />
-                  <span>8 min read</span>
-                </div>
-                <h3 className="mb-2 text-xl font-semibold text-navy-950 group-hover:text-blue-600">
-                  The Legacy Data Trap: From Bombay to Mumbai
-                </h3>
-                <p className="text-sm text-text-muted">
-                  How Temporal Name Mapping ensures payments referencing obsolete city 
-                  names like "Calcutta" or "Madras" settle correctly.
-                </p>
-              </div>
-            </article>
-
-            {/* Article 2 */}
-            <article className="group overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all hover:-translate-y-1 hover:shadow-xl">
-              <div className="h-48 bg-gradient-accent" />
-              <div className="p-6">
-                <div className="mb-3 flex items-center gap-2 text-sm text-text-muted">
-                  <Clock className="h-4 w-4" />
-                  <span>12 min read</span>
-                </div>
-                <h3 className="mb-2 text-xl font-semibold text-navy-950 group-hover:text-blue-600">
-                  Beyond Compliance: The ROI of Structured Data
-                </h3>
-                <p className="text-sm text-text-muted">
-                  How accurate address resolution reduces Financial Crime false positives 
-                  and optimizes Trade Finance operations.
-                </p>
-              </div>
-            </article>
-
-            {/* Article 3 */}
-            <article className="group overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all hover:-translate-y-1 hover:shadow-xl">
-              <div className="h-48 bg-gradient-hero" />
-              <div className="p-6">
-                <div className="mb-3 flex items-center gap-2 text-sm text-text-muted">
-                  <Clock className="h-4 w-4" />
-                  <span>6 min read</span>
-                </div>
-                <h3 className="mb-2 text-xl font-semibold text-navy-950 group-hover:text-blue-600">
-                  Why Generic Parsers Fail at Address Resolution
-                </h3>
-                <p className="text-sm text-text-muted">
-                  A deep dive into geographic disambiguation and multi-signal analysis 
-                  for banking-grade accuracy.
-                </p>
-              </div>
-            </article>
-          </div>
-
-          <div className="mt-8 text-center text-text-muted">
-            <p>More articles coming soon...</p>
-          </div>
+          {isLoading ? (
+            <div className="flex items-center justify-center py-12">
+              <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+            </div>
+          ) : error ? (
+            <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-center text-red-700">
+              <p>Unable to load blog posts. Please check your Ghost configuration.</p>
+            </div>
+          ) : posts && posts.length > 0 ? (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {posts.map((post) => (
+                <article 
+                  key={post.id}
+                  className="group overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all hover:-translate-y-1 hover:shadow-xl"
+                >
+                  {post.feature_image ? (
+                    <img 
+                      src={post.feature_image} 
+                      alt={post.title}
+                      className="h-48 w-full object-cover"
+                    />
+                  ) : (
+                    <div className="h-48 bg-gradient-primary" />
+                  )}
+                  <div className="p-6">
+                    <div className="mb-3 flex items-center gap-2 text-sm text-text-muted">
+                      <Clock className="h-4 w-4" />
+                      <span>{post.reading_time} min read</span>
+                      {post.published_at && (
+                        <>
+                          <span>•</span>
+                          <span>{format(new Date(post.published_at), 'MMM d, yyyy')}</span>
+                        </>
+                      )}
+                    </div>
+                    <h3 className="mb-2 text-xl font-semibold text-navy-950 group-hover:text-blue-600">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-text-muted">
+                      {post.excerpt}
+                    </p>
+                    <Link 
+                      to={`/blog/${post.slug}`}
+                      className="mt-4 inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700"
+                    >
+                      Read more
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center text-text-muted">
+              <p>No blog posts available yet.</p>
+            </div>
+          )}
         </div>
       </section>
     </Layout>

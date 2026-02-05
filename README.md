@@ -59,6 +59,11 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- Ghost CMS (for blog content)
+
+### Ghost CMS Integration
+
+This project includes Ghost CMS integration for blog posts. See [GHOST_SETUP.md](./GHOST_SETUP.md) for detailed setup instructions.
 
 ## How can I deploy this project?
 
