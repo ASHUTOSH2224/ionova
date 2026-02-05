@@ -1,13 +1,9 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { FileText, ArrowRight, Clock, Loader2 } from "lucide-react";
-import { useGhostPosts } from "@/hooks/useGhostPosts";
-import { format } from "date-fns";
+import { FileText, ArrowRight } from "lucide-react";
 
 const Resources = () => {
-  const { data: posts, isLoading, error } = useGhostPosts(9);
-
   return (
     <Layout>
       {/* Hero */}
@@ -18,7 +14,7 @@ const Resources = () => {
               Resources & Insights
             </h1>
             <p className="text-lg text-sky-200/80">
-              Education and thought leadership on ISO 20022 compliance and 
+              Education and thought leadership on ISO 20022 compliance and
               payment data transformation.
             </p>
           </div>
@@ -36,7 +32,7 @@ const Resources = () => {
                   <span className="text-sm font-medium uppercase tracking-wider">Featured Whitepaper</span>
                 </div>
               </div>
-              
+
               <div className="p-6 lg:p-8">
                 <h2 className="mb-4 text-2xl font-bold text-navy-950 md:text-3xl">
                   The Financial Y2K Survival Guide
@@ -45,11 +41,11 @@ const Resources = () => {
                   Solving the ISO 20022 Address Resolution Challenge
                 </p>
                 <p className="mb-6 text-text-muted">
-                  November 2026 isn't just a deadline; it's a binary event. Learn the specific 
-                  requirements of SWIFT CBPR+ and SEPA, and why "Hybrid" addresses are only 
+                  November 2026 isn't just a deadline; it's a binary event. Learn the specific
+                  requirements of SWIFT CBPR+ and SEPA, and why "Hybrid" addresses are only
                   a temporary fallback.
                 </p>
-                
+
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <Button variant="hero" size="lg">
                     Download PDF
@@ -74,63 +70,49 @@ const Resources = () => {
             </h2>
           </div>
 
-          {isLoading ? (
-            <div className="flex items-center justify-center py-12">
-              <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
-            </div>
-          ) : error ? (
-            <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-center text-red-700">
-              <p>Unable to load blog posts. Please check your Ghost configuration.</p>
-            </div>
-          ) : posts && posts.length > 0 ? (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {posts.map((post) => (
-                <article 
-                  key={post.id}
-                  className="group overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all hover:-translate-y-1 hover:shadow-xl"
-                >
-                  {post.feature_image ? (
-                    <img 
-                      src={post.feature_image} 
-                      alt={post.title}
-                      className="h-48 w-full object-cover"
-                    />
-                  ) : (
-                    <div className="h-48 bg-gradient-primary" />
-                  )}
-                  <div className="p-6">
-                    <div className="mb-3 flex items-center gap-2 text-sm text-text-muted">
-                      <Clock className="h-4 w-4" />
-                      <span>{post.reading_time} min read</span>
-                      {post.published_at && (
-                        <>
-                          <span>•</span>
-                          <span>{format(new Date(post.published_at), 'MMM d, yyyy')}</span>
-                        </>
-                      )}
-                    </div>
-                    <h3 className="mb-2 text-xl font-semibold text-navy-950 group-hover:text-blue-600">
-                      {post.title}
-                    </h3>
-                    <p className="text-sm text-text-muted">
-                      {post.excerpt}
-                    </p>
-                    <Link 
-                      to={`/blog/${post.slug}`}
-                      className="mt-4 inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700"
-                    >
-                      Read more
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center text-text-muted">
-              <p>No blog posts available yet.</p>
-            </div>
-          )}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "The Legacy Data Trap: From Bombay to Mumbai",
+                excerpt: "Why historical name changes are the silent killer of straight-through processing rates.",
+                slug: "legacy-data-trap"
+              },
+              {
+                title: "Beyond Compliance: The ROI of Structured Data",
+                excerpt: "How to turn a compliance cost into a $5M+ annual operational advantage.",
+                slug: "roi-structured-data"
+              },
+              {
+                title: "Why Generic Parsers Fail at Address Resolution (The Paris Problem)",
+                excerpt: "Understanding the difference between postal validation and financial entity verification.",
+                slug: "paris-problem"
+              }
+            ].map((post, i) => (
+              <article
+                key={i}
+                className="group overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="h-48 bg-navy-950/5 flex items-center justify-center">
+                  <FileText className="h-12 w-12 text-blue-200" />
+                </div>
+                <div className="p-6">
+                  <h3 className="mb-2 text-xl font-semibold text-navy-950 group-hover:text-blue-600">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-text-muted">
+                    {post.excerpt}
+                  </p>
+                  <Link
+                    to={`/resources`}
+                    className="mt-4 inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700"
+                  >
+                    Read Article
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </Layout>

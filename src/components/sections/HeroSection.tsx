@@ -23,14 +23,12 @@ export function HeroSection() {
           <h1 className="mb-6 text-4xl font-bold leading-tight text-sky-200 md:text-5xl lg:text-6xl">
             Make Your Payment Data{" "}
             <span className="text-gradient-accent">ISO 20022 Ready</span>{" "}
-            with AI-Native Address Resolution
+            with AI-Native Address Resolution.
           </h1>
 
           {/* Subheadline */}
           <p className="mx-auto mb-8 max-w-2xl text-lg text-sky-200/80 md:text-xl">
-            The November 2026 deadline is non-negotiable. Automatically convert unstructured 
-            payment data into SWIFT CBPR+ and SEPA compliant structured addresses with{" "}
-            <span className="font-semibold text-cyan-400">100% deterministic accuracy</span>.
+            ioNova is the purpose-built platform helping banks achieve full ISO 20022 compliance within weeks. We convert enterprise-wide unstructured data into SWIFT CBPR+ and SEPA compliant structured addresses in real-time.
           </p>
 
           {/* CTAs */}

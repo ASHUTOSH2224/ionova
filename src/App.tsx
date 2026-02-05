@@ -9,6 +9,11 @@ import Demo from "./pages/Demo";
 import Resources from "./pages/Resources";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
+import Platform from "./pages/Platform";
+import StructuredMandate from "./pages/AddressIntelligence/StructuredMandate";
+import BusinessValue from "./pages/AddressIntelligence/BusinessValue";
+import Implementation from "./pages/AddressIntelligence/Implementation";
+import PurposeBuilt from "./pages/AddressIntelligence/PurposeBuilt";
 
 const queryClient = new QueryClient();
 
@@ -20,10 +25,18 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/platform" element={<Platform />} />
           <Route path="/company" element={<Company />} />
           <Route path="/demo" element={<Demo />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+
+          {/* Address Intelligence Routes */}
+          <Route path="/address-intelligence/structured-address-mandate" element={<StructuredMandate />} />
+          <Route path="/address-intelligence/business-value" element={<BusinessValue />} />
+          <Route path="/address-intelligence/implementation" element={<Implementation />} />
+          <Route path="/address-intelligence/why-purpose-built" element={<PurposeBuilt />} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

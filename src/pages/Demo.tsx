@@ -11,9 +11,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { 
-  Shield, 
-  CheckCircle, 
+import {
+  Shield,
+  CheckCircle,
   Send,
   Clock,
   Building2
@@ -43,15 +43,15 @@ const Demo = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     toast({
       title: "Demo Request Submitted!",
       description: "Our team will reach out within 24 hours to schedule your demo.",
     });
-    
+
     setIsSubmitting(false);
     setFormData({
       firstName: "",
@@ -77,11 +77,10 @@ const Demo = () => {
               {/* Left - Content */}
               <div>
                 <h1 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
-                  Start Your Structured Address Journey
+                  See ioNova in Action.
                 </h1>
                 <p className="mb-8 text-lg text-text-muted">
-                  We can deploy a production-ready address resolution engine in as 
-                  little as 10–16 weeks. Don't wait until the deadline looms.
+                  We can deploy a production-ready address resolution engine in as little as 10–16 weeks.
                 </p>
 
                 {/* Trust signals */}
@@ -95,7 +94,7 @@ const Demo = () => {
                       <p className="text-sm text-text-muted">Bank-grade security standards</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-500/10">
                       <CheckCircle className="h-5 w-5 text-teal-500" />
@@ -236,10 +235,10 @@ const Demo = () => {
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    variant="hero" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    variant="hero"
+                    size="lg"
                     className="w-full"
                     disabled={isSubmitting}
                   >

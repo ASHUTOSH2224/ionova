@@ -3,11 +3,12 @@ import { Linkedin } from "lucide-react";
 
 const footerLinks = {
   product: [
-    { label: "Platform", href: "/#platform" },
-    { label: "ROI Calculator", href: "/#roi-calculator" },
+    { label: "Home", href: "/" },
+    { label: "Platform", href: "/platform" },
+    { label: "Address Intelligence", href: "/address-intelligence/structured-address-mandate" },
   ],
   company: [
-    { label: "About Us", href: "/company" },
+    { label: "Company", href: "/company" },
     { label: "Resources", href: "/resources" },
   ],
   legal: [
@@ -107,7 +108,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 border-t border-sky-200/10 pt-8">
           <p className="text-center text-sm text-sky-200/50">
-            © {new Date().getFullYear()} ioNova. All Rights Reserved.
+            © 2026 ioNova. All Rights Reserved.
           </p>
         </div>
       </div>
