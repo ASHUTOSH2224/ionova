@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, TrendingUp, Map, Cpu } from "lucide-react";
+import { BookOpen, TrendingUp, Map, Cpu, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLayoutEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
@@ -125,9 +125,15 @@ export function ExploreSection() {
                                         </div>
 
                                         {/* Description */}
-                                        <p className="text-sm text-navy-800/70 leading-relaxed mt-auto">
+                                        <p className="text-sm text-navy-800/70 leading-relaxed">
                                             {card.description}
                                         </p>
+
+                                        {/* View More Button */}
+                                        <div className="mt-auto pt-6 flex items-center text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">
+                                            View More
+                                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                        </div>
                                     </div>
                                 </Link>
                             ))}

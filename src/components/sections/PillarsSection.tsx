@@ -71,7 +71,7 @@ export function PillarsSection() {
               <div className="relative z-10 flex flex-col h-full">
                 {/* Header Row: Icon + Title */}
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100/50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100/50 text-blue-600">
                     <pillar.icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-xl font-bold text-navy-950 leading-tight pt-1">

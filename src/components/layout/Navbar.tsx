@@ -87,9 +87,8 @@ export function Navbar() {
     "/address-intelligence"
   );
   const isResourcesActive = location.pathname === "/resources" || location.hash.startsWith("#whitepaper") || location.hash.startsWith("#checklist");
-  const isHome = location.pathname === "/";
-  // On home page, attach only when scrolled. On other pages, always attach.
-  const isAttached = !isHome || isScrolled;
+  // Attach navbar purely based on scroll position for all pages
+  const isAttached = isScrolled;
 
   return (
     <header className={cn(
