@@ -31,11 +31,12 @@ export function ChallengeSection() {
     },
     {
       date: `${currentMonthStr} '${currentYearStr}`,
-      description: `Start of the ${displayMonths}-Month Critical Implementation Window.`,
+      // description removed
       color: "bg-blue-600",
       textColor: "text-blue-700",
       borderColor: "border-blue-600",
-      highlight: true
+      highlight: true,
+      minimalLayout: true
     },
     {
       date: "Nov '26",
@@ -214,9 +215,14 @@ export function ChallengeSection() {
 
                     {/* The Card Content */}
                     <div className={cn(
-                      "relative bg-white rounded-xl p-6 shadow-xl transition-shadow hover:shadow-2xl border-l-4 border-t-0 md:border-l-0 md:border-t-4",
-                      event.borderColor,
-                      event.highlight ? "ring-4 ring-blue-100 scale-105 z-10" : ""
+                      "relative transition-all",
+                      // Custom minimal layout for "We Are Here" to remove card background
+                      event.minimalLayout
+                        ? "bg-transparent shadow-none border-none flex flex-col items-start md:items-center pt-4"
+                        : "bg-white shadow-xl hover:shadow-2xl rounded-xl p-6 border-l-4 border-t-0 md:border-l-0 md:border-t-4",
+
+                      !event.minimalLayout && event.borderColor,
+                      !event.minimalLayout && event.highlight ? "ring-4 ring-blue-100 scale-105 z-10" : ""
                     )}>
                       {/* Hook / Knot Graphic on top of card (Desktop Only) */}
                       <div className="hidden md:flex absolute -top-4 left-1/2 -translate-x-1/2 flex-col items-center z-10">
@@ -229,23 +235,31 @@ export function ChallengeSection() {
                         </div>
                       </div>
 
-                      {/* "We are Here" Badge for current item */}
+                      {/* "We are Here" Badge for current item - Desktop only (above knot) */}
                       {event.highlight && (
-                        <div className="absolute -top-6 right-4 md:-top-12 md:left-1/2 md:right-auto md:-translate-x-1/2 whitespace-nowrap z-20">
+                        <div className="hidden md:block absolute -top-12 left-1/2 right-auto -translate-x-1/2 whitespace-nowrap z-20">
                           <div className="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg border-2 border-white animate-bounce">
                             WE ARE HERE
                           </div>
-                          {/* Little triangle arrow (Desktop only mainly, or adjust for mobile) */}
-                          <div className="hidden md:block w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-blue-600 absolute left-1/2 -translate-x-1/2 -bottom-1.5"></div>
+                          {/* Little triangle arrow */}
+                          <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-blue-600 absolute left-1/2 -translate-x-1/2 -bottom-1.5"></div>
                         </div>
                       )}
 
-                      <h4 className={cn("font-bold text-xl mb-2 text-left md:text-center mt-2", event.textColor)}>
+                      <h4 className={cn("font-bold text-xl text-left md:text-center flex items-center gap-2 md:block", event.textColor, event.description ? "mb-2 mt-2" : "m-0")}>
                         {event.date}
+                        {/* "We are Here" Badge - Mobile only (inline with date) */}
+                        {event.highlight && (
+                          <span className="md:hidden bg-blue-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow-md border border-white">
+                            WE ARE HERE
+                          </span>
+                        )}
                       </h4>
-                      <p className="text-sm text-text-muted text-left md:text-center leading-relaxed">
-                        {event.description}
-                      </p>
+                      {event.description && (
+                        <p className="text-sm text-text-muted text-left md:text-center leading-relaxed">
+                          {event.description}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
