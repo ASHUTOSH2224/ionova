@@ -51,7 +51,7 @@ export function HeroSection() {
         <div className="absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-teal-500/10 blur-[100px]" />
       </div>
 
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 h-[150%] pointer-events-none z-0">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[70%] pointer-events-none z-0">
         <div ref={rightImageRef} className="relative h-full">
           <img
             src="/Logo/hero Image/hero.png"
@@ -65,23 +65,25 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="container relative z-10 mt-12 md:mt-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex items-center">
-            {/* Left Column - Content */}
-            <div ref={leftColumnRef} className="text-center lg:text-left max-w-3xl">
+      <div className="relative z-10 w-full mt-12 md:mt-20">
+        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start w-full">
+          {/* Content Area - Takes up left portion (Free Space) */}
+          <div className="w-full lg:w-[65%] flex flex-col items-center justify-center px-4 md:px-8">
+            <div ref={leftColumnRef} className="text-center max-w-4xl w-full">
               {/* Headline */}
-              <h1 className="mb-6 text-3xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
-                Achieve ISO 20022 compliance with fully structured payment addresses
+              <h1 className="mb-6 text-3xl font-bold leading-[1.2] tracking-tight text-white md:text-5xl lg:text-6xl">
+                <span className="block">Achieve ISO 20022 compliance with</span>
+                <span className="block">fully Structured Payment</span>
+                <span className="block">Addresses</span>
               </h1>
 
               {/* Subtitle */}
-              <p className="mx-auto lg:mx-0 mb-8 max-w-2xl text-lg leading-relaxed text-sky-200/80 md:text-xl md:mb-10">
+              <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-sky-200/80 md:text-xl md:mb-10">
                 AI-native address resolution for SWIFT CBPR+ and SEPA compliance. Done in weeks.
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-col items-center lg:items-start justify-center lg:justify-start gap-4 sm:flex-row mb-12 md:gap-6 md:mb-16">
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row mb-12 md:gap-6 md:mb-16">
                 <Button
                   className="h-12 px-6 text-base font-bold bg-blue-500 hover:bg-blue-400 text-white rounded-xl border-b-[6px] border-blue-700 active:border-b-0 active:translate-y-1.5 transition-all shadow-xl md:h-14 md:px-8 md:text-lg"
                   asChild
@@ -104,7 +106,7 @@ export function HeroSection() {
               </div>
 
               {/* Trust indicators */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-medium text-sky-200/60 md:gap-8 md:text-sm">
+              <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-sky-200/60 md:gap-8 md:text-sm">
                 <div className="flex items-center gap-2">
                   <div className="h-1.5 w-1.5 rounded-full bg-cyan-400"></div>
                   <span>Bank-Grade Security</span>
