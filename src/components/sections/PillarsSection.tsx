@@ -48,7 +48,7 @@ const pillars = [
 
 export function PillarsSection() {
   return (
-    <section id="platform" className="bg-white min-h-screen flex flex-col justify-center py-16 lg:py-24">
+    <section id="platform" className="bg-white flex flex-col justify-center py-12 md:py-20 lg:py-24">
       <div className="container">
         {/* Section header */}
         <div className="mb-12 text-center lg:mb-16">

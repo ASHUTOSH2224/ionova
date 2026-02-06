@@ -70,7 +70,7 @@ export function ExploreSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="bg-[#F9F9FB] pb-8 lg:pb-12 px-2 md:px-4">
+        <section ref={sectionRef} className="bg-[#F9F9FB] pb-8 lg:pb-12 px-6 md:px-4">
             <div className="w-full mx-auto">
                 <div
                     ref={cardRef}
@@ -87,7 +87,7 @@ export function ExploreSection() {
 
                     <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
                         {/* Hero Content - Centered */}
-                        <div className="text-center mb-20 max-w-3xl mx-auto">
+                        <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
                             {/* Main Headline */}
                             <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl text-navy-950">
                                 Master the Mandate: <span className="text-gradient">The 4 Pillars of Structured Data</span>

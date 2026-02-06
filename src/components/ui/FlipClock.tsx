@@ -71,7 +71,7 @@ function FlipGroup({ value, label, digits = 2 }: { value: number, label: string,
                     <FlipDigit key={`${label}-${i}`} digit={d} />
                 ))}
             </div>
-            <span className="text-[10px] md:text-xs font-semibold text-navy-900/60 uppercase tracking-widest">{label}</span>
+            <span className="text-[9px] sm:text-[10px] md:text-xs font-semibold text-navy-900/60 uppercase tracking-widest">{label}</span>
         </div>
     );
 }

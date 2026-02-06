@@ -150,11 +150,11 @@ export function ChallengeSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="bg-surface-2 min-h-screen flex flex-col justify-center py-20 lg:py-32 overflow-hidden">
+    <section ref={containerRef} className="bg-surface-2 flex flex-col justify-center py-16 md:py-20 lg:py-32 overflow-hidden">
       <div className="container">
         <div className="mx-auto max-w-6xl">
           {/* Section header */}
-          <div className="mb-20 text-center relative z-10">
+          <div className="mb-12 md:mb-20 text-center relative z-10">
             {/*<div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-100/80 px-4 py-2 text-sm font-medium text-blue-700 backdrop-blur-sm border border-blue-200">
               <AlertTriangle className="h-4 w-4" />
               The "Financial Y2K" Challenge
@@ -197,14 +197,14 @@ export function ChallengeSection() {
             </svg>
 
             {/* Mobile Vertical Line */}
-            <div className="absolute top-0 bottom-0 left-8 w-1 bg-navy-900/10 rounded-full md:hidden"></div>
+            <div className="absolute top-0 bottom-0 left-4 w-1 bg-navy-900/10 rounded-full md:hidden"></div>
 
             <div className="grid md:grid-cols-4 gap-4 md:gap-8">
               {timelineEvents.map((event, index) => (
                 <div
                   key={index}
                   className={cn(
-                    "relative pl-20 md:pl-0",
+                    "relative pl-12 md:pl-0",
                     // Stagger vertical position: 
                     // Index 0, 2 (Odd visual): pt-0 (aligns with y=12%)
                     // Index 1, 3 (Even visual): pt-[190px] (aligns with y=50% -> 250px - 60px offset approx)
@@ -217,8 +217,8 @@ export function ChallengeSection() {
                     className="origin-top relative"
                   >
                     {/* Mobile Connector */}
-                    <div className="md:hidden absolute left-[-2.65rem] top-6 w-8 h-0.5 bg-navy-900/20"></div>
-                    <div className={cn("md:hidden absolute left-[-3rem] top-[1.35rem] w-3 h-3 rounded-full border-2 border-white shadow-sm z-10", event.color)}></div>
+                    <div className="md:hidden absolute left-[-2rem] top-6 w-8 h-0.5 bg-navy-900/20"></div>
+                    <div className={cn("md:hidden absolute left-[-2.25rem] top-[1.35rem] w-3 h-3 rounded-full border-2 border-white shadow-sm z-10", event.color)}></div>
 
                     {/* The Card Content */}
                     <div className={cn(
