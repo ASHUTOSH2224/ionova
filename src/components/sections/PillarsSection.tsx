@@ -65,27 +65,31 @@ export function PillarsSection() {
           {pillars.map((pillar, index) => (
             <div
               key={pillar.title}
-              className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-blue-200"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Accent strip */}
-              <div className="absolute left-0 top-0 h-1 w-full bg-gradient-primary opacity-0 transition-opacity group-hover:opacity-100" />
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Header Row: Icon + Title */}
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100/50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                    <pillar.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-navy-950 leading-tight pt-1">
+                    {pillar.title}
+                  </h3>
+                </div>
 
-              {/* Icon */}
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-500/10 transition-colors group-hover:bg-blue-500/20">
-                <pillar.icon className="h-7 w-7 text-blue-500" />
+                {/* Content */}
+                <div className="mt-auto">
+                  <p className="mb-3 font-medium text-text-body text-lg leading-relaxed">
+                    {pillar.description}
+                  </p>
+                  <div className="h-px w-full bg-slate-100 my-4 group-hover:bg-blue-100 transition-colors"></div>
+                  <p className="text-sm text-text-muted leading-relaxed">
+                    {pillar.detail}
+                  </p>
+                </div>
               </div>
-
-              {/* Content */}
-              <h3 className="mb-2 text-xl font-semibold text-navy-950">
-                {pillar.title}
-              </h3>
-              <p className="mb-3 font-medium text-text-label">
-                {pillar.description}
-              </p>
-              <p className="text-sm text-text-muted">
-                {pillar.detail}
-              </p>
             </div>
           ))}
         </div>
