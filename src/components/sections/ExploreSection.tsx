@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import { BookOpen, TrendingUp, Map, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLayoutEffect, useRef } from "react";
+import { cn } from "@/lib/utils";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const exploreCards = [
     {
@@ -34,67 +40,99 @@ const exploreCards = [
 ];
 
 export function ExploreSection() {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const cardRef = useRef<HTMLDivElement>(null);
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                cardRef.current,
+                {
+                    y: 100,
+                    opacity: 0,
+                    scale: 0.98,
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top bottom",
+                        end: "center center",
+                        scrub: 1,
+                    },
+                }
+            );
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section className="relative bg-[#0E1935] min-h-screen flex flex-col justify-center py-24 lg:py-32 overflow-hidden">
-            {/* Subtle geometric background pattern */}
-            <div className="absolute inset-0 opacity-[0.03]">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:64px_64px]"></div>
-            </div>
+        <section ref={sectionRef} className="bg-[#F9F9FB] pb-8 lg:pb-12 px-2 md:px-4">
+            <div className="w-full mx-auto">
+                <div
+                    ref={cardRef}
+                    className="relative bg-white rounded-[2.5rem] overflow-hidden py-16 lg:py-24 shadow-2xl ring-1 ring-black/5"
+                >
+                    {/* Subtle geometric background pattern (Adjusted for light mode) */}
+                    <div className="absolute inset-0 opacity-[0.4]">
+                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0E1935_1px,transparent_1px),linear-gradient(to_bottom,#0E1935_1px,transparent_1px)] bg-[size:64px_64px] opacity-[0.05]"></div>
+                    </div>
 
-            {/* Decorative elements */}
-            <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+                    {/* Decorative elements (Subtler for light mode) */}
+                    <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl mix-blend-multiply"></div>
+                    <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl mix-blend-multiply"></div>
 
-            <div className="container relative z-10 max-w-7xl">
-                {/* Hero Content - Centered */}
-                <div className="text-center mb-20 max-w-3xl mx-auto">
-                    {/* Small label */}
-                    {/*<div className="mb-6">
-                        <span className="inline-block text-[10px] font-bold text-blue-400 uppercase tracking-[0.25em] px-4 py-1.5 rounded-full border border-blue-400/30 bg-blue-400/5">
-                            Address Intelligence Platform
-                        </span>
-                    </div>*/}
-
-                    {/* Main Headline */}
-                    <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl text-white">
-                        Master the Mandate: <span className="text-gradient-accent">The 4 Pillars of Structured Data</span>
-                    </h2>
-                    <p className="mx-auto max-w-2xl text-lg text-sky-200/80">
-                        Deep dive into the requirements, the ROI, and the technology behind ioNova.
-                    </p>
-                </div>
-
-                {/* Cards - Single Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-                    {exploreCards.map((card) => (
-                        <Link
-                            key={card.title}
-                            to={card.href}
-                            className="group relative flex flex-col bg-[#1a1f2e] rounded-xl border border-white/[0.06] p-8 transition-all duration-300 hover:bg-[#1e2433] hover:border-white/[0.12]"
-                        >
-                            {/* Icon */}
-                            <div className="mb-6">
-                                <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10">
-                                    <card.icon className="h-6 w-6 text-blue-400" strokeWidth={1.5} />
-                                </div>
-                            </div>
-
-                            {/* Title */}
-                            <h3 className="text-lg font-bold text-white mb-2">
-                                {card.title}
-                            </h3>
-
-                            {/* Subtitle */}
-                            <div className="text-sm font-medium text-gray-400 mb-4">
-                                {card.subtitle}
-                            </div>
-
-                            {/* Description */}
-                            <p className="text-sm text-gray-500 leading-relaxed">
-                                {card.description}
+                    <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+                        {/* Hero Content - Centered */}
+                        <div className="text-center mb-20 max-w-3xl mx-auto">
+                            {/* Main Headline */}
+                            <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl text-navy-950">
+                                Master the Mandate: <span className="text-gradient">The 4 Pillars of Structured Data</span>
+                            </h2>
+                            <p className="mx-auto max-w-2xl text-lg text-navy-900/80">
+                                Deep dive into the requirements, the ROI, and the technology behind ioNova.
                             </p>
-                        </Link>
-                    ))}
+                        </div>
+
+                        {/* Cards - Single Row */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                            {exploreCards.map((card) => (
+                                <Link
+                                    key={card.title}
+                                    to={card.href}
+                                    className="group relative flex flex-col bg-[#EFF2F7] h-full rounded-xl border border-transparent p-8 transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-blue-100/50 hover:-translate-y-1"
+                                >
+                                    {/* Icon */}
+                                    <div className="mb-6">
+                                        <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
+                                            <card.icon className="h-6 w-6 text-blue-600" strokeWidth={1.5} />
+                                        </div>
+                                    </div>
+
+                                    {/* Content Wrapper for flex spacing */}
+                                    <div className="flex flex-col h-full">
+                                        {/* Title */}
+                                        <h3 className="text-lg font-bold text-navy-950 mb-2 leading-tight">
+                                            {card.title}
+                                        </h3>
+
+                                        {/* Subtitle */}
+                                        <div className="text-sm font-medium text-blue-600 mb-4">
+                                            {card.subtitle}
+                                        </div>
+
+                                        {/* Description */}
+                                        <p className="text-sm text-navy-800/70 leading-relaxed mt-auto">
+                                            {card.description}
+                                        </p>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
