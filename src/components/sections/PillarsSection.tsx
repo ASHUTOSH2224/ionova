@@ -48,7 +48,7 @@ const pillars = [
 
 export function PillarsSection() {
   return (
-    <section id="platform" className="bg-surface-2 py-16 lg:py-24">
+    <section id="platform" className="bg-white min-h-screen flex flex-col justify-center py-16 lg:py-24">
       <div className="container">
         {/* Section header */}
         <div className="mb-12 text-center lg:mb-16">
@@ -56,8 +56,7 @@ export function PillarsSection() {
             6 Signature Capabilities that Drive <span className="text-gradient">98%+ Straight-Through Processing</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-text-muted">
-            Generic AI is not enough for banking. To resolve addresses with 100% accuracy
-            and confidence, these capabilities are non-negotiable.
+            ioNova is differentiated by deep banking logic
           </p>
         </div>
 

@@ -1,48 +1,62 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, TrendingUp, Map, Cpu, Zap } from "lucide-react";
+import { BookOpen, TrendingUp, Map, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const exploreCards = [
     {
-        title: "The Mandate",
-        subtitle: "ISO 20022 Structured Address Requirements",
-        description: "What regulators actually require from EPC, SWIFT, and CPMI.",
+        title: "ISO 20022 Structured Address Requirements",
+        subtitle: "ISO 20022 Requirements",
+        description: "Understand what regulators actually require from EPC, SWIFT, and CPMI for structured address data.",
         href: "/address-intelligence/structured-address-mandate",
         icon: BookOpen,
-        color: "bg-blue-500"
     },
     {
-        title: "The Strategic Value",
-        subtitle: "Business Value Beyond Compliance",
-        description: "How to turn a compliance cost into an operational advantage with 98% STP.",
+        title: "Business Value Beyond Compliance",
+        subtitle: "Business Value",
+        description: "Turn compliance cost into operational advantage with 98% straight-through processing rates.",
         href: "/address-intelligence/business-value",
         icon: TrendingUp,
-        color: "bg-green-500"
     },
     {
-        title: "The Roadmap",
-        subtitle: "Implementing Structured Address Resolution",
-        description: "Achieve full compliance in 10-16 weeks with zero legacy system overhaul.",
+        title: "Implementing Structured Address Resolution",
+        subtitle: "Implementation",
+        description: "Achieve full compliance in 10-16 weeks with zero legacy system overhaul required.",
         href: "/address-intelligence/implementation",
         icon: Map,
-        color: "bg-purple-500"
     },
     {
-        title: "The Technology",
-        subtitle: "Why Payment Addresses Require Purpose-Built Intelligence",
-        description: "Why postal validation tools and generic LLMs fail at cross-border payments.",
+        title: "Why Payment Addresses Require Purpose-Built Intelligence",
+        subtitle: "Purpose-Built AI",
+        description: "Discover why postal validation tools and generic LLMs fail at cross-border payment addresses.",
         href: "/address-intelligence/why-purpose-built",
         icon: Cpu,
-        color: "bg-orange-500"
     }
 ];
 
 export function ExploreSection() {
     return (
-        <section className="bg-navy-950 py-16 lg:py-24 text-white">
-            <div className="container">
-                <div className="mb-12 text-center lg:mb-16">
-                    <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
+        <section className="relative bg-[#0E1935] min-h-screen flex flex-col justify-center py-24 lg:py-32 overflow-hidden">
+            {/* Subtle geometric background pattern */}
+            <div className="absolute inset-0 opacity-[0.03]">
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+            </div>
+
+            {/* Decorative elements */}
+            <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+
+            <div className="container relative z-10 max-w-7xl">
+                {/* Hero Content - Centered */}
+                <div className="text-center mb-20 max-w-3xl mx-auto">
+                    {/* Small label */}
+                    {/*<div className="mb-6">
+                        <span className="inline-block text-[10px] font-bold text-blue-400 uppercase tracking-[0.25em] px-4 py-1.5 rounded-full border border-blue-400/30 bg-blue-400/5">
+                            Address Intelligence Platform
+                        </span>
+                    </div>*/}
+
+                    {/* Main Headline */}
+                    <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl text-white">
                         Master the Mandate: <span className="text-gradient-accent">The 4 Pillars of Structured Data</span>
                     </h2>
                     <p className="mx-auto max-w-2xl text-lg text-sky-200/80">
@@ -50,39 +64,37 @@ export function ExploreSection() {
                     </p>
                 </div>
 
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                {/* Cards - Single Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                     {exploreCards.map((card) => (
                         <Link
                             key={card.title}
                             to={card.href}
-                            className="group relative flex flex-col rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:bg-white/10 hover:border-white/20"
+                            className="group relative flex flex-col bg-[#1a1f2e] rounded-xl border border-white/[0.06] p-8 transition-all duration-300 hover:bg-[#1e2433] hover:border-white/[0.12]"
                         >
-                            <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${card.color} bg-opacity-20`}>
-                                <card.icon className={`h-6 w-6 text-white`} />
+                            {/* Icon */}
+                            <div className="mb-6">
+                                <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10">
+                                    <card.icon className="h-6 w-6 text-blue-400" strokeWidth={1.5} />
+                                </div>
                             </div>
-                            <h3 className="text-sm font-semibold text-sky-400 uppercase tracking-widest mb-2">{card.title}</h3>
-                            <h4 className="text-lg font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">{card.subtitle}</h4>
-                            <p className="text-sm text-sky-200/70 mb-6 flex-grow">{card.description}</p>
 
-                            <div className="flex items-center text-sm font-semibold text-cyan-400">
-                                Read More <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            {/* Title */}
+                            <h3 className="text-lg font-bold text-white mb-2">
+                                {card.title}
+                            </h3>
+
+                            {/* Subtitle */}
+                            <div className="text-sm font-medium text-gray-400 mb-4">
+                                {card.subtitle}
                             </div>
+
+                            {/* Description */}
+                            <p className="text-sm text-gray-500 leading-relaxed">
+                                {card.description}
+                            </p>
                         </Link>
                     ))}
-                </div>
-
-                <div className="mt-16 rounded-2xl bg-gradient-to-r from-blue-900/50 to-purple-900/50 border border-white/10 p-8 text-center backdrop-blur-sm">
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-                        <div>
-                            <div className="text-4xl font-bold text-white mb-1">$5M+</div>
-                            <div className="text-sm text-sky-200 uppercase tracking-wider">Estimated 5-Year Savings</div>
-                        </div>
-                        <div className="hidden md:block h-12 w-px bg-white/20"></div>
-                        <div>
-                            <div className="text-4xl font-bold text-white mb-1">15 Weeks</div>
-                            <div className="text-sm text-sky-200 uppercase tracking-wider">Implementation Speed vs 18 Months</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
