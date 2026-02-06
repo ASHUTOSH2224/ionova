@@ -7,7 +7,7 @@ export default function StructuredMandate() {
     return (
         <Layout>
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-hero py-20 lg:py-32">
+            <section className="relative overflow-hidden bg-gradient-hero pt-24 pb-12 lg:pt-32 lg:pb-16">
                 <div className="container relative z-10">
                     <div className="mx-auto max-w-4xl text-center">
                         <h1 className="mb-6 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
@@ -16,14 +16,14 @@ export default function StructuredMandate() {
                         <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80 md:text-xl">
                             Establish a compliant baseline. Understand the shift from unstructured blocks to granular, semantic address components required by SWIFT, SEPA, and CPMI.
                         </p>
-                        <div className="flex justify-center">
+                        {/*<div className="flex justify-center">
                             <Button variant="hero" size="xl" asChild>
                                 <Link to="/demo">
                                     Start Your Compliance Journey
                                     <ArrowRight className="ml-2 h-5 w-5" />
                                 </Link>
                             </Button>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
             </section>

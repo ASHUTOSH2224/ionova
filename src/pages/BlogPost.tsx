@@ -43,12 +43,12 @@ const BlogPost = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-gradient-hero py-16 lg:py-24">
+      <section className="bg-gradient-hero pt-24 pb-12 lg:pt-32 lg:pb-16">
         <div className="container">
           <div className="mx-auto max-w-4xl">
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               className="mb-6 bg-white/10 text-white hover:bg-white/20"
               asChild
             >
@@ -57,11 +57,11 @@ const BlogPost = () => {
                 Back to Resources
               </Link>
             </Button>
-            
+
             <h1 className="mb-4 text-4xl font-bold text-sky-200 md:text-5xl">
               {post.title}
             </h1>
-            
+
             <div className="flex flex-wrap items-center gap-4 text-sky-200/80">
               {post.published_at && (
                 <span>{format(new Date(post.published_at), 'MMMM d, yyyy')}</span>
@@ -82,7 +82,7 @@ const BlogPost = () => {
             {post.tags && post.tags.length > 0 && (
               <div className="mt-6 flex flex-wrap gap-2">
                 {post.tags.map(tag => (
-                  <span 
+                  <span
                     key={tag.id}
                     className="rounded-full bg-white/10 px-3 py-1 text-sm text-sky-200"
                   >
@@ -100,8 +100,8 @@ const BlogPost = () => {
         <section className="bg-background py-8">
           <div className="container">
             <div className="mx-auto max-w-4xl">
-              <img 
-                src={post.feature_image} 
+              <img
+                src={post.feature_image}
                 alt={post.title}
                 className="w-full rounded-2xl shadow-xl"
               />
@@ -114,7 +114,7 @@ const BlogPost = () => {
       <section className="bg-background py-16 lg:py-24">
         <div className="container">
           <article className="prose prose-lg prose-blue mx-auto max-w-4xl">
-            <div 
+            <div
               dangerouslySetInnerHTML={{ __html: post.html }}
               className="ghost-content"
             />

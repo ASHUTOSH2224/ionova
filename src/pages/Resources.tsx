@@ -7,7 +7,7 @@ const Resources = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-gradient-hero py-16 lg:py-24">
+      <section className="bg-gradient-hero pt-24 pb-12 lg:pt-32 lg:pb-16">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="mb-4 text-4xl font-bold text-sky-200 md:text-5xl">

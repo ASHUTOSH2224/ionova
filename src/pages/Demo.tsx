@@ -70,7 +70,7 @@ const Demo = () => {
 
   return (
     <Layout>
-      <section className="bg-surface-2 py-16 lg:py-24">
+      <section className="bg-surface-2 pt-24 pb-12 lg:pt-32 lg:pb-16">
         <div className="container">
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-10 lg:grid-cols-2">

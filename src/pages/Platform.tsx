@@ -7,7 +7,7 @@ export default function Platform() {
     return (
         <Layout>
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-hero py-20 lg:py-32">
+            <section className="relative overflow-hidden bg-gradient-hero pt-24 pb-12 lg:pt-32 lg:pb-16">
                 <div className="container relative z-10">
                     <div className="mx-auto max-w-4xl text-center">
                         <h1 className="mb-6 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
@@ -16,14 +16,7 @@ export default function Platform() {
                         <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80 md:text-xl">
                             Transform unstructured text into structured, relationship-aware intelligence. We combine the adaptability of Agentic AI with the certainty required by the enterprise.
                         </p>
-                        <div className="flex justify-center">
-                            <Button variant="hero" size="xl" asChild>
-                                <Link to="#technology">
-                                    Explore the Technology
-                                    <ArrowRight className="ml-2 h-5 w-5" />
-                                </Link>
-                            </Button>
-                        </div>
+
                     </div>
                 </div>
             </section>
