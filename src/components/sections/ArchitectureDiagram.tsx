@@ -49,83 +49,106 @@ const ArchitectureDiagram = () => {
         }
     };
 
+    const [isMobile, setIsMobile] = useState<boolean>(false);
+
+    // Detect screen size for responsive layout
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     useEffect(() => {
         if (!containerRef.current) return;
 
         const ctx = gsap.context(() => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 60%", // Start when top of diagram hits 60% of viewport
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse"
-                },
-                defaults: { ease: "power2.inOut" }
-            });
+            // GSAP MatchMedia for responsive animations
+            const mm = gsap.matchMedia();
 
-            // Reset
-            gsap.set(".flow-particle", { opacity: 0, scale: 0 });
-            gsap.set(".node-card", { opacity: 0.5, scale: 0.95, filter: "grayscale(100%)" });
-            gsap.set(".connection-path", { strokeDasharray: "10, 10", strokeDashoffset: 0, opacity: 0.3 });
-            gsap.set("#input-file-icon", { y: -50, opacity: 0 });
+            mm.add({
+                isMobile: "(max-width: 767px)",
+                isDesktop: "(min-width: 768px)",
+            }, (context) => {
+                const { isMobile, isDesktop } = context.conditions || {};
+                
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top 60%", // Start when top of diagram hits 60% of viewport
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    },
+                    defaults: { ease: "power2.inOut" }
+                });
 
-            // Step 1: Input Drops In
-            tl.to("#node-input", { opacity: 1, scale: 1, filter: "grayscale(0%)", duration: 0.3, onStart: () => setActiveStep(1) })
-              .to("#input-file-icon", { y: 0, opacity: 1, duration: 0.3, ease: "bounce.out" }, "-=0.15");
+                // Reset
+                gsap.set(".flow-particle", { opacity: 0, scale: 0 });
+                gsap.set(".node-card", { opacity: 0.5, scale: 0.95, filter: "grayscale(100%)" });
+                gsap.set(".connection-path", { strokeDasharray: "10, 10", strokeDashoffset: 0, opacity: 0.3 });
+                gsap.set("#input-file-icon", { y: -50, opacity: 0 });
 
-            // Step 2: Flow to Runtime (path ends with gap above Runtime)
-            tl.to("#path-input-runtime", { opacity: 1, strokeDashoffset: -20, duration: 0.5, repeat: 1, yoyo: true }, "+=0.05")
-              .to("#particle-input-runtime", { 
-                  motionPath: { path: "#path-input-runtime-curve", align: "#path-input-runtime-curve", alignOrigin: [0.5, 0.5] }, 
-                  duration: 0.8, 
-                  opacity: 1, 
-                  scale: 1,
-                  ease: "power1.inOut"
-              }, "<");
+                // Define path IDs based on screen size
+                const pathSuffix = isMobile ? "-mobile" : "";
+                
+                // Step 1: Input Drops In
+                tl.to("#node-input", { opacity: 1, scale: 1, filter: "grayscale(0%)", duration: 0.3, onStart: () => setActiveStep(1) })
+                  .to("#input-file-icon", { y: 0, opacity: 1, duration: 0.3, ease: "bounce.out" }, "-=0.15");
 
-            // Step 3: Runtime Activates
-            tl.to("#node-runtime", { opacity: 1, scale: 1, filter: "grayscale(0%)", duration: 0.3, onStart: () => setActiveStep(2) })
-              .to("#node-runtime .pulse-ring", { scale: 1.5, opacity: 0, duration: 0.5, repeat: 1 });
+                // Step 2: Flow to Runtime
+                tl.to(`#path-input-runtime${pathSuffix}`, { opacity: 1, strokeDashoffset: -20, duration: 0.5, repeat: 1, yoyo: true }, "+=0.05")
+                  .to("#particle-input-runtime", { 
+                      motionPath: { path: `#path-input-runtime-curve${pathSuffix}`, align: `#path-input-runtime-curve${pathSuffix}`, alignOrigin: [0.5, 0.5] }, 
+                      duration: 0.8, 
+                      opacity: 1, 
+                      scale: 1,
+                      ease: "power1.inOut"
+                  }, "<");
 
-            // Step 4: Loop — Runtime -> Agentic Workbench
-            tl.to("#path-runtime-workbench", { opacity: 1, duration: 0.3 }, "+=0.1")
-              .to("#particle-runtime-workbench", { 
-                  motionPath: { path: "#path-runtime-workbench-curve", align: "#path-runtime-workbench-curve", alignOrigin: [0.5, 0.5] }, 
-                  duration: 0.8, 
-                  opacity: 1, 
-                  scale: 1 
-              }, "<")
-              .to("#node-workbench", { opacity: 1, scale: 1, filter: "grayscale(0%)", duration: 0.3, onStart: () => setActiveStep(3) }, "-=0.4");
+                // Step 3: Runtime Activates
+                tl.to("#node-runtime", { opacity: 1, scale: 1, filter: "grayscale(0%)", duration: 0.3, onStart: () => setActiveStep(2) })
+                  .to("#node-runtime .pulse-ring", { scale: 1.5, opacity: 0, duration: 0.5, repeat: 1 });
 
-            // Step 5: Workbench -> Autonomous Learning System
-            tl.to("#path-workbench-learning", { opacity: 1, duration: 0.3 }, "+=0.25")
-              .to("#particle-workbench-learning", { 
-                  motionPath: { path: "#path-workbench-learning-curve", align: "#path-workbench-learning-curve", alignOrigin: [0.5, 0.5] }, 
-                  duration: 0.8, 
-                  opacity: 1, 
-                  scale: 1 
-              }, "<")
-              .to("#node-learning", { opacity: 1, scale: 1, filter: "grayscale(0%)", duration: 0.3, onStart: () => setActiveStep(4) }, "-=0.4");
+                // Step 4: Loop — Runtime -> Agentic Workbench
+                tl.to(`#path-runtime-workbench${pathSuffix}`, { opacity: 1, duration: 0.3 }, "+=0.1")
+                  .to("#particle-runtime-workbench", { 
+                      motionPath: { path: `#path-runtime-workbench-curve${pathSuffix}`, align: `#path-runtime-workbench-curve${pathSuffix}`, alignOrigin: [0.5, 0.5] }, 
+                      duration: 0.8, 
+                      opacity: 1, 
+                      scale: 1 
+                  }, "<")
+                  .to("#node-workbench", { opacity: 1, scale: 1, filter: "grayscale(0%)", duration: 0.3, onStart: () => setActiveStep(3) }, "-=0.4");
 
-            // Step 6: Learning -> back to Address Resolution Engine (loop closed)
-            tl.to("#path-learning-runtime", { opacity: 1, duration: 0.3 }, "+=0.25")
-              .to("#particle-learning-runtime", { 
-                  motionPath: { path: "#path-learning-runtime-curve", align: "#path-learning-runtime-curve", alignOrigin: [0.5, 0.5] }, 
-                  duration: 0.8, 
-                  opacity: 1, 
-                  scale: 1 
-              }, "<")
-              .to("#node-runtime", { scale: 1.05, duration: 0.15, yoyo: true, repeat: 1 });
+                // Step 5: Workbench -> Autonomous Learning System
+                tl.to(`#path-workbench-learning${pathSuffix}`, { opacity: 1, duration: 0.3 }, "+=0.25")
+                  .to("#particle-workbench-learning", { 
+                      motionPath: { path: `#path-workbench-learning-curve${pathSuffix}`, align: `#path-workbench-learning-curve${pathSuffix}`, alignOrigin: [0.5, 0.5] }, 
+                      duration: 0.8, 
+                      opacity: 1, 
+                      scale: 1 
+                  }, "<")
+                  .to("#node-learning", { opacity: 1, scale: 1, filter: "grayscale(0%)", duration: 0.3, onStart: () => setActiveStep(4) }, "-=0.4");
 
-            // Continuous flow after sequence
-            tl.add(() => {
-                gsap.to(".flow-particle", { opacity: 0, duration: 0.3 });
+                // Step 6: Learning -> back to Address Resolution Engine
+                tl.to(`#path-learning-runtime${pathSuffix}`, { opacity: 1, duration: 0.3 }, "+=0.25")
+                  .to("#particle-learning-runtime", { 
+                      motionPath: { path: `#path-learning-runtime-curve${pathSuffix}`, align: `#path-learning-runtime-curve${pathSuffix}`, alignOrigin: [0.5, 0.5] }, 
+                      duration: 0.8, 
+                      opacity: 1, 
+                      scale: 1 
+                  }, "<")
+                  .to("#node-runtime", { scale: 1.05, duration: 0.15, yoyo: true, repeat: 1 });
+
+                // Continuous flow
+                tl.add(() => {
+                    gsap.to(".flow-particle", { opacity: 0, duration: 0.3 });
+                });
             });
 
         }, containerRef);
 
         return () => ctx.revert();
-    }, []);
+    }, [isMobile]);
 
     const getNodeClasses = (id: string, color: string) => {
         const isHovered = hoveredNode === id;
@@ -140,7 +163,7 @@ const ArchitectureDiagram = () => {
     };
 
     return (
-        <div ref={containerRef} className="relative w-full h-[800px] md:h-[700px] bg-slate-50/50 rounded-3xl border border-slate-200 shadow-inner overflow-hidden select-none">
+        <div ref={containerRef} className="relative w-full h-[1100px] md:h-[700px] bg-slate-50/50 rounded-3xl border border-slate-200 shadow-inner overflow-hidden select-none transition-all duration-500">
             {/* Isometric Background Grid */}
             <div className="absolute inset-0 opacity-20 pointer-events-none" 
                  style={{ 
@@ -152,7 +175,7 @@ const ArchitectureDiagram = () => {
             </div>
 
             {/* SVG Layer for Paths */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice">
+            <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox={isMobile ? "0 0 400 1100" : "0 0 1000 700"} preserveAspectRatio="xMidYMid slice">
                 <defs>
                     <marker id="arrowhead-blue" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
                         <polygon points="0 0, 6 2, 0 4" fill="#3b82f6" />
@@ -165,24 +188,48 @@ const ArchitectureDiagram = () => {
                     </marker>
                 </defs>
 
-                {/* Path 1: Input -> Runtime (ends with vertical gap above Runtime) */}
-                <path id="path-input-runtime-curve" d="M500,120 L500,258" fill="none" />
-                <path id="path-input-runtime" d="M500,120 L500,258" stroke="#3b82f6" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-blue)" className="connection-path" />
+                {/* DESKTOP PATHS */}
+                <g className="hidden md:block">
+                    {/* Path 1: Input -> Runtime */}
+                    <path id="path-input-runtime-curve" d="M500,120 L500,258" fill="none" />
+                    <path id="path-input-runtime" d="M500,120 L500,258" stroke="#3b82f6" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-blue)" className="connection-path" />
+                    
+                    {/* Path 2: Runtime -> Workbench */}
+                    <path id="path-runtime-workbench-curve" d="M660,340 C750,340 750,340 750,420" fill="none" />
+                    <path id="path-runtime-workbench" d="M660,340 C750,340 750,340 750,420" stroke="#a855f7" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-purple)" className="connection-path" />
+                    
+                    {/* Path 3: Workbench -> Learning */}
+                    <path id="path-workbench-learning-curve" d="M630,500 L370,500" fill="none" />
+                    <path id="path-workbench-learning" d="M630,500 L370,500" stroke="#06b6d4" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-cyan)" className="connection-path" />
+                    
+                    {/* Path 4: Learning -> Runtime */}
+                    <path id="path-learning-runtime-curve" d="M250,420 C250,340 250,340 340,340" fill="none" />
+                    <path id="path-learning-runtime" d="M250,420 C250,340 250,340 340,340" stroke="#06b6d4" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-cyan)" className="connection-path" />
+                </g>
+
+                {/* MOBILE PATHS (Vertical Stack) */}
+                <g className="md:hidden">
+                    {/* Path 1 Mobile: Input -> Runtime */}
+                    <path id="path-input-runtime-curve-mobile" d="M200,160 L200,270" fill="none" />
+                    <path id="path-input-runtime-mobile" d="M200,160 L200,270" stroke="#3b82f6" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-blue)" className="connection-path" />
+                    
+                    {/* Path 2 Mobile: Runtime -> Workbench */}
+                    <path id="path-runtime-workbench-curve-mobile" d="M200,480 L200,560" fill="none" />
+                    <path id="path-runtime-workbench-mobile" d="M200,480 L200,560" stroke="#a855f7" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-purple)" className="connection-path" />
+                    
+                    {/* Path 3 Mobile: Workbench -> Learning */}
+                    <path id="path-workbench-learning-curve-mobile" d="M200,750 L200,830" fill="none" />
+                    <path id="path-workbench-learning-mobile" d="M200,750 L200,830" stroke="#06b6d4" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-cyan)" className="connection-path" />
+                    
+                    {/* Path 4 Mobile: Learning -> Runtime (Loop up left side) */}
+                    <path id="path-learning-runtime-curve-mobile" d="M200,980 C80,980 40,900 40,600 C40,400 80,380 120,380" fill="none" />
+                    <path id="path-learning-runtime-mobile" d="M200,980 C80,980 40,900 40,600 C40,400 80,380 120,380" stroke="#06b6d4" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-cyan)" className="connection-path" />
+                </g>
+
+                {/* Particles (Shared Elements, reused by GSAP) */}
                 <circle id="particle-input-runtime" r="6" fill="#3b82f6" className="flow-particle" />
-
-                {/* Path 2: Runtime -> Workbench (Smooth Curve) */}
-                <path id="path-runtime-workbench-curve" d="M660,340 C750,340 750,340 750,420" fill="none" />
-                <path id="path-runtime-workbench" d="M660,340 C750,340 750,340 750,420" stroke="#a855f7" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-purple)" className="connection-path" />
                 <circle id="particle-runtime-workbench" r="6" fill="#a855f7" className="flow-particle" />
-
-                {/* Path 3: Workbench -> Learning (Smooth Curve) */}
-                <path id="path-workbench-learning-curve" d="M630,500 L370,500" fill="none" />
-                <path id="path-workbench-learning" d="M630,500 L370,500" stroke="#06b6d4" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-cyan)" className="connection-path" />
                 <circle id="particle-workbench-learning" r="6" fill="#06b6d4" className="flow-particle" />
-
-                {/* Path 4: Learning -> Runtime (Smooth Curve) */}
-                <path id="path-learning-runtime-curve" d="M250,420 C250,340 250,340 340,340" fill="none" />
-                <path id="path-learning-runtime" d="M250,420 C250,340 250,340 340,340" stroke="#06b6d4" strokeWidth="2" strokeDasharray="8 4" fill="none" markerEnd="url(#arrowhead-cyan)" className="connection-path" />
                 <circle id="particle-learning-runtime" r="6" fill="#06b6d4" className="flow-particle" />
             </svg>
 
@@ -190,7 +237,7 @@ const ArchitectureDiagram = () => {
             <div className="relative w-full h-full z-10">
                 
                 {/* 1. Input Node */}
-                <div className="absolute top-[40px] left-1/2 -translate-x-1/2 w-64"
+                <div className="absolute top-[40px] left-1/2 -translate-x-1/2 w-[90%] md:w-64 max-w-[300px] md:max-w-none"
                      onMouseEnter={() => setHoveredNode('input')}
                      onMouseLeave={() => setHoveredNode(null)}>
                     <div id="node-input" className={getNodeClasses('input', 'slate')}>
@@ -214,8 +261,8 @@ const ArchitectureDiagram = () => {
                     </div>
                 </div>
 
-                {/* 2. Runtime Node (positioned lower for clear gap below Input) */}
-                <div className="absolute top-[340px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-80"
+                {/* 2. Runtime Node */}
+                <div className="absolute top-[280px] md:top-[340px] left-1/2 -translate-x-1/2 -translate-y-0 md:-translate-y-1/2 w-[90%] md:w-80 max-w-[320px] md:max-w-none"
                      onMouseEnter={() => setHoveredNode('runtime')}
                      onMouseLeave={() => setHoveredNode(null)}>
                     <div id="node-runtime" className={`${getNodeClasses('runtime', 'blue')} border-blue-500`}>
@@ -244,8 +291,8 @@ const ArchitectureDiagram = () => {
                     </div>
                 </div>
 
-                {/* 3. Workbench Node (same line as Learning, below Runtime) */}
-                <div className="absolute top-[500px] right-[12%] -translate-y-1/2 w-72"
+                {/* 3. Workbench Node */}
+                <div className="absolute top-[560px] md:top-[500px] left-1/2 md:left-auto md:right-[12%] -translate-x-1/2 md:translate-x-0 -translate-y-0 md:-translate-y-1/2 w-[90%] md:w-72 max-w-[300px] md:max-w-none"
                      onMouseEnter={() => setHoveredNode('workbench')}
                      onMouseLeave={() => setHoveredNode(null)}>
                     <div id="node-workbench" className={getNodeClasses('workbench', 'purple')}>
@@ -273,8 +320,8 @@ const ArchitectureDiagram = () => {
                     </div>
                 </div>
 
-                {/* 4. Learning Node (same line as Workbench, below Runtime) */}
-                <div className="absolute top-[500px] left-[12%] -translate-y-1/2 w-72"
+                {/* 4. Learning Node */}
+                <div className="absolute top-[830px] md:top-[500px] left-1/2 md:left-[12%] -translate-x-1/2 md:translate-x-0 -translate-y-0 md:-translate-y-1/2 w-[90%] md:w-72 max-w-[300px] md:max-w-none"
                      onMouseEnter={() => setHoveredNode('learning')}
                      onMouseLeave={() => setHoveredNode(null)}>
                     <div id="node-learning" className={getNodeClasses('learning', 'cyan')}>

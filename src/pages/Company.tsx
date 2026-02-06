@@ -126,7 +126,7 @@ const Company = () => {
                         <span className="text-xs">{item.year.slice(-2)}</span>
                       </div>
 
-                      <div className="flex-1">
+                      <div className={`flex-1 ${index % 2 !== 0 ? "lg:text-right" : "lg:text-left"}`}>
                         <p className="font-semibold text-navy-950">{item.year}</p>
                         <p className="text-sm text-text-muted lg:hidden">{item.event}</p>
                       </div>
@@ -178,6 +178,7 @@ const Company = () => {
       </section>
 
       {/* CTA */}
+      {/*
       <section className="bg-background py-16 lg:py-24">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
@@ -197,6 +198,7 @@ const Company = () => {
           </div>
         </div>
       </section>
+      */}
     </Layout>
   );
 };

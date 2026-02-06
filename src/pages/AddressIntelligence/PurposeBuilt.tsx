@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, MapPin, Search, Database, XCircle, CheckCircle } from "lucide-react";
+import { ArrowRight, MapPin, Search, Database, XCircle, CheckCircle, AlertTriangle, Clock } from "lucide-react";
 
 export default function PurposeBuilt() {
     return (
@@ -89,7 +89,36 @@ export default function PurposeBuilt() {
             {/* LLMs vs Purpose Built */}
             <section className="py-20 bg-background">
                 <div className="container">
-                    <h2 className="text-3xl font-bold text-navy-950 mb-12 text-center">Why Generic LLMs Fail</h2>
+                    <h2 className="text-3xl font-bold text-navy-950 mb-12 text-center">Why Generic LLMs Fail at Payment Parsing</h2>
+                    
+                    {/* New Content Section */}
+                    <div className="grid md:grid-cols-3 gap-8 mb-16">
+                        <div className="bg-red-50 p-6 rounded-xl border border-red-100">
+                            <h3 className="text-xl font-bold text-red-700 mb-3 flex items-center gap-2">
+                                <AlertTriangle className="h-5 w-5" /> Hallucination Risk
+                            </h3>
+                            <p className="text-slate-700">
+                                Generic models (GPT, Llama) are probabilistic token predictors. When faced with ambiguous input, they often "invent" plausible-sounding addresses that don't exist, creating a compliance nightmare.
+                            </p>
+                        </div>
+                        <div className="bg-red-50 p-6 rounded-xl border border-red-100">
+                            <h3 className="text-xl font-bold text-red-700 mb-3 flex items-center gap-2">
+                                <Clock className="h-5 w-5" /> Latency Issues
+                            </h3>
+                            <p className="text-slate-700">
+                                Real-time payments require processing speeds under 200ms. Large Language Models often take 3-5 seconds to generate a response, causing timeouts in critical payment flows.
+                            </p>
+                        </div>
+                        <div className="bg-red-50 p-6 rounded-xl border border-red-100">
+                            <h3 className="text-xl font-bold text-red-700 mb-3 flex items-center gap-2">
+                                <Database className="h-5 w-5" /> No Audit Trail
+                            </h3>
+                            <p className="text-slate-700">
+                                Regulators demand explanation. LLMs are "black boxes" that cannot cite the specific rule or logic used to determine an address structure, failing transparency requirements.
+                            </p>
+                        </div>
+                    </div>
+
                     <div className="overflow-x-auto">
                         <table className="w-full border-collapse">
                             <thead>

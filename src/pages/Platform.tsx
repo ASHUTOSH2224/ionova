@@ -16,13 +16,13 @@ export default function Platform() {
                         <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80 md:text-xl">
                             Transform unstructured text into structured, relationship-aware intelligence. We combine the adaptability of Agentic AI with the certainty required by the enterprise.
                         </p>
-                        <div className="flex justify-center">
+                        {/*<div className="flex justify-center">
                             <Button asChild size="lg" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8">
                                 <a href="#technology">
                                     Explore the Technology <ArrowRight className="ml-2 h-4 w-4" />
                                 </a>
                             </Button>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
             </section>
