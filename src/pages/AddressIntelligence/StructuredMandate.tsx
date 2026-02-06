@@ -7,8 +7,7 @@ export default function StructuredMandate() {
     return (
         <Layout>
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-navy-950 py-20 lg:py-32">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-navy-950 to-navy-950" />
+            <section className="relative overflow-hidden bg-gradient-hero py-20 lg:py-32">
                 <div className="container relative z-10">
                     <div className="mx-auto max-w-4xl text-center">
                         <h1 className="mb-6 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">

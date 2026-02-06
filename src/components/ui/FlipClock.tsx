@@ -76,18 +76,10 @@ function FlipGroup({ value, label, digits = 2 }: { value: number, label: string,
     );
 }
 
-export function FlipClock({ days, hours, minutes, seconds }: { days: number, hours: number, minutes: number, seconds: number }) {
+export function FlipClock({ days }: { days: number }) {
     return (
         <div className="inline-flex gap-2 md:gap-4 items-center">
             <FlipGroup value={days} label="Days" digits={3} />
-            <div className="text-xl md:text-2xl font-mono font-bold text-navy-950/20 mb-6">:</div>
-            <FlipGroup value={hours} label="Hours" />
-            <div className="text-xl md:text-2xl font-mono font-bold text-navy-950/20 mb-6">:</div>
-            <FlipGroup value={minutes} label="Mins" />
-            <div className="hidden sm:block text-xl md:text-2xl font-mono font-bold text-navy-950/20 mb-6">:</div>
-            <div className="hidden sm:block">
-                <FlipGroup value={seconds} label="Secs" />
-            </div>
         </div>
     )
 }

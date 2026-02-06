@@ -30,7 +30,7 @@ export function ChallengeSection() {
       borderColor: "border-blue-400"
     },
     {
-      date: `${currentMonthStr} '${currentYearStr} (NOW)`,
+      date: `${currentMonthStr} '${currentYearStr}`,
       description: `Start of the ${displayMonths}-Month Critical Implementation Window.`,
       color: "bg-blue-600",
       textColor: "text-blue-700",
@@ -55,9 +55,6 @@ export function ChallengeSection() {
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
   });
 
   useEffect(() => {
@@ -71,15 +68,13 @@ export function ChallengeSection() {
       if (difference > 0) {
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000),
         });
       }
     };
 
     calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
+    // Update every minute instead of every second since we only show days
+    const timer = setInterval(calculateTimeLeft, 60000);
 
     return () => clearInterval(timer);
   }, []);
@@ -168,9 +163,6 @@ export function ChallengeSection() {
             <div className="flex justify-center mb-12 transform hover:scale-105 transition-transform duration-300">
               <FlipClock
                 days={timeLeft.days}
-                hours={timeLeft.hours}
-                minutes={timeLeft.minutes}
-                seconds={timeLeft.seconds}
               />
             </div>
           </div>
@@ -199,7 +191,7 @@ export function ChallengeSection() {
             {/* Mobile Vertical Line */}
             <div className="absolute top-0 bottom-0 left-4 w-1 bg-navy-900/10 rounded-full md:hidden"></div>
 
-            <div className="grid md:grid-cols-4 gap-4 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
               {timelineEvents.map((event, index) => (
                 <div
                   key={index}
@@ -217,27 +209,41 @@ export function ChallengeSection() {
                     className="origin-top relative"
                   >
                     {/* Mobile Connector */}
-                    <div className="md:hidden absolute left-[-2rem] top-6 w-8 h-0.5 bg-navy-900/20"></div>
-                    <div className={cn("md:hidden absolute left-[-2.25rem] top-[1.35rem] w-3 h-3 rounded-full border-2 border-white shadow-sm z-10", event.color)}></div>
+                    <div className="md:hidden absolute left-[-2rem] top-8 w-8 h-0.5 bg-navy-900/20"></div>
+                    <div className={cn("md:hidden absolute left-[-2.25rem] top-[1.85rem] w-3 h-3 rounded-full border-2 border-white shadow-sm z-10", event.color)}></div>
 
                     {/* The Card Content */}
                     <div className={cn(
-                      "relative bg-white rounded-xl p-6 shadow-xl border-t-4 transition-shadow hover:shadow-2xl",
+                      "relative bg-white rounded-xl p-6 shadow-xl transition-shadow hover:shadow-2xl border-l-4 border-t-0 md:border-l-0 md:border-t-4",
                       event.borderColor,
                       event.highlight ? "ring-4 ring-blue-100 scale-105 z-10" : ""
                     )}>
-                      {/* Hook / Knot Graphic on top of card */}
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
+                      {/* Hook / Knot Graphic on top of card (Desktop Only) */}
+                      <div className="hidden md:flex absolute -top-4 left-1/2 -translate-x-1/2 flex-col items-center z-10">
                         {/* The "Knot" wrapping the rope */}
-                        <div className="w-6 h-6 rounded-full bg-navy-900 border-4 border-white shadow-md flex items-center justify-center">
-                          <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
+                        <div className={cn(
+                          "w-6 h-6 rounded-full border-4 shadow-md flex items-center justify-center transition-all duration-300",
+                          event.highlight ? "bg-blue-600 border-white scale-110" : "bg-navy-900 border-white"
+                        )}>
+                          <div className={cn("w-1.5 h-1.5 rounded-full", event.highlight ? "bg-white animate-pulse" : "bg-white")}></div>
                         </div>
                       </div>
 
-                      <h4 className={cn("font-bold text-xl mb-2 text-center mt-2", event.textColor)}>
+                      {/* "We are Here" Badge for current item */}
+                      {event.highlight && (
+                        <div className="absolute -top-6 right-4 md:-top-12 md:left-1/2 md:right-auto md:-translate-x-1/2 whitespace-nowrap z-20">
+                          <div className="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg border-2 border-white animate-bounce">
+                            WE ARE HERE
+                          </div>
+                          {/* Little triangle arrow (Desktop only mainly, or adjust for mobile) */}
+                          <div className="hidden md:block w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-blue-600 absolute left-1/2 -translate-x-1/2 -bottom-1.5"></div>
+                        </div>
+                      )}
+
+                      <h4 className={cn("font-bold text-xl mb-2 text-left md:text-center mt-2", event.textColor)}>
                         {event.date}
                       </h4>
-                      <p className="text-sm text-text-muted text-center leading-relaxed">
+                      <p className="text-sm text-text-muted text-left md:text-center leading-relaxed">
                         {event.description}
                       </p>
                     </div>
