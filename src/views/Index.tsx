@@ -12,9 +12,10 @@ const IndexContent = () => {
   return (
     <Layout>
       <HeroSection />
+      <LogosSection />
       <ChallengeSection />
       <PillarsSection />
-      <LogosSection />
+
       <ExploreSection />
       {/* <CTASection /> */}
     </Layout>

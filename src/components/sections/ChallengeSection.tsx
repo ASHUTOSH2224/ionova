@@ -146,22 +146,20 @@ export function ChallengeSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="bg-surface-2 flex flex-col justify-center py-16 md:py-20 lg:py-32 overflow-hidden">
+    <section ref={containerRef} className="bg-gradient-to-b from-blue-50/80 to-surface-2 flex flex-col justify-center pt-8 pb-8 md:pt-12 md:pb-12 lg:pb-16 overflow-hidden relative">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent opacity-50"></div>
+
       <div className="container">
         <div className="mx-auto max-w-6xl">
           {/* Section header */}
-          <div className="mb-12 md:mb-20 text-center relative z-10">
-            {/*<div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-100/80 px-4 py-2 text-sm font-medium text-blue-700 backdrop-blur-sm border border-blue-200">
-              <AlertTriangle className="h-4 w-4" />
-              The "Financial Y2K" Challenge
-            </div>*/}
-            <h2 className="mb-8 text-4xl font-bold text-navy-950 md:text-5xl lg:text-6xl leading-tight">
+          <div className="mb-0 md:mb-8 text-center relative z-10 w-full">
+            <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl leading-tight tracking-tight">
               The Clock is Ticking: <br className="hidden md:block" />
-              You Are Entering the <span className="text-blue-600 bg-blue-50 px-2 rounded-lg">{displayMonths}-Month Window.</span>
+              You Are Entering the <span className="text-blue-700 bg-blue-100/50 border border-blue-200/50 px-3 py-1 rounded-xl shadow-sm inline-block transform hover:scale-105 transition-transform duration-300">{displayMonths}-Month Window.</span>
             </h2>
 
             {/* Dynamic Flip Counter */}
-            <div className="flex justify-center mb-12 transform hover:scale-105 transition-transform duration-300">
+            <div className="flex justify-center mb-0 transform scale-90 md:scale-100 hover:scale-105 transition-transform duration-300">
               <FlipClock
                 days={timeLeft.days}
               />
@@ -169,11 +167,11 @@ export function ChallengeSection() {
           </div>
 
           {/* Rope Timeline Container */}
-          <div className="relative pt-12 pb-24 px-4 min-h-[500px]">
+          <div className="relative pt-8 pb-12 px-4 min-h-[250px]">
 
             {/* SVG Zig Zag Rope (Desktop) */}
             <svg
-              className="absolute top-0 left-0 w-full h-[500px] pointer-events-none hidden md:block z-0 overflow-visible"
+              className="absolute top-0 left-0 w-full h-[250px] pointer-events-none hidden md:block z-0 overflow-visible"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
             >
@@ -192,16 +190,16 @@ export function ChallengeSection() {
             {/* Mobile Vertical Line */}
             <div className="absolute top-0 bottom-0 left-4 w-1 bg-navy-900/10 rounded-full md:hidden"></div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
               {timelineEvents.map((event, index) => (
                 <div
                   key={index}
                   className={cn(
                     "relative pl-12 md:pl-0",
                     // Stagger vertical position: 
-                    // Index 0, 2 (Odd visual): pt-0 (aligns with y=12%)
-                    // Index 1, 3 (Even visual): pt-[190px] (aligns with y=50% -> 250px - 60px offset approx)
-                    index % 2 === 0 ? "md:pt-0" : "md:pt-[190px]"
+                    // Index 0, 2 (Odd visual): pt-0
+                    // Index 1, 3 (Even visual): pt-[90px] (Reduced offset for 250px rope)
+                    index % 2 === 0 ? "md:pt-0" : "md:pt-[90px]"
                   )}
                 >
                   {/* The Hanging Card Module */}
@@ -218,8 +216,8 @@ export function ChallengeSection() {
                       "relative transition-all",
                       // Custom minimal layout for "We Are Here" to remove card background
                       event.minimalLayout
-                        ? "bg-transparent shadow-none border-none flex flex-col items-start md:items-center pt-4"
-                        : "bg-white shadow-xl hover:shadow-2xl rounded-xl p-6 border-l-4 border-t-0 md:border-l-0 md:border-t-4",
+                        ? "bg-transparent shadow-none border-none flex flex-col items-start md:items-center pt-2"
+                        : "bg-white shadow-xl hover:shadow-2xl rounded-xl p-5 border-l-4 border-t-0 md:border-l-0 md:border-t-4",
 
                       !event.minimalLayout && event.borderColor,
                       !event.minimalLayout && event.highlight ? "ring-4 ring-blue-100 scale-105 z-10" : ""
@@ -246,7 +244,7 @@ export function ChallengeSection() {
                         </div>
                       )}
 
-                      <h3 className={cn("font-bold text-xl text-left md:text-center flex items-center gap-2 md:block", event.textColor, event.description ? "mb-2 mt-2" : "m-0")}>
+                      <h3 className={cn("font-bold text-lg text-left md:text-center flex items-center gap-2 md:block", event.textColor, event.description ? "mb-1 mt-1" : "m-0")}>
                         {event.date}
                         {/* "We are Here" Badge - Mobile only (inline with date) */}
                         {event.highlight && (
@@ -256,7 +254,7 @@ export function ChallengeSection() {
                         )}
                       </h3>
                       {event.description && (
-                        <p className="text-sm text-text-muted text-left md:text-center leading-relaxed">
+                        <p className="text-xs text-text-muted text-left md:text-center leading-relaxed">
                           {event.description}
                         </p>
                       )}
