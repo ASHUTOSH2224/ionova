@@ -3,7 +3,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Layers, Database, GitBranch, Zap, Shield } from "lucide-react";
 import ArchitectureDiagram from "@/components/sections/ArchitectureDiagram";
 
-export default function Platform() {
+import { AppWrapper } from "@/components/AppWrapper";
+
+function PlatformContent() {
     return (
         <Layout>
             {/* Hero Section */}
@@ -16,13 +18,6 @@ export default function Platform() {
                         <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80 md:text-xl">
                             Transform unstructured text into structured, relationship-aware intelligence. We combine the adaptability of Agentic AI with the certainty required by the enterprise.
                         </p>
-                        {/*<div className="flex justify-center">
-                            <Button asChild size="lg" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8">
-                                <a href="#technology">
-                                    Explore the Technology <ArrowRight className="ml-2 h-4 w-4" />
-                                </a>
-                            </Button>
-                        </div>*/}
                     </div>
                 </div>
             </section>
@@ -39,7 +34,7 @@ export default function Platform() {
 
                     {/* Interactive Diagram Component */}
                     <ArchitectureDiagram />
-                    
+
                     <div className="text-center mt-8 text-sm text-slate-400 italic">
                         Scroll to see the automated workflow in action.
                     </div>
@@ -65,7 +60,7 @@ export default function Platform() {
                                             <div className="text-sm font-semibold text-green-900">New York</div>
                                         </div>
                                     </div>
-                                    
+
                                     <div className="w-full flex items-center gap-2">
                                         <div className="h-px bg-slate-300 flex-1"></div>
                                         <div className="px-3 py-1 bg-slate-100 rounded-full text-xs font-mono text-slate-500 border border-slate-200">
@@ -135,5 +130,13 @@ export default function Platform() {
                 </div>
             </section>
         </Layout>
+    );
+}
+
+export default function Platform() {
+    return (
+        <AppWrapper>
+            <PlatformContent />
+        </AppWrapper>
     );
 }

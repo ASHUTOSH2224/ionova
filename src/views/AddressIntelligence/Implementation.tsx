@@ -1,9 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { ArrowRight, Box, RefreshCw, Clock, ShieldAlert, Layers } from "lucide-react";
 
-export default function Implementation() {
+import { AppWrapper } from "@/components/AppWrapper";
+
+function ImplementationContent() {
     return (
         <Layout>
             {/* Hero Section */}
@@ -141,5 +143,13 @@ export default function Implementation() {
                 </div>
             </section>
         </Layout>
+    );
+}
+
+export default function Implementation() {
+    return (
+        <AppWrapper>
+            <ImplementationContent />
+        </AppWrapper>
     );
 }

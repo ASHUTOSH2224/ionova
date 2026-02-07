@@ -1,0 +1,11 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { AppWrapper } from '@/components/AppWrapper';
+import NotFoundView from '@/views/NotFound';
+---
+
+<Layout title="Page Not Found - ioNova">
+	<AppWrapper client:only="react">
+		<NotFoundView />
+	</AppWrapper>
+</Layout>

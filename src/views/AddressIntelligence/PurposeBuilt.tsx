@@ -1,9 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { ArrowRight, MapPin, Search, Database, XCircle, CheckCircle, AlertTriangle, Clock } from "lucide-react";
 
-export default function PurposeBuilt() {
+import { AppWrapper } from "@/components/AppWrapper";
+
+function PurposeBuiltContent() {
     return (
         <Layout>
             {/* Hero Section */}
@@ -90,7 +92,7 @@ export default function PurposeBuilt() {
             <section className="py-20 bg-background">
                 <div className="container">
                     <h2 className="text-3xl font-bold text-navy-950 mb-12 text-center">Why Generic LLMs Fail at Payment Parsing</h2>
-                    
+
                     {/* New Content Section */}
                     <div className="grid md:grid-cols-3 gap-8 mb-16">
                         <div className="bg-red-50 p-6 rounded-xl border border-red-100">
@@ -160,5 +162,13 @@ export default function PurposeBuilt() {
                 </div>
             </section>
         </Layout>
+    );
+}
+
+export default function PurposeBuilt() {
+    return (
+        <AppWrapper>
+            <PurposeBuiltContent />
+        </AppWrapper>
     );
 }

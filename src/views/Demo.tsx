@@ -27,7 +27,9 @@ const volumeOptions = [
   { value: "1M+", label: "1 Million+" },
 ];
 
-const Demo = () => {
+import { AppWrapper } from "@/components/AppWrapper";
+
+const DemoContent = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -267,5 +269,11 @@ const Demo = () => {
     </Layout>
   );
 };
+
+const Demo = () => (
+  <AppWrapper>
+    <DemoContent />
+  </AppWrapper>
+);
 
 export default Demo;

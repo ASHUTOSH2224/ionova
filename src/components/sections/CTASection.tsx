@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -11,10 +11,10 @@ export function CTASection() {
             Ready to Future-Proof Your Payments?
           </h2>
           <p className="mb-8 text-lg text-sky-200/80">
-            Don't wait until November 2026. Start your structured address journey today 
+            Don't wait until November 2026. Start your structured address journey today
             and deploy a production-ready solution in as little as 15 weeks.
           </p>
-          
+
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button variant="hero" size="xl" asChild>
               <Link to="/demo">

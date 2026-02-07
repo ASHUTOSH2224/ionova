@@ -1,0 +1,9 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { AppWrapper } from '@/components/AppWrapper';
+import IndexView from '@/views/Index';
+---
+
+<Layout>
+	<IndexView client:only="react" />
+</Layout>

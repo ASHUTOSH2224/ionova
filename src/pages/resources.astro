@@ -1,0 +1,9 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { AppWrapper } from '@/components/AppWrapper';
+import ResourcesView from '@/views/Resources';
+---
+
+<Layout title="Resources - ioNova" description="Insights, articles, and resources about ISO 20022 and address resolution.">
+	<ResourcesView client:only="react" />
+</Layout>

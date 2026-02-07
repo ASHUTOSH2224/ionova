@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, CheckCircle, Calculator } from "lucide-react";
 import gsap from "gsap";
@@ -52,10 +52,14 @@ export function HeroSection() {
       </div>
 
       <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[70%] pointer-events-none z-0">
-        <div ref={rightImageRef} className="relative h-full">
+        <div ref={rightImageRef} className="relative h-full will-change-transform">
           <img
-            src="/Logo/hero Image/hero.png"
+            src="/Logo/hero Image/hero.webp"
             alt="ISO 20022 Compliance Platform"
+            width={800}
+            height={800}
+            loading="eager"
+            fetchPriority="high"
             className="h-full w-auto opacity-90 mix-blend-lighten object-contain"
             style={{
               maskImage: 'radial-gradient(circle at center, black 50%, transparent 95%)',

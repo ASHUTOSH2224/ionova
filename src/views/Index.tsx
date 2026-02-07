@@ -6,7 +6,9 @@ import { LogosSection } from "@/components/sections/LogosSection";
 import { ExploreSection } from "@/components/sections/ExploreSection";
 import { CTASection } from "@/components/sections/CTASection";
 
-const Index = () => {
+import { AppWrapper } from "@/components/AppWrapper";
+
+const IndexContent = () => {
   return (
     <Layout>
       <HeroSection />
@@ -18,5 +20,11 @@ const Index = () => {
     </Layout>
   );
 };
+
+const Index = () => (
+  <AppWrapper>
+    <IndexContent />
+  </AppWrapper>
+);
 
 export default Index;

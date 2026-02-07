@@ -1,18 +1,18 @@
 export function LogosSection() {
     // All logos from the public/Logo directory
     const logos = [
-        "/Logo/1.png",
-        "/Logo/image copy.png",
-        "/Logo/image copy 2.png",
-        "/Logo/image copy 3.png",
-        "/Logo/image copy 4.png",
-        "/Logo/image copy 5.png",
-        "/Logo/image copy 6.png",
-        "/Logo/image copy 7.png",
-        "/Logo/image copy 8.png",
-        "/Logo/image copy 9.png",
-        "/Logo/image copy 10.png",
-        "/Logo/image.png",
+        "/Logo/1.webp",
+        "/Logo/image copy.webp",
+        "/Logo/image copy 2.webp",
+        "/Logo/image copy 3.webp",
+        "/Logo/image copy 4.webp",
+        "/Logo/image copy 5.webp",
+        "/Logo/image copy 6.webp",
+        "/Logo/image copy 7.webp",
+        "/Logo/image copy 8.webp",
+        "/Logo/image copy 9.webp",
+        "/Logo/image copy 10.webp",
+        "/Logo/image.webp",
     ];
 
     return (
@@ -36,6 +36,9 @@ export function LogosSection() {
                             <img
                                 src={logo}
                                 alt={`Partner logo ${index + 1}`}
+                                width={128}
+                                height={48}
+                                loading="lazy"
                                 className="max-h-full max-w-full object-contain"
                             />
                         </div>
@@ -60,6 +63,9 @@ export function LogosSection() {
                                     <img
                                         src={logo}
                                         alt={`Partner logo ${index + 1}`}
+                                        width={192}
+                                        height={80}
+                                        loading="lazy"
                                         className="max-h-full max-w-full object-contain"
                                     />
                                 </div>
@@ -76,6 +82,9 @@ export function LogosSection() {
                                     <img
                                         src={logo}
                                         alt={`Partner logo ${index + 1}`}
+                                        width={192}
+                                        height={80}
+                                        loading="lazy"
                                         className="max-h-full max-w-full object-contain"
                                     />
                                 </div>

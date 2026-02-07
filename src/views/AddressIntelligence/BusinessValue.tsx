@@ -1,9 +1,10 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { ArrowRight, TrendingUp, ShieldCheck, Cpu, DollarSign, AlertTriangle, CheckCircle } from "lucide-react";
+import { AppWrapper } from "@/components/AppWrapper";
 
-export default function BusinessValue() {
+function BusinessValueContent() {
     return (
         <Layout>
             {/* Hero Section */}
@@ -143,5 +144,13 @@ export default function BusinessValue() {
                 </div>
             </section>
         </Layout>
+    );
+}
+
+export default function BusinessValue() {
+    return (
+        <AppWrapper>
+            <BusinessValueContent />
+        </AppWrapper>
     );
 }

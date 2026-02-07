@@ -1,0 +1,9 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { AppWrapper } from '@/components/AppWrapper';
+import StructuredMandateView from '@/views/AddressIntelligence/StructuredMandate';
+---
+
+<Layout title="Structured Address Mandate - ioNova">
+	<StructuredMandateView client:only="react" />
+</Layout>

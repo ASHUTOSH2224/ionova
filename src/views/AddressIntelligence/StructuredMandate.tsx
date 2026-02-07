@@ -1,9 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { ArrowRight, CheckCircle, AlertTriangle, FileText, Globe, Clock } from "lucide-react";
 
-export default function StructuredMandate() {
+import { AppWrapper } from "@/components/AppWrapper";
+
+function StructuredMandateContent() {
     // Dynamic Date Calculation
     const currentDate = new Date();
     const currentMonthStr = currentDate.toLocaleString('default', { month: 'short' });
@@ -14,7 +16,7 @@ export default function StructuredMandate() {
     // Target: Nov 1, 2026
     const targetDate = new Date('2026-11-01');
     const totalMonthsRemaining = (targetDate.getFullYear() - currentDate.getFullYear()) * 12 + (targetDate.getMonth() - currentDate.getMonth());
-    
+
     // Ensure we don't show negative numbers if passed
     const monthsRemaining = Math.max(0, totalMonthsRemaining);
 
@@ -133,21 +135,21 @@ export default function StructuredMandate() {
             <section className="py-20 bg-background">
                 <div className="container max-w-6xl">
                     <h2 className="text-3xl font-bold text-center text-navy-950 mb-12">The Critical Timeline</h2>
-                    
+
                     {/* Modern Timeline Layout */}
                     <div className="relative mt-12 md:mt-16">
                         {/* Connecting Line (Desktop) */}
                         <div className="hidden md:block absolute top-[-22px] left-0 w-full h-1 bg-gradient-to-r from-blue-200 via-blue-400 to-slate-200 rounded-full z-0"></div>
 
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4 relative z-10">
-                            
+
                             {/* Card 1: Past */}
                             <div className="group relative bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
                                 {/* Connector Dot (Desktop) */}
                                 <div className="hidden md:block absolute -top-[32px] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-blue-500 border-4 border-white shadow-sm z-10"></div>
                                 {/* Mobile Line */}
                                 <div className="md:hidden absolute left-0 top-0 bottom-0 w-1 bg-blue-200 rounded-l-xl"></div>
-                                
+
                                 <div className="mb-3">
                                     <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-bold uppercase rounded tracking-wider">Completed</span>
                                 </div>
@@ -170,9 +172,9 @@ export default function StructuredMandate() {
                                 </div>
                                 <h4 className="font-bold text-xl text-white mb-2">{displayDate}</h4>
                                 <p className="text-sm text-blue-50 leading-relaxed font-medium">
-                                    {monthsRemaining > 0 
-                                     ? `Start of the ${monthsRemaining}-Month Critical Implementation Window. Action is required now to meet the deadline.` 
-                                     : "Implementation Deadline Reached. Immediate compliance action required."}
+                                    {monthsRemaining > 0
+                                        ? `Start of the ${monthsRemaining}-Month Critical Implementation Window. Action is required now to meet the deadline.`
+                                        : "Implementation Deadline Reached. Immediate compliance action required."}
                                 </p>
                             </div>
 
@@ -180,7 +182,7 @@ export default function StructuredMandate() {
                             <div className="group relative bg-white p-6 rounded-xl border-l-4 border-l-red-500 md:border-l md:border-t-4 md:border-t-red-500 border-slate-200 shadow-sm hover:shadow-md transition-all">
                                 {/* Connector Dot (Desktop) */}
                                 <div className="hidden md:block absolute -top-[32px] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-navy-950 border-4 border-white shadow-sm z-10"></div>
-                                
+
                                 <div className="mb-3">
                                     <span className="px-2 py-1 bg-red-50 text-red-700 text-xs font-bold uppercase rounded tracking-wider">Hard Deadline</span>
                                 </div>
@@ -215,7 +217,7 @@ export default function StructuredMandate() {
                             <h3 className="text-2xl font-bold mb-2">Hybrid-Only vs. Full Structured</h3>
                             <p className="text-sky-200/80">Why settling for partial compliance is a risky strategy.</p>
                         </div>
-                        
+
                         <div className="overflow-x-auto">
                             <table className="w-full text-left border-collapse">
                                 <thead>
@@ -293,5 +295,13 @@ export default function StructuredMandate() {
                 </div>
             </section>
         </Layout>
+    );
+}
+
+export default function StructuredMandate() {
+    return (
+        <AppWrapper>
+            <StructuredMandateContent />
+        </AppWrapper>
     );
 }

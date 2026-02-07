@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-shim";
 import { BookOpen, TrendingUp, Map, Cpu, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLayoutEffect, useRef } from "react";

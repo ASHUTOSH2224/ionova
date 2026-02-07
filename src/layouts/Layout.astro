@@ -1,0 +1,81 @@
+---
+import '@/index.css';
+
+interface Props {
+	title?: string;
+    description?: string;
+}
+
+const { 
+    title = "ioNova - AI-Native ISO 20022 Address Resolution for Payments",
+    description = "Make your payment data ISO 20022 ready with AI-native address resolution. Convert unstructured payment data into SWIFT CBPR+ and SEPA compliant structured addresses with 100% deterministic accuracy before the November 2026 deadline."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+        <meta name="keywords" content="ISO 20022, SWIFT CBPR+, SEPA, payment compliance, address resolution, fintech, banking AI, payment data" />
+        <meta name="author" content="ioNova" />
+        <meta name="robots" content="index, follow" />
+        
+        <!-- Note: Security headers (CSP, X-Frame-Options, HSTS, COOP) are configured via HTTP headers in public/_headers -->
+        
+        <!-- Open Graph / Social Media -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="ioNova - AI-Native ISO 20022 Address Resolution" />
+        <meta property="og:description" content="Automatically convert unstructured payment data into SWIFT CBPR+ and SEPA compliant structured addresses with 100% deterministic accuracy." />
+        <meta property="og:site_name" content="ioNova" />
+        
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="ioNova - AI-Native ISO 20022 Address Resolution" />
+        <meta name="twitter:description" content="Make your payment data ISO 20022 ready before the November 2026 deadline." />
+        
+        <!-- Fonts - Optimized with display=swap and preload -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+        <noscript>
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        </noscript>
+        
+        <!-- Preload LCP image for faster paint -->
+        <link rel="preload" as="image" href="/Logo/hero Image/hero.webp" fetchpriority="high" />
+        
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "ioNova",
+            "description": "AI-Native Address Resolution for ISO 20022 Compliance",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "category": "Enterprise Software"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "ioNova",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bengaluru",
+                "addressCountry": "IN"
+              }
+            }
+          }
+        </script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

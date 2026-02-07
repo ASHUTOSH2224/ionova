@@ -1,0 +1,21 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { AppWrapper } from '@/components/AppWrapper';
+import BlogPostView from '@/views/BlogPost';
+import { featuredPosts, allPosts } from "@/data/blogPosts";
+
+export async function getStaticPaths() {
+  const posts = [...featuredPosts, ...allPosts];
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { slug } = Astro.params;
+const { post } = Astro.props;
+---
+
+<Layout title="Blog - ioNova">
+	<BlogPostView client:only="react" post={post} />
+</Layout>

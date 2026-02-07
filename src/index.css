@@ -39,8 +39,8 @@
     /* #DFE8F2 - Section bands, borders */
     --border-strong: 206 48% 85%;
     /* #C6DBED - Emphasis borders */
-    --text-muted: 210 14% 59%;
-    /* #8796A7 - Footnotes, labels */
+    --text-muted: 210 14% 42%;
+    /* #5A6775 - Footnotes, labels - WCAG AA compliant */
     --text-label: 210 29% 40%;
     /* #466587 - Icon default, label text */
 

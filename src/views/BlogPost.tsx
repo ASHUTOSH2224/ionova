@@ -1,15 +1,28 @@
 import { Layout } from "@/components/layout/Layout";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link } from "@/lib/router-shim";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock, Loader2 } from "lucide-react";
 import { useGhostPostBySlug } from "@/hooks/useGhostPosts";
 import { format } from "date-fns";
 
-const BlogPost = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const { data: post, isLoading, error } = useGhostPostBySlug(slug || '');
+import { AppWrapper } from "@/components/AppWrapper";
 
-  if (isLoading) {
+const BlogPostContent = ({ post: propPost }: { post?: any }) => {
+  const { slug } = useParams<{ slug: string }>();
+  // Conditionally call hook? No, hooks can't be conditional.
+  // But we can skip the query if we have the post? 
+  // useGhostPostBySlug uses useQuery. We can distinguish by passing 'enabled' option if the hook supports it.
+  // If not, we still call it. But now we are inside AppWrapper, so QueryClientProvider is present!
+  const { data: ghostPost, isLoading, error } = useGhostPostBySlug(slug || '');
+
+  // Use propPost if available, otherwise use ghostPost
+  const post = propPost || ghostPost;
+
+  // Normalize mock data to match expected structure if needed
+  // If it's a mock post, it won't have 'html' or 'published_at' in the same format
+  const isMockPost = !!propPost;
+
+  if (isLoading && !post) {
     return (
       <Layout>
         <div className="container flex min-h-[60vh] items-center justify-center py-16">
@@ -19,7 +32,7 @@ const BlogPost = () => {
     );
   }
 
-  if (error || !post) {
+  if ((!isMockPost && error) || !post) {
     return (
       <Layout>
         <div className="container py-16">
@@ -40,6 +53,16 @@ const BlogPost = () => {
     );
   }
 
+  // Helper values for rendering
+  const title = post.title;
+  const date = isMockPost ? post.date : (post.published_at ? format(new Date(post.published_at), 'MMMM d, yyyy') : '');
+  const readTime = isMockPost ? post.readTime.replace(' min read', '') : post.reading_time;
+  const authors = isMockPost ? [{ name: post.author }] : (post.authors || []);
+  const image = isMockPost ? post.image : post.feature_image;
+  const htmlContent = isMockPost ? `<p>${post.excerpt}</p><p><em>(Full content not available in preview)</em></p>` : post.html;
+  const tags = isMockPost ? [{ id: '1', name: post.category }] : (post.tags || []);
+
+
   return (
     <Layout>
       {/* Hero */}
@@ -59,29 +82,29 @@ const BlogPost = () => {
             </Button>
 
             <h1 className="mb-4 text-4xl font-bold text-sky-200 md:text-5xl">
-              {post.title}
+              {title}
             </h1>
 
             <div className="flex flex-wrap items-center gap-4 text-sky-200/80">
-              {post.published_at && (
-                <span>{format(new Date(post.published_at), 'MMMM d, yyyy')}</span>
+              {date && (
+                <span>{date}</span>
               )}
               <span>•</span>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
-                <span>{post.reading_time} min read</span>
+                <span>{readTime} min read</span>
               </div>
-              {post.authors && post.authors.length > 0 && (
+              {authors && authors.length > 0 && (
                 <>
                   <span>•</span>
-                  <span>By {post.authors.map(author => author.name).join(', ')}</span>
+                  <span>By {authors.map((author: any) => author.name).join(', ')}</span>
                 </>
               )}
             </div>
 
-            {post.tags && post.tags.length > 0 && (
+            {tags && tags.length > 0 && (
               <div className="mt-6 flex flex-wrap gap-2">
-                {post.tags.map(tag => (
+                {tags.map((tag: any) => (
                   <span
                     key={tag.id}
                     className="rounded-full bg-white/10 px-3 py-1 text-sm text-sky-200"
@@ -96,13 +119,16 @@ const BlogPost = () => {
       </section>
 
       {/* Featured Image */}
-      {post.feature_image && (
+      {image && (
         <section className="bg-background py-8">
           <div className="container">
             <div className="mx-auto max-w-4xl">
               <img
-                src={post.feature_image}
-                alt={post.title}
+                src={image}
+                alt={title}
+                width={896}
+                height={504}
+                loading="lazy"
                 className="w-full rounded-2xl shadow-xl"
               />
             </div>
@@ -115,7 +141,7 @@ const BlogPost = () => {
         <div className="container">
           <article className="prose prose-lg prose-blue mx-auto max-w-4xl">
             <div
-              dangerouslySetInnerHTML={{ __html: post.html }}
+              dangerouslySetInnerHTML={{ __html: htmlContent }}
               className="ghost-content"
             />
           </article>
@@ -146,5 +172,11 @@ const BlogPost = () => {
     </Layout>
   );
 };
+
+const BlogPost = (props: { post?: any }) => (
+  <AppWrapper>
+    <BlogPostContent {...props} />
+  </AppWrapper>
+);
 
 export default BlogPost;

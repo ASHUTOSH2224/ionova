@@ -1,0 +1,9 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { AppWrapper } from '@/components/AppWrapper';
+import CompanyView from '@/views/Company';
+---
+
+<Layout title="Company - ioNova" description="About ioNova and our mission to solve payment address data challenges.">
+	<CompanyView client:only="react" />
+</Layout>
