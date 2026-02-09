@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISO 20022 Deadline: Structured Address Compliance | ioNova AI</title>
+<meta name="description" content="The ISO 20022 deadline is 9 months away. Postal addresses are the last mile. AI-native structured address resolution for SWIFT CBPR+ & SEPA. 98%+ STP. 10–16 weeks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   ioNova AI Homepage — Streamlined · Design System v5
+   ═══════════════════════════════════════════════════════════════ */
+
+:root, [data-theme="light"] {
+  --navy-950:#0E1935; --navy-900:#111426; --navy-800:#1A1E35;
+  --blue-700:#243574; --blue-600:#2B4E86; --blue-500:#3C75B5;
+  --blue-400:#5EA1DC; --sky-200:#8ECDF2;
+  --teal-500:#43ADC1; --cyan-400:#5FCFD0;
+  --bg:#F1F4F9; --surface-1:#FFFFFF; --surface-2:#E8EDF5;
+  --surface-3:#D6E0ED; --border:#D0DAEB; --border-strong:#B8CCE2;
+  --text-primary:#0E1935; --text-label:#466587; --text-muted:#8796A7;
+  --gradient-brand:linear-gradient(135deg,#5FCFD0,#43ADC1,#3C75B5,#243574);
+  --gradient-soft:linear-gradient(135deg,#8ECDF2,#5EA1DC,#3C75B5);
+  --gradient-dark:linear-gradient(135deg,#1A1E35,#243574,#2B4E86);
+  --gradient-glow:linear-gradient(135deg,rgba(95,207,208,.18),rgba(67,173,193,.10),rgba(60,117,181,.06));
+  --gradient-text:linear-gradient(135deg,#43ADC1,#3C75B5,#243574);
+  --gradient-shimmer:linear-gradient(110deg,transparent 25%,rgba(95,207,208,.06) 37%,rgba(142,205,242,.08) 50%,rgba(95,207,208,.06) 63%,transparent 75%);
+  --shadow-sm:0 1px 3px rgba(14,25,53,.05),0 1px 2px rgba(14,25,53,.03);
+  --shadow-md:0 4px 12px rgba(14,25,53,.07),0 2px 4px rgba(14,25,53,.04);
+  --shadow-lg:0 8px 30px rgba(14,25,53,.09),0 4px 8px rgba(14,25,53,.04);
+  --shadow-xl:0 20px 60px rgba(14,25,53,.12),0 8px 16px rgba(14,25,53,.05);
+  --shadow-glow:0 0 0 transparent;
+  --shadow-colored:0 4px 20px rgba(67,173,193,.12),0 0 40px rgba(95,207,208,.05);
+  --nav-bg:rgba(241,244,249,.82); --nav-border:var(--border);
+  --glow-cyan:.12; --glow-blue:.08;
+  --alert-red:#DC3545; --alert-amber:#F59E0B; --alert-green:#10B981;
+  --alert-red-soft:#FEF2F2; --alert-green-soft:#ECFDF5;
+  --noise-opacity:.015; --btn-primary-bg:var(--navy-950);
+  --btn-primary-hover:var(--blue-700); --btn-primary-shadow:rgba(14,25,53,.25);
+  --hover-lift:-4px; --orb-opacity:.06; --table-hover:rgba(239,242,247,.5);
+}
+
+[data-theme="dark"] {
+  --bg:#060A15; --surface-1:#0F1729; --surface-2:#182238;
+  --surface-3:#222F4C; --border:#1E2A48; --border-strong:#2D4062;
+  --text-primary:#E2E8F4; --text-label:#8A9DBD; --text-muted:#576A86;
+  --gradient-glow:linear-gradient(135deg,rgba(95,207,208,.15),rgba(67,173,193,.08),rgba(60,117,181,.05));
+  --gradient-text:linear-gradient(135deg,#6ED9DA,#5EA1DC,#8ECDF2);
+  --gradient-shimmer:linear-gradient(110deg,transparent 25%,rgba(95,207,208,.04) 37%,rgba(142,205,242,.06) 50%,rgba(95,207,208,.04) 63%,transparent 75%);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.30); --shadow-md:0 4px 14px rgba(0,0,0,.35);
+  --shadow-lg:0 8px 30px rgba(0,0,0,.40),0 0 1px rgba(95,207,208,.1);
+  --shadow-xl:0 20px 60px rgba(0,0,0,.50),0 0 2px rgba(95,207,208,.12);
+  --shadow-glow:0 0 50px rgba(95,207,208,.08),0 0 100px rgba(95,207,208,.03);
+  --shadow-colored:0 4px 30px rgba(95,207,208,.15),0 0 60px rgba(95,207,208,.06);
+  --nav-bg:rgba(6,10,21,.82); --nav-border:rgba(30,42,72,.5);
+  --glow-cyan:.25; --glow-blue:.18;
+  --alert-red:#EF4444; --alert-amber:#F59E0B; --alert-green:#10B981;
+  --alert-red-soft:rgba(239,68,68,.1); --alert-green-soft:rgba(16,185,129,.1);
+  --noise-opacity:.025; --btn-primary-bg:var(--blue-500);
+  --btn-primary-hover:var(--blue-400); --btn-primary-shadow:rgba(60,117,181,.35);
+  --hover-lift:-6px; --orb-opacity:.10; --table-hover:rgba(22,30,51,.6);
+  color-scheme:dark;
+}
+
+:root {
+  --font-display:'Outfit',system-ui,sans-serif;
+  --font-body:'Figtree',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono','Fira Code',monospace;
+  --radius-sm:6px; --radius-md:10px; --radius-lg:16px; --radius-xl:24px; --radius-full:9999px;
+  --ease:cubic-bezier(.4,0,.2,1); --ease-bounce:cubic-bezier(.34,1.56,.64,1);
+  --ease-out-expo:cubic-bezier(.16,1,.3,1); --dur:.45s;
+}
+
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(1.9)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes float{0%,100%{transform:translate(0,0) rotate(0deg)}33%{transform:translate(30px,-20px) rotate(2deg)}66%{transform:translate(-20px,15px) rotate(-1deg)}}
+@keyframes float-reverse{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-25px,20px) scale(1.05)}66%{transform:translate(15px,-15px) scale(.95)}}
+@keyframes glow-pulse{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes breathe{0%,100%{box-shadow:0 0 20px rgba(95,207,208,.04)}50%{box-shadow:0 0 40px rgba(95,207,208,.1)}}
+@keyframes scan-line{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
+@keyframes gradient-x{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes countdown-pulse{0%,100%{text-shadow:0 0 20px rgba(239,68,68,.3)}50%{text-shadow:0 0 40px rgba(239,68,68,.6)}}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--font-body);font-size:15px;font-weight:400;line-height:1.6;color:var(--text-primary);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+body::before{content:'';position:fixed;inset:0;opacity:var(--noise-opacity);background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+body::after{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 600px 600px at 15% 20%,rgba(95,207,208,var(--orb-opacity)) 0%,transparent 60%),radial-gradient(ellipse 500px 500px at 85% 30%,rgba(94,161,220,var(--orb-opacity)) 0%,transparent 60%),radial-gradient(ellipse 400px 400px at 40% 80%,rgba(67,173,193,calc(var(--orb-opacity)*.7)) 0%,transparent 60%);pointer-events:none;z-index:0;animation:float 25s ease-in-out infinite}
+::selection{background:rgba(94,161,220,.25)}
+a{color:var(--blue-400);text-decoration:none}
+img,svg{display:block;max-width:100%}
+body,.nav,.section,.footer-section{transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease),border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.sr{opacity:0;transform:translateY(40px);transition:opacity .7s var(--ease-out-expo),transform .7s var(--ease-out-expo)}
+.sr.visible{opacity:1;transform:translateY(0)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;background:var(--nav-bg);backdrop-filter:blur(30px) saturate(1.9);-webkit-backdrop-filter:blur(30px) saturate(1.9);border-bottom:1px solid var(--nav-border)}
+.nav.is-scrolled{box-shadow:var(--shadow-sm)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--text-primary);letter-spacing:-.5px;display:flex;align-items:center;gap:3px;text-decoration:none}
+.nav-logo .io{background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{font-family:var(--font-body);font-size:13px;font-weight:500;color:var(--text-label);text-decoration:none;padding:6px 14px;border-radius:var(--radius-full);transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--text-primary);background:var(--surface-2)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-cta{font-family:var(--font-display);font-weight:600;font-size:13px;padding:8px 20px;border-radius:var(--radius-full);border:none;cursor:pointer;transition:all .3s var(--ease);letter-spacing:-.2px;text-decoration:none}
+.nav-cta-primary{background:var(--btn-primary-bg);color:#fff;box-shadow:0 2px 8px var(--btn-primary-shadow)}
+.nav-cta-primary:hover{background:var(--btn-primary-hover);transform:translateY(-1px)}
+.nav-cta-outline{background:transparent;color:var(--text-primary);border:1.5px solid var(--border-strong)}
+.nav-cta-outline:hover{border-color:var(--teal-500);color:var(--teal-500)}
+.theme-toggle{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-md);cursor:pointer;transition:background .3s,border-color .3s,transform .2s;margin-left:4px;position:relative}
+.theme-toggle:hover{background:var(--surface-3);border-color:var(--border-strong);transform:scale(1.08)}
+.theme-toggle svg{width:18px;height:18px;transition:transform .5s var(--ease-bounce),opacity .35s var(--ease);position:absolute}
+.theme-toggle .icon-sun{color:#D4940A;opacity:1}
+.theme-toggle .icon-moon{color:var(--sky-200);opacity:0;transform:rotate(-90deg)}
+[data-theme="dark"] .theme-toggle .icon-sun{opacity:0;transform:rotate(90deg)}
+[data-theme="dark"] .theme-toggle .icon-moon{opacity:1;transform:rotate(0deg)}
+@media(max-width:900px){.nav-links,.nav-cta-outline{display:none}}
+
+/* BUTTONS */
+.btn{font-family:var(--font-display);font-weight:600;font-size:14px;padding:12px 26px;border-radius:var(--radius-full);border:none;cursor:pointer;transition:all .3s var(--ease-out-expo);letter-spacing:-.2px;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;text-decoration:none}
+.btn::after{content:'';position:absolute;top:0;left:0;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-100%);transition:none}
+.btn:hover::after{animation:scan-line .6s ease-out}
+.btn-primary{background:var(--btn-primary-bg);color:#fff;box-shadow:0 2px 8px var(--btn-primary-shadow)}
+.btn-primary:hover{background:var(--btn-primary-hover);transform:translateY(-2px);box-shadow:0 6px 20px var(--btn-primary-shadow),0 0 30px rgba(95,207,208,.08)}
+.btn-accent{background:var(--gradient-brand);background-size:200% auto;color:#fff;box-shadow:0 2px 12px rgba(67,173,193,.3);animation:gradient-x 4s ease-in-out infinite}
+.btn-accent:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(67,173,193,.35),0 0 40px rgba(95,207,208,.1)}
+.btn-outline{background:transparent;color:var(--text-primary);border:1.5px solid var(--border-strong)}
+.btn-outline:hover{border-color:var(--teal-500);background:var(--surface-2);color:var(--teal-500)}
+.btn-lg{font-size:15px;padding:14px 30px}
+.btn svg{flex-shrink:0}
+.arrow-icon{width:16px;height:16px}
+
+/* HERO */
+.hero{padding:140px 0 72px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:900px;height:900px;background:radial-gradient(circle,rgba(95,207,208,var(--glow-cyan)) 0%,rgba(67,173,193,calc(var(--glow-cyan)*.5)) 30%,transparent 60%);pointer-events:none;animation:float 20s ease-in-out infinite}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(94,161,220,var(--glow-blue)) 0%,transparent 55%);pointer-events:none;animation:float-reverse 18s ease-in-out infinite}
+.hero-orb-3{position:absolute;top:30%;left:50%;width:400px;height:400px;background:radial-gradient(circle,rgba(67,173,193,calc(var(--glow-cyan)*.4)) 0%,transparent 60%);pointer-events:none;animation:float-reverse 15s ease-in-out infinite;filter:blur(20px)}
+.w{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-full);font-family:var(--font-display);font-size:11px;font-weight:600;color:var(--teal-500);letter-spacing:.8px;text-transform:uppercase;margin-bottom:28px;animation:fadeSlideUp .6s ease-out both;position:relative;overflow:hidden}
+.hero-badge::after{content:'';position:absolute;inset:0;background:var(--gradient-shimmer);background-size:200% 100%;animation:shimmer 3s ease-in-out infinite}
+.hero-badge .pulse-dot{width:7px;height:7px;background:var(--alert-red);border-radius:50%;animation:pulse 2s ease-in-out infinite;position:relative;z-index:1;flex-shrink:0}
+.hero-badge span{position:relative;z-index:1}
+.hero h1{font-family:var(--font-display);font-size:clamp(32px,4.5vw,56px);font-weight:800;letter-spacing:-1.5px;line-height:1.12;max-width:820px;animation:fadeSlideUp .6s ease-out .1s both}
+.hero h1 .line1{color:var(--text-primary);display:block}
+.hero h1 .accent{background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:gradient-x 6s ease-in-out infinite;display:block}
+.hero-sub{font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:var(--text-label);max-width:680px;margin-top:20px;animation:fadeSlideUp .6s ease-out .2s both}
+.hero-sub strong{color:var(--text-primary);font-weight:600}
+.hero-ctas{display:flex;gap:14px;margin-top:32px;animation:fadeSlideUp .6s ease-out .3s both;flex-wrap:wrap}
+.hero-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px;animation:fadeSlideUp .6s ease-out .4s both}
+.hero-kpi{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 16px;text-align:center;transition:all .35s var(--ease-out-expo);position:relative;overflow:hidden}
+.hero-kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient-brand);opacity:0;transition:opacity .3s}
+.hero-kpi:hover::before{opacity:1}
+.hero-kpi:hover{border-color:var(--border-strong);box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+[data-theme="dark"] .hero-kpi{animation:breathe 6s ease-in-out infinite}
+.hero-kpi-icon{font-size:20px;margin-bottom:6px}
+.hero-kpi-value{font-family:var(--font-display);font-size:28px;font-weight:700;letter-spacing:-1px;line-height:1.1;background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:gradient-x 6s ease-in-out infinite}
+.hero-kpi-value.urgent{background:linear-gradient(135deg,var(--alert-red),#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:countdown-pulse 3s ease-in-out infinite}
+.hero-kpi-label{font-size:11px;color:var(--text-muted);margin-top:4px;font-weight:500;line-height:1.3}
+@media(max-width:768px){.hero-kpis{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:clamp(26px,6vw,40px)}}
+
+/* SECTIONS */
+.section{padding:88px 0;position:relative}
+.section-bordered{border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-500);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.section-label::before{content:'';width:3px;height:16px;background:var(--gradient-brand);border-radius:2px;animation:glow-pulse 3s ease-in-out infinite}
+.section-title{font-family:var(--font-display);font-size:clamp(24px,3vw,36px);font-weight:700;letter-spacing:-1px;line-height:1.15;color:var(--text-primary);max-width:700px}
+.section-desc{font-size:15px;color:var(--text-label);margin-top:12px;max-width:580px;line-height:1.65}
+
+/* COUNTDOWN */
+.countdown-band{background:var(--surface-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.countdown-band::before{content:'';position:absolute;inset:0;background:var(--gradient-glow);pointer-events:none}
+.countdown-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.countdown-timer{display:flex;gap:12px;margin:28px 0}
+.countdown-unit{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 18px;min-width:76px;text-align:center;transition:all .3s var(--ease)}
+.countdown-unit:hover{border-color:var(--border-strong);transform:translateY(-2px)}
+.countdown-num{font-family:var(--font-display);font-size:30px;font-weight:800;letter-spacing:-1px;background:linear-gradient(135deg,var(--alert-red),#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.countdown-lbl{font-family:var(--font-display);font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-top:2px}
+.countdown-text{font-size:15px;line-height:1.7;color:var(--text-label)}
+.countdown-text strong{color:var(--text-primary)}
+.timeline{display:flex;flex-direction:column;position:relative}
+.timeline::before{content:'';position:absolute;left:15px;top:20px;bottom:20px;width:2px;background:var(--border)}
+.timeline-item{display:flex;gap:18px;padding:14px 0;position:relative}
+.timeline-dot{width:32px;height:32px;border-radius:50%;border:2px solid var(--border);background:var(--surface-1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;z-index:1}
+.timeline-dot.complete{border-color:var(--alert-green);background:var(--alert-green-soft)}
+.timeline-dot.now{border-color:var(--alert-red);background:var(--alert-red-soft);box-shadow:0 0 12px rgba(239,68,68,.2)}
+.timeline-dot.upcoming{border-color:var(--alert-amber)}
+.timeline-dot.future{border-color:var(--border-strong)}
+.timeline-content h4{font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:1px}
+.timeline-content .timeline-date{font-family:var(--font-mono);font-size:11px;color:var(--teal-500);font-weight:600;margin-bottom:3px}
+.timeline-content p{font-size:12px;color:var(--text-muted);line-height:1.4}
+@media(max-width:768px){.countdown-grid{grid-template-columns:1fr;gap:36px}.countdown-timer{flex-wrap:wrap}}
+
+/* DIFFERENTIATORS */
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.diff-card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 22px;position:relative;overflow:hidden;transition:all .35s var(--ease)}
+.diff-card::after{content:'';position:absolute;inset:0;background:var(--gradient-shimmer);background-size:200% 100%;opacity:0;transition:opacity .5s;pointer-events:none}
+.diff-card:hover::after{opacity:1;animation:shimmer 2.5s ease-in-out infinite}
+.diff-card:hover{border-color:var(--border-strong);box-shadow:var(--shadow-md);transform:translateY(var(--hover-lift))}
+[data-theme="dark"] .diff-card:hover{box-shadow:var(--shadow-colored)}
+.diff-icon{width:40px;height:40px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:14px;background:linear-gradient(135deg,rgba(95,207,208,.12),rgba(67,173,193,.06));border:1px solid rgba(67,173,193,.2);color:var(--teal-500)}
+.diff-card h3{font-family:var(--font-display);font-size:15px;font-weight:700;letter-spacing:-.3px;color:var(--text-primary);margin-bottom:6px}
+.diff-card p{font-size:13px;line-height:1.55;color:var(--text-label)}
+@media(max-width:900px){.diff-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.diff-grid{grid-template-columns:1fr}}
+
+/* LOGOS */
+.logos-band{background:var(--surface-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 0;text-align:center;overflow:hidden}
+.logos-title{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:.5px;color:var(--text-muted);margin-bottom:20px}
+.logos-strip{display:flex;gap:48px;align-items:center;justify-content:center;flex-wrap:wrap;padding:0 32px;opacity:.5}
+.logo-placeholder{font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:-.3px;color:var(--text-muted);padding:10px 22px;border:1px dashed var(--border);border-radius:var(--radius-md);transition:all .3s}
+.logo-placeholder:hover{opacity:.8;border-color:var(--teal-500);color:var(--teal-500)}
+
+/* PILLARS */
+.pillars-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.pillar-card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-xl);padding:28px 24px;position:relative;overflow:hidden;transition:all .35s var(--ease);display:flex;flex-direction:column}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient-brand);background-size:200% 100%;animation:gradient-x 6s ease-in-out infinite;opacity:0;transition:opacity .3s}
+.pillar-card:hover::before{opacity:1}
+.pillar-card:hover{border-color:var(--border-strong);box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+[data-theme="dark"] .pillar-card:hover{box-shadow:var(--shadow-lg),0 0 40px rgba(95,207,208,.05)}
+.pillar-num{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--teal-500);margin-bottom:10px}
+.pillar-card h3{font-family:var(--font-display);font-size:17px;font-weight:700;letter-spacing:-.4px;color:var(--text-primary);margin-bottom:8px}
+.pillar-card p{font-size:13px;line-height:1.6;color:var(--text-label);flex:1}
+.pillar-insight{font-family:var(--font-mono);font-size:11px;color:var(--cyan-400);margin-top:14px;padding:8px 12px;background:var(--surface-2);border-radius:var(--radius-sm);border-left:3px solid var(--teal-500)}
+.pillar-link{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--teal-500);margin-top:14px;display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
+.pillar-link:hover{gap:10px;color:var(--cyan-400)}
+@media(max-width:600px){.pillars-grid{grid-template-columns:1fr}}
+
+/* COMPARISON */
+.comparison-table-wrap{overflow-x:auto;margin-top:28px;border-radius:var(--radius-lg);border:1px solid var(--border)}
+.comparison-table{width:100%;border-collapse:collapse;font-size:13px}
+.comparison-table th{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.3px;padding:14px 16px;text-align:left;background:var(--surface-2);border-bottom:2px solid var(--border);color:var(--text-primary);white-space:nowrap}
+.comparison-table th:last-child{background:linear-gradient(135deg,rgba(95,207,208,.08),rgba(67,173,193,.04));color:var(--teal-500)}
+.comparison-table td{padding:11px 16px;border-bottom:1px solid var(--surface-3);color:var(--text-label);vertical-align:top}
+.comparison-table tr:hover td{background:var(--table-hover)}
+.comparison-table td:first-child{font-weight:600;color:var(--text-primary);font-size:12px}
+.comparison-table td:last-child{color:var(--teal-500);font-weight:600}
+.comparison-table tr:last-child td{border-bottom:none}
+
+/* IMPLEMENTATION */
+.impl-phases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.impl-phase{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;transition:all .35s var(--ease)}
+.impl-phase:hover{border-color:var(--border-strong);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.impl-phase-num{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--teal-500);margin-bottom:8px}
+.impl-phase h3{font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.impl-phase p{font-size:13px;line-height:1.55;color:var(--text-label)}
+@media(max-width:768px){.impl-phases{grid-template-columns:1fr}}
+
+/* ROI */
+.roi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.roi-tile{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center;transition:all .35s var(--ease);position:relative;overflow:hidden}
+.roi-tile:hover{border-color:var(--border-strong);box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+[data-theme="dark"] .roi-tile:hover{box-shadow:var(--shadow-lg),0 0 30px rgba(95,207,208,.05)}
+.roi-value{font-family:var(--font-display);font-size:32px;font-weight:800;letter-spacing:-1.2px;background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:gradient-x 6s ease-in-out infinite}
+.roi-label{font-size:12px;color:var(--text-muted);margin-top:6px;font-weight:500;line-height:1.4}
+@media(max-width:600px){.roi-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* INSIGHTS */
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.insight-card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;transition:all .35s var(--ease);position:relative;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.insight-card::after{content:'';position:absolute;inset:0;background:var(--gradient-shimmer);background-size:200% 100%;opacity:0;transition:opacity .5s;pointer-events:none}
+.insight-card:hover::after{opacity:1;animation:shimmer 2.5s ease-in-out infinite}
+.insight-card:hover{border-color:var(--border-strong);box-shadow:var(--shadow-md);transform:translateY(var(--hover-lift))}
+[data-theme="dark"] .insight-card:hover{box-shadow:var(--shadow-colored)}
+.insight-badge{display:inline-block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--blue-400);background:rgba(94,161,220,.12);border:1px solid rgba(94,161,220,.2);border-radius:var(--radius-full);padding:3px 12px;margin-bottom:14px;width:fit-content}
+.insight-card h3{font-family:var(--font-display);font-size:16px;font-weight:700;letter-spacing:-.3px;color:var(--text-primary);margin-bottom:8px;line-height:1.3}
+.insight-card p{font-size:13px;line-height:1.6;color:var(--text-label);flex:1}
+.insight-link{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--teal-500);margin-top:16px;display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
+.insight-card:hover .insight-link{gap:10px;color:var(--cyan-400)}
+@media(max-width:768px){.insights-grid{grid-template-columns:1fr}}
+
+/* LEADERSHIP */
+.leadership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.leader-card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;transition:all .35s var(--ease);position:relative;overflow:hidden}
+.leader-card::after{content:'';position:absolute;inset:0;background:var(--gradient-shimmer);background-size:200% 100%;opacity:0;transition:opacity .5s;pointer-events:none}
+.leader-card:hover::after{opacity:1;animation:shimmer 2.5s ease-in-out infinite}
+.leader-card:hover{border-color:var(--border-strong);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.leader-avatar{width:52px;height:52px;border-radius:50%;background:var(--gradient-brand);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:18px;font-weight:700;color:#fff;margin-bottom:14px}
+.leader-card h3{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:2px;letter-spacing:-.3px}
+.leader-role{font-family:var(--font-display);font-size:12px;font-weight:600;color:var(--teal-500);margin-bottom:4px}
+.leader-creds{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);margin-bottom:10px;line-height:1.5}
+.leader-card p{font-size:13px;line-height:1.55;color:var(--text-label)}
+.leader-link{font-family:var(--font-display);font-size:12px;font-weight:600;color:var(--teal-500);margin-top:10px;display:inline-flex;align-items:center;gap:4px;transition:gap .3s}
+.leader-link:hover{gap:8px}
+@media(max-width:700px){.leadership-grid{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:28px;max-width:820px}
+.faq-item{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .35s var(--ease)}
+.faq-item:hover{border-color:var(--border-strong)}
+.faq-q{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text-primary);padding:16px 22px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;user-select:none}
+.faq-q svg{flex-shrink:0;color:var(--text-muted);transition:transform .3s var(--ease)}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{padding:0 22px 16px;font-size:14px;line-height:1.7;color:var(--text-label);display:none}
+.faq-item.open .faq-a{display:block}
+
+/* CTA */
+.cta-band{background:var(--gradient-dark);position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 70% 50%,rgba(95,207,208,.12) 0%,transparent 60%);pointer-events:none;animation:float 15s ease-in-out infinite}
+.cta-inner{max-width:1200px;margin:0 auto;padding:72px 32px;position:relative;z-index:1;text-align:center}
+.cta-band h2{font-family:var(--font-display);font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-1.2px;line-height:1.15;color:#E2E8F4;max-width:700px;margin:0 auto}
+.cta-band h2 .accent{background:linear-gradient(135deg,#6ED9DA,#5EA1DC,#8ECDF2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-subline{font-size:15px;color:#8A9DBD;margin-top:12px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6}
+.cta-countdown{display:flex;gap:10px;justify-content:center;margin:24px 0}
+.cta-countdown .countdown-unit{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+.footer-section{background:var(--surface-1);border-top:1px solid var(--border);padding:56px 0 28px}
+.footer-grid{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:40px}
+.footer-brand{max-width:260px}
+.footer-brand .nav-logo{margin-bottom:10px}
+.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.6}
+.footer-col h4{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--text-primary);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:var(--text-label);padding:3px 0;transition:color .2s}
+.footer-col a:hover{color:var(--teal-500)}
+.footer-bottom{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:var(--text-muted)}
+@media(max-width:900px){.footer-grid{grid-template-columns:repeat(2,1fr);gap:28px}.footer-brand{grid-column:span 2}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}.footer-brand{grid-column:span 1}.footer-bottom{flex-direction:column;gap:8px;text-align:center}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="io">io</span>Nova AI</a>
+    <ul class="nav-links">
+      <li><a href="#capabilities">Platform</a></li>
+      <li><a href="#pillars">Solutions</a></li>
+      <li><a href="#comparison">Why Purpose-Built</a></li>
+      <li><a href="#leadership">Company</a></li>
+      <li><a href="#faq">Resources</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#cta" class="nav-cta nav-cta-outline">Contact Us</a>
+      <a href="#cta" class="nav-cta nav-cta-primary">View a Demo</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb-3"></div>
+  <div class="w">
+    <div class="hero-badge"><span class="pulse-dot"></span><span>November 2026 Deadline · Address Intelligence for ISO 20022</span></div>
+    <h1>
+      <span class="line1">The ISO 20022 Deadline Is <span id="hero-months"></span> Months Away.</span>
+      <span class="accent">Postal Addresses Are the Last Mile No One Is Solving.</span>
+    </h1>
+    <p class="hero-sub"><strong>Hybrid addresses pass minimum compliance. Structured addresses pass every test.</strong> ioNova delivers AI-native structured address resolution for SWIFT CBPR+ and SEPA — 98%+ STP rates, <strong>195 countries</strong>, production compliance in <strong>10–16 weeks</strong>.</p>
+    <div class="hero-ctas">
+      <a href="#cta" class="btn btn-accent btn-lg">See Structured Resolution in Action <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#roi" class="btn btn-outline btn-lg">Calculate Your Savings <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="hero-kpis">
+      <div class="hero-kpi"><div class="hero-kpi-icon">⏰</div><div class="hero-kpi-value urgent" id="hero-days">~270</div><div class="hero-kpi-label">Days until November 2026 deadline</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-icon">📈</div><div class="hero-kpi-value">98%+</div><div class="hero-kpi-label">Straight-through processing rate</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-icon">🎯</div><div class="hero-kpi-value">~30%</div><div class="hero-kpi-label">Sanctions false positive reduction</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-icon">🌍</div><div class="hero-kpi-value">195</div><div class="hero-kpi-label">Countries & 50+ writing systems</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown-band" id="countdown">
+  <div class="w" style="padding-top:64px;padding-bottom:64px">
+    <div class="section-label">Urgency</div>
+    <h2 class="section-title" style="max-width:760px">The Clock Is Ticking: Inside the 9-Month Implementation Window for ISO 20022 Compliance</h2>
+    <div class="countdown-grid" style="margin-top:36px">
+      <div>
+        <div class="countdown-timer">
+          <div class="countdown-unit"><div class="countdown-num" id="cd-days">000</div><div class="countdown-lbl">Days</div></div>
+          <div class="countdown-unit"><div class="countdown-num" id="cd-hours">00</div><div class="countdown-lbl">Hours</div></div>
+          <div class="countdown-unit"><div class="countdown-num" id="cd-mins">00</div><div class="countdown-lbl">Minutes</div></div>
+          <div class="countdown-unit"><div class="countdown-num" id="cd-secs">00</div><div class="countdown-lbl">Seconds</div></div>
+        </div>
+        <p class="countdown-text">The payments industry is calling it the <strong>Financial Y2K</strong> — a hard deadline with cascading consequences. After November 2026, improperly structured address data faces progressive rejection by SWIFT and correspondent banks. Each rejected payment triggers <strong>$25–50 in manual exception costs</strong>.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-dot complete">✅</div><div class="timeline-content"><div class="timeline-date">November 2025</div><h4>MT format refused for new messages</h4><p>MX/ISO 20022 is now the primary format</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot now">🔴</div><div class="timeline-content"><div class="timeline-date">February 2026</div><h4>9-month implementation window opens</h4><p>Minimum viable timeline for address structuring</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot upcoming">⏳</div><div class="timeline-content"><div class="timeline-date">November 2026</div><h4>DEADLINE: Unstructured addresses refused</h4><p>Structured fields required in SEPA &amp; SWIFT CBPR+</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot future">🔮</div><div class="timeline-content"><div class="timeline-date">November 2027</div><h4>E&I Mandate enforcement</h4><p>Extended mandate tightens further</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 DIFFERENTIATORS -->
+<section class="section section-bordered" id="capabilities">
+  <div class="w">
+    <div class="section-label">Core Capabilities</div>
+    <h2 class="section-title">6 Signature Capabilities That Drive 98%+ STP</h2>
+    <p class="section-desc">Purpose-built address intelligence with deep banking logic that generic postal tools and LLMs cannot replicate.</p>
+    <div class="diff-grid sr" style="margin-top:36px">
+      <div class="diff-card"><div class="diff-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><h3>Financial ID Preservation</h3><p>Validates and preserves 50+ financial identifiers — LEI, IBAN, BIC, SWIFT codes — before address parsing begins.</p></div>
+      <div class="diff-card"><div class="diff-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3>Geographic Disambiguation</h3><p>"Paris" appears in 28 locations worldwide. ioNova uses currency codes, BIC prefixes, and postal patterns for deterministic resolution.</p></div>
+      <div class="diff-card"><div class="diff-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3>Historical Name Resolution</h3><p>Bidirectional mapping for renamed cities — Bombay ↔ Mumbai, Peking ↔ Beijing — across decades of payment records.</p></div>
+      <div class="diff-card"><div class="diff-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg></div><h3>Data De-Duplication</h3><p>Detects and removes redundant address elements from message relay chains. Clean structured output without data loss.</p></div>
+      <div class="diff-card"><div class="diff-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><path d="M11 8v6M8 11h6"/></svg></div><h3>Full Explainability</h3><p>Field-by-field audit trails with rule citations for every decision. SR 11-7 and EU AI Act transparency compliant.</p></div>
+      <div class="diff-card"><div class="diff-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M6 20V4M18 20v-6"/></svg></div><h3>Confidence Scoring</h3><p>Graduated scores (0.00–1.00) with threshold-based routing. Auto-process ≥0.95, escalate low-confidence for human review.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<div class="logos-band">
+  <div class="logos-title">Trusted by payment operations, compliance, and technology teams across global financial services</div>
+  <div class="logos-strip">
+    <div class="logo-placeholder">Tier 1 Bank</div><div class="logo-placeholder">Global Processor</div><div class="logo-placeholder">SWIFT Partner</div><div class="logo-placeholder">Compliance Leader</div><div class="logo-placeholder">Infrastructure Provider</div>
+  </div>
+</div>
+
+<!-- 4 PILLARS -->
+<section class="section section-bordered" id="pillars">
+  <div class="w">
+    <div class="section-label">Deep Dives</div>
+    <h2 class="section-title">Master the Mandate: The 4 Pillars of Structured Address Intelligence</h2>
+    <div class="pillars-grid sr" style="margin-top:36px">
+      <div class="pillar-card"><div class="pillar-num">Pillar 01</div><h3>The Mandate</h3><p>What EPC, SWIFT CBPR+, and CPMI/BIS actually require. Why hybrid is the floor, not the ceiling.</p><div class="pillar-insight">Three independent regulators converge on the same requirement.</div><a href="/address-intelligence/mandate" class="pillar-link">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="pillar-card"><div class="pillar-num">Pillar 02</div><h3>The Strategic Value</h3><p>Turn a compliance cost into operational advantage. $8–12B problem. 30–50x ROI. 98%+ STP.</p><div class="pillar-insight">Compliance-only approaches capture &lt;20% of available value.</div><a href="/address-intelligence/business-value" class="pillar-link">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="pillar-card"><div class="pillar-num">Pillar 03</div><h3>The Roadmap</h3><p>Full compliance in 10–16 weeks. Sidecar architecture, pre-built connectors, circuit-breaker protection.</p><div class="pillar-insight">15 weeks vs. 18 months. No core system replacement.</div><a href="/address-intelligence/implementation" class="pillar-link">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="pillar-card"><div class="pillar-num">Pillar 04</div><h3>The Technology</h3><p>Why postal tools and LLMs fail for ISO 20022. Why purpose-built is the only viable path.</p><div class="pillar-insight">Postal validation ≠ payment validation.</div><a href="/address-intelligence/why-purpose-built" class="pillar-link">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section section-bordered" id="comparison">
+  <div class="w">
+    <div class="section-label">Differentiation</div>
+    <h2 class="section-title">Why Postal Validation Tools and LLMs Fail for Payment Compliance</h2>
+    <div class="comparison-table-wrap sr">
+      <table class="comparison-table">
+        <thead><tr><th>Capability</th><th>Generic Postal APIs</th><th>LLMs</th><th>In-House Build</th><th>ioNova</th></tr></thead>
+        <tbody>
+          <tr><td>Output format</td><td>Postal standard</td><td>Unstructured text</td><td>Custom XML</td><td>Native ISO 20022 XML</td></tr>
+          <tr><td>Coverage</td><td>Major markets</td><td>Training-dependent</td><td>What you build</td><td>195 countries, 50+ scripts</td></tr>
+          <tr><td>Financial ID handling</td><td>Stripped / corrupted</td><td>Not understood</td><td>Manual</td><td>50+ IDs preserved</td></tr>
+          <tr><td>Sanctions screening impact</td><td>None</td><td>Unreliable</td><td>Manual tuning</td><td>~30% false positive reduction</td></tr>
+          <tr><td>Explainability</td><td>Minimal</td><td>None (black box)</td><td>What you build</td><td>Field-level rule citations</td></tr>
+          <tr><td>STP improvement</td><td>Marginal</td><td>N/A</td><td>Variable</td><td>40% → 98%+</td></tr>
+          <tr><td>Implementation</td><td>6–18 months</td><td>Weeks (unreliable)</td><td>18–36 months</td><td>10–16 weeks</td></tr>
+          <tr><td>Determinism</td><td>Deterministic</td><td>Non-deterministic</td><td>Deterministic</td><td>Deterministic with audit</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- IMPLEMENTATION -->
+<section class="section section-bordered" id="implementation">
+  <div class="w">
+    <div class="section-label">Implementation</div>
+    <h2 class="section-title">One Integration. Full Compliance. Zero Legacy Overhaul.</h2>
+    <p class="section-desc">Deploys as a sidecar service — intercepts, resolves, and returns enriched messages without modifying your core payment flow.</p>
+    <div class="impl-phases sr">
+      <div class="impl-phase"><div class="impl-phase-num">Phase 1 · Weeks 1–4</div><h3>Analysis & Configuration</h3><p>Connect to existing infrastructure. Analyse address data quality. Configure parsing rules and confidence thresholds.</p></div>
+      <div class="impl-phase"><div class="impl-phase-num">Phase 2 · Weeks 5–10</div><h3>Integration & Testing</h3><p>Pre-built connectors for MuleSoft, Volante, Finastra. SWIFT integration via Alliance Lite2 and Alliance Access.</p></div>
+      <div class="impl-phase"><div class="impl-phase-num">Phase 3 · Weeks 11–16</div><h3>Production Deployment</h3><p>Circuit-breaker protection. 85–90% initial structuring, rising to 95%+ in the first quarter. Zero downtime risk.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="section section-bordered" id="roi">
+  <div class="w">
+    <div class="section-label">Business Value</div>
+    <h2 class="section-title">The Economics of Getting Address Data Right</h2>
+    <div class="roi-grid sr">
+      <div class="roi-tile"><div class="roi-value">$8–12B</div><div class="roi-label">Annual industry cost of poor address data</div></div>
+      <div class="roi-tile"><div class="roi-value">40%→98%+</div><div class="roi-label">Typical STP improvement</div></div>
+      <div class="roi-tile"><div class="roi-value">~30%</div><div class="roi-label">Sanctions false positive reduction</div></div>
+      <div class="roi-tile"><div class="roi-value">30–50×</div><div class="roi-label">ROI within 12 months</div></div>
+      <div class="roi-tile"><div class="roi-value">10–16 wks</div><div class="roi-label">To production</div></div>
+      <div class="roi-tile"><div class="roi-value">$75K</div><div class="roi-label">Entity Platform pilot (from)</div></div>
+    </div>
+    <div style="text-align:center;margin-top:36px" class="sr">
+      <a href="#cta" class="btn btn-accent btn-lg">Calculate Your 5-Year Savings <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="section section-bordered" id="insights">
+  <div class="w">
+    <div class="section-label">Insights</div>
+    <h2 class="section-title">Latest from the ioNova Resource Centre</h2>
+    <p class="section-desc">Research, analysis, and practical guidance for ISO 20022 address compliance.</p>
+    <div class="insights-grid sr" style="margin-top:36px">
+      <a href="https://acesw.com/blog/iso-20022-november-2026-deadline" class="insight-card">
+        <div class="insight-badge">Blog</div>
+        <h3>November 2026: The Deadline That Won't Move</h3>
+        <p>What SWIFT CBPR+ and SEPA enforcement actually means for your payment operations — and why the 9-month implementation window starts now.</p>
+        <span class="insight-link">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="https://acesw.com/blog/llm-address-parsing-limitations" class="insight-card">
+        <div class="insight-badge">Blog</div>
+        <h3>Why LLMs Fail at Payment Address Parsing</h3>
+        <p>Non-deterministic output, hallucination risk, and zero audit trail. Why general-purpose AI models are unsuitable for regulated payment compliance.</p>
+        <span class="insight-link">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="https://acesw.com/blog/payment-exception-costs-address-data" class="insight-card">
+        <div class="insight-badge">Blog</div>
+        <h3>The $8–12 Billion Problem: Address Data Quality Economics</h3>
+        <p>How poor address data drives $25–50 per-exception costs, suppresses STP rates, and inflates sanctions false positives across the industry.</p>
+        <span class="insight-link">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <a href="/resources/all-content" class="btn btn-outline" style="font-size:13px">View All Resources <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="section section-bordered" id="leadership">
+  <div class="w">
+    <div class="section-label">Leadership</div>
+    <h2 class="section-title">100+ Years of Combined AI, Banking & Enterprise Delivery</h2>
+    <p class="section-desc">Forged over three decades building AI at the heart of global financial infrastructure — sharpened by a new generation of engineers.</p>
+    <div class="leadership-grid sr">
+      <div class="leader-card"><div class="leader-avatar">PD</div><h3>Parth Desai</h3><div class="leader-role">Founder & CEO</div><div class="leader-creds">MS AI, Georgia Tech · Yale · HBS · INSEAD</div><p>30+ years applying AI to financial services. Platforms processing $5T annually across 55+ countries. Creator of Knowledge First AI™.</p><a href="/company/about#parth-desai" class="leader-link">Full Bio →</a></div>
+      <div class="leader-card"><div class="leader-avatar">IT</div><h3>Ishan Tarunesh</h3><div class="leader-role">Co-Founder & CTO</div><div class="leader-creds">B.Tech CS, IIT Bombay · Published NLP (ACL, EACL)</div><p>Leads platform architecture, proprietary NER and cascade entity resolution. Published in multilingual modelling and cross-lingual processing.</p><a href="/company/about#ishan-tarunesh" class="leader-link">Full Bio →</a></div>
+      <div class="leader-card"><div class="leader-avatar">DM</div><h3>Devavrat Mahajan</h3><div class="leader-role">Co-Founder & COO</div><div class="leader-creds">IIT Bombay · IIM Ahmedabad · Amazon AI/ML</div><p>Runs enterprise partnerships and go-to-market. Former Amazon AI/ML PM. Scaled AI company to $5M+ valuation, fully bootstrapped.</p><a href="/company/about#devavrat-mahajan" class="leader-link">Full Bio →</a></div>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <a href="/company/about" class="btn btn-outline" style="font-size:13px">Meet the Full Team <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-bordered" id="faq">
+  <div class="w">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">What Financial Institutions Ask About ISO 20022 and Address Intelligence</h2>
+    <div class="faq-list sr">
+      <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)">What is address intelligence and how is it different from address validation?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Address intelligence parses, validates, enriches, and structures postal address data to meet ISO 20022 compliance. Unlike postal validation — which confirms a physical location exists — address intelligence resolves against regulatory standards, sanctions screening precision, and payment routing across 195 countries simultaneously.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the difference between structured and hybrid addresses in ISO 20022?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Structured addresses populate dedicated XML elements (StrtNm, BldgNb, TwnNm, PstCd, Ctry) with validated components. Hybrid combines some structured with free-text. Regulators mandate structured as the target — hybrid is the minimum fallback. Delivering structured automatically satisfies hybrid with identical effort.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Why can't postal APIs or LLMs handle payment compliance?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Postal APIs lack ISO 20022 XML output, can't handle financial identifiers, and cover primarily Latin-script markets. LLMs fail due to non-deterministic output, hallucination risk, latency exceeding sub-100ms requirements, and no regulatory audit trail.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does implementation take?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Address intelligence deploys in 10–16 weeks via sidecar architecture alongside existing infrastructure. No core banking system replacement required. Pre-built connectors for MuleSoft, Volante, and Finastra.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What ROI can institutions expect?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Institutions processing 500,000+ cross-border payments annually typically achieve 30–50x ROI within 12 months. The Entity Intelligence Platform delivers 366%+ three-year ROI.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the SWIFT ISO 20022 deadline for structured addresses?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-a">Enforcement begins November 2026. MT was refused for new messages in November 2025. February 2026 marks the start of the 9-month critical implementation window. The E&I Mandate in November 2027 tightens further.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" id="cta">
+  <div class="cta-inner">
+    <h2>The November 2026 ISO 20022 Deadline Won't Wait. <span class="accent">Your Address Data Shouldn't Either.</span></h2>
+    <p class="cta-subline">Purpose-built address intelligence. 195 countries. 98%+ STP. 10–16 weeks to production.</p>
+    <div class="cta-countdown">
+      <div class="countdown-unit"><div class="countdown-num" id="cta-days">000</div><div class="countdown-lbl">Days</div></div>
+      <div class="countdown-unit"><div class="countdown-num" id="cta-hours">00</div><div class="countdown-lbl">Hours</div></div>
+      <div class="countdown-unit"><div class="countdown-num" id="cta-mins">00</div><div class="countdown-lbl">Minutes</div></div>
+    </div>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-accent btn-lg">See Structured Resolution in Action <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#" class="btn btn-outline btn-lg" style="color:#E2E8F4;border-color:rgba(255,255,255,.2)">Calculate Savings <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-section">
+  <div class="w">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="/" class="nav-logo"><span class="io">io</span>Nova AI</a><p>Intelligent Data Infrastructure for Regulated Enterprises.</p></div>
+      <div class="footer-col"><h4>Platform</h4><a href="#">Address Intelligence</a><a href="#">Entity Intelligence</a><a href="#">Cascade Engine</a><a href="#">Governance</a></div>
+      <div class="footer-col"><h4>Solutions</h4><a href="#">Payment Operations</a><a href="#">Compliance & AML</a><a href="#">Financial Crime</a><a href="#">Data & AI</a></div>
+      <div class="footer-col"><h4>Resources</h4><a href="#">Architecture Papers</a><a href="#">Case Studies</a><a href="#">Blog</a><a href="#">Documentation</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="#">Leadership</a><a href="#">Careers</a><a href="#">Contact</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 ioNova AI · Intelligent Data Infrastructure for Regulated Enterprises</div>
+      <a href="/" class="nav-logo" style="font-size:16px"><span class="io">io</span>Nova AI</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleTheme(){const h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark')}
+function updateCountdown(){
+  const d=new Date('2026-11-01T00:00:00Z')-new Date();if(d<=0)return;
+  const days=Math.floor(d/864e5),hrs=Math.floor(d%864e5/36e5),mins=Math.floor(d%36e5/6e4),secs=Math.floor(d%6e4/1e3);
+  const p=n=>String(n).padStart(2,'0'),el=id=>document.getElementById(id);
+  if(el('hero-days'))el('hero-days').textContent='~'+days;
+  if(el('hero-months'))el('hero-months').textContent=Math.round(days/30.44);
+  if(el('cd-days'))el('cd-days').textContent=String(days).padStart(3,'0');
+  if(el('cd-hours'))el('cd-hours').textContent=p(hrs);
+  if(el('cd-mins'))el('cd-mins').textContent=p(mins);
+  if(el('cd-secs'))el('cd-secs').textContent=p(secs);
+  if(el('cta-days'))el('cta-days').textContent=String(days).padStart(3,'0');
+  if(el('cta-hours'))el('cta-hours').textContent=p(hrs);
+  if(el('cta-mins'))el('cta-mins').textContent=p(mins);
+}
+updateCountdown();setInterval(updateCountdown,1000);
+function toggleFaq(el){el.closest('.faq-item').classList.toggle('open')}
+window.addEventListener('scroll',()=>{document.querySelector('.nav').classList.toggle('is-scrolled',window.scrollY>10)},{passive:true});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

@@ -16,7 +16,7 @@ export function LogosSection() {
     ];
 
     return (
-        <section className="bg-gradient-to-b from-white to-gray-50 pt-8 pb-16 lg:pt-10 lg:pb-20 overflow-hidden">
+        <section className="bg-background pt-8 pb-16 lg:pt-10 lg:pb-20 overflow-hidden">
             <div className="container">
                 {/* Section header */}
                 <div className="mb-8 text-center">
@@ -48,8 +48,8 @@ export function LogosSection() {
                 {/* Desktop Logos marquee container */}
                 <div className="relative hidden md:block">
                     {/* Gradient overlays for smooth fade effect */}
-                    <div className="absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-gray-50 to-transparent"></div>
-                    <div className="absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-gray-50 to-transparent"></div>
+                    <div className="absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-background to-transparent"></div>
+                    <div className="absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-background to-transparent"></div>
 
                     {/* Marquee wrapper */}
                     <div className="flex overflow-hidden">
