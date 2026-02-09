@@ -3,23 +3,31 @@ import { useParams, Link } from "@/lib/router-shim";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock, Loader2 } from "lucide-react";
 import { useGhostPostBySlug } from "@/hooks/useGhostPosts";
+import { GhostPost } from "@/lib/ghost";
 import { format } from "date-fns";
 
 import { AppWrapper } from "@/components/AppWrapper";
 
-const BlogPostContent = ({ post: propPost }: { post?: any }) => {
+interface MockPost {
+  title: string;
+  date?: string;
+  readTime?: string;
+  image?: string;
+  html?: string;
+  excerpt?: string;
+  author?: string;
+  category?: string;
+}
+
+const BlogPostContent = ({ post: propPost }: { post?: MockPost }) => {
   const { slug } = useParams<{ slug: string }>();
-  // Conditionally call hook? No, hooks can't be conditional.
-  // But we can skip the query if we have the post? 
-  // useGhostPostBySlug uses useQuery. We can distinguish by passing 'enabled' option if the hook supports it.
-  // If not, we still call it. But now we are inside AppWrapper, so QueryClientProvider is present!
+
   const { data: ghostPost, isLoading, error } = useGhostPostBySlug(slug || '');
 
   // Use propPost if available, otherwise use ghostPost
   const post = propPost || ghostPost;
 
-  // Normalize mock data to match expected structure if needed
-  // If it's a mock post, it won't have 'html' or 'published_at' in the same format
+  // Determine if it's a mock post
   const isMockPost = !!propPost;
 
   if (isLoading && !post) {
@@ -53,15 +61,34 @@ const BlogPostContent = ({ post: propPost }: { post?: any }) => {
     );
   }
 
-  // Helper values for rendering
-  const title = post.title;
-  const date = isMockPost ? post.date : (post.published_at ? format(new Date(post.published_at), 'MMMM d, yyyy') : '');
-  const readTime = isMockPost ? post.readTime.replace(' min read', '') : post.reading_time;
-  const authors = isMockPost ? [{ name: post.author }] : (post.authors || []);
-  const image = isMockPost ? post.image : post.feature_image;
-  const htmlContent = isMockPost ? `<p>${post.excerpt}</p><p><em>(Full content not available in preview)</em></p>` : post.html;
-  const tags = isMockPost ? [{ id: '1', name: post.category }] : (post.tags || []);
+  // Normalize data for display
+  let displayTitle: string;
+  let displayDate: string | undefined;
+  let displayReadTime: string | undefined;
+  let displayAuthors: { name: string }[] = [];
+  let displayImage: string | undefined;
+  let displayHtml: string;
+  let displayTags: { id: string; name: string }[] = [];
 
+  if (isMockPost) {
+    const p = post as MockPost;
+    displayTitle = p.title;
+    displayDate = p.date;
+    displayReadTime = p.readTime?.replace(' min read', '');
+    if (p.author) displayAuthors = [{ name: p.author }];
+    displayImage = p.image;
+    displayHtml = p.html || `<p>${p.excerpt}</p><p><em>(Full content not available in preview)</em></p>`;
+    if (p.category) displayTags = [{ id: '1', name: p.category }];
+  } else {
+    const p = post as GhostPost;
+    displayTitle = p.title;
+    displayDate = p.published_at ? format(new Date(p.published_at), 'MMMM d, yyyy') : undefined;
+    displayReadTime = p.reading_time?.toString();
+    displayAuthors = p.authors?.map(a => ({ name: a.name })) || [];
+    displayImage = p.feature_image || undefined;
+    displayHtml = p.html;
+    displayTags = p.tags?.map(t => ({ id: t.id, name: t.name })) || [];
+  }
 
   return (
     <Layout>
@@ -82,29 +109,29 @@ const BlogPostContent = ({ post: propPost }: { post?: any }) => {
             </Button>
 
             <h1 className="mb-4 text-4xl font-bold text-sky-200 md:text-5xl">
-              {title}
+              {displayTitle}
             </h1>
 
             <div className="flex flex-wrap items-center gap-4 text-sky-200/80">
-              {date && (
-                <span>{date}</span>
+              {displayDate && (
+                <span>{displayDate}</span>
               )}
               <span>•</span>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
-                <span>{readTime} min read</span>
+                <span>{displayReadTime} min read</span>
               </div>
-              {authors && authors.length > 0 && (
+              {displayAuthors.length > 0 && (
                 <>
                   <span>•</span>
-                  <span>By {authors.map((author: any) => author.name).join(', ')}</span>
+                  <span>By {displayAuthors.map(a => a.name).join(', ')}</span>
                 </>
               )}
             </div>
 
-            {tags && tags.length > 0 && (
+            {displayTags.length > 0 && (
               <div className="mt-6 flex flex-wrap gap-2">
-                {tags.map((tag: any) => (
+                {displayTags.map((tag) => (
                   <span
                     key={tag.id}
                     className="rounded-full bg-white/10 px-3 py-1 text-sm text-sky-200"
@@ -119,13 +146,13 @@ const BlogPostContent = ({ post: propPost }: { post?: any }) => {
       </section>
 
       {/* Featured Image */}
-      {image && (
+      {displayImage && (
         <section className="bg-background py-8">
           <div className="container">
             <div className="mx-auto max-w-4xl">
               <img
-                src={image}
-                alt={title}
+                src={displayImage}
+                alt={displayTitle}
                 width={896}
                 height={504}
                 loading="lazy"
@@ -141,7 +168,7 @@ const BlogPostContent = ({ post: propPost }: { post?: any }) => {
         <div className="container">
           <article className="prose prose-lg prose-blue mx-auto max-w-4xl">
             <div
-              dangerouslySetInnerHTML={{ __html: htmlContent }}
+              dangerouslySetInnerHTML={{ __html: displayHtml }}
               className="ghost-content"
             />
           </article>
@@ -173,7 +200,7 @@ const BlogPostContent = ({ post: propPost }: { post?: any }) => {
   );
 };
 
-const BlogPost = (props: { post?: any }) => (
+const BlogPost = (props: { post?: MockPost }) => (
   <AppWrapper>
     <BlogPostContent {...props} />
   </AppWrapper>
