@@ -1,26 +1,22 @@
 import { useState, useEffect } from "react";
 
 export function CTABandSection() {
-  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0 });
+  const [days, setDays] = useState(0);
 
   useEffect(() => {
     function update() {
       const diff = new Date("2026-11-01T00:00:00Z").getTime() - Date.now();
       if (diff <= 0) return;
-      setCountdown({
-        days: Math.floor(diff / 864e5),
-        hours: Math.floor((diff % 864e5) / 36e5),
-        minutes: Math.floor((diff % 36e5) / 6e4),
-      });
+      setDays(Math.floor(diff / 864e5));
     }
     update();
-    const interval = setInterval(update, 60000);
+    const interval = setInterval(update, 1000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section
-      className="relative overflow-hidden px-6 py-24"
+      className="relative overflow-hidden px-6 py-14"
       style={{
         background: "linear-gradient(135deg, #0E1935 0%, #1A1E35 30%, #243574 60%, #2B4E86 100%)",
       }}
@@ -64,48 +60,43 @@ export function CTABandSection() {
         </p>
 
         {/* Countdown */}
-        <div className="mb-10 flex justify-center gap-3">
-          {[
-            { value: countdown.days, label: "DAYS" },
-            { value: countdown.hours, label: "HOURS" },
-            { value: countdown.minutes, label: "MINUTES" },
-          ].map((unit) => (
+        <div className="mb-10 flex justify-center">
+          <div
+            className="rounded-2xl border border-white/10 px-10 py-5 text-center transition-all duration-300 hover:-translate-y-0.5"
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 32px rgba(0,0,0,0.3)",
+              backdropFilter: "blur(12px)",
+            }}
+          >
             <div
-              key={unit.label}
-              className="rounded-2xl border border-white/10 px-5 py-4 text-center transition-all duration-300 hover:-translate-y-0.5"
               style={{
-                background: "rgba(255,255,255,0.06)",
-                minWidth: "90px",
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(40px, 7vw, 56px)",
+                letterSpacing: "-1.5px",
+                lineHeight: 1,
+                background: "linear-gradient(180deg, #6ED9DA, #5AAFCB)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
               }}
             >
-              <div
-                style={{
-                  fontFamily: "'Outfit', system-ui, sans-serif",
-                  fontWeight: 800,
-                  fontSize: "32px",
-                  letterSpacing: "-1px",
-                  background: "linear-gradient(135deg, #5FCFD0, #5EA1DC)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                {unit.value}
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Outfit', system-ui, sans-serif",
-                  fontSize: "10px",
-                  fontWeight: 600,
-                  letterSpacing: "1px",
-                  color: "#576A86",
-                  marginTop: "2px",
-                }}
-              >
-                {unit.label}
-              </div>
+              {days}
             </div>
-          ))}
+            <div
+              style={{
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontSize: "11px",
+                fontWeight: 600,
+                letterSpacing: "1.5px",
+                color: "#6B7FA0",
+                marginTop: "6px",
+              }}
+            >
+              DAYS
+            </div>
+          </div>
         </div>
 
         {/* Buttons */}
