@@ -24,7 +24,7 @@ export function LeadershipSection() {
   ];
 
   return (
-    <section className="py-24 px-6" id="leadership">
+    <section className="border-t border-border bg-background py-24 px-6" id="leadership">
       <div className="mx-auto max-w-[1200px]">
         {/* Section Label */}
         <div className="mb-4 flex items-center gap-2">
