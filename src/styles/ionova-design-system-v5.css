@@ -682,3 +682,98 @@
   .ds-v5 .hero h1{letter-spacing:-1px}
   .ds-v5 .footer{flex-direction:column;gap:var(--space-md);text-align:center}
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT PAGE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Hero subtitle */
+.ds-v5 .hero-subtitle{font-size:18px;line-height:1.7;color:var(--text-label);max-width:620px;animation:fadeSlideUp .6s ease-out .2s both}
+
+/* Intro narrative */
+.ds-v5 .narrative{font-size:16px;line-height:1.75;color:var(--text-label);max-width:780px}
+.ds-v5 .narrative strong{color:var(--text-primary);font-weight:600}
+.ds-v5 .narrative-highlight{margin:var(--space-xl) 0;padding:var(--space-lg) var(--space-xl);background:var(--gradient-glow);border-left:3px solid var(--teal-500);border-radius:0 var(--radius-md) var(--radius-md) 0;font-size:16px;line-height:1.7;color:var(--text-primary);font-weight:500}
+
+/* Sub-label */
+.ds-v5 .sub-label{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-0.3px;color:var(--text-primary);margin-top:var(--space-2xl);margin-bottom:var(--space-md);display:flex;align-items:center;gap:10px}
+.ds-v5 .sub-label::before{content:'';width:3px;height:20px;background:var(--gradient-brand);border-radius:2px;animation:glow-pulse 3s ease-in-out infinite}
+
+/* Philosophy cards */
+.ds-v5 .philosophy-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg)}
+.ds-v5 .philosophy-card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-xl);position:relative;overflow:hidden;transition:all .35s var(--ease)}
+.ds-v5 .philosophy-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#5FCFD0,#43ADC1,#3C75B5,#243574,#3C75B5,#43ADC1,#5FCFD0);background-size:200% 100%;animation:gradient-x 4s ease-in-out infinite}
+.ds-v5 .philosophy-card::after{content:'';position:absolute;inset:0;background:var(--gradient-shimmer);background-size:200% 100%;opacity:0;transition:opacity .5s;pointer-events:none}
+.ds-v5 .philosophy-card:hover::after{opacity:1;animation:shimmer 2.5s ease-in-out infinite}
+.ds-v5 .philosophy-card:hover{border-color:var(--border-strong);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.ds-v5 .philosophy-icon{width:44px;height:44px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-md);transition:all .3s var(--ease)}
+.ds-v5 .philosophy-icon.ic-teal{background:linear-gradient(135deg,rgba(95,207,208,0.12),rgba(67,173,193,0.08));border:1px solid rgba(67,173,193,0.2);color:var(--teal-500)}
+.ds-v5 .philosophy-icon.ic-blue{background:linear-gradient(135deg,rgba(94,161,220,0.12),rgba(60,117,181,0.08));border:1px solid rgba(94,161,220,0.2);color:var(--blue-400)}
+.ds-v5 .philosophy-icon.ic-cyan{background:linear-gradient(135deg,rgba(95,207,208,0.12),rgba(142,205,242,0.08));border:1px solid rgba(95,207,208,0.2);color:var(--cyan-400)}
+.ds-v5 .philosophy-icon.ic-navy{background:linear-gradient(135deg,rgba(36,53,116,0.15),rgba(26,30,53,0.1));border:1px solid rgba(36,53,116,0.25);color:var(--blue-500)}
+.ds-v5 .philosophy-icon svg{width:22px;height:22px;stroke-width:1.75}
+.ds-v5 .philosophy-title{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:var(--space-sm);letter-spacing:-0.3px}
+.ds-v5 .philosophy-desc{font-size:14px;color:var(--text-label);line-height:1.65}
+
+/* KPI value gradient variant */
+.ds-v5 .kpi-value.gradient{background:linear-gradient(135deg,var(--cyan-400),var(--teal-500),var(--blue-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:gradient-x 5s ease-in-out infinite}
+
+/* Domains */
+.ds-v5 .domains-row{display:flex;gap:var(--space-sm);flex-wrap:wrap;margin-top:var(--space-md)}
+.ds-v5 .domain-tag{font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.3px;padding:6px 16px;border-radius:var(--radius-full);background:var(--surface-1);border:1px solid var(--border);color:var(--text-label);transition:all .25s var(--ease)}
+.ds-v5 .domain-tag:hover{border-color:var(--teal-500);color:var(--teal-500);transform:translateY(-1px);box-shadow:0 0 15px rgba(67,173,193,0.1)}
+
+/* Leadership cards */
+.ds-v5 .leaders-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg)}
+.ds-v5 .leader-card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-xl);padding:var(--space-xl) var(--space-xl) var(--space-lg);position:relative;overflow:hidden;transition:all .35s var(--ease)}
+.ds-v5 .leader-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#5FCFD0,#43ADC1,#3C75B5,#243574,#3C75B5,#43ADC1,#5FCFD0);background-size:200% 100%;animation:gradient-x 4s ease-in-out infinite}
+.ds-v5 .leader-card::after{content:'';position:absolute;inset:0;background:var(--gradient-shimmer);background-size:200% 100%;opacity:0;transition:opacity .5s;pointer-events:none}
+.ds-v5 .leader-card:hover::after{opacity:1;animation:shimmer 2.5s ease-in-out infinite}
+.ds-v5 .leader-card:hover{border-color:var(--border-strong);box-shadow:var(--shadow-lg);transform:translateY(var(--hover-lift))}
+.ds-v5 .leader-card.featured{grid-column:1/-1}
+.ds-v5 .leader-card.featured .leader-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:var(--space-xl);align-items:start}
+.ds-v5 .leader-avatar{width:56px;height:56px;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:20px;font-weight:700;color:#fff;margin-bottom:var(--space-md);flex-shrink:0;background:var(--gradient-brand);background-size:200% auto;animation:gradient-x 6s ease-in-out infinite;box-shadow:0 4px 12px rgba(67,173,193,0.2)}
+.ds-v5 .leader-card.featured .leader-avatar{width:64px;height:64px;font-size:22px}
+.ds-v5 .leader-name{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text-primary);letter-spacing:-0.4px;margin-bottom:2px}
+.ds-v5 .leader-role{font-family:var(--font-display);font-size:13px;font-weight:600;background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:gradient-x 5s ease-in-out infinite;margin-bottom:var(--space-sm)}
+.ds-v5 .leader-creds{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);line-height:1.6;margin-bottom:var(--space-md)}
+.ds-v5 .leader-bio{font-size:14px;color:var(--text-label);line-height:1.65}
+.ds-v5 .leader-bio strong{color:var(--text-primary);font-weight:600}
+.ds-v5 .leader-stats{display:flex;gap:var(--space-md);margin-top:var(--space-md);padding-top:var(--space-md);border-top:1px solid var(--border)}
+.ds-v5 .leader-stat{display:flex;flex-direction:column;align-items:center;flex:1}
+.ds-v5 .leader-stat-value{font-family:var(--font-display);font-size:18px;font-weight:700;background:linear-gradient(135deg,var(--cyan-400),var(--blue-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ds-v5 .leader-stat-label{font-size:11px;color:var(--text-muted);margin-top:2px;text-align:center}
+
+/* Why this team */
+.ds-v5 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg)}
+.ds-v5 .why-card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-xl);text-align:center;transition:all .35s var(--ease);position:relative;overflow:hidden}
+.ds-v5 .why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient-brand);background-size:200% 100%;animation:gradient-x 4s ease-in-out infinite;opacity:0;transition:opacity .3s}
+.ds-v5 .why-card:hover::before{opacity:1}
+.ds-v5 .why-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-strong)}
+.ds-v5 .why-icon{width:52px;height:52px;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-md)}
+.ds-v5 .why-icon svg{width:24px;height:24px;stroke-width:1.5}
+.ds-v5 .why-title{font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:var(--space-sm);letter-spacing:-0.2px}
+.ds-v5 .why-desc{font-size:13px;color:var(--text-label);line-height:1.6}
+
+/* CTA banner */
+.ds-v5 .cta-banner{background:var(--gradient-dark);border-radius:var(--radius-xl);padding:var(--space-3xl) var(--space-2xl);text-align:center;position:relative;overflow:hidden;margin-top:var(--space-2xl)}
+.ds-v5 .cta-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#5FCFD0,#43ADC1,#3C75B5,#243574,#3C75B5,#43ADC1,#5FCFD0);background-size:200% 100%;animation:gradient-x 4s ease-in-out infinite}
+.ds-v5 .cta-banner::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 500px 500px at 30% 50%,rgba(95,207,208,0.08),transparent 60%),radial-gradient(ellipse 400px 400px at 70% 50%,rgba(94,161,220,0.06),transparent 60%);pointer-events:none;animation:float-reverse 20s ease-in-out infinite}
+.ds-v5 .cta-title{font-family:var(--font-display);font-size:clamp(22px,3vw,32px);font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:var(--space-sm);position:relative;z-index:1}
+.ds-v5 .cta-desc{font-size:16px;color:rgba(255,255,255,0.7);max-width:500px;margin:0 auto;line-height:1.6;position:relative;z-index:1}
+.ds-v5 .cta-tagline{font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:var(--space-xl);position:relative;z-index:1;background:linear-gradient(135deg,#5FCFD0,#43ADC1,#8ECDF2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* Footer logo */
+.ds-v5 .footer-logo{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--text-primary);letter-spacing:-0.3px}
+.ds-v5 .footer-logo .io{background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── About page responsive ── */
+@media(max-width:960px){
+  .ds-v5 .philosophy-grid{grid-template-columns:1fr}
+  .ds-v5 .leaders-grid{grid-template-columns:1fr}
+  .ds-v5 .leader-card.featured .leader-inner{grid-template-columns:1fr}
+  .ds-v5 .why-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .ds-v5 .kpi-grid{grid-template-columns:1fr}
+}
