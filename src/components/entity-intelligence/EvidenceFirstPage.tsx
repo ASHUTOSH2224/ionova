@@ -121,5 +121,4 @@ const PAGE_HTML = `<div class="hero">
     </div>
   </div>
 
-  <div class="cta-band"><h2 class="cta-hl">See How Evidence-First AI Transforms <span class="text-grad">Compliance Workflows</span></h2><p class="cta-sub">Every claim cited. Every decision auditable. Every regulator satisfied.</p><div class="cta-btns"><a class="btn btn-accent btn-lg">Request a Demo</a><a class="btn btn-outline">Download Architecture Paper</a></div></div>
-  <footer class="footer"><div class="footer-l"><span class="io">io</span>Nova AI</div><div class="footer-r">Entity Intelligence Platform · 2026</div></footer>`;
+  <div class="cta-band"><h2 class="cta-hl">See How Evidence-First AI Transforms <span class="text-grad">Compliance Workflows</span></h2><p class="cta-sub">Every claim cited. Every decision auditable. Every regulator satisfied.</p><div class="cta-btns"><a class="btn btn-accent btn-lg">Request a Demo</a><a class="btn btn-outline">Download Architecture Paper</a></div></div>`;

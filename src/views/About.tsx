@@ -320,11 +320,4 @@ const PAGE_HTML = `<svg width="0" height="0" style="position:absolute">
     <div class="cta-desc">The only entity intelligence platform trusted by the world's leading financial institutions for their most consequential data challenges.</div>
     <div class="cta-tagline">ioNova AI · Powered by Knowledge First AI™</div>
   </div>
-</section>
-
-<footer class="footer">
-  <div class="footer-left">
-    <span class="footer-logo"><span class="io">io</span>Nova AI</span>
-  </div>
-  <div class="footer-right">The Entity Intelligence Platform · © 2026 ioNova AI</div>
-</footer>`;
+</section>`;

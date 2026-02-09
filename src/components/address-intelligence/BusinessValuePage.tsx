@@ -141,11 +141,4 @@ const PAGE_HTML = `<div class="hero">
       <div class="related-card" data-nav="implementation" style="cursor:pointer"><h4>Implementation Guide →</h4><p>The sidecar architecture and 10–16 week deployment timeline.</p></div>
       <div class="related-card" data-nav="purpose" style="cursor:pointer"><h4>Why Purpose-Built? →</h4><p>Postal validation ≠ payment validation. Why generic tools fail.</p></div>
     </div>
-  </div>
-
-<footer class="footer">
-  <div class="footer-left">
-    <span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--text-primary);letter-spacing:-0.3px"><span style="background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">io</span>Nova AI</span>
-  </div>
-  <div class="footer-right">Address Intelligence · ISO 20022 · Feb 2026</div>
-</footer>`;
+  </div>`;

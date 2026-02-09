@@ -144,5 +144,4 @@ const PAGE_HTML = `<div class="hero">
     </div>
   </div>
 
-  <div class="cta-band"><h2 class="cta-hl">Governance Should Accelerate AI, <span class="text-grad">Not Slow It Down.</span></h2><p class="cta-sub">Audit-grade by architecture. Compliant by design. Ready today.</p><div class="cta-btns"><a class="btn btn-accent btn-lg">See Governance in Action</a><a class="btn btn-outline">Download Regulatory Guide</a></div></div>
-  <footer class="footer"><div class="footer-l"><span class="io">io</span>Nova AI</div><div class="footer-r">Entity Intelligence Platform · 2026</div></footer>`;
+  <div class="cta-band"><h2 class="cta-hl">Governance Should Accelerate AI, <span class="text-grad">Not Slow It Down.</span></h2><p class="cta-sub">Audit-grade by architecture. Compliant by design. Ready today.</p><div class="cta-btns"><a class="btn btn-accent btn-lg">See Governance in Action</a><a class="btn btn-outline">Download Regulatory Guide</a></div></div>`;

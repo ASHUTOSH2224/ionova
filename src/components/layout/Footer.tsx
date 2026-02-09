@@ -1,118 +1,175 @@
-import { Link } from "@/lib/router-shim";
-import { Linkedin } from "lucide-react";
-
-const footerLinks = {
-  product: [
-    { label: "Home", href: "/" },
-    { label: "Platform", href: "/platform" },
-    { label: "Address Intelligence", href: "/address-intelligence/structured-address-mandate" },
-  ],
-  company: [
-    { label: "Company", href: "/company" },
-    { label: "Resources", href: "/resources" },
-  ],
-  legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
-  ],
-};
-
 export function Footer() {
+  const footerLinks = {
+    platform: {
+      title: "PLATFORM",
+      links: [
+        { label: "Address Intelligence", href: "/address-intelligence" },
+        { label: "Entity Intelligence", href: "/platform#entity" },
+        { label: "Cascade Engine", href: "/platform#cascade" },
+        { label: "Governance", href: "/platform#governance" },
+      ],
+    },
+    resources: {
+      title: "RESOURCES",
+      links: [
+        { label: "All Content", href: "/resources" },
+        { label: "Blogs", href: "/resources#blogs" },
+        { label: "Podcasts", href: "/resources#podcasts" },
+        { label: "Videos", href: "/resources#videos" },
+        { label: "Newsletters", href: "/resources#newsletters" },
+      ],
+    },
+    solutions: {
+      title: "SOLUTIONS",
+      links: [
+        {
+          label: "Structured Address Mandate",
+          href: "/address-intelligence#mandate",
+        },
+        { label: "Business Value", href: "/address-intelligence#business" },
+        {
+          label: "Implementation",
+          href: "/address-intelligence#implementation",
+        },
+        {
+          label: "Purpose-Built Solution",
+          href: "/address-intelligence#purpose",
+        },
+      ],
+    },
+    company: {
+      title: "COMPANY",
+      links: [
+        { label: "About", href: "/company" },
+        { label: "Contact", href: "/demo" },
+        { label: "ROI Calculator", href: "/demo" },
+      ],
+    },
+  };
+
   return (
-    <footer className="border-t border-border bg-background py-16 lg:py-20 font-sans">
-      <div className="container px-4 md:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="flex flex-col gap-6">
-            <Link to="/" className="inline-flex items-center font-heading">
-              <span className="text-2xl font-bold text-navy-950">io</span>
-              <span className="text-2xl font-bold text-gradient">Nova</span>
-            </Link>
-            <p className="text-[13px] leading-relaxed text-text-muted max-w-xs">
-              AI-Native Address Resolution for ISO 20022 Compliance. Intelligent Data Infrastructure for Regulated Enterprises.
-            </p>
-            <div className="flex items-center gap-4">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 transition-all hover:bg-blue-500/20 hover:-translate-y-1"
-                aria-label="LinkedIn"
+    <footer className="border-t border-[#D0DAEB] bg-[#F4F7FB]">
+      <div className="mx-auto max-w-[1200px] px-8 pt-16 pb-8">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr]">
+          {/* Brand Column */}
+          <div className="max-w-[300px]">
+            <a href="/" className="inline-block mb-5">
+              <span
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "20px",
+                  letterSpacing: "-0.3px",
+                }}
               >
-                <Linkedin className="h-5 w-5" />
-              </a>
+                <span
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #5FCFD0, #43ADC1, #3C75B5, #243574)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  io
+                </span>
+                <span style={{ color: "#0E1935" }}> Nova AI</span>
+              </span>
+            </a>
+            <p
+              style={{
+                fontFamily: "'Figtree', system-ui, sans-serif",
+                fontSize: "14px",
+                lineHeight: "1.7",
+                color: "#466587",
+              }}
+            >
+              Intelligent Data Infrastructure for Regulated Enterprises.
+              AI-Native ISO 20022 Address Resolution.
+            </p>
+          </div>
+
+          {/* Link Columns */}
+          {Object.values(footerLinks).map((section) => (
+            <div key={section.title}>
+              <h4
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 600,
+                  fontSize: "13px",
+                  letterSpacing: "1.5px",
+                  color: "#43ADC1",
+                  marginBottom: "20px",
+                }}
+              >
+                {section.title}
+              </h4>
+              <ul className="flex flex-col gap-3">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      style={{
+                        fontFamily: "'Figtree', system-ui, sans-serif",
+                        fontSize: "14px",
+                        color: "#2D3A4A",
+                        textDecoration: "none",
+                        transition: "color 0.2s ease",
+                      }}
+                      className="hover:text-[#3C75B5]"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-
-          {/* Product Links */}
-          <div>
-            <h4 className="mb-6 text-xs font-bold uppercase tracking-[0.1em] text-navy-950 font-heading">
-              Product
-            </h4>
-            <ul className="flex flex-col gap-4">
-              {footerLinks.product.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-[13px] text-text-label transition-colors hover:text-blue-600"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Links */}
-          <div>
-            <h4 className="mb-6 text-xs font-bold uppercase tracking-[0.1em] text-navy-950 font-heading">
-              Company
-            </h4>
-            <ul className="flex flex-col gap-4">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-[13px] text-text-label transition-colors hover:text-blue-600"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal & Contact */}
-          <div>
-            <h4 className="mb-6 text-xs font-bold uppercase tracking-[0.1em] text-navy-950 font-heading">
-              Legal
-            </h4>
-            <ul className="flex flex-col gap-4">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-[13px] text-text-label transition-colors hover:text-blue-600"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8">
-              <p className="text-[11px] font-mono text-text-muted uppercase tracking-wider">Bengaluru, India</p>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[12px] text-text-muted">
-            © 2026 ioNova AI. All Rights Reserved.
+        {/* Divider */}
+        <div className="mt-14 mb-6 border-t border-[#D0DAEB]" />
+
+        {/* Bottom Row */}
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <p
+            style={{
+              fontFamily: "'Figtree', system-ui, sans-serif",
+              fontSize: "13px",
+              color: "#8796A7",
+            }}
+          >
+            &copy; 2026 ioNova AI. All rights reserved. | AI-Native ISO 20022
+            Address Resolution
           </p>
-          <div className="flex items-center font-heading opacity-50 grayscale scale-75 md:scale-90">
-            <span className="text-xl font-bold text-navy-950">io</span>
-            <span className="text-xl font-bold text-navy-950">Nova</span>
+          <div className="flex gap-6">
+            <a
+              href="/privacy"
+              style={{
+                fontFamily: "'Figtree', system-ui, sans-serif",
+                fontSize: "13px",
+                color: "#8796A7",
+                textDecoration: "none",
+                transition: "color 0.2s ease",
+              }}
+              className="hover:text-[#3C75B5]"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms"
+              style={{
+                fontFamily: "'Figtree', system-ui, sans-serif",
+                fontSize: "13px",
+                color: "#8796A7",
+                textDecoration: "none",
+                transition: "color 0.2s ease",
+              }}
+              className="hover:text-[#3C75B5]"
+            >
+              Terms of Service
+            </a>
           </div>
         </div>
       </div>
