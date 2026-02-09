@@ -5,7 +5,6 @@ import { OverlayFirstPage } from '@/components/entity-intelligence/OverlayFirstP
 import { ProgressiveAutonomyPage } from '@/components/entity-intelligence/ProgressiveAutonomyPage';
 import { CascadeIntelligencePage } from '@/components/entity-intelligence/CascadeIntelligencePage';
 import { GovernancePage } from '@/components/entity-intelligence/GovernancePage';
-import { SpaFooter } from '@/components/design-system/SpaFooter';
 import { Layout } from '@/components/layout/Layout';
 import { AppWrapper } from '@/components/AppWrapper';
 
@@ -18,13 +17,14 @@ export default function EntityIntelligenceSPA() {
     <AppWrapper>
       <Layout>
         <div className="ds-v5">
-          {activePage === 'platform' && <PlatformPage navigate={navigate} />}
-          {activePage === 'evidence' && <EvidenceFirstPage navigate={navigate} />}
-          {activePage === 'overlay' && <OverlayFirstPage navigate={navigate} />}
-          {activePage === 'autonomy' && <ProgressiveAutonomyPage navigate={navigate} />}
-          {activePage === 'cascade' && <CascadeIntelligencePage navigate={navigate} />}
-          {activePage === 'governance' && <GovernancePage navigate={navigate} />}
-          <SpaFooter />
+          <div className="container">
+            {activePage === 'platform' && <PlatformPage navigate={navigate} />}
+            {activePage === 'evidence' && <EvidenceFirstPage navigate={navigate} />}
+            {activePage === 'overlay' && <OverlayFirstPage navigate={navigate} />}
+            {activePage === 'autonomy' && <ProgressiveAutonomyPage navigate={navigate} />}
+            {activePage === 'cascade' && <CascadeIntelligencePage navigate={navigate} />}
+            {activePage === 'governance' && <GovernancePage navigate={navigate} />}
+          </div>
         </div>
       </Layout>
     </AppWrapper>
