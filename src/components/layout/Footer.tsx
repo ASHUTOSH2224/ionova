@@ -1,115 +1,176 @@
-import { Link } from "@/lib/router-shim";
-import { Linkedin } from "lucide-react";
-
-const footerLinks = {
-  product: [
-    { label: "Home", href: "/" },
-    { label: "Platform", href: "/platform" },
-    { label: "Address Intelligence", href: "/address-intelligence/structured-address-mandate" },
-  ],
-  company: [
-    { label: "Company", href: "/company" },
-    { label: "Resources", href: "/resources" },
-  ],
-  legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
-  ],
-};
-
 export function Footer() {
+  const footerLinks = {
+    platform: {
+      title: "PLATFORM",
+      links: [
+        { label: "Address Intelligence", href: "/address-intelligence" },
+        { label: "Entity Intelligence", href: "/platform#entity" },
+        { label: "Cascade Engine", href: "/platform#cascade" },
+        { label: "Governance", href: "/platform#governance" },
+      ],
+    },
+    resources: {
+      title: "RESOURCES",
+      links: [
+        { label: "All Content", href: "/resources" },
+        { label: "Blogs", href: "/resources#blogs" },
+        { label: "Podcasts", href: "/resources#podcasts" },
+        { label: "Videos", href: "/resources#videos" },
+        { label: "Newsletters", href: "/resources#newsletters" },
+      ],
+    },
+    solutions: {
+      title: "SOLUTIONS",
+      links: [
+        {
+          label: "Structured Address Mandate",
+          href: "/address-intelligence#mandate",
+        },
+        { label: "Business Value", href: "/address-intelligence#business" },
+        {
+          label: "Implementation",
+          href: "/address-intelligence#implementation",
+        },
+        {
+          label: "Purpose-Built Solution",
+          href: "/address-intelligence#purpose",
+        },
+      ],
+    },
+    company: {
+      title: "COMPANY",
+      links: [
+        { label: "About", href: "/company" },
+        { label: "Contact", href: "/demo" },
+        { label: "ROI Calculator", href: "/demo" },
+      ],
+    },
+  };
+
   return (
-    <footer className="border-t border-border bg-gradient-hero text-sky-200">
-      <div className="container py-12 lg:py-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link to="/" className="inline-flex items-center">
-              <span className="text-2xl font-bold text-sky-200">io</span>
-              <span className="text-2xl font-bold text-gradient-accent">Nova</span>
-            </Link>
-            <p className="mt-4 text-sm text-sky-200/70">
-              AI-Native Address Resolution for ISO 20022 Compliance.
-            </p>
-            <div className="mt-6">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-200/10 transition-colors hover:bg-sky-200/20"
-                aria-label="LinkedIn"
+    <footer className="border-t border-[#D0DAEB] bg-[#F4F7FB]">
+      <div className="mx-auto max-w-[1200px] px-8 pt-16 pb-8">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr]">
+          {/* Brand Column */}
+          <div className="max-w-[300px]">
+            <a href="/" className="inline-block mb-5">
+              <span
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "20px",
+                  letterSpacing: "-0.3px",
+                }}
               >
-                <Linkedin className="h-5 w-5" />
-              </a>
+                <span
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #5FCFD0, #43ADC1, #3C75B5, #243574)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  io
+                </span>
+                <span style={{ color: "#0E1935" }}> Nova AI</span>
+              </span>
+            </a>
+            <p
+              style={{
+                fontFamily: "'Figtree', system-ui, sans-serif",
+                fontSize: "14px",
+                lineHeight: "1.7",
+                color: "#466587",
+              }}
+            >
+              Intelligent Data Infrastructure for Regulated Enterprises.
+              AI-Native ISO 20022 Address Resolution.
+            </p>
+          </div>
+
+          {/* Link Columns */}
+          {Object.values(footerLinks).map((section) => (
+            <div key={section.title}>
+              <h4
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 600,
+                  fontSize: "13px",
+                  letterSpacing: "1.5px",
+                  color: "#43ADC1",
+                  marginBottom: "20px",
+                }}
+              >
+                {section.title}
+              </h4>
+              <ul className="flex flex-col gap-3">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      style={{
+                        fontFamily: "'Figtree', system-ui, sans-serif",
+                        fontSize: "14px",
+                        color: "#2D3A4A",
+                        textDecoration: "none",
+                        transition: "color 0.2s ease",
+                      }}
+                      className="hover:text-[#3C75B5]"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-
-          {/* Product Links */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-sky-200">
-              Product
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.product.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-sky-200/70 transition-colors hover:text-sky-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Links */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-sky-200">
-              Company
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-sky-200/70 transition-colors hover:text-sky-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal & Contact */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-sky-200">
-              Legal
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-sky-200/70 transition-colors hover:text-sky-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6">
-              <p className="text-xs text-sky-200/50">Bengaluru, India</p>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 border-t border-sky-200/10 pt-8">
-          <p className="text-center text-sm text-sky-200/50">
-            © 2026 ioNova. All Rights Reserved.
+        {/* Divider */}
+        <div className="mt-14 mb-6 border-t border-[#D0DAEB]" />
+
+        {/* Bottom Row */}
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <p
+            style={{
+              fontFamily: "'Figtree', system-ui, sans-serif",
+              fontSize: "13px",
+              color: "#8796A7",
+            }}
+          >
+            &copy; 2026 ioNova AI. All rights reserved. | AI-Native ISO 20022
+            Address Resolution
           </p>
+          <div className="flex gap-6">
+            <a
+              href="/privacy"
+              style={{
+                fontFamily: "'Figtree', system-ui, sans-serif",
+                fontSize: "13px",
+                color: "#8796A7",
+                textDecoration: "none",
+                transition: "color 0.2s ease",
+              }}
+              className="hover:text-[#3C75B5]"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms"
+              style={{
+                fontFamily: "'Figtree', system-ui, sans-serif",
+                fontSize: "13px",
+                color: "#8796A7",
+                textDecoration: "none",
+                transition: "color 0.2s ease",
+              }}
+              className="hover:text-[#3C75B5]"
+            >
+              Terms of Service
+            </a>
+          </div>
         </div>
       </div>
     </footer>

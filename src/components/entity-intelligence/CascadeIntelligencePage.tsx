@@ -118,5 +118,4 @@ const PAGE_HTML = `<div class="hero">
     </div>
   </div>
 
-  <div class="cta-band"><h2 class="cta-hl">See Cascade Intelligence Process Your Data — <span class="text-grad">in Milliseconds</span></h2><p class="cta-sub">Fast. Accurate. Affordable. Auditable.</p><div class="cta-btns"><a class="btn btn-accent btn-lg">Request a Technical Deep-Dive</a><a class="btn btn-outline">Download Cascade Whitepaper</a></div></div>
-  <footer class="footer"><div class="footer-l"><span class="io">io</span>Nova AI</div><div class="footer-r">Entity Intelligence Platform · 2026</div></footer>`;
+  <div class="cta-band"><h2 class="cta-hl">See Cascade Intelligence Process Your Data — <span class="text-grad">in Milliseconds</span></h2><p class="cta-sub">Fast. Accurate. Affordable. Auditable.</p><div class="cta-btns"><a class="btn btn-accent btn-lg">Request a Technical Deep-Dive</a><a class="btn btn-outline">Download Cascade Whitepaper</a></div></div>`;

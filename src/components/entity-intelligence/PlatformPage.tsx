@@ -218,5 +218,4 @@ const PAGE_HTML = `<div class="hero">
     <h2 class="cta-hl">Your Entities Are Your Business.<br><span class="text-grad">It's Time They Worked Like It.</span></h2>
     <p class="cta-sub">See how ioNova delivers measurable outcomes in 90 days — with your data, your workflows, your compliance requirements.</p>
     <div class="cta-btns"><a class="btn btn-accent btn-lg">Schedule a Demo <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="btn btn-outline">Download Platform Overview</a></div>
-  </div>
-  <footer class="footer"><div class="footer-l"><span class="io">io</span>Nova AI</div><div class="footer-r">Entity Intelligence Platform · 2026</div></footer>`;
+  </div>`;
