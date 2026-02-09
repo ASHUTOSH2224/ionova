@@ -1,9 +1,11 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { AppWrapper } from '@/components/AppWrapper';
-import CompanyView from '@/views/Company';
+import AboutPage from '@/views/About';
 ---
 
-<Layout title="Company - ioNova" description="About ioNova and our mission to solve payment address data challenges.">
-	<CompanyView client:only="react" />
+<Layout
+  title="ioNova AI — About · The Entity Intelligence Platform"
+  description="The Entity Intelligence Company. 100+ years combined experience across AI, banking technology, payments, compliance, and enterprise security."
+>
+  <AboutPage client:only="react" />
 </Layout>
