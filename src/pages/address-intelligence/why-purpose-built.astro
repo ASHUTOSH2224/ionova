@@ -1,9 +1,3 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import { AppWrapper } from '@/components/AppWrapper';
-import PurposeBuiltView from '@/views/AddressIntelligence/PurposeBuilt';
+return Astro.redirect('/address-intelligence#purpose', 301);
 ---
-
-<Layout title="Why Purpose Built - ioNova">
-	<PurposeBuiltView client:only="react" />
-</Layout>

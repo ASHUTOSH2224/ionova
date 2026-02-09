@@ -1,204 +1,474 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "@/lib/router-shim";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
+  Shield,
+  FileText,
+  TrendingUp,
+  Globe,
   Users,
-  Lightbulb,
+  BookOpen,
+  Award,
   Target,
-  GraduationCap,
-  ArrowRight
+  Zap,
+  CheckCircle,
+  ArrowRight,
+  Monitor,
+  Database,
+  GitBranch,
+  Star,
 } from "lucide-react";
 
-const timeline = [
-  { year: "2020", event: "Tailored AI founded by Ishan and Devavrat" },
-  { year: "2022", event: "Tailored AI reaches $5M+ valuation, 10M+ users" },
-  { year: "2023", event: "Partnership with Parth Desai begins" },
-  { year: "2024", event: "ioNova founded to solve ISO 20022 compliance" },
-  { year: "2025", event: "First Tier 1 bank deployments" },
+const philosophyCards = [
+  {
+    icon: Shield,
+    title: "Deterministic Accuracy",
+    description: "Zero hallucinations in production. Every AI output is grounded in verified enterprise knowledge, not generated from parametric memory.",
+    iconColor: "text-teal-500",
+    bgColor: "bg-teal-500/10",
+    borderColor: "border-teal-500/20",
+  },
+  {
+    icon: FileText,
+    title: "Audit-Grade Evidence",
+    description: "Every decision is explainable, every claim citable. Governance isn't bolted on — it's the architectural foundation.",
+    iconColor: "text-blue-400",
+    bgColor: "bg-blue-400/10",
+    borderColor: "border-blue-400/20",
+  },
+  {
+    icon: TrendingUp,
+    title: "100% User Adoption",
+    description: "A proven methodology refined across 50+ enterprise implementations with zero project failures — built for how regulated enterprises actually operate.",
+    iconColor: "text-cyan-400",
+    bgColor: "bg-cyan-400/10",
+    borderColor: "border-cyan-400/20",
+  },
+  {
+    icon: Globe,
+    title: "No Rip & Replace",
+    description: "Overlays intelligence on existing infrastructure without data migration. Resolves entities in real-time across 50+ systems in under 200ms.",
+    iconColor: "text-blue-500",
+    bgColor: "bg-blue-500/10",
+    borderColor: "border-blue-500/20",
+  },
 ];
 
-const teamMembers = [
+const kpiStats = [
+  { value: "$5T+", label: "Processed Annually" },
+  { value: "55+", label: "Countries Served" },
+  { value: "<200ms", label: "Resolution Latency" },
+  { value: "50+", label: "System Integrations" },
+];
+
+const domains = [
+  "Financial Services",
+  "Healthcare",
+  "Sales & Marketing",
+  "Human Resources",
+  "Supply Chain",
+  "Risk & Compliance",
+];
+
+const leaders = [
   {
     name: "Parth Desai",
-    role: "Domain Lead",
-    bio: "30+ years in Enterprise SaaS for Banking. Founder of Pelican AI and Architect of its Entity Intelligence Platform.",
-    education: "IIT Bombay '85 (CSE), Georgia Tech '87 (AI)",
+    role: "Founder & CEO",
+    initials: "PD",
+    credentials: "MS AI, Georgia Tech · Yale AI Lab · HBS · INSEAD",
+    bio: [
+      "One of the earliest practitioners to apply AI to financial services — and one of the few who has done so continuously for over 30 years.",
+      "AI foundations laid at Georgia Tech and Yale's AI Lab under Professor Roger Schank, researching natural language understanding — the same discipline powering ioNova today. Founded his first AI-for-banking company in 1994, building platforms now processing <strong>$5T+ annually across 55+ countries</strong> for Tier 1 global banks.",
+      "Built <strong>Pelican AI</strong>, <strong>ACE Software Solutions</strong>, and <strong>PelicanPay</strong> — each advancing AI's role in financial services. Developed the <strong>Knowledge First AI™</strong> methodology after witnessing billions wasted on AI projects that started with models instead of knowledge.",
+    ],
+    stats: [
+      { value: "30+", label: "Years in AI" },
+      { value: "$5T+", label: "Processed / Year" },
+      { value: "55+", label: "Countries" },
+    ],
+    featured: true,
   },
   {
     name: "Ishan Tarunesh",
-    role: "Tech Lead",
-    bio: "Former CTO at Tailored AI. AI Engineer at Samsung Korea. Built software for 10M+ users.",
-    education: "IIT Bombay '20 (CSE)",
+    role: "Co-Founder & CTO",
+    initials: "IT",
+    credentials: "B.Tech CS, IIT Bombay · ACL & EACL Published · AIR 33 JEE",
+    bio: [
+      "Leads technology strategy, platform architecture, and ioNova's proprietary NER and cascade entity resolution engines. Published NLP research on multilingual modelling and cross-lingual text processing maps directly to ioNova's core: parsing, normalising, and resolving entity data across languages, scripts, and formats.",
+    ],
+    featured: false,
   },
   {
     name: "Devavrat Mahajan",
-    role: "Growth Lead",
-    bio: "Co-Founder of Tailored AI. Former Product Manager (AI) at Amazon. Bootstrapped previous venture to $2M revenue.",
-    education: "IIT Bombay '20, IIM Ahmedabad '22",
+    role: "Co-Founder & COO",
+    initials: "DM",
+    credentials: "B.Tech, IIT Bombay · MBA, IIM Ahmedabad · Amazon AI/ML · Kearney",
+    bio: [
+      "Runs ioNova's commercial engine — enterprise partnerships, product operations, and go-to-market. At Amazon, built AI/ML data tools delivering measurable savings at scale. Co-built and scaled an AI services company to <strong>$5M+ valuation</strong> serving 50+ global customers, entirely bootstrapped.",
+    ],
+    featured: false,
   },
   {
-    name: "Sai Teja Gutta",
-    role: "Senior Engineer",
-    bio: "AIR 16 in IIT JEE. High-Frequency Trading (HFT) background. Ex-Senior Engineer at Tailored AI.",
-    education: "IIT Bombay (CSE)",
+    name: "Saumitra Naik",
+    role: "VP, Operations & Delivery",
+    initials: "SN",
+    credentials: "20+ Years Enterprise Implementation",
+    bio: [
+      "<strong>200+ enterprise implementations</strong> for global financial institutions. Led delivery teams of 130+ professionals with <strong>98% on-time delivery</strong> and zero critical project failures. Ensures every client deployment meets the rigorous standards regulated institutions demand.",
+    ],
+    featured: false,
   },
   {
-    name: "Sonnandh Kalaka",
-    role: "Senior Engineer",
-    bio: "Ex-Amazon. Senior Engineer at Tailored AI with deep expertise in scalable systems.",
-    education: "IIT Bombay (CSE)",
+    name: "Mangesh Malekar",
+    role: "VP, Customer Success",
+    initials: "MM",
+    credentials: "20+ Years Technology, SaaS & AI/ML",
+    bio: [
+      "<strong>100+ implementations</strong> managing a portfolio exceeding <strong>$100M in project value</strong>, with 95% satisfaction rate and 100% client retention. Bridges delivery teams and senior business stakeholders to progress every engagement from pilot to production to expansion.",
+    ],
+    featured: false,
   },
   {
-    name: "Hardik Soni",
-    role: "AI Engineer",
-    bio: "Specialist in AI model optimization and deployment. Formerly AI Engineer at Tailored AI.",
-    education: "IIT Kharagpur (CSE)",
+    name: "Samir Dharia",
+    role: "CISO & VP, Security & Compliance",
+    initials: "SD",
+    credentials: "30+ Years IT Security · Apple · Lucent · Bluestar",
+    bio: [
+      "Maintained a <strong>zero-breach security record</strong> across three decades spanning Apple, Lucent Technologies, and Bluestar Infotech. Achieved ISO 27001, SOC 1 Type II, and GDPR compliance. Ensures ioNova meets the stringent security requirements of Tier 1 banks.",
+    ],
+    featured: false,
+  },
+];
+
+const whyCards = [
+  {
+    icon: Monitor,
+    title: "Domain Depth",
+    description: "30+ years pioneering AI in banking. Deep knowledge of how payments flow, compliance decisions are made, and entity data propagates across systems.",
+    iconColor: "text-teal-500",
+    bgColor: "bg-teal-500/10",
+    borderColor: "border-teal-500/20",
+  },
+  {
+    icon: Database,
+    title: "AI & NLP Research",
+    description: "Published at ACL and EACL. Advanced capabilities to extract, normalise, match, and resolve entities across languages, formats, and data quality levels.",
+    iconColor: "text-blue-400",
+    bgColor: "bg-blue-400/10",
+    borderColor: "border-blue-400/20",
+  },
+  {
+    icon: Shield,
+    title: "Enterprise Discipline",
+    description: "Every AI decision grounded in verified knowledge — not statistical probability — with full auditability at production scale. Zero project failures across 50+ implementations.",
+    iconColor: "text-cyan-400",
+    bgColor: "bg-cyan-400/10",
+    borderColor: "border-cyan-400/20",
   },
 ];
 
 const Company = () => {
   return (
     <Layout>
-      {/* Hero */}
-      <section className="bg-gradient-hero pt-24 pb-12 lg:pt-32 lg:pb-16">
-        <div className="container">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold text-sky-200 md:text-5xl lg:text-6xl">
-              Built by Experts in{" "}
-              <span className="text-gradient-accent">Banking SaaS</span> and AI
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-hero pt-24 pb-12 lg:pt-32 lg:pb-16">
+        <div className="container relative z-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400"></span>
+              The Entity Intelligence Company
+            </div>
+            <h1 className="mb-6 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
+              Every Enterprise Runs on Entities.
+              <br />
+              <span className="text-gradient-accent">Most Can't Trust Them.</span>
             </h1>
-            <p className="text-lg text-sky-200/80">
-              The ioNova story began at the intersection of deep banking expertise
-              and cutting-edge AI engineering.
+            <p className="mx-auto max-w-2xl text-lg text-white/80 md:text-xl">
+              Every critical decision — approving a payment, clearing a counterparty, onboarding a customer — depends on knowing <em>who or what you're dealing with</em>. ioNova makes entity data trustworthy.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Story Section */}
-      <section className="bg-background py-16 lg:py-24">
+      {/* Philosophy Section */}
+      <section className="border-t border-border bg-background py-16 lg:py-24">
         <div className="container">
           <div className="mx-auto max-w-4xl">
-            <div className="mb-12 grid gap-10 lg:grid-cols-2">
-              <div>
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-500/10 px-4 py-2 text-sm font-medium text-blue-600">
-                  <Lightbulb className="h-4 w-4" />
-                  Our Story
+            <div className="mb-12">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-teal-500">
+                Our Philosophy
                 </div>
-                <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
-                  Where Banking Meets AI Innovation
+              <div className="mb-4 flex items-center gap-3">
+                <BookOpen className="h-7 w-7 text-teal-500" />
+                <h2 className="text-3xl font-bold text-navy-950 md:text-4xl">
+                  Knowledge First, Not Model First
                 </h2>
               </div>
-
-              <p>
-                The ioNova story began at the intersection of deep banking expertise and cutting-edge AI engineering. Founders <span className="font-semibold text-navy-950">Ishan Tarunesh</span> and <span className="font-semibold text-navy-950">Devavrat Mahajan</span> previously built an AI consultancy to a $5M+ valuation, bootstrapped.
-              </p>
-              <p>
-                They partnered with <span className="font-semibold text-navy-950">Parth Desai</span>, an industry veteran who architected global payment platforms for Tier 1 banks (Standard Chartered, Wells Fargo).
-              </p>
-              <p>
-                Recognizing the unique opportunity to solve the "Financial Y2K" challenge, they assembled a team of IIT experts to build ioNova—the only solution using Agentic AI to deliver deterministic accuracy.
+              <p className="text-lg text-text-label">
+                70% of enterprise AI projects fail — not because the technology is inadequate, but because organisations start with the model and force-fit it to their business.
               </p>
             </div>
 
-            {/* Timeline */}
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-lg lg:p-8">
-              <h3 className="mb-6 text-xl font-semibold text-navy-950">Our Journey</h3>
-              <div className="relative">
-                <div className="absolute bottom-0 left-4 top-0 w-0.5 bg-border lg:left-1/2 lg:-translate-x-1/2" />
-                <div className="space-y-8">
-                  {timeline.map((item, index) => (
-                    <div
-                      key={item.year}
-                      className={`relative flex items-center gap-4 lg:gap-8 ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                        }`}
-                    >
-                      <div className={`flex-1 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"} hidden lg:block`}>
-                        {index % 2 === 0 && (
-                          <p className="text-text-muted">{item.event}</p>
-                        )}
-                        {index % 2 !== 0 && (
-                          <p className="text-text-muted">{item.event}</p>
-                        )}
+            <div className="mb-8 text-base leading-relaxed text-text-label">
+              <p className="mb-4">
+                Entity data — the people, companies, products, and transactions that flow through every enterprise — is scattered across dozens of systems, duplicated in conflicting formats, and silently degrading every downstream process. <strong className="text-navy-950">"Acme Corp"</strong> in your CRM is <strong className="text-navy-950">"ACME Corporation"</strong> in your ERP and <strong className="text-navy-950">"Acme Inc."</strong> in compliance. Multiply this across millions of entities, and the result is a trust deficit costing billions annually.
+              </p>
+            </div>
+
+            <div className="mb-12 rounded-lg border-l-4 border-teal-500 bg-gradient-to-r from-cyan-500/5 to-teal-500/5 p-6 text-base leading-relaxed">
+              <p className="font-medium text-navy-950">
+                ioNova is built on <strong>Knowledge First AI™</strong> — we start with the enterprise's own knowledge, structure it into an Enterprise Knowledge Model, and only then deploy AI on top. This is why we achieve what generic AI cannot.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              {philosophyCards.map((card, index) => {
+                const Icon = card.icon;
+                return (
+                  <Card
+                    key={index}
+                    className="group relative overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  >
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-teal-500 to-blue-500"></div>
+                    <CardContent className="p-6">
+                      <div className={`mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg border ${card.bgColor} ${card.borderColor}`}>
+                        <Icon className={`h-5 w-5 ${card.iconColor}`} />
+                      </div>
+                      <h3 className="mb-2 text-lg font-bold text-navy-950">{card.title}</h3>
+                      <p className="text-sm leading-relaxed text-text-label">{card.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Section */}
+      <section className="border-t border-border bg-surface-2 py-16 lg:py-24">
+        <div className="container">
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-12">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-teal-500">
+                The Platform
+              </div>
+              <div className="mb-4 flex items-center gap-3">
+                <GitBranch className="h-7 w-7 text-teal-500" />
+                <h2 className="text-3xl font-bold text-navy-950 md:text-4xl">
+                  Entity Intelligence, Unified
+                </h2>
+              </div>
+              <p className="text-lg text-text-label">
+                The first system to unify Named Entity Recognition, golden record creation, evidence-first AI copilots, and permissioned agentic automation — all governed from day one.
+              </p>
                       </div>
 
-                      <div className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500 font-semibold text-primary-foreground lg:mx-0">
-                        <span className="text-xs">{item.year.slice(-2)}</span>
-                      </div>
-
-                      <div className={`flex-1 ${index % 2 !== 0 ? "lg:text-right" : "lg:text-left"}`}>
-                        <p className="font-semibold text-navy-950">{item.year}</p>
-                        <p className="text-sm text-text-muted lg:hidden">{item.event}</p>
-                      </div>
+            <div className="mb-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {kpiStats.map((stat, index) => (
+                <Card
+                  key={index}
+                  className="group text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <CardContent className="p-6">
+                    <div className="mb-2 text-3xl font-bold text-gradient-accent">
+                      {stat.value}
                     </div>
+                    <div className="text-xs font-medium text-text-muted">{stat.label}</div>
+                  </CardContent>
+                </Card>
                   ))}
                 </div>
+
+            <div className="mb-6 text-base leading-relaxed text-text-label">
+              <p>
+                All enterprise entities reduce to four core types: <strong className="text-navy-950">Individual, Company, Product, and Transaction</strong>. One architecture with universal applicability across six domains.
+              </p>
+            </div>
+
+            <div className="mb-6">
+              <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-navy-950">
+                <div className="h-1 w-1 rounded-full bg-gradient-to-r from-cyan-400 via-teal-500 to-blue-500"></div>
+                Domains Served
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {domains.map((domain, index) => (
+                  <span
+                    key={index}
+                    className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-text-label transition-all hover:border-teal-500 hover:text-teal-500"
+                  >
+                    {domain}
+                  </span>
+                ))}
               </div>
+            </div>
+
+            <div className="rounded-lg border-l-4 border-teal-500 bg-gradient-to-r from-cyan-500/5 to-teal-500/5 p-6 text-base leading-relaxed">
+              <p className="font-medium text-navy-950">
+                Within financial services, ioNova powers the industry's only <strong>ISO 20022-native address resolution</strong> capability — transforming unstructured address data into fully structured output using Agentic AI with deterministic accuracy, ahead of the <strong>November 2026 deadline</strong> for structured addresses in every cross-border payment message.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="bg-surface-2 py-16 lg:py-24">
+      {/* Leadership Section */}
+      <section className="border-t border-border bg-background py-16 lg:py-24">
         <div className="container">
+          <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-4 py-2 text-sm font-medium text-teal-500">
-              <Users className="h-4 w-4" />
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-teal-500">
               Leadership
             </div>
-            <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl">
-              The Engineering Powerhouse Behind ioNova
+              <div className="mb-4 flex items-center justify-center gap-3">
+                <Users className="h-7 w-7 text-teal-500" />
+                <h2 className="text-3xl font-bold text-navy-950 md:text-4xl">
+                  The Team Behind the Platform
             </h2>
           </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {teamMembers.map((member) => (
-              <div
-                key={member.name}
-                className="group overflow-hidden rounded-xl border border-border bg-card p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-xl"
-              >
-                {/* Avatar placeholder */}
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary text-2xl font-bold text-primary-foreground">
-                  {member.name.split(" ").map(n => n[0]).join("")}
+              <p className="mx-auto max-w-2xl text-lg text-text-label">
+                100+ years of combined experience across AI, banking technology, payments, compliance, and enterprise security. Forged over three decades of building AI systems at the heart of global financial infrastructure.
+              </p>
                 </div>
 
-                <h3 className="text-xl font-semibold text-navy-950">{member.name}</h3>
-                <p className="mb-3 text-sm font-medium text-blue-600">{member.role}</p>
-                <p className="mb-4 text-sm text-text-muted">{member.bio}</p>
-
-                <div className="flex items-center gap-2 text-xs text-text-label">
-                  <GraduationCap className="h-4 w-4 text-teal-500" />
-                  <span>{member.education}</span>
+            <div className="grid gap-6 md:grid-cols-2">
+              {leaders.map((leader, index) => {
+                const isFeatured = leader.featured;
+                return (
+                  <Card
+                    key={index}
+                    className={`group relative overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
+                      isFeatured ? "md:col-span-2" : ""
+                    }`}
+                  >
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-teal-500 to-blue-500"></div>
+                    <CardContent className={`p-6 ${isFeatured ? "md:grid md:grid-cols-2 md:gap-8" : ""}`}>
+                      <div>
+                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 via-teal-500 to-blue-500 text-xl font-bold text-white shadow-md">
+                          {leader.initials}
+                        </div>
+                        <h3 className="mb-1 text-xl font-bold text-navy-950">{leader.name}</h3>
+                        <div className="mb-3 text-sm font-semibold text-gradient-accent">
+                          {leader.role}
+                        </div>
+                        <div className="mb-4 font-mono text-xs text-text-muted">
+                          {leader.credentials}
+                        </div>
+                        {leader.stats && (
+                          <div className="mb-4 flex gap-4 border-t border-border pt-4">
+                            {leader.stats.map((stat, statIndex) => (
+                              <div key={statIndex} className="flex-1 text-center">
+                                <div className="mb-1 text-lg font-bold text-gradient-accent">
+                                  {stat.value}
                 </div>
+                                <div className="text-xs text-text-muted">{stat.label}</div>
               </div>
             ))}
+                          </div>
+                        )}
+                      </div>
+                      <div className={isFeatured ? "" : "mt-4"}>
+                        {leader.bio.map((paragraph, pIndex) => {
+                          // Parse paragraph to handle <strong> tags from reference
+                          const parts = paragraph.split(/(<strong>.*?<\/strong>|\$[\dT+]+)/);
+                          return (
+                            <p
+                              key={pIndex}
+                              className={`mb-3 text-sm leading-relaxed text-text-label ${
+                                pIndex === 0 ? "font-medium" : ""
+                              }`}
+                            >
+                              {parts.map((part, partIndex) => {
+                                if (part.startsWith("<strong>") && part.endsWith("</strong>")) {
+                                  const text = part.replace(/<\/?strong>/g, "");
+                                  return (
+                                    <strong key={partIndex} className="text-navy-950">
+                                      {text}
+                                    </strong>
+                                  );
+                                }
+                                // Handle dollar amounts like $5T+, $100M, etc.
+                                if (part.match(/^\$[\dT+]+/)) {
+                                  return (
+                                    <strong key={partIndex} className="text-navy-950">
+                                      {part}
+                                    </strong>
+                                  );
+                                }
+                                return <span key={partIndex}>{part}</span>;
+                              })}
+                            </p>
+                          );
+                        })}
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      {/*
-      <section className="bg-background py-16 lg:py-24">
+      {/* Why This Team Section */}
+      <section className="border-t border-border bg-surface-2 py-16 lg:py-24">
         <div className="container">
-          <div className="mx-auto max-w-3xl text-center">
-            <Target className="mx-auto mb-4 h-12 w-12 text-blue-500" />
-            <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl">
-              Ready to Join Our Mission?
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-12 text-center">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-teal-500">
+                Why This Team
+              </div>
+              <div className="mb-4 flex items-center justify-center gap-3">
+                <Star className="h-7 w-7 text-teal-500" />
+                <h2 className="text-3xl font-bold text-navy-950 md:text-4xl">
+                  The Rare Intersection
             </h2>
-            <p className="mb-8 text-lg text-text-muted">
-              Let's solve the biggest compliance challenge in payments together.
-            </p>
-            <Button variant="hero" size="xl" asChild>
-              <Link to="/demo">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+              </div>
+              <p className="text-lg text-text-label">
+                Entity intelligence demands expertise that few organisations possess simultaneously.
+              </p>
+            </div>
+
+            <div className="mb-12 grid gap-6 md:grid-cols-3">
+              {whyCards.map((card, index) => {
+                const Icon = card.icon;
+                return (
+                  <Card
+                    key={index}
+                    className="group relative overflow-hidden border text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  >
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-teal-500 to-blue-500 opacity-0 transition-opacity group-hover:opacity-100"></div>
+                    <CardContent className="p-6">
+                      <div className={`mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg border ${card.bgColor} ${card.borderColor}`}>
+                        <Icon className={`h-6 w-6 ${card.iconColor}`} />
+                      </div>
+                      <h3 className="mb-2 text-base font-bold text-navy-950">{card.title}</h3>
+                      <p className="text-sm leading-relaxed text-text-label">{card.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+
+            {/* CTA Banner */}
+            <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-navy-950 via-blue-700 to-navy-950 text-center">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-teal-500 to-blue-500"></div>
+              <CardContent className="relative p-12">
+                <h3 className="mb-4 text-2xl font-bold text-white md:text-3xl">
+                  Purpose-Built for Regulated Industries
+                </h3>
+                <p className="mx-auto mb-6 max-w-xl text-base leading-relaxed text-white/70">
+                  The only entity intelligence platform trusted by the world's leading financial institutions for their most consequential data challenges.
+                </p>
+                <div className="text-xs font-semibold uppercase tracking-wider text-gradient-accent">
+                  ioNova AI · Powered by Knowledge First AI™
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
-      */}
     </Layout>
   );
 };

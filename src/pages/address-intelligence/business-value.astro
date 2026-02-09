@@ -1,9 +1,3 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import { AppWrapper } from '@/components/AppWrapper';
-import BusinessValueView from '@/views/AddressIntelligence/BusinessValue';
+return Astro.redirect('/address-intelligence#business', 301);
 ---
-
-<Layout title="Business Value - ioNova">
-	<BusinessValueView client:only="react" />
-</Layout>
