@@ -1,9 +1,3 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import { AppWrapper } from '@/components/AppWrapper';
-import ImplementationView from '@/views/AddressIntelligence/Implementation';
+return Astro.redirect('/address-intelligence#implementation', 301);
 ---
-
-<Layout title="Implementation - ioNova">
-	<ImplementationView client:only="react" />
-</Layout>

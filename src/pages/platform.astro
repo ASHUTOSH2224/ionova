@@ -1,9 +1,10 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { AppWrapper } from '@/components/AppWrapper';
-import PlatformView from '@/views/Platform';
+import EntityIntelligenceSPA from '@/views/EntityIntelligenceSPA';
 ---
-
-<Layout title="Platform - ioNova" description="The ioNova AI-Native Platform for ISO 20022 Address Resolution.">
-	<PlatformView client:only="react" />
+<Layout
+  title="Entity Intelligence Platform - ioNova"
+  description="AI-native entity intelligence with evidence-first AI, overlay-first deployment, and governance-by-design."
+>
+  <EntityIntelligenceSPA client:only="react" />
 </Layout>
