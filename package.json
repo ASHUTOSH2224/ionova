@@ -7,6 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "deploy:zip": "astro build && (cd dist && zip -r ../ionova-amplify-deploy.zip .)",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint .",

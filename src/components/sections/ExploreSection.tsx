@@ -89,12 +89,12 @@ export function ExploreSection() {
                         {/* Hero Content - Centered */}
                         <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
                             {/* Main Headline */}
-                            <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl text-navy-950">
+                            <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl text-navy-950">
                                 Master the Mandate: <span className="text-gradient">The 4 Pillars of Structured Data</span>
+                                <span className="block mt-4 mx-auto max-w-2xl text-lg text-navy-900/80 font-normal">
+                                    Deep dive into the requirements, the ROI, and the technology behind ioNova.
+                                </span>
                             </h2>
-                            <p className="mx-auto max-w-2xl text-lg text-navy-900/80">
-                                Deep dive into the requirements, the ROI, and the technology behind ioNova.
-                            </p>
                         </div>
 
                         {/* Cards - Single Row */}
@@ -137,15 +137,6 @@ export function ExploreSection() {
                                     </div>
                                 </Link>
                             ))}
-                        </div>
-
-                        {/* Summary Output */}
-                        <div className="mt-12 md:mt-16 text-center">
-                            <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#EFF2F7] border border-blue-100/50 shadow-sm transition-all duration-300 hover:shadow-md">
-                                <p className="text-navy-950 font-bold text-base md:text-lg">
-                                    Estimated 5-Year Savings & Implementation Speed (15 Weeks vs 18 Months).
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>

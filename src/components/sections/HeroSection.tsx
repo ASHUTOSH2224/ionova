@@ -57,17 +57,17 @@ export function HeroSection() {
           <div className="w-full lg:w-6/12 flex flex-col items-center lg:items-start justify-center">
             <div ref={leftColumnRef} className="text-center lg:text-left w-full relative z-20">
               {/* Headline */}
-              <h1 className="mb-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-white md:text-5xl lg:text-6xl xl:text-[4rem]">
+              <h1 className="mb-8 text-4xl font-extrabold leading-[1.15] tracking-tight text-white md:text-5xl lg:text-6xl xl:text-[4rem]">
                 <span className="block mb-2">Achieve ISO 20022 compliance with</span>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-sky-200 to-white drop-shadow-sm">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-sky-200 to-white drop-shadow-sm block mb-6">
                   fully Structured Payment Addresses
                 </span>
-              </h1>
 
-              {/* Subtitle */}
-              <p className="mb-8 max-w-xl mx-auto lg:mx-0 text-lg leading-relaxed text-blue-100/90 md:text-xl md:mb-10 font-medium">
-                AI-native address resolution for SWIFT CBPR+ and SEPA compliance. Done in weeks.
-              </p>
+                {/* Subtitle */}
+                <span className="block max-w-xl mx-auto lg:mx-0 text-lg leading-relaxed text-blue-100/90 md:text-xl font-medium tracking-normal">
+                  AI-native address resolution for SWIFT CBPR+ and SEPA compliance. Done in weeks.
+                </span>
+              </h1>
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12 md:gap-6 md:mb-16 w-full">

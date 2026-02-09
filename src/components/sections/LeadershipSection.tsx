@@ -52,26 +52,26 @@ export function LeadershipSection() {
             lineHeight: 1.15,
             color: "#0E1935",
             maxWidth: "700px",
-            marginBottom: "12px",
-          }}
-        >
-          100+ Years of Combined AI, Banking & Enterprise Delivery
-        </h2>
-
-        {/* Description */}
-        <p
-          style={{
-            fontFamily: "'Figtree', system-ui, sans-serif",
-            fontSize: "15px",
-            lineHeight: 1.7,
-            color: "#466587",
-            maxWidth: "620px",
             marginBottom: "40px",
           }}
         >
-          Forged over three decades building AI at the heart of global financial infrastructure
-          — sharpened by a new generation of engineers.
-        </p>
+          100+ Years of Combined AI, Banking & Enterprise Delivery
+          <span
+            style={{
+              display: "block",
+              fontFamily: "'Figtree', system-ui, sans-serif",
+              fontSize: "15px",
+              fontWeight: 400,
+              lineHeight: 1.7,
+              color: "#466587",
+              maxWidth: "620px",
+              marginTop: "12px",
+            }}
+          >
+            Forged over three decades building AI at the heart of global financial infrastructure
+            — sharpened by a new generation of engineers.
+          </span>
+        </h2>
 
         {/* Leader Cards */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

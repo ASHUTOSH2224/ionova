@@ -52,24 +52,24 @@ export function InsightsSection() {
             lineHeight: 1.15,
             color: "#0E1935",
             maxWidth: "700px",
-            marginBottom: "12px",
-          }}
-        >
-          Latest from the ioNova Resource Centre
-        </h2>
-
-        {/* Description */}
-        <p
-          style={{
-            fontFamily: "'Figtree', system-ui, sans-serif",
-            fontSize: "15px",
-            lineHeight: 1.7,
-            color: "#466587",
             marginBottom: "40px",
           }}
         >
-          Research, analysis, and practical guidance for ISO 20022 address compliance.
-        </p>
+          Latest from the ioNova Resource Centre
+          <span
+            style={{
+              display: "block",
+              fontFamily: "'Figtree', system-ui, sans-serif",
+              fontSize: "15px",
+              fontWeight: 400,
+              lineHeight: 1.7,
+              color: "#466587",
+              marginTop: "12px",
+            }}
+          >
+            Research, analysis, and practical guidance for ISO 20022 address compliance.
+          </span>
+        </h2>
 
         {/* Article Cards */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

@@ -30,7 +30,7 @@ export function CTABandSection() {
             fontSize: "clamp(28px, 4.5vw, 44px)",
             lineHeight: 1.2,
             color: "#E2E8F4",
-            marginBottom: "16px",
+            marginBottom: "32px",
           }}
         >
           The November 2026 ISO 20022 Deadline Won't Wait.{" "}
@@ -44,20 +44,20 @@ export function CTABandSection() {
           >
             Your Address Data Shouldn't Either.
           </span>
+          <span
+            style={{
+              display: "block",
+              fontFamily: "'Figtree', system-ui, sans-serif",
+              fontSize: "15px",
+              fontWeight: 400,
+              lineHeight: 1.7,
+              color: "#8A9DBD",
+              marginTop: "16px",
+            }}
+          >
+            Purpose-built address intelligence. 195 countries. 98%+ STP. 10–16 weeks to production.
+          </span>
         </h2>
-
-        {/* Subtitle */}
-        <p
-          style={{
-            fontFamily: "'Figtree', system-ui, sans-serif",
-            fontSize: "15px",
-            lineHeight: 1.7,
-            color: "#8A9DBD",
-            marginBottom: "32px",
-          }}
-        >
-          Purpose-built address intelligence. 195 countries. 98%+ STP. 10–16 weeks to production.
-        </p>
 
         {/* Countdown */}
         <div className="mb-10 flex justify-center">

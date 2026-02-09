@@ -54,10 +54,10 @@ export function PillarsSection() {
         <div className="mb-12 text-center lg:mb-16">
           <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
             6 Signature Capabilities that Drive <span className="text-gradient">98%+ Straight-Through Processing</span>
+            <span className="block mt-4 mx-auto max-w-2xl text-lg text-text-muted font-normal tracking-normal">
+              ioNova is differentiated by deep banking logic
+            </span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-text-muted">
-            ioNova is differentiated by deep banking logic
-          </p>
         </div>
 
         {/* Pillars grid */}

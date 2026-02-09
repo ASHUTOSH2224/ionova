@@ -52,26 +52,26 @@ export function ImplementationSection() {
             lineHeight: 1.15,
             color: "#0E1935",
             maxWidth: "700px",
-            marginBottom: "16px",
-          }}
-        >
-          One Integration. Full Compliance. Zero Legacy Overhaul.
-        </h2>
-
-        {/* Description */}
-        <p
-          style={{
-            fontFamily: "'Figtree', system-ui, sans-serif",
-            fontSize: "15px",
-            lineHeight: 1.7,
-            color: "#466587",
-            maxWidth: "620px",
             marginBottom: "40px",
           }}
         >
-          Deploys as a sidecar service — intercepts, resolves, and returns enriched messages
-          without modifying your core payment flow.
-        </p>
+          One Integration. Full Compliance. Zero Legacy Overhaul.
+          <span
+            style={{
+              display: "block",
+              fontFamily: "'Figtree', system-ui, sans-serif",
+              fontSize: "15px",
+              fontWeight: 400,
+              lineHeight: 1.7,
+              color: "#466587",
+              maxWidth: "620px",
+              marginTop: "16px",
+            }}
+          >
+            Deploys as a sidecar service — intercepts, resolves, and returns enriched messages
+            without modifying your core payment flow.
+          </span>
+        </h2>
 
         {/* Phase Cards */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
