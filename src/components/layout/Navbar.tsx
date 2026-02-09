@@ -128,7 +128,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    const [pathPart, hashPart] = path.split("#");
+    if (hashPart) {
+      // For hash links like /address-intelligence#business
+      return location.pathname === pathPart && location.hash === `#${hashPart}`;
+    }
+    // For plain paths like /address-intelligence, only match if no hash is present
+    return location.pathname === pathPart && !location.hash;
+  };
   const isEntityIntelligenceActive = location.pathname.startsWith("/platform");
   const isAddressIntelligenceActive = location.pathname.startsWith(
     "/address-intelligence"
