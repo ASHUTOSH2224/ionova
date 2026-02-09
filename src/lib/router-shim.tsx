@@ -75,13 +75,19 @@ export const useLocation = () => {
     const [location, setLocation] = useState({ pathname: '', search: '', hash: '' });
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
+        if (typeof window === 'undefined') return;
+
+        const update = () => {
             setLocation({
                 pathname: window.location.pathname,
                 search: window.location.search,
                 hash: window.location.hash
             });
-        }
+        };
+
+        update();
+        window.addEventListener('hashchange', update);
+        return () => window.removeEventListener('hashchange', update);
     }, []);
 
     return location;
