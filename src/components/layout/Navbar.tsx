@@ -95,9 +95,9 @@ export function Navbar() {
       "fixed left-0 right-0 z-50 flex justify-center px-4 pointer-events-none transition-all duration-300",
       isAttached ? "top-0" : "top-6"
     )}>
-      <nav className="pointer-events-auto flex items-center justify-between w-full max-w-7xl h-16 lg:h-20 rounded-full border border-border/50 bg-white/80 shadow-2xl backdrop-blur-xl px-6 lg:px-8 transition-all">
+      <nav className="pointer-events-auto flex items-center justify-between w-full max-w-7xl h-16 lg:h-20 rounded-full border border-border/50 bg-white/80 shadow-2xl backdrop-blur-xl px-4 md:px-4 lg:px-8 transition-all">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 mr-4 lg:mr-8">
+        <Link to="/" className="flex items-center gap-2 mr-2 md:mr-4 lg:mr-8">
           <div className="flex items-center">
             <span className="text-2xl font-bold text-navy-950">io</span>
             <span className="text-2xl font-bold text-gradient">Nova</span>
@@ -105,11 +105,11 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-1 md:gap-1 lg:gap-1 md:flex">
           <Link
             to="/"
             className={cn(
-              "text-sm font-medium text-navy-900 transition-colors hover:text-blue-600 px-3 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
+              "text-sm font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
               isActive("/") && "text-blue-600 font-semibold bg-blue-50/50"
             )}
           >
@@ -118,7 +118,7 @@ export function Navbar() {
           <Link
             to="/platform"
             className={cn(
-              "text-sm font-medium text-navy-900 transition-colors hover:text-blue-600 px-3 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
+              "text-sm font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
               isActive("/platform") && "text-blue-600 font-semibold bg-blue-50/50"
             )}
           >
@@ -130,7 +130,7 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
-                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-3 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium",
+                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium",
                     isAddressIntelligenceActive && "text-blue-600 font-semibold bg-blue-50/50"
                   )}
                 >
@@ -166,7 +166,7 @@ export function Navbar() {
               key={item.label}
               to={item.href}
               className={cn(
-                "text-sm font-medium text-navy-900 transition-colors hover:text-blue-600 px-3 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
+                "text-sm font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
                 isActive(item.href) && "text-blue-600 font-semibold bg-blue-50/50"
               )}
             >
@@ -179,7 +179,7 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
-                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-3 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium",
+                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium",
                     isResourcesActive && "text-blue-600 font-semibold bg-blue-50/50"
                   )}
                 >
@@ -212,7 +212,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden md:block ml-4">
+        <div className="hidden md:block ml-2 md:ml-2 lg:ml-4">
           <Button variant="hero" className="rounded-full px-6" asChild>
             <Link to="/demo">View a Demo</Link>
           </Button>

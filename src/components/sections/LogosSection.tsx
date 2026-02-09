@@ -16,15 +16,15 @@ export function LogosSection() {
     ];
 
     return (
-        <section className="bg-gradient-to-b from-white to-gray-50 py-16 lg:py-20 overflow-hidden">
+        <section className="bg-gradient-to-b from-white to-gray-50 pt-8 pb-16 lg:pt-10 lg:pb-20 overflow-hidden">
             <div className="container">
                 {/* Section header */}
-                {/*<div className="mb-12 text-center">
-                    <h2 className="text-2xl font-bold text-navy-950 md:text-3xl lg:text-4xl">
+                <div className="mb-8 text-center">
+                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider md:text-base">
                         Our team has eliminated Payment Failures for{" "}
-                        <span className="text-gradient">the Industry's Best</span>
-                    </h2>
-                </div>*/}
+                        <span className="text-blue-600 font-semibold">the Industry's Best</span>
+                    </p>
+                </div>
 
                 {/* Mobile Grid Layout */}
                 <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:hidden px-6 place-items-center">
