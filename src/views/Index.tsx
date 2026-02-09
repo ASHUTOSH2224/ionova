@@ -6,9 +6,7 @@ import { LogosSection } from "@/components/sections/LogosSection";
 import { ExploreSection } from "@/components/sections/ExploreSection";
 import { DifferentiationSection } from "@/components/sections/DifferentiationSection";
 import { ImplementationSection } from "@/components/sections/ImplementationSection";
-import { BusinessValueSection } from "@/components/sections/BusinessValueSection";
 import { InsightsSection } from "@/components/sections/InsightsSection";
-import { LeadershipSection } from "@/components/sections/LeadershipSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTABandSection } from "@/components/sections/CTABandSection";
 
@@ -24,9 +22,7 @@ const IndexContent = () => {
       <ExploreSection />
       <DifferentiationSection />
       <ImplementationSection />
-      <BusinessValueSection />
       <InsightsSection />
-      <LeadershipSection />
       <FAQSection />
       <CTABandSection />
     </Layout>
