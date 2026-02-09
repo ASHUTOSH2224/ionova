@@ -70,7 +70,7 @@ export function ExploreSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="bg-[#F9F9FB] pb-8 lg:pb-12 px-6 md:px-4">
+        <section ref={sectionRef} className="bg-background pb-8 lg:pb-12 px-6 md:px-4">
             <div className="w-full mx-auto">
                 <div
                     ref={cardRef}
@@ -137,6 +137,15 @@ export function ExploreSection() {
                                     </div>
                                 </Link>
                             ))}
+                        </div>
+
+                        {/* Summary Output */}
+                        <div className="mt-12 md:mt-16 text-center">
+                            <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#EFF2F7] border border-blue-100/50 shadow-sm transition-all duration-300 hover:shadow-md">
+                                <p className="text-navy-950 font-bold text-base md:text-lg">
+                                    Estimated 5-Year Savings & Implementation Speed (15 Weeks vs 18 Months).
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

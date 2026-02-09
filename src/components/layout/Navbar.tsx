@@ -145,7 +145,7 @@ export function Navbar() {
       <nav className="pointer-events-auto flex items-center justify-between w-full max-w-7xl h-16 lg:h-20 rounded-full border border-border/50 bg-white/80 shadow-2xl backdrop-blur-xl px-4 md:px-4 lg:px-8 transition-all">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 mr-2 md:mr-4 lg:mr-8">
-          <div className="flex items-center">
+          <div className="flex items-center font-heading">
             <span className="text-2xl font-bold text-navy-950">io</span>
             <span className="text-2xl font-bold text-gradient">Nova</span>
           </div>
