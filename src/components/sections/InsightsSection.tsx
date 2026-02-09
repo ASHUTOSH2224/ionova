@@ -24,7 +24,7 @@ export function InsightsSection() {
   ];
 
   return (
-    <section className="py-24 px-6" id="insights">
+    <section className="border-t border-border bg-surface-2 py-24 px-6" id="insights">
       <div className="mx-auto max-w-[1200px]">
         {/* Section Label */}
         <div className="mb-4 flex items-center gap-2">
