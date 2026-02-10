@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "@/lib/router-shim";
 import { Button } from "@/components/ui/button";
@@ -84,22 +85,28 @@ const BlogsContent = () => {
     // ── All posts (grid) ────────────────────────────────────────────
     const normalizedGhostAll = (ghostPosts || []).map(normalizeGhostPost);
     const mergedAll = normalizedGhostAll;
+    const [visibleCount, setVisibleCount] = useState(9);
 
     const isLoading = postsLoading || featuredLoading;
 
     return (
         <Layout>
             {/* Header Section */}
-            <section className="pt-24 pb-12 lg:pt-32 lg:pb-16 bg-background">
-                <div className="container text-center">
-                    <h1 className="text-4xl md:text-6xl font-extrabold text-navy-950 mb-4 tracking-tight">
-                        Address Intelligence <span className="text-blue-600">Insights & Resources</span>
+            <div className="ds-v5">
+                <section className="hero">
+                    <div className="hero-badge">
+                        <span className="pulse-dot"></span>
+                        <span style={{ position: 'relative', zIndex: 1 }}>Latest Updates</span>
+                    </div>
+                    <h1>
+                        Address Intelligence Insights & <br />
+                        <span className="accent">Resources</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                    <p className="hero-subtitle" style={{ maxWidth: '800px', marginInline: 'auto' }}>
                         Stay ahead of ISO 20022 migration with expert analysis, technical deep-dives, and strategic guidance on structured address resolution for global payments.
                     </p>
-                </div>
-            </section>
+                </section>
+            </div>
 
             {/* Featured Blogs Section */}
             <section className="py-12 md:py-16 bg-background relative overflow-hidden">
@@ -229,7 +236,7 @@ const BlogsContent = () => {
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {mergedAll.map((post, index) => (
+                            {mergedAll.slice(0, visibleCount).map((post, index) => (
                                 <Link to={`/blog/${post.slug}`} key={`grid-${post.slug}-${index}`} className="group h-full block">
                                     <article className="h-full bg-white rounded-2xl overflow-hidden shadow-[0_2px_8px_rgba(14,25,53,0.04)] hover:shadow-[0_20px_40px_rgba(14,25,53,0.12)] transition-all duration-300 hover:-translate-y-1 border border-slate-100 flex flex-col">
                                         {/* Card Image Area */}
@@ -293,11 +300,18 @@ const BlogsContent = () => {
                         </div>
                     )}
 
-                    <div className="mt-16 text-center">
-                        <Button variant="outline" size="lg" className="rounded-full border-2 border-slate-200 text-navy-950 font-bold hover:border-blue-600 hover:text-blue-600 hover:bg-white px-8 h-12">
-                            Load More Articles <ChevronRight className="ml-2 h-4 w-4" />
-                        </Button>
-                    </div>
+                    {visibleCount < mergedAll.length && (
+                        <div className="mt-16 text-center">
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="rounded-full border-2 border-slate-200 text-navy-950 font-bold hover:border-blue-600 hover:text-blue-600 hover:bg-white px-8 h-12"
+                                onClick={() => setVisibleCount((prev) => prev + 9)}
+                            >
+                                Load More Articles <ChevronRight className="ml-2 h-4 w-4" />
+                            </Button>
+                        </div>
+                    )}
                 </div>
             </section>
         </Layout>
