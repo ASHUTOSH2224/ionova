@@ -35,7 +35,7 @@ export function PlatformPage({ navigate }: Props) {
       <div className="hero">
         <div className="hero-orb"></div>
         <div className="hero-badge"><span className="pulse-dot"></span> The Entity Intelligence Platform</div>
-        <h1>Every Enterprise Runs on Entities.<br /><span className="accent">Now They Can Finally Trust Them.</span></h1>
+        <h1>Every Enterprise Runs on Entities Now<br /><span className="accent">They Can Finally Trust Them</span></h1>
         <p className="hero-sub">The first platform to unify Named Entity Recognition, golden record creation, evidence-first AI copilots, and permissioned agentic automation — all governed from day one. Purpose-built for regulated industries that demand accuracy, auditability, and speed.</p>
         <div className="hero-ctas">
           <a className="btn btn-accent btn-lg">See It In Action <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></a>

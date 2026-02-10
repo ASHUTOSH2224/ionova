@@ -78,7 +78,7 @@ function KeyDistinction() {
     <div className="section">
       <div className="section-label">Key Distinction</div>
       <div className="section-title">Structured vs. Hybrid: Not Either/Or</div>
-      <div className="content-block" style={{ marginTop: 'var(--space-lg)' }}>
+      <div className="content-block" style={{ marginTop: 'var(--space-lg)', textAlign: 'center' }}>
         <p>Hybrid is a <strong>subset</strong> of structured. A system that produces structured output can trivially generate hybrid output. The reverse is not true. Investing in structured provides both formats simultaneously.</p>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-lg)', marginTop: 'var(--space-lg)' }}>
