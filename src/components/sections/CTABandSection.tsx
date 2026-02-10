@@ -1,9 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
 
 export function CTABandSection() {
   const [days, setDays] = useState(0);
+  const containerRef = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     function update() {
       const diff = new Date("2026-11-01T00:00:00Z").getTime() - Date.now();
       if (diff <= 0) return;
@@ -14,139 +22,172 @@ export function CTABandSection() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        cardRef.current,
+        {
+          width: "80%",
+          borderRadius: "2rem",
+          y: 50,
+          opacity: 0.8,
+        },
+        {
+          width: "95%",
+          borderRadius: "1.5rem",
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 90%",
+            end: "center center",
+            scrub: 1.5,
+          },
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
-      className="relative overflow-hidden px-6 py-14"
-      style={{
-        background: "linear-gradient(135deg, #0E1935 0%, #1A1E35 30%, #243574 60%, #2B4E86 100%)",
-      }}
+      ref={containerRef}
+      className="relative w-full py-8 flex justify-center items-center overflow-hidden"
     >
-      <div className="relative z-10 mx-auto max-w-[900px] text-center">
-        {/* Title */}
-        <h2
-          style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 800,
-            fontSize: "clamp(28px, 4.5vw, 44px)",
-            lineHeight: 1.2,
-            color: "#E2E8F4",
-            marginBottom: "32px",
-          }}
-        >
-          The November 2026 ISO 20022 Deadline Won't Wait.{" "}
-          <span
-            style={{
-              background: "linear-gradient(135deg, #EF4444, #F87171, #F59E0B)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Your Address Data Shouldn't Either.
-          </span>
-          <span
-            style={{
-              display: "block",
-              fontFamily: "'Figtree', system-ui, sans-serif",
-              fontSize: "15px",
-              fontWeight: 400,
-              lineHeight: 1.7,
-              color: "#8A9DBD",
-              marginTop: "16px",
-            }}
-          >
-            Purpose-built address intelligence. 195 countries. 98%+ STP. 10–16 weeks to production.
-          </span>
-        </h2>
+      {/* Background decoration or context if needed, currently kept clean for the card effect */}
 
-        {/* Countdown */}
-        <div className="mb-10 flex justify-center">
-          <div
-            className="rounded-2xl border border-white/10 px-10 py-5 text-center transition-all duration-300 hover:-translate-y-0.5"
-            style={{
-              background: "rgba(255,255,255,0.06)",
-              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 32px rgba(0,0,0,0.3)",
-              backdropFilter: "blur(12px)",
-            }}
-          >
-            <div
+      <div
+        ref={cardRef}
+        className="relative z-10 mx-auto overflow-hidden shadow-2xl"
+        style={{
+          background: "linear-gradient(135deg, #0E1935 0%, #1A1E35 40%, #243574 100%)",
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+        }}
+      >
+        {/* Shine effect overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+
+        <div className="relative px-6 py-10 sm:px-12 sm:py-12 flex flex-col items-center text-center">
+
+          {/* Title Group */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <h2
+              className="mb-4"
               style={{
                 fontFamily: "'Outfit', system-ui, sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(40px, 7vw, 56px)",
-                letterSpacing: "-1.5px",
-                lineHeight: 1,
-                background: "linear-gradient(180deg, #6ED9DA, #5AAFCB)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
+                fontWeight: 700,
+                fontSize: "clamp(24px, 4vw, 36px)", // Reduced size
+                lineHeight: 1.2,
+                color: "#E2E8F4",
               }}
             >
-              {days}
-            </div>
-            <div
+              The November 2026 ISO 20022 Deadline <br className="hidden sm:block" />
+              Won't Wait.{" "}
+              <span
+                style={{
+                  background: "linear-gradient(135deg, #60A5FA, #3B82F6, #2563EB)", // Updated to blue-ish tailored gradient for clarity
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Your Address Data Shouldn't Either.
+              </span>
+            </h2>
+
+            <p
               style={{
-                fontFamily: "'Outfit', system-ui, sans-serif",
-                fontSize: "11px",
-                fontWeight: 600,
-                letterSpacing: "1.5px",
-                color: "#6B7FA0",
-                marginTop: "6px",
+                fontFamily: "'Figtree', system-ui, sans-serif",
+                fontSize: "15px",
+                color: "#94A3B8",
+                maxWidth: "600px",
+                margin: "0 auto",
               }}
             >
-              DAYS
+              Purpose-built address intelligence. 195 countries. 98%+ STP. <br className="hidden sm:block" />
+              <span className="text-white/90 font-medium">10–16 weeks to production.</span>
+            </p>
+          </div>
+
+          {/* Compact Countdown */}
+          <div className="mb-8">
+            <div
+              className="inline-flex items-baseline gap-2 rounded-xl border border-white/10 px-6 py-3"
+              style={{
+                background: "rgba(255,255,255,0.03)",
+                backdropFilter: "blur(10px)",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "32px",
+                  color: "#fff",
+                  lineHeight: 1,
+                  background: "linear-gradient(180deg, #FFFFFF 0%, #94A3B8 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                {days}
+              </span>
+              <span
+                className="text-xs font-bold tracking-widest text-slate-400"
+                style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
+              >
+                DAYS LEFT
+              </span>
             </div>
           </div>
-        </div>
 
-        {/* Buttons */}
-        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href="/demo"
-            className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-            style={{
-              background: "linear-gradient(135deg, #43ADC1, #3C75B5)",
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontWeight: 600,
-              fontSize: "14px",
-              textDecoration: "none",
-            }}
-          >
-            See Structured Resolution in Action
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
+          {/* Buttons - Compact */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+            <a
+              href="/demo"
+              className="group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+              style={{
+                background: "linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%)",
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: 600,
+                fontSize: "14px",
+                minWidth: "200px",
+              }}
             >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-          <a
-            href="/demo"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40"
-            style={{
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontWeight: 600,
-              fontSize: "14px",
-              color: "#E2E8F4",
-              textDecoration: "none",
-            }}
-          >
-            Calculate Savings
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
+              <span className="relative z-10">See Structured Resolution</span>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="transition-transform group-hover:translate-x-1"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+
+            <a
+              href="/demo"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 transition-all duration-300 hover:bg-white/5 hover:border-white/30"
+              style={{
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: 600,
+                fontSize: "14px",
+                color: "#E2E8F4",
+                minWidth: "160px",
+                textDecoration: "none",
+              }}
             >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
+              Calculate Savings
+            </a>
+          </div>
+
         </div>
       </div>
     </section>

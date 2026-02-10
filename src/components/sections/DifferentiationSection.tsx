@@ -59,7 +59,7 @@ export function DifferentiationSection() {
   ];
 
   return (
-    <section className="border-t border-border bg-background py-24 px-6" id="comparison">
+    <section className="border-t border-border bg-surface-2 py-24 px-6" id="comparison">
       <div className="mx-auto max-w-[1200px]">
         {/* Section Label */}
         <div className="mb-4 flex items-center gap-2">
@@ -102,11 +102,10 @@ export function DifferentiationSection() {
                   (header, i) => (
                     <th
                       key={header}
-                      className={`whitespace-nowrap border-b-2 border-[#D0DAEB] px-4 py-3.5 text-left ${
-                        i === 4
+                      className={`whitespace-nowrap border-b-2 border-[#D0DAEB] px-4 py-3.5 text-left ${i === 4
                           ? "bg-gradient-to-br from-[rgba(95,207,208,0.08)] to-[rgba(67,173,193,0.04)]"
                           : "bg-[#EFF2F7]"
-                      }`}
+                        }`}
                       style={{
                         fontFamily: "'Outfit', system-ui, sans-serif",
                         fontWeight: 700,
@@ -128,9 +127,8 @@ export function DifferentiationSection() {
                   className="transition-colors hover:bg-[rgba(239,242,247,0.5)]"
                 >
                   <td
-                    className={`px-4 py-3 ${
-                      idx !== rows.length - 1 ? "border-b border-[#DFE8F2]" : ""
-                    }`}
+                    className={`px-4 py-3 ${idx !== rows.length - 1 ? "border-b border-[#DFE8F2]" : ""
+                      }`}
                     style={{
                       fontWeight: 600,
                       color: "#0E1935",
@@ -141,33 +139,29 @@ export function DifferentiationSection() {
                     {row.capability}
                   </td>
                   <td
-                    className={`px-4 py-3 ${
-                      idx !== rows.length - 1 ? "border-b border-[#DFE8F2]" : ""
-                    }`}
+                    className={`px-4 py-3 ${idx !== rows.length - 1 ? "border-b border-[#DFE8F2]" : ""
+                      }`}
                     style={{ color: "#466587", fontFamily: "'Figtree', system-ui, sans-serif" }}
                   >
                     {row.postal}
                   </td>
                   <td
-                    className={`px-4 py-3 ${
-                      idx !== rows.length - 1 ? "border-b border-[#DFE8F2]" : ""
-                    }`}
+                    className={`px-4 py-3 ${idx !== rows.length - 1 ? "border-b border-[#DFE8F2]" : ""
+                      }`}
                     style={{ color: "#466587", fontFamily: "'Figtree', system-ui, sans-serif" }}
                   >
                     {row.llm}
                   </td>
                   <td
-                    className={`px-4 py-3 ${
-                      idx !== rows.length - 1 ? "border-b border-[#DFE8F2]" : ""
-                    }`}
+                    className={`px-4 py-3 ${idx !== rows.length - 1 ? "border-b border-[#DFE8F2]" : ""
+                      }`}
                     style={{ color: "#466587", fontFamily: "'Figtree', system-ui, sans-serif" }}
                   >
                     {row.inHouse}
                   </td>
                   <td
-                    className={`px-4 py-3 ${
-                      idx !== rows.length - 1 ? "border-b border-[#DFE8F2]" : ""
-                    }`}
+                    className={`px-4 py-3 ${idx !== rows.length - 1 ? "border-b border-[#DFE8F2]" : ""
+                      }`}
                     style={{
                       color: "#43ADC1",
                       fontWeight: 600,

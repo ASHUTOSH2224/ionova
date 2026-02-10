@@ -146,7 +146,7 @@ export function ChallengeSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="bg-background flex flex-col justify-center pt-8 pb-8 md:pt-12 md:pb-12 lg:pb-16 overflow-hidden relative">
+    <section ref={containerRef} className="bg-surface-2 flex flex-col justify-center pt-8 pb-8 md:pt-12 md:pb-12 lg:pb-16 overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent opacity-50"></div>
 
       <div className="container">
