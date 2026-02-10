@@ -28,6 +28,7 @@ const volumeOptions = [
 ];
 
 import { AppWrapper } from "@/components/AppWrapper";
+import { subscribeToKit } from "@/lib/kit";
 
 const DemoContent = () => {
   const { toast } = useToast();
@@ -46,24 +47,32 @@ const DemoContent = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      await subscribeToKit(formData);
 
-    toast({
-      title: "Demo Request Submitted!",
-      description: "Our team will reach out within 24 hours to schedule your demo.",
-    });
+      toast({
+        title: "Demo Request Submitted!",
+        description: "Our team will reach out within 24 hours to schedule your demo.",
+      });
 
-    setIsSubmitting(false);
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      company: "",
-      jobTitle: "",
-      volume: "",
-      message: "",
-    });
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        jobTitle: "",
+        volume: "",
+        message: "",
+      });
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Submission Failed",
+        description: "There was a problem submitting your request. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
