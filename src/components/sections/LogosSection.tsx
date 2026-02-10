@@ -1,18 +1,18 @@
 export function LogosSection() {
     // All logos from the public/Logo directory
     const logos = [
-        "/Logo/1.webp",
-        "/Logo/image copy.webp",
-        "/Logo/image copy 2.webp",
-        "/Logo/image copy 3.webp",
-        "/Logo/image copy 4.webp",
-        "/Logo/image copy 5.webp",
-        "/Logo/image copy 6.webp",
-        "/Logo/image copy 7.webp",
-        "/Logo/image copy 8.webp",
-        "/Logo/image copy 9.webp",
-        "/Logo/image copy 10.webp",
-        "/Logo/image.webp",
+        "/Logo/webp/1.webp",
+        "/Logo/webp/2.webp",
+        "/Logo/webp/3.webp",
+        "/Logo/webp/4.webp",
+        "/Logo/webp/5.webp",
+        "/Logo/webp/6.webp",
+        "/Logo/webp/7.webp",
+        "/Logo/webp/8.webp",
+        "/Logo/webp/9.webp",
+        "/Logo/webp/10.webp",
+        "/Logo/webp/11.webp",
+        "/Logo/webp/12.webp",
     ];
 
     return (
