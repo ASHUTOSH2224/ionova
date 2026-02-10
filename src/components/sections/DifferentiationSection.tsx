@@ -66,13 +66,13 @@ export function DifferentiationSection() {
 
 
           <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
-            Why Postal Validation Tools, LLMs, and generic vendors Fail for <span className="text-gradient">Payment Compliance</span>
+            Why Postal Validation Tools, LLMs and generic vendors Fail for <span className="text-gradient">Payment Compliance</span>
           </h2>
         </div>
 
         {/* Table */}
         <div className="overflow-x-auto rounded-2xl border border-[#D0DAEB]">
-          <table className="w-full border-collapse" style={{ fontSize: "13px" }}>
+          <table className="w-full border-collapse" style={{ fontSize: "15px" }}>
             <thead>
               <tr>
                 {["Capability", "Generic Postal APIs", "LLMs", "In-House Build", "ioNova"].map(
@@ -86,7 +86,7 @@ export function DifferentiationSection() {
                       style={{
                         fontFamily: "'Outfit', system-ui, sans-serif",
                         fontWeight: 700,
-                        fontSize: "12px",
+                        fontSize: "14px",
                         letterSpacing: "0.3px",
                         color: i === 4 ? "#43ADC1" : "#0E1935",
                       }}
@@ -109,7 +109,7 @@ export function DifferentiationSection() {
                     style={{
                       fontWeight: 600,
                       color: "#0E1935",
-                      fontSize: "12px",
+                      fontSize: "14px",
                       fontFamily: "'Figtree', system-ui, sans-serif",
                     }}
                   >

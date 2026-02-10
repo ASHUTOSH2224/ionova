@@ -1,0 +1,9 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { AppWrapper } from '@/components/AppWrapper';
+import Blogs from '@/views/Blogs';
+---
+
+<Layout title="Blogs - ioNova" description="Insights, articles, and resources about ISO 20022 and address resolution.">
+	<Blogs client:only="react" />
+</Layout>

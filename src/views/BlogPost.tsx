@@ -50,9 +50,9 @@ const BlogPostContent = ({ post: propPost }: { post?: MockPost }) => {
               The blog post you're looking for doesn't exist or couldn't be loaded.
             </p>
             <Button variant="hero" asChild>
-              <Link to="/resources">
+              <Link to="/blogs">
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Resources
+                Back to Blogs
               </Link>
             </Button>
           </div>
@@ -102,9 +102,9 @@ const BlogPostContent = ({ post: propPost }: { post?: MockPost }) => {
               className="mb-6 bg-white/10 text-white hover:bg-white/20"
               asChild
             >
-              <Link to="/resources">
+              <Link to="/blogs">
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Resources
+                Back to Blogs
               </Link>
             </Button>
 
@@ -190,7 +190,7 @@ const BlogPostContent = ({ post: propPost }: { post?: MockPost }) => {
                 <Link to="/demo">Request a Demo</Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link to="/resources">More Articles</Link>
+                <Link to="/blogs">More Articles</Link>
               </Button>
             </div>
           </div>
