@@ -31,7 +31,7 @@ export function ImplementationSection() {
 
 
           <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
-            One Integration. Full Compliance. <span className="text-gradient">Zero Legacy Overhaul.</span>
+            One Integration Full Compliance <span className="text-gradient">Zero Legacy Overhaul</span>
             <span className="block mt-4 mx-auto max-w-2xl text-lg text-text-muted font-normal tracking-normal">
               Deploys as a sidecar service. Repairs messages in real time or does a one time cleanup on your legacy data.
             </span>

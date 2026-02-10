@@ -66,7 +66,7 @@ export function DifferentiationSection() {
 
 
           <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
-            Why Postal Validation Tools, LLMs, and generic vendors Fail for <span className="text-gradient">Payment Compliance</span>
+            Why Postal Validation Tools, LLMs and generic vendors Fail for <span className="text-gradient">Payment Compliance</span>
           </h2>
         </div>
 

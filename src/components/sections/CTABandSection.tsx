@@ -74,7 +74,7 @@ export function CTABandSection() {
         <div className="relative px-6 py-10 sm:px-12 sm:py-12 flex flex-col items-center text-center">
 
           {/* Title Group */}
-          <div className="max-w-2xl mx-auto mb-8">
+          <div className="max-w-4xl mx-auto mb-8">
             <h2
               className="mb-4"
               style={{
@@ -85,8 +85,7 @@ export function CTABandSection() {
                 color: "#E2E8F4",
               }}
             >
-              The November 2026 ISO 20022 Deadline <br className="hidden sm:block" />
-              Won't Wait.{" "}
+              The November 2026 ISO 20022 Deadline Won't Wait<br />
               <span
                 style={{
                   background: "linear-gradient(135deg, #60A5FA, #3B82F6, #2563EB)", // Updated to blue-ish tailored gradient for clarity
@@ -95,7 +94,7 @@ export function CTABandSection() {
                   backgroundClip: "text",
                 }}
               >
-                Your Address Data Shouldn't Either.
+                Your Address Data Shouldn't Either
               </span>
             </h2>
 
