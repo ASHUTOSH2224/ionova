@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 
-import { featuredPosts, allPosts } from "@/data/blogPosts";
 import { useGhostPosts, useFeaturedGhostPosts } from "@/hooks/useGhostPosts";
 import { GhostPost } from "@/lib/ghost";
 import { format } from "date-fns";
@@ -72,34 +71,6 @@ function normalizeGhostPost(post: GhostPost): NormalizedPost {
     };
 }
 
-function normalizeStaticFeatured(post: (typeof featuredPosts)[number]): NormalizedPost {
-    return {
-        ...post,
-        icon: FileText,
-        source: "static",
-    };
-}
-
-function normalizeStaticAll(post: (typeof allPosts)[number]): NormalizedPost {
-    return {
-        ...post,
-        excerpt: post.excerpt || "",
-        source: "static",
-    };
-}
-
-// Deduplicate by slug, preferring Ghost posts
-function deduplicateBySlug(posts: NormalizedPost[]): NormalizedPost[] {
-    const seen = new Map<string, NormalizedPost>();
-    for (const p of posts) {
-        const existing = seen.get(p.slug);
-        if (!existing || (existing.source === "static" && p.source === "ghost")) {
-            seen.set(p.slug, p);
-        }
-    }
-    return Array.from(seen.values());
-}
-
 // ── Components ──────────────────────────────────────────────────────
 
 const BlogsContent = () => {
@@ -107,28 +78,19 @@ const BlogsContent = () => {
     const { data: ghostPosts, isLoading: postsLoading } = useGhostPosts(20);
     const { data: ghostFeatured, isLoading: featuredLoading } = useFeaturedGhostPosts(5);
 
-    // ── Featured posts ──────────────────────────────────────────────
     const normalizedGhostFeatured = (ghostFeatured || []).map(normalizeGhostPost);
-    const normalizedStaticFeatured = featuredPosts.map(normalizeStaticFeatured);
-    const mergedFeatured = deduplicateBySlug([
-        ...normalizedGhostFeatured,
-        ...normalizedStaticFeatured,
-    ]);
+    const mergedFeatured = normalizedGhostFeatured;
 
     // ── All posts (grid) ────────────────────────────────────────────
     const normalizedGhostAll = (ghostPosts || []).map(normalizeGhostPost);
-    const normalizedStaticAll = allPosts.map(normalizeStaticAll);
-    const mergedAll = deduplicateBySlug([
-        ...normalizedGhostAll,
-        ...normalizedStaticAll,
-    ]);
+    const mergedAll = normalizedGhostAll;
 
     const isLoading = postsLoading || featuredLoading;
 
     return (
         <Layout>
             {/* Header Section */}
-            <section className="pt-24 pb-12 lg:pt-32 lg:pb-16 bg-gradient-to-b from-surface-2 to-white">
+            <section className="pt-24 pb-12 lg:pt-32 lg:pb-16 bg-background">
                 <div className="container text-center">
                     <h1 className="text-4xl md:text-6xl font-extrabold text-navy-950 mb-4 tracking-tight">
                         Address Intelligence <span className="text-blue-600">Insights & Resources</span>
@@ -140,7 +102,7 @@ const BlogsContent = () => {
             </section>
 
             {/* Featured Blogs Section */}
-            <section className="py-12 md:py-16 bg-white relative overflow-hidden">
+            <section className="py-12 md:py-16 bg-background relative overflow-hidden">
                 {/* Background decoration */}
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
 
@@ -239,7 +201,7 @@ const BlogsContent = () => {
             </section>
 
             {/* All Blog Posts Grid */}
-            <section className="py-20 bg-surface-2 relative">
+            <section className="py-20 bg-background relative">
                 {/* Noise overlay simulation */}
                 <div className="absolute inset-0 opacity-[0.015] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
 

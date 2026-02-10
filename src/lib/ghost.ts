@@ -95,7 +95,7 @@ export const ghostAPI = {
     try {
       const posts = await api.posts.browse({
         limit,
-        filter: 'featured:true',
+        filter: 'featured:true,tag:featured',
         include: 'tags,authors',
       });
       return posts as GhostPost[];

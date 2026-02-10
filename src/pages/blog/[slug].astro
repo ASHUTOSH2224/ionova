@@ -1,25 +1,15 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import BlogPostView from '@/views/BlogPost';
-import { featuredPosts, allPosts } from "@/data/blogPosts";
 import { ghostAPI } from '@/lib/ghost';
 
 export async function getStaticPaths() {
-  // Static posts
-  const staticPosts = [...featuredPosts, ...allPosts];
-  const staticPaths = staticPosts.map(post => ({
-    params: { slug: post.slug },
-    props: { post, source: 'static' },
-  }));
-
   // Ghost posts
   let ghostPaths: any[] = [];
   try {
     const ghostPosts = await ghostAPI.getPosts({ limit: 'all' });
-    const staticSlugs = new Set(staticPosts.map(p => p.slug));
 
     ghostPaths = ghostPosts
-      .filter(gp => !staticSlugs.has(gp.slug))
       .map(gp => ({
         params: { slug: gp.slug },
         props: {
@@ -43,7 +33,7 @@ export async function getStaticPaths() {
     console.error('Error fetching Ghost posts for static paths:', error);
   }
 
-  return [...staticPaths, ...ghostPaths];
+  return ghostPaths;
 }
 
 const { slug } = Astro.params;
