@@ -14,9 +14,9 @@ export function Footer() {
       links: [
         { label: "All Content", href: "/blogs" },
         { label: "Blogs", href: "/blogs" },
-        { label: "Podcasts", href: "/blogs#podcasts" },
-        { label: "Videos", href: "/blogs#videos" },
-        { label: "Newsletters", href: "/blogs#newsletters" },
+        // { label: "Podcasts", href: "/blogs#podcasts" },
+        // { label: "Videos", href: "/blogs#videos" },
+        // { label: "Newsletters", href: "/blogs#newsletters" },
       ],
     },
     solutions: {

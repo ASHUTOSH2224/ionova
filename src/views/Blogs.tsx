@@ -19,13 +19,13 @@ const BlogsContent = () => {
     return (
         <Layout>
             {/* Header Section */}
-            <section className="pt-24 pb-12 lg:pt-32 lg:pb-16 bg-background">
+            <section className="pt-24 pb-12 lg:pt-32 lg:pb-16 bg-gradient-to-b from-surface-2 to-white">
                 <div className="container text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold text-navy-950 mb-4 tracking-tight">
-                        Payments. Tech. <span className="text-blue-600">Decoded.</span>
+                    <h1 className="text-4xl md:text-6xl font-extrabold text-navy-950 mb-4 tracking-tight">
+                        Address Intelligence <span className="text-blue-600">Insights & Resources</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto">
-                        Insights on payments tech, infrastructure and orchestration.
+                    <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                        Stay ahead of ISO 20022 migration with expert analysis, technical deep-dives, and strategic guidance on structured address resolution for global payments.
                     </p>
                 </div>
             </section>
