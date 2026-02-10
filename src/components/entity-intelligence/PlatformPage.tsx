@@ -6,10 +6,11 @@ interface Props {
 
 export function PlatformPage({ navigate }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({});
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const answerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const toggleFaq = (index: number) => {
-    setOpenFaqs(prev => ({ ...prev, [index]: !prev[index] }));
+    setOpenFaqIndex(prev => (prev === index ? null : index));
   };
 
   useEffect(() => {
@@ -29,6 +30,17 @@ export function PlatformPage({ navigate }: Props) {
     elements.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    answerRefs.current.forEach((el, i) => {
+      if (!el) return;
+      if (openFaqIndex === i) {
+        el.style.maxHeight = el.scrollHeight + 'px';
+      } else {
+        el.style.maxHeight = '0px';
+      }
+    });
+  }, [openFaqIndex]);
 
   return (
     <div ref={containerRef}>
@@ -185,11 +197,19 @@ export function PlatformPage({ navigate }: Props) {
               a: <p>Using LLMs for every entity comparison is economically unsustainable at enterprise scale. Processing 10 million entity comparisons monthly through an LLM-everywhere approach costs <strong>$200K–$600K in inference alone</strong>. ioNova's cascade architecture reduces this by 90%+ (to $15K–$40K/month) by routing 70–80% of comparisons through deterministic, sub-50ms stages (exact and fuzzy matching) and only escalating genuinely ambiguous cases (roughly 10%) to LLM reasoning. This also improves auditability — 90% of decisions are fully deterministic and explainable — while reducing latency from 200–500ms to under 50ms weighted average.</p>
             }
           ].map((item, i) => (
-            <div key={i} className={`faq-item ${openFaqs[i] ? 'open' : ''}`} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+            <div key={i} className={`faq-item ${openFaqIndex === i ? 'open' : ''}`} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
               <div className="faq-q" itemProp="name" onClick={() => toggleFaq(i)}>
                 {item.q}<svg className="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
               </div>
-              <div className="faq-a" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+              <div
+                className="faq-a"
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+                ref={(el) => {
+                  answerRefs.current[i] = el;
+                }}
+              >
                 <div className="faq-a-inner" itemProp="text">{item.a}</div>
               </div>
             </div>

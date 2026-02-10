@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface Props {
   navigate: (page: string) => void;
@@ -163,57 +163,94 @@ function Stakeholders() {
 }
 
 function Faq() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const answerRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    answerRefs.current.forEach((el, i) => {
+      if (!el) return;
+      if (openFaqIndex === i) {
+        el.style.maxHeight = el.scrollHeight + 'px';
+      } else {
+        el.style.maxHeight = '0px';
+      }
+    });
+  }, [openFaqIndex]);
+
+  const faqs = [
+    {
+      q: "What is the difference between address validation and address intelligence?",
+      a: 'Address validation confirms that a physical location exists—"can a letter be delivered here?" Address intelligence resolves, structures, and enriches address data for financial compliance—"does this address identify a legal entity in a format that satisfies ISO 20022, sanctions screening, and payment routing across 195 countries?" These are fundamentally different problems.'
+    },
+    {
+      q: "What is the difference between structured and hybrid addresses?",
+      a: "A structured address populates all components in dedicated XML elements: <StrtNm>, <BldgNb>, <TwnNm>, <PstCd>, <Ctry>. A hybrid uses some structured elements plus free-text address lines. Structured is the regulatory mandate; hybrid is the allowed fallback. Because hybrid is a subset of structured, delivering structured automatically satisfies hybrid with identical implementation effort."
+    },
+    {
+      q: "What does ISO 20022 require for payment addresses?",
+      a: "ISO 20022 mandates that payment messages contain address data in structured XML elements rather than free-text blocks. This means addresses must be broken into discrete, semantically tagged components—street name, building number, postal code, town name, and country code—within the ISO 20022 postal address schema. The European Payments Council (EPC), SWIFT CBPR+, and CPMI/BIS all converge on structured addressing as the target state, with November 2026 as the enforcement milestone for SWIFT traffic."
+    },
+    {
+      q: "How does address intelligence improve sanctions screening?",
+      a: 'When address data is unstructured, sanctions screening engines perform string-level matching, which generates enormous false positive rates—often exceeding 95%. For example, "Cuba Street, Wellington" triggers Cuba sanctions alerts. With structured addresses, screening operates at field level: matching <Ctry> against sanctioned jurisdictions and <TwnNm> against city databases independently. This reduces false positives by approximately 30%, allowing compliance teams to focus on genuine risk rather than clearing noise.'
+    },
+    {
+      q: "Can AI or LLMs be used for payment address parsing?",
+      a: "Large language models (LLMs) are architecturally unsuited for payment address compliance. They produce non-deterministic output—identical inputs may yield different results across invocations—which is incompatible with sanctions screening and audit requirements. LLMs can hallucinate postal codes, fabricate building numbers, or select the wrong city. They also introduce 1–5 second latency per request (payments require sub-100ms), and operate as black boxes without the explainability regulators demand. Purpose-built, deterministic address resolution engines are the only approach that satisfies regulatory, operational, and audit requirements simultaneously."
+    },
+    {
+      q: "How does it work with existing payment systems?",
+      a: 'ioNova operates as a "sidecar" service—connecting to existing payment infrastructure via standard API without replacing or modifying core systems. Integration works with MuleSoft, Volante, Finastra, and similar middleware solutions.'
+    },
+    {
+      q: "How long does implementation take?",
+      a: "Typical implementation completes in 10–16 weeks: weeks 1–4 for analysis and configuration, weeks 5–10 for integration and testing, and weeks 11–16 for production deployment. No legacy system changes are required."
+    },
+    {
+      q: "What countries and writing systems does address intelligence support?",
+      a: "ioNova's address intelligence engine covers 195 countries and over 50 writing systems natively—including Latin, Cyrillic, Arabic, Chinese, Japanese, Korean (CJK), Devanagari, Thai, and Hebrew scripts. This is critical for cross-border payment processing where addresses arrive in multiple scripts and formats. Unlike postal validation tools that focus primarily on major Latin markets, purpose-built payment address resolution handles script normalisation, transliteration, and multi-format parsing from day one."
+    }
+  ];
+
   return (
     <div className="section">
       <div className="section-label">FAQ</div>
       <div className="section-title">Frequently Asked Questions</div>
       <div className="faq-list">
-        <FaqItem
-          q="What is the difference between address validation and address intelligence?"
-          a="Address validation confirms that a physical location exists—&quot;can a letter be delivered here?&quot; Address intelligence resolves, structures, and enriches address data for financial compliance—&quot;does this address identify a legal entity in a format that satisfies ISO 20022, sanctions screening, and payment routing across 195 countries?&quot; These are fundamentally different problems."
-        />
-        <FaqItem
-          q="What is the difference between structured and hybrid addresses?"
-          a="A structured address populates all components in dedicated XML elements: &lt;StrtNm&gt;, &lt;BldgNb&gt;, &lt;TwnNm&gt;, &lt;PstCd&gt;, &lt;Ctry&gt;. A hybrid uses some structured elements plus free-text address lines. Structured is the regulatory mandate; hybrid is the allowed fallback. Because hybrid is a subset of structured, delivering structured automatically satisfies hybrid with identical implementation effort."
-        />
-        <FaqItem
-          q="What does ISO 20022 require for payment addresses?"
-          a="ISO 20022 mandates that payment messages contain address data in structured XML elements rather than free-text blocks. This means addresses must be broken into discrete, semantically tagged components—street name, building number, postal code, town name, and country code—within the ISO 20022 postal address schema. The European Payments Council (EPC), SWIFT CBPR+, and CPMI/BIS all converge on structured addressing as the target state, with November 2026 as the enforcement milestone for SWIFT traffic."
-        />
-        <FaqItem
-          q="How does address intelligence improve sanctions screening?"
-          a="When address data is unstructured, sanctions screening engines perform string-level matching, which generates enormous false positive rates—often exceeding 95%. For example, &quot;Cuba Street, Wellington&quot; triggers Cuba sanctions alerts. With structured addresses, screening operates at field level: matching &lt;Ctry&gt; against sanctioned jurisdictions and &lt;TwnNm&gt; against city databases independently. This reduces false positives by approximately 30%, allowing compliance teams to focus on genuine risk rather than clearing noise."
-        />
-        <FaqItem
-          q="Can AI or LLMs be used for payment address parsing?"
-          a="Large language models (LLMs) are architecturally unsuited for payment address compliance. They produce non-deterministic output—identical inputs may yield different results across invocations—which is incompatible with sanctions screening and audit requirements. LLMs can hallucinate postal codes, fabricate building numbers, or select the wrong city. They also introduce 1–5 second latency per request (payments require sub-100ms), and operate as black boxes without the explainability regulators demand. Purpose-built, deterministic address resolution engines are the only approach that satisfies regulatory, operational, and audit requirements simultaneously."
-        />
-        <FaqItem
-          q="How does it work with existing payment systems?"
-          a="ioNova operates as a &quot;sidecar&quot; service—connecting to existing payment infrastructure via standard API without replacing or modifying core systems. Integration works with MuleSoft, Volante, Finastra, and similar middleware solutions."
-        />
-        <FaqItem
-          q="How long does implementation take?"
-          a="Typical implementation completes in 10–16 weeks: weeks 1–4 for analysis and configuration, weeks 5–10 for integration and testing, and weeks 11–16 for production deployment. No legacy system changes are required."
-        />
-        <FaqItem
-          q="What countries and writing systems does address intelligence support?"
-          a="ioNova's address intelligence engine covers 195 countries and over 50 writing systems natively—including Latin, Cyrillic, Arabic, Chinese, Japanese, Korean (CJK), Devanagari, Thai, and Hebrew scripts. This is critical for cross-border payment processing where addresses arrive in multiple scripts and formats. Unlike postal validation tools that focus primarily on major Latin markets, purpose-built payment address resolution handles script normalisation, transliteration, and multi-format parsing from day one."
-        />
+        {faqs.map((item, i) => (
+          <div
+            key={i}
+            className={`faq-item ${openFaqIndex === i ? 'open' : ''}`}
+          >
+            <div
+              className="faq-q"
+              onClick={() =>
+                setOpenFaqIndex((prev) => (prev === i ? null : i))
+              }
+            >
+              {item.q}
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div
+              className="faq-a"
+              ref={(el) => {
+                answerRefs.current[i] = el;
+              }}
+            >
+              {item.a}
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-  );
-}
-
-function FaqItem({ q, a }: { q: string, a: string }) {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className={`faq-item ${isOpen ? 'open' : ''}`}>
-      <div className="faq-q" onClick={() => setIsOpen(!isOpen)}>
-        {q}
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
-      </div>
-      <div className="faq-a">{a}</div>
     </div>
   );
 }
