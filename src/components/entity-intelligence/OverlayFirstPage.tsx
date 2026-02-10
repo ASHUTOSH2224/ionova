@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { PillarNav } from './PillarNav';
+
 
 interface Props {
   navigate: (page: string) => void;
@@ -35,7 +35,7 @@ export function OverlayFirstPage({ navigate }: Props) {
     <div ref={containerRef}>
       <div className="hero">
         <div className="hero-orb"></div>
-        <PillarNav activePage="overlay" onNavigate={navigate} />
+
         <div className="hero-badge"><span className="pulse-dot"></span> Platform Pillar — Overlay-First Deployment</div>
         <h1>Don't Replace Your Systems.<br /><span className="accent">Make Them Intelligent.</span></h1>
         <p className="hero-sub">We overlay intelligence on top of your existing infrastructure — reading your data, enriching your workflows, and embedding copilots directly in the tools your teams already use. Start read-only. Prove value. Then expand.</p>

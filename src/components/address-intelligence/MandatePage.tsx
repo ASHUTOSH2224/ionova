@@ -22,13 +22,7 @@ export function MandatePage({ navigate }: Props) {
 function Hero() {
   return (
     <div className="hero">
-      <div className="breadcrumb">
-        <a data-nav="overview" style={{ cursor: 'pointer' }}>Home</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
-        <a data-nav="overview" style={{ cursor: 'pointer' }}>Address Intelligence</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
-        <span>Structured Address Mandate</span>
-      </div>
+
       <div className="hero-badge"><span className="pulse-dot"></span><span style={{ position: 'relative', zIndex: 1 }}>Pillar 1 · Regulatory Mandate</span></div>
       <h1>Structured Addresses Are the <span className="accent">Regulatory Mandate</span></h1>
       <p className="hero-sub">Hybrid is the allowed minimum. This single misunderstanding has led hundreds of institutions to optimise for the floor rather than the ceiling—with <strong>identical implementation effort</strong> required either way.</p>

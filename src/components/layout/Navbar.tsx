@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
-import { Menu, X, FileCheck, TrendingUp, Map, Cpu, CheckCircle, BookOpen, FileText, ClipboardCheck, Users, BadgeCheck, Monitor, GitMerge, Shield, MapPin, DollarSign, Code } from "lucide-react";
+import { Menu, X, FileCheck, TrendingUp, Map, Cpu, CheckCircle, BookOpen, FileText, ClipboardCheck, Users, BadgeCheck, Monitor, GitMerge, Shield, MapPin, DollarSign, Code, Building2, Eye, Scale, Library } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -94,8 +94,13 @@ const addressIntelligencePillars = [
 
 const resourcesItems = [
   {
-    label: "Blogs",
+    label: "Content Hub",
     href: "/resources",
+    icon: Library,
+  },
+  {
+    label: "Blogs",
+    href: "/resources#blogs",
     icon: BookOpen,
   },
   {
@@ -110,8 +115,22 @@ const resourcesItems = [
   },
 ];
 
-const rightNavItems = [
-  { label: "About", href: "/company" },
+const companyItems = [
+  {
+    label: "About",
+    href: "/company",
+    icon: Building2,
+  },
+  {
+    label: "Privacy Policy",
+    href: "/privacy-policy",
+    icon: Eye,
+  },
+  {
+    label: "Terms of Service",
+    href: "/terms-of-service",
+    icon: Scale,
+  },
 ];
 
 export function Navbar() {
@@ -142,6 +161,7 @@ export function Navbar() {
     "/address-intelligence"
   );
   const isResourcesActive = location.pathname === "/resources" || location.hash.startsWith("#whitepaper") || location.hash.startsWith("#checklist");
+  const isCompanyActive = location.pathname === "/company" || location.pathname === "/privacy-policy" || location.pathname === "/terms-of-service";
   // Attach navbar purely based on scroll position for all pages
   const isAttached = isScrolled;
 
@@ -308,18 +328,41 @@ export function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          {rightNavItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.href}
-              className={cn(
-                "text-sm font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
-                isActive(item.href) && "text-blue-600 font-semibold bg-blue-50/50"
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium",
+                    isCompanyActive && "text-blue-600 font-semibold bg-blue-50/50"
+                  )}
+                >
+                  Company
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[280px] gap-1 p-2 bg-white rounded-xl shadow-xl border border-border/50">
+                    {companyItems.map((item) => (
+                      <li key={item.href}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to={item.href}
+                            className={cn(
+                              "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-navy-900 transition-all hover:bg-blue-50 hover:text-blue-700",
+                              isActive(item.href) && "bg-blue-50 text-blue-700"
+                            )}
+                          >
+                            <item.icon className="h-4 w-4 shrink-0" />
+                            <span>{item.label}</span>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
+            </NavigationMenuList>
+          </NavigationMenu>
 
           <NavigationMenu>
             <NavigationMenuList>
@@ -451,16 +494,22 @@ export function Navbar() {
           </div>
 
 
-          {rightNavItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.href}
-              className="block text-base font-medium text-navy-900"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+          <div className="space-y-2">
+            <div className="text-base font-medium text-navy-900">Company</div>
+            <div className="pl-4 space-y-3 border-l-2 border-primary/10 ml-1">
+              {companyItems.map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <item.icon className="h-4 w-4" />
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="space-y-2">
             <div className="text-base font-medium text-navy-900">Resources</div>
