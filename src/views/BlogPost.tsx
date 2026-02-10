@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { useParams, Link } from "@/lib/router-shim";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Clock, Loader2 } from "lucide-react";
+import { ArrowLeft, Loader2 } from "lucide-react";
 import { useGhostPostBySlug } from "@/hooks/useGhostPosts";
 import { GhostPost } from "@/lib/ghost";
 import { format } from "date-fns";
@@ -92,62 +92,32 @@ const BlogPostContent = ({ post: propPost }: { post?: MockPost }) => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="bg-gradient-hero pt-24 pb-12 lg:pt-32 lg:pb-16">
+      {/* Back to Blogs + Title */}
+      <section className="bg-background pt-28 pb-4 lg:pt-36">
         <div className="container">
           <div className="mx-auto max-w-4xl">
             <Button
               variant="outline"
               size="sm"
-              className="mb-6 bg-white/10 text-white hover:bg-white/20"
+              className="group gap-2 text-text-muted hover:text-navy-950 transition-colors"
               asChild
             >
               <Link to="/blogs">
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
                 Back to Blogs
               </Link>
             </Button>
 
-            <h1 className="mb-4 text-4xl font-bold text-sky-200 md:text-5xl">
+            <h1 className="mt-6 text-3xl font-bold tracking-tight text-navy-950 md:text-4xl lg:text-5xl">
               {displayTitle}
             </h1>
-
-            <div className="flex flex-wrap items-center gap-4 text-sky-200/80">
-              {displayDate && (
-                <span>{displayDate}</span>
-              )}
-              <span>•</span>
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4" />
-                <span>{displayReadTime} min read</span>
-              </div>
-              {displayAuthors.length > 0 && (
-                <>
-                  <span>•</span>
-                  <span>By {displayAuthors.map(a => a.name).join(', ')}</span>
-                </>
-              )}
-            </div>
-
-            {displayTags.length > 0 && (
-              <div className="mt-6 flex flex-wrap gap-2">
-                {displayTags.map((tag) => (
-                  <span
-                    key={tag.id}
-                    className="rounded-full bg-white/10 px-3 py-1 text-sm text-sky-200"
-                  >
-                    {tag.name}
-                  </span>
-                ))}
-              </div>
-            )}
           </div>
         </div>
       </section>
 
       {/* Featured Image */}
       {displayImage && (
-        <section className="bg-background py-8">
+        <section className="bg-background pt-8 pb-8">
           <div className="container">
             <div className="mx-auto max-w-4xl">
               <img
@@ -172,28 +142,6 @@ const BlogPostContent = ({ post: propPost }: { post?: MockPost }) => {
               className="ghost-content"
             />
           </article>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-surface-2 py-16">
-        <div className="container">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-4 text-2xl font-bold text-navy-950 md:text-3xl">
-              Want to Learn More?
-            </h2>
-            <p className="mb-8 text-text-muted">
-              See how Ionova can help your organization with ISO 20022 compliance.
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button variant="hero" size="lg" asChild>
-                <Link to="/demo">Request a Demo</Link>
-              </Button>
-              <Button variant="outline" size="lg" asChild>
-                <Link to="/blogs">More Articles</Link>
-              </Button>
-            </div>
-          </div>
         </div>
       </section>
     </Layout>

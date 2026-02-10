@@ -1,10 +1,33 @@
 import GhostContentAPI from '@tryghost/content-api';
 
-const api = new GhostContentAPI({
-  url: import.meta.env.VITE_GHOST_API_URL || '',
-  key: import.meta.env.VITE_GHOST_CONTENT_API_KEY || '',
-  version: 'v5.0'
-});
+// Lazy-initialize the API client to avoid crashes when env vars are missing
+let _api: any = null;
+
+function getApi() {
+  if (_api) return _api;
+
+  // Support both VITE_ and PUBLIC_ prefixes (Astro uses PUBLIC_ natively, but also supports VITE_ via Vite)
+  const url = import.meta.env.VITE_GHOST_API_URL
+    || import.meta.env.PUBLIC_GHOST_API_URL
+    || '';
+  const key = import.meta.env.VITE_GHOST_CONTENT_API_KEY
+    || import.meta.env.PUBLIC_GHOST_CONTENT_API_KEY
+    || '';
+
+  if (!url || !key) {
+    console.warn('[Ghost] Missing API URL or Content API Key – Ghost integration disabled.');
+    return null;
+  }
+
+  try {
+    _api = new GhostContentAPI({ url, key, version: 'v5.0' });
+  } catch (err) {
+    console.warn('[Ghost] Failed to initialize API client:', err);
+    return null;
+  }
+
+  return _api;
+}
 
 export interface GhostPost {
   id: string;
@@ -33,7 +56,10 @@ export interface GhostPost {
 }
 
 export const ghostAPI = {
-  async getPosts(options?: { limit?: number; include?: string }): Promise<GhostPost[]> {
+  async getPosts(options?: { limit?: number | string; include?: string }): Promise<GhostPost[]> {
+    const api = getApi();
+    if (!api) return [];
+
     try {
       const posts = await api.posts.browse({
         limit: options?.limit || 10,
@@ -47,6 +73,9 @@ export const ghostAPI = {
   },
 
   async getPostBySlug(slug: string): Promise<GhostPost | null> {
+    const api = getApi();
+    if (!api) return null;
+
     try {
       const post = await api.posts.read(
         { slug },
@@ -60,6 +89,9 @@ export const ghostAPI = {
   },
 
   async getFeaturedPosts(limit = 3): Promise<GhostPost[]> {
+    const api = getApi();
+    if (!api) return [];
+
     try {
       const posts = await api.posts.browse({
         limit,
