@@ -46,39 +46,16 @@ export function FAQSection() {
   ];
 
   return (
-    <section className="border-t border-border bg-surface-2 py-24 px-6" id="faq">
+    <section className="bg-surface-2 py-24 px-6" id="faq">
       <div className="mx-auto max-w-[1200px]">
-        {/* Section Label */}
-        <div className="mb-4 flex items-center gap-2">
-          <div className="h-5 w-1 rounded-full bg-[#43ADC1]" />
-          <span
-            style={{
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontWeight: 600,
-              fontSize: "13px",
-              letterSpacing: "1.5px",
-              color: "#43ADC1",
-              textTransform: "uppercase",
-            }}
-          >
-            FAQ
-          </span>
-        </div>
+        {/* Section Header */}
+        <div className="mb-12 text-center lg:mb-16">
 
-        {/* Title */}
-        <h2
-          style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 800,
-            fontSize: "clamp(28px, 4vw, 42px)",
-            lineHeight: 1.15,
-            color: "#0E1935",
-            maxWidth: "700px",
-            marginBottom: "40px",
-          }}
-        >
-          What Financial Institutions Ask About ISO 20022 and Address Intelligence
-        </h2>
+
+          <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
+            What Financial Institutions Ask About <span className="text-gradient">ISO 20022 and Address Intelligence</span>
+          </h2>
+        </div>
 
         {/* FAQ Items */}
         <div className="flex flex-col gap-3">

@@ -153,9 +153,9 @@ export function ChallengeSection() {
         <div className="mx-auto max-w-6xl">
           {/* Section header */}
           <div className="mb-0 md:mb-8 text-center relative z-10 w-full">
-            <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl leading-tight tracking-tight">
+            <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
               The Clock is Ticking: <br className="hidden md:block" />
-              You Are Entering the <span className="text-blue-700 bg-blue-100/50 border border-blue-200/50 px-3 py-1 rounded-xl shadow-sm inline-block transform hover:scale-105 transition-transform duration-300">{displayMonths}-Month Window.</span>
+              You Are Entering the <span className="text-gradient">{displayMonths}-Month Window.</span>
             </h2>
 
             {/* Dynamic Flip Counter */}

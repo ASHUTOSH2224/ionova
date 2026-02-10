@@ -55,7 +55,7 @@ export function CTABandSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-8 flex justify-center items-center overflow-hidden"
+      className="relative w-full py-8 flex justify-center items-center overflow-hidden bg-surface-2"
     >
       {/* Background decoration or context if needed, currently kept clean for the card effect */}
 

@@ -16,9 +16,9 @@ const IndexContent = () => {
   return (
     <Layout>
       <HeroSection />
+      <LogosSection />
       <ChallengeSection />
       <PillarsSection />
-      <LogosSection />
       <ExploreSection />
       <DifferentiationSection />
       <ImplementationSection />

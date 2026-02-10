@@ -93,9 +93,9 @@ export function ExploreSection() {
                     {/* Hero Content - Centered */}
                     <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
                         {/* Main Headline */}
-                        <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl text-navy-950">
+                        <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
                             Master the Mandate: <span className="text-gradient">The 4 Pillars of Structured Data</span>
-                            <span className="block mt-4 mx-auto max-w-2xl text-lg text-navy-900/80 font-normal">
+                            <span className="block mt-4 mx-auto max-w-2xl text-lg text-text-muted font-normal tracking-normal">
                                 Deep dive into the requirements, the ROI, and the technology behind ioNova.
                             </span>
                         </h2>

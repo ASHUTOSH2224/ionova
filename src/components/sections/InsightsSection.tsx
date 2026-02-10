@@ -24,52 +24,19 @@ export function InsightsSection() {
   ];
 
   return (
-    <section className="border-t border-border bg-surface-2 py-24 px-6" id="insights">
+    <section className="bg-surface-2 py-24 px-6" id="insights">
       <div className="mx-auto max-w-[1200px]">
-        {/* Section Label */}
-        <div className="mb-4 flex items-center gap-2">
-          <div className="h-5 w-1 rounded-full bg-[#43ADC1]" />
-          <span
-            style={{
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontWeight: 600,
-              fontSize: "13px",
-              letterSpacing: "1.5px",
-              color: "#43ADC1",
-              textTransform: "uppercase",
-            }}
-          >
-            Insights
-          </span>
-        </div>
+        {/* Section Header */}
+        <div className="mb-12 text-center lg:mb-16">
 
-        {/* Title */}
-        <h2
-          style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 800,
-            fontSize: "clamp(28px, 4vw, 42px)",
-            lineHeight: 1.15,
-            color: "#0E1935",
-            maxWidth: "700px",
-            marginBottom: "40px",
-          }}
-        >
-          Latest from ioNova Resource Center
-          <span
-            style={{
-              display: "block",
-              fontFamily: "'Figtree', system-ui, sans-serif",
-              fontSize: "15px",
-              fontWeight: 400,
-              lineHeight: 1.7,
-              color: "#466587",
-              marginTop: "12px",
-            }}
-          >
-            Research, analysis, and practical guidance for ISO 20022 address compliance.
-          </span>
-        </h2>
+
+          <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
+            Latest from <span className="text-gradient">ioNova Resource Center</span>
+            <span className="block mt-4 mx-auto max-w-2xl text-lg text-text-muted font-normal tracking-normal">
+              Research, analysis, and practical guidance for ISO 20022 address compliance.
+            </span>
+          </h2>
+        </div>
 
         {/* Article Cards */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

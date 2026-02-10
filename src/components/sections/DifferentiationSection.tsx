@@ -59,39 +59,16 @@ export function DifferentiationSection() {
   ];
 
   return (
-    <section className="border-t border-border bg-surface-2 py-24 px-6" id="comparison">
+    <section className="bg-surface-2 py-24 px-6" id="comparison">
       <div className="mx-auto max-w-[1200px]">
-        {/* Section Label */}
-        <div className="mb-4 flex items-center gap-2">
-          <div className="h-5 w-1 rounded-full bg-[#43ADC1]" />
-          <span
-            style={{
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontWeight: 600,
-              fontSize: "13px",
-              letterSpacing: "1.5px",
-              color: "#43ADC1",
-              textTransform: "uppercase",
-            }}
-          >
-            Differentiation
-          </span>
-        </div>
+        {/* Section Header */}
+        <div className="mb-12 text-center lg:mb-16">
 
-        {/* Title */}
-        <h2
-          style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 800,
-            fontSize: "clamp(28px, 4vw, 42px)",
-            lineHeight: 1.15,
-            color: "#0E1935",
-            maxWidth: "700px",
-            marginBottom: "32px",
-          }}
-        >
-          Why Postal Validation Tools, LLMs, and generic vendors Fail for Payment Compliance
-        </h2>
+
+          <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
+            Why Postal Validation Tools, LLMs, and generic vendors Fail for <span className="text-gradient">Payment Compliance</span>
+          </h2>
+        </div>
 
         {/* Table */}
         <div className="overflow-x-auto rounded-2xl border border-[#D0DAEB]">
@@ -103,8 +80,8 @@ export function DifferentiationSection() {
                     <th
                       key={header}
                       className={`whitespace-nowrap border-b-2 border-[#D0DAEB] px-4 py-3.5 text-left ${i === 4
-                          ? "bg-gradient-to-br from-[rgba(95,207,208,0.08)] to-[rgba(67,173,193,0.04)]"
-                          : "bg-[#EFF2F7]"
+                        ? "bg-gradient-to-br from-[rgba(95,207,208,0.08)] to-[rgba(67,173,193,0.04)]"
+                        : "bg-[#EFF2F7]"
                         }`}
                       style={{
                         fontFamily: "'Outfit', system-ui, sans-serif",
