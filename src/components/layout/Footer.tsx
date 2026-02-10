@@ -12,11 +12,11 @@ export function Footer() {
     resources: {
       title: "RESOURCES",
       links: [
-        { label: "All Content", href: "/resources" },
-        { label: "Blogs", href: "/resources#blogs" },
-        { label: "Podcasts", href: "/resources#podcasts" },
-        { label: "Videos", href: "/resources#videos" },
-        { label: "Newsletters", href: "/resources#newsletters" },
+        { label: "All Content", href: "/blogs" },
+        { label: "Blogs", href: "/blogs" },
+        { label: "Podcasts", href: "/blogs#podcasts" },
+        { label: "Videos", href: "/blogs#videos" },
+        { label: "Newsletters", href: "/blogs#newsletters" },
       ],
     },
     solutions: {
