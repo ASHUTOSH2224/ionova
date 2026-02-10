@@ -68,8 +68,7 @@ export function ImplementationSection() {
               marginTop: "16px",
             }}
           >
-            Deploys as a sidecar service — intercepts, resolves, and returns enriched messages
-            without modifying your core payment flow.
+            Deploys as a sidecar service. Repairs messages in real time or does a one time cleanup on your legacy data.
           </span>
         </h2>
 

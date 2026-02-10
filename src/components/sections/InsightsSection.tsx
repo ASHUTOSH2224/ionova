@@ -55,7 +55,7 @@ export function InsightsSection() {
             marginBottom: "40px",
           }}
         >
-          Latest from the ioNova Resource Centre
+          Latest from ioNova Resource Center
           <span
             style={{
               display: "block",

@@ -21,13 +21,7 @@ export function BusinessValuePage({ navigate }: Props) {
 function Hero() {
   return (
     <div className="hero">
-      <div className="breadcrumb">
-        <a data-nav="overview" style={{ cursor: 'pointer' }}>Home</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
-        <a data-nav="overview" style={{ cursor: 'pointer' }}>Address Intelligence</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
-        <span>Business Value</span>
-      </div>
+
       <div className="hero-badge"><span className="pulse-dot"></span><span style={{ position: 'relative', zIndex: 1 }}>Pillar 2 · The Business Case</span></div>
       <h1>Compliance Is the Floor. <span className="accent">Operational Excellence</span> Is the Ceiling.</h1>
       <p className="hero-sub">The same investment that satisfies regulators also eliminates billions in operational waste, transforms sanctions screening accuracy, and builds the data foundation for AI-driven payment automation.</p>

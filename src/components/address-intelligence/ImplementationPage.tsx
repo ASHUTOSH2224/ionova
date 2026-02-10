@@ -21,13 +21,7 @@ export function ImplementationPage({ navigate }: Props) {
 function Hero() {
   return (
     <div className="hero">
-      <div className="breadcrumb">
-        <a data-nav="overview" style={{ cursor: 'pointer' }}>Home</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
-        <a data-nav="overview" style={{ cursor: 'pointer' }}>Address Intelligence</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
-        <span>Implementation</span>
-      </div>
+
       <div className="hero-badge"><span className="pulse-dot"></span><span style={{ position: 'relative', zIndex: 1 }}>Pillar 3 · Implementation</span></div>
       <h1>One Integration. Full Compliance. <span className="accent">Zero Legacy Overhaul.</span></h1>
       <p className="hero-sub">The most persistent objection to structured address compliance is the assumption that it requires replacing core payment systems. <strong>It does not.</strong> The integration effort is identical for hybrid and structured.</p>

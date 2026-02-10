@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { PillarNav } from './PillarNav';
+
 
 interface Props {
   navigate: (page: string) => void;
@@ -35,7 +35,7 @@ export function ProgressiveAutonomyPage({ navigate }: Props) {
     <div ref={containerRef}>
       <div className="hero">
         <div className="hero-orb"></div>
-        <PillarNav activePage="autonomy" onNavigate={navigate} />
+
         <div className="hero-badge"><span className="pulse-dot"></span> Platform Pillar — Progressive Autonomy</div>
         <h1>The Safest Path to AI Automation<br /><span className="accent">Is the One You Control.</span></h1>
         <p className="hero-sub">Most AI platforms offer a binary choice: manual process or full automation. ioNova offers a graduated ladder. Start with AI that explains. Graduate to AI that recommends. Then prepare. Then execute. Each step gated by governance.</p>

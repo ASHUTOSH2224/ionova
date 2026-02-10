@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { PillarNav } from './PillarNav';
+
 
 interface Props {
   navigate: (page: string) => void;
@@ -35,7 +35,7 @@ export function GovernancePage({ navigate }: Props) {
     <div ref={containerRef}>
       <div className="hero">
         <div className="hero-orb"></div>
-        <PillarNav activePage="governance" onNavigate={navigate} />
+
         <div className="hero-badge"><span className="pulse-dot"></span> Platform Pillar — Governance-by-Design</div>
         <h1>Governance Isn't What We Added Last.<br /><span className="accent">It's What We Built First.</span></h1>
         <p className="hero-sub">Every layer generates audit-grade evidence. Every decision is replayable. Every model change is versioned. Every autonomy level is gated by governance. This is the architectural foundation that makes everything else trustworthy.</p>

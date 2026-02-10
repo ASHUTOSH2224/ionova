@@ -21,13 +21,7 @@ export function PurposeBuiltPage({ navigate }: Props) {
 function Hero() {
   return (
     <div className="hero">
-      <div className="breadcrumb">
-        <a data-nav="overview" style={{ cursor: 'pointer' }}>Home</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
-        <a data-nav="overview" style={{ cursor: 'pointer' }}>Address Intelligence</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
-        <span>Why Purpose-Built</span>
-      </div>
+
       <div className="hero-badge"><span className="pulse-dot"></span><span style={{ position: 'relative', zIndex: 1 }}>Pillar 4 · Competitive Clarity</span></div>
       <h1>Postal Validation <span className="accent">≠ Payment Validation</span></h1>
       <p className="hero-sub">Generic address tools solve a fundamentally different problem. Postal validation asks &quot;can a letter be delivered here?&quot; Payment compliance asks &quot;does this address identify a legal entity across 195 countries and 50+ writing systems?&quot;</p>
