@@ -154,11 +154,15 @@ export function Navbar() {
     )}>
       <nav className="pointer-events-auto flex items-center justify-between w-full max-w-7xl h-16 lg:h-20 rounded-full border border-border/50 bg-white/80 shadow-2xl backdrop-blur-xl px-4 md:px-4 lg:px-8 transition-all">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 mr-2 md:mr-4 lg:mr-8">
-          <div className="flex items-center font-heading">
-            <span className="text-2xl font-bold text-navy-950">io</span>
-            <span className="text-2xl font-bold text-gradient">Nova</span>
-          </div>
+        <Link to="/" className="flex items-center gap-3 mr-2 md:mr-4 lg:mr-8">
+          <img
+            src="/Logo/ionova logo/logo.PNG"
+            alt="ioNova AI logo"
+            className="h-11 w-11 lg:h-[3.25rem] lg:w-[3.25rem] object-contain"
+          />
+          <span className="text-[1.35rem] lg:text-[1.55rem] font-bold text-navy-950 font-heading tracking-tight">
+            ioNova AI
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -166,7 +170,7 @@ export function Navbar() {
           <Link
             to="/"
             className={cn(
-              "text-sm font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
+              "text-base font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
               isActive("/") && "text-blue-600 font-semibold bg-blue-50/50"
             )}
           >
@@ -177,7 +181,7 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
-                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium",
+                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium text-base",
                     isAddressIntelligenceActive && "text-blue-600 font-semibold bg-blue-50/50"
                   )}
                 >
@@ -185,7 +189,7 @@ export function Navbar() {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="w-[280px] bg-white rounded-xl shadow-xl border border-border/50 p-3">
-                    <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Address Intelligence</p>
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Address Intelligence</p>
                     <ul className="grid gap-0.5">
                       {addressIntelligenceOverview.map((item) => (
                         <li key={item.href}>
@@ -200,14 +204,14 @@ export function Navbar() {
                               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
+                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-sm">{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
                       ))}
                     </ul>
                     <div className="border-t border-border/50 my-2" />
-                    <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Four Pillars</p>
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Four Pillars</p>
                     <ul className="grid gap-0.5">
                       {addressIntelligencePillars.map((item) => (
                         <li key={item.href}>
@@ -222,7 +226,7 @@ export function Navbar() {
                               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
+                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-sm">{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -240,7 +244,7 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
-                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium",
+                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium text-base",
                     isEntityIntelligenceActive && "text-blue-600 font-semibold bg-blue-50/50"
                   )}
                 >
@@ -248,7 +252,7 @@ export function Navbar() {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="w-[280px] bg-white rounded-xl shadow-xl border border-border/50 p-3">
-                    <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Entity Intelligence Platform</p>
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Entity Intelligence Platform</p>
                     <ul className="grid gap-0.5">
                       {entityIntelligencePlatformItems.map((item) => (
                         <li key={item.href}>
@@ -263,14 +267,14 @@ export function Navbar() {
                               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
+                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-sm">{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
                       ))}
                     </ul>
                     <div className="border-t border-border/50 my-2" />
-                    <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Capabilities</p>
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Capabilities</p>
                     <ul className="grid gap-0.5">
                       {entityIntelligenceCapabilities.map((item) => (
                         <li key={item.href}>
@@ -285,7 +289,7 @@ export function Navbar() {
                               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
+                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-sm">{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -301,7 +305,7 @@ export function Navbar() {
           <Link
             to="/company"
             className={cn(
-              "text-sm font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
+              "text-base font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
               isCompanyActive && "text-blue-600 font-semibold bg-blue-50/50"
             )}
           >
@@ -313,7 +317,7 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
-                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium",
+                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium text-base",
                     isResourcesActive && "text-blue-600 font-semibold bg-blue-50/50"
                   )}
                 >
@@ -335,7 +339,7 @@ export function Navbar() {
                               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
+                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-sm">{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
