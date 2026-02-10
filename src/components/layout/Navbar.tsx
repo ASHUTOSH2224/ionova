@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
-import { Menu, X, FileCheck, TrendingUp, Map, Cpu, CheckCircle, BookOpen, FileText, ClipboardCheck, Users, BadgeCheck, Monitor, GitMerge, Shield, MapPin, DollarSign, Code, Building2, Eye, Scale, Library } from "lucide-react";
+import { Menu, X, FileCheck, TrendingUp, Map, Cpu, CheckCircle, BookOpen, FileText, ClipboardCheck, Users, BadgeCheck, Monitor, GitMerge, Shield, MapPin, DollarSign, Code, Library } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -115,24 +115,6 @@ const resourcesItems = [
   },
 ];
 
-const companyItems = [
-  {
-    label: "About",
-    href: "/company",
-    icon: Building2,
-  },
-  {
-    label: "Privacy Policy",
-    href: "/privacy-policy",
-    icon: Eye,
-  },
-  {
-    label: "Terms of Service",
-    href: "/terms-of-service",
-    icon: Scale,
-  },
-];
-
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -218,10 +200,7 @@ export function Navbar() {
                               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <div>
-                                <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
-                                <p className="text-[11px] text-text-muted leading-snug">{item.description}</p>
-                              </div>
+                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -243,10 +222,7 @@ export function Navbar() {
                               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <div>
-                                <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
-                                <p className="text-[11px] text-text-muted leading-snug">{item.description}</p>
-                              </div>
+                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -287,10 +263,7 @@ export function Navbar() {
                               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <div>
-                                <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
-                                <p className="text-[11px] text-text-muted leading-snug">{item.description}</p>
-                              </div>
+                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -312,10 +285,7 @@ export function Navbar() {
                               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <div>
-                                <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
-                                <p className="text-[11px] text-text-muted leading-snug">{item.description}</p>
-                              </div>
+                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -328,41 +298,15 @@ export function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  className={cn(
-                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium",
-                    isCompanyActive && "text-blue-600 font-semibold bg-blue-50/50"
-                  )}
-                >
-                  Company
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[280px] gap-1 p-2 bg-white rounded-xl shadow-xl border border-border/50">
-                    {companyItems.map((item) => (
-                      <li key={item.href}>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to={item.href}
-                            className={cn(
-                              "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-navy-900 transition-all hover:bg-blue-50 hover:text-blue-700",
-                              isActive(item.href) && "bg-blue-50 text-blue-700"
-                            )}
-                          >
-                            <item.icon className="h-4 w-4 shrink-0" />
-                            <span>{item.label}</span>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
-            </NavigationMenuList>
-          </NavigationMenu>
+          <Link
+            to="/company"
+            className={cn(
+              "text-sm font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
+              isCompanyActive && "text-blue-600 font-semibold bg-blue-50/50"
+            )}
+          >
+            Company
+          </Link>
 
           <NavigationMenu>
             <NavigationMenuList>
@@ -376,24 +320,28 @@ export function Navbar() {
                   Resources
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[280px] gap-1 p-2 bg-white rounded-xl shadow-xl border border-border/50">
-                    {resourcesItems.map((item) => (
-                      <li key={item.href}>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to={item.href}
-                            className={cn(
-                              "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-navy-900 transition-all hover:bg-blue-50 hover:text-blue-700",
-                              isActive(item.href) && "bg-blue-50 text-blue-700"
-                            )}
-                          >
-                            <item.icon className="h-4 w-4 shrink-0" />
-                            <span>{item.label}</span>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="w-[280px] bg-white rounded-xl shadow-xl border border-border/50 p-3">
+                    <ul className="grid gap-0.5">
+                      {resourcesItems.map((item) => (
+                        <li key={item.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={item.href}
+                              className={cn(
+                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
+                                isActive(item.href) && "bg-blue-50"
+                              )}
+                            >
+                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
+                                <item.icon className="h-3.5 w-3.5" />
+                              </span>
+                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-[13px]">{item.label}</span>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
@@ -493,23 +441,13 @@ export function Navbar() {
             </div>
           </div>
 
-
-          <div className="space-y-2">
-            <div className="text-base font-medium text-navy-900">Company</div>
-            <div className="pl-4 space-y-3 border-l-2 border-primary/10 ml-1">
-              {companyItems.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+          <Link
+            to="/company"
+            className="block text-base font-medium text-navy-900"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Company
+          </Link>
 
           <div className="space-y-2">
             <div className="text-base font-medium text-navy-900">Resources</div>
