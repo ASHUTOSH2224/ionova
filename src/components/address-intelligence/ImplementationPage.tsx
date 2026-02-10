@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface Props {
   navigate: (page: string) => void;
@@ -141,45 +141,82 @@ function Safety() {
 }
 
 function Faq() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const answerRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    answerRefs.current.forEach((el, i) => {
+      if (!el) return;
+      if (openFaqIndex === i) {
+        el.style.maxHeight = el.scrollHeight + 'px';
+      } else {
+        el.style.maxHeight = '0px';
+      }
+    });
+  }, [openFaqIndex]);
+
+  const faqs = [
+    {
+      q: "Does implementing address intelligence require replacing core banking systems?",
+      a: "No. This is the most persistent misconception about structured address compliance. The ioNova address resolution engine operates as a sidecar service alongside existing infrastructure—it does not replace any component. No modifications are required to core banking systems, payment engines, or legacy infrastructure. The engine connects via standard API to existing middleware layers (MuleSoft, Volante, Finastra, or direct SWIFT connections) and processes addresses in the message flow without disrupting payment routing."
+    },
+    {
+      q: "What is sidecar architecture for payment address resolution?",
+      a: "Sidecar architecture is a deployment pattern where the address resolution engine operates as an adjacent, independent service that intercepts payment messages via API call, resolves and structures the address data, and returns the enriched message—all without modifying the core payment flow. The middleware platform makes an API call to the sidecar service during message processing. If the service is unavailable, payments automatically route through the existing flow via a circuit-breaker mechanism. This means zero downtime risk and no dependency on the resolution engine for payment continuity."
+    },
+    {
+      q: "How long does it take to implement ISO 20022 address structuring?",
+      a: "Typical implementation completes in 10–16 weeks across three phases. Phase 1 (weeks 1–4) covers data quality audit, payment flow mapping, integration point identification, and country-specific parsing rule configuration. Phase 2 (weeks 5–10) handles API connection implementation, message interception, functional testing across corridors, and ISO 20022 schema compliance validation. Phase 3 (weeks 11–16) manages staged production rollout, accuracy monitoring, corridor extension, and operational handover. Compare this to 18–36 months for building in-house or 6–18 months for retrofitting postal tools."
+    },
+    {
+      q: "What middleware platforms support address intelligence integration?",
+      a: "ioNova provides pre-built integration for the most common payment middleware platforms: MuleSoft Anypoint (via pre-built connector on Anypoint Exchange), Volante VolPay (direct API integration with the message transformation layer), and Finastra Fusion (via the FusionFabric.cloud open API framework). For institutions using other platforms, a standard REST API is available, along with direct SWIFT integration paths via Alliance Lite2 and Alliance Access."
+    },
+    {
+      q: "What happens if the address resolution service goes down during payment processing?",
+      a: "No payment is ever held, delayed, or rejected due to the address resolution service. A built-in circuit-breaker mechanism ensures that if the resolution service experiences any disruption, payments automatically route through the existing flow—exactly as they did before integration. Additionally, every resolution attempt produces a confidence score: addresses above the confidence threshold receive fully structured output, while those below the threshold automatically fall back to hybrid format, populating the maximum number of structured elements possible. Initial implementations achieve 85–90% full structuring, rising to 95%+ within the first quarter."
+    }
+  ];
+
   return (
     <div className="section">
       <div className="section-label">FAQ</div>
       <div className="section-title">Implementation FAQs</div>
       <div className="faq-list">
-        <FaqItem
-          q="Does implementing address intelligence require replacing core banking systems?"
-          a="No. This is the most persistent misconception about structured address compliance. The ioNova address resolution engine operates as a sidecar service alongside existing infrastructure—it does not replace any component. No modifications are required to core banking systems, payment engines, or legacy infrastructure. The engine connects via standard API to existing middleware layers (MuleSoft, Volante, Finastra, or direct SWIFT connections) and processes addresses in the message flow without disrupting payment routing."
-        />
-        <FaqItem
-          q="What is sidecar architecture for payment address resolution?"
-          a="Sidecar architecture is a deployment pattern where the address resolution engine operates as an adjacent, independent service that intercepts payment messages via API call, resolves and structures the address data, and returns the enriched message—all without modifying the core payment flow. The middleware platform makes an API call to the sidecar service during message processing. If the service is unavailable, payments automatically route through the existing flow via a circuit-breaker mechanism. This means zero downtime risk and no dependency on the resolution engine for payment continuity."
-        />
-        <FaqItem
-          q="How long does it take to implement ISO 20022 address structuring?"
-          a="Typical implementation completes in 10–16 weeks across three phases. Phase 1 (weeks 1–4) covers data quality audit, payment flow mapping, integration point identification, and country-specific parsing rule configuration. Phase 2 (weeks 5–10) handles API connection implementation, message interception, functional testing across corridors, and ISO 20022 schema compliance validation. Phase 3 (weeks 11–16) manages staged production rollout, accuracy monitoring, corridor extension, and operational handover. Compare this to 18–36 months for building in-house or 6–18 months for retrofitting postal tools."
-        />
-        <FaqItem
-          q="What middleware platforms support address intelligence integration?"
-          a="ioNova provides pre-built integration for the most common payment middleware platforms: MuleSoft Anypoint (via pre-built connector on Anypoint Exchange), Volante VolPay (direct API integration with the message transformation layer), and Finastra Fusion (via the FusionFabric.cloud open API framework). For institutions using other platforms, a standard REST API is available, along with direct SWIFT integration paths via Alliance Lite2 and Alliance Access."
-        />
-        <FaqItem
-          q="What happens if the address resolution service goes down during payment processing?"
-          a="No payment is ever held, delayed, or rejected due to the address resolution service. A built-in circuit-breaker mechanism ensures that if the resolution service experiences any disruption, payments automatically route through the existing flow—exactly as they did before integration. Additionally, every resolution attempt produces a confidence score: addresses above the confidence threshold receive fully structured output, while those below the threshold automatically fall back to hybrid format, populating the maximum number of structured elements possible. Initial implementations achieve 85–90% full structuring, rising to 95%+ within the first quarter."
-        />
+        {faqs.map((item, i) => (
+          <div
+            key={i}
+            className={`faq-item ${openFaqIndex === i ? 'open' : ''}`}
+          >
+            <div
+              className="faq-q"
+              onClick={() =>
+                setOpenFaqIndex((prev) => (prev === i ? null : i))
+              }
+            >
+              {item.q}
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div
+              className="faq-a"
+              ref={(el) => {
+                answerRefs.current[i] = el;
+              }}
+            >
+              {item.a}
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-  );
-}
-
-function FaqItem({ q, a }: { q: string, a: string }) {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className={`faq-item ${isOpen ? 'open' : ''}`}>
-      <div className="faq-q" onClick={() => setIsOpen(!isOpen)}>
-        {q}
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
-      </div>
-      <div className="faq-a">{a}</div>
     </div>
   );
 }

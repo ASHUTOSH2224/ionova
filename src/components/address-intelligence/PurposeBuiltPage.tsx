@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface Props {
   navigate: (page: string) => void;
@@ -161,49 +161,86 @@ function Decision() {
 }
 
 function Faq() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const answerRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    answerRefs.current.forEach((el, i) => {
+      if (!el) return;
+      if (openFaqIndex === i) {
+        el.style.maxHeight = el.scrollHeight + 'px';
+      } else {
+        el.style.maxHeight = '0px';
+      }
+    });
+  }, [openFaqIndex]);
+
+  const faqs = [
+    {
+      q: "Why can't postal address validation APIs handle payment compliance?",
+      a: "Postal validation APIs are designed to answer \"can a letter be delivered here?\"—a fundamentally different question from \"does this address identify a legal entity in a format satisfying ISO 20022, sanctions screening, and payment routing?\" Postal tools lack ISO 20022 XML output, cannot handle financial identifiers (LEI, IBAN, BIC) embedded in address blocks, provide only postal-code-based disambiguation rather than payment-context-aware resolution, and cover primarily major Latin markets. They offer basic valid/invalid responses rather than the deterministic audit trails regulators require for payment compliance."
+    },
+    {
+      q: "Why are LLMs unsuitable for payment address parsing and sanctions compliance?",
+      a: "Large language models fail at payment address parsing for four critical reasons. First, they produce non-deterministic output: the same input may yield different results across invocations, making sanctions screening results unreliable and audit trails meaningless. Second, they hallucinate—inventing postal codes, fabricating building numbers, or selecting wrong cities, which constitutes a regulatory failure in payments. Third, they operate at 1–5 seconds per request, an order of magnitude slower than the sub-100ms required for payment processing. Fourth, they are black boxes with no explainability—regulators require institutions to demonstrate exactly why an address was parsed a particular way."
+    },
+    {
+      q: "What is geographic disambiguation in payment address resolution?",
+      a: "Geographic disambiguation is the ability to determine which specific location is referenced when an address contains ambiguous place names. \"London\" appears in the United Kingdom, Canada, United States, and three other countries. \"Paris\" exists in France and Texas. \"Frankfurt\" could be Frankfurt am Main or Frankfurt an der Oder. Purpose-built address intelligence uses multi-dimensional context—including currency, BIC code, correspondent banking relationships, and surrounding address elements—to resolve these ambiguities deterministically. Postal tools use only postal-code-based matching; LLMs use probabilistic guessing. Neither approach meets the certainty threshold required for payment routing and sanctions screening."
+    },
+    {
+      q: "How does purpose-built address intelligence differ from generic address validation APIs?",
+      a: "Generic address validation APIs produce standardised postal output; purpose-built intelligence produces native ISO 20022 structured XML elements. Generic tools do not support financial identifier handling (LEI, IBAN, BIC); purpose-built systems automatically recognise and route these to correct fields. Generic tools cover major markets; purpose-built covers 195 countries and 50+ writing systems. Generic provides basic valid/invalid results; purpose-built delivers full deterministic provenance chains. Generic achieves marginal STP improvement; purpose-built transforms STP from ~40% to 98%+. The implementation timeline for generic retrofitting is 6–18 months; purpose-built deploys in 10–16 weeks."
+    },
+    {
+      q: "What is deterministic address resolution and why does it matter for payments?",
+      a: "Deterministic address resolution means that identical input always produces identical output—every time, across every invocation, regardless of when or how many times the request is processed. This is critical for payment compliance because sanctions screening must produce consistent results: if the same address triggers a hit today, it must trigger the same hit tomorrow. Audit trails must be reproducible: regulators expect the same input to produce the same documented resolution path. Non-deterministic systems (like LLMs) fundamentally cannot satisfy these requirements, as their probabilistic architecture inherently introduces variation between runs."
+    },
+    {
+      q: "Should financial institutions build, buy, or retrofit address intelligence?",
+      a: "Building in-house requires 18–36 months to production, development of 195-country parsing rules, and ongoing maintenance that exceeds initial build cost within 2–3 years—feasible only for the very largest global institutions. Retrofitting postal tools creates a fragile integration chain that fails precisely where postal and payment requirements intersect, which is where compliance risk is highest. Buying a purpose-built solution delivers ISO 20022 native compliance in 10–16 weeks, covers 195 countries from day one, and offers the lowest total cost of ownership and compliance risk profile. For institutions facing the November 2026 deadline, buy is the only option with a realistic timeline."
+    }
+  ];
+
   return (
     <div className="section">
       <div className="section-label">FAQ</div>
       <div className="section-title">Purpose-Built Intelligence FAQs</div>
       <div className="faq-list">
-        <FaqItem
-          q="Why can't postal address validation APIs handle payment compliance?"
-          a="Postal validation APIs are designed to answer &quot;can a letter be delivered here?&quot;—a fundamentally different question from &quot;does this address identify a legal entity in a format satisfying ISO 20022, sanctions screening, and payment routing?&quot; Postal tools lack ISO 20022 XML output, cannot handle financial identifiers (LEI, IBAN, BIC) embedded in address blocks, provide only postal-code-based disambiguation rather than payment-context-aware resolution, and cover primarily major Latin markets. They offer basic valid/invalid responses rather than the deterministic audit trails regulators require for payment compliance."
-        />
-        <FaqItem
-          q="Why are LLMs unsuitable for payment address parsing and sanctions compliance?"
-          a="Large language models fail at payment address parsing for four critical reasons. First, they produce non-deterministic output: the same input may yield different results across invocations, making sanctions screening results unreliable and audit trails meaningless. Second, they hallucinate—inventing postal codes, fabricating building numbers, or selecting wrong cities, which constitutes a regulatory failure in payments. Third, they operate at 1–5 seconds per request, an order of magnitude slower than the sub-100ms required for payment processing. Fourth, they are black boxes with no explainability—regulators require institutions to demonstrate exactly why an address was parsed a particular way."
-        />
-        <FaqItem
-          q="What is geographic disambiguation in payment address resolution?"
-          a="Geographic disambiguation is the ability to determine which specific location is referenced when an address contains ambiguous place names. &quot;London&quot; appears in the United Kingdom, Canada, United States, and three other countries. &quot;Paris&quot; exists in France and Texas. &quot;Frankfurt&quot; could be Frankfurt am Main or Frankfurt an der Oder. Purpose-built address intelligence uses multi-dimensional context—including currency, BIC code, correspondent banking relationships, and surrounding address elements—to resolve these ambiguities deterministically. Postal tools use only postal-code-based matching; LLMs use probabilistic guessing. Neither approach meets the certainty threshold required for payment routing and sanctions screening."
-        />
-        <FaqItem
-          q="How does purpose-built address intelligence differ from generic address validation APIs?"
-          a="Generic address validation APIs produce standardised postal output; purpose-built intelligence produces native ISO 20022 structured XML elements. Generic tools do not support financial identifier handling (LEI, IBAN, BIC); purpose-built systems automatically recognise and route these to correct fields. Generic tools cover major markets; purpose-built covers 195 countries and 50+ writing systems. Generic provides basic valid/invalid results; purpose-built delivers full deterministic provenance chains. Generic achieves marginal STP improvement; purpose-built transforms STP from ~40% to 98%+. The implementation timeline for generic retrofitting is 6–18 months; purpose-built deploys in 10–16 weeks."
-        />
-        <FaqItem
-          q="What is deterministic address resolution and why does it matter for payments?"
-          a="Deterministic address resolution means that identical input always produces identical output—every time, across every invocation, regardless of when or how many times the request is processed. This is critical for payment compliance because sanctions screening must produce consistent results: if the same address triggers a hit today, it must trigger the same hit tomorrow. Audit trails must be reproducible: regulators expect the same input to produce the same documented resolution path. Non-deterministic systems (like LLMs) fundamentally cannot satisfy these requirements, as their probabilistic architecture inherently introduces variation between runs."
-        />
-        <FaqItem
-          q="Should financial institutions build, buy, or retrofit address intelligence?"
-          a="Building in-house requires 18–36 months to production, development of 195-country parsing rules, and ongoing maintenance that exceeds initial build cost within 2–3 years—feasible only for the very largest global institutions. Retrofitting postal tools creates a fragile integration chain that fails precisely where postal and payment requirements intersect, which is where compliance risk is highest. Buying a purpose-built solution delivers ISO 20022 native compliance in 10–16 weeks, covers 195 countries from day one, and offers the lowest total cost of ownership and compliance risk profile. For institutions facing the November 2026 deadline, buy is the only option with a realistic timeline."
-        />
+        {faqs.map((item, i) => (
+          <div
+            key={i}
+            className={`faq-item ${openFaqIndex === i ? 'open' : ''}`}
+          >
+            <div
+              className="faq-q"
+              onClick={() =>
+                setOpenFaqIndex((prev) => (prev === i ? null : i))
+              }
+            >
+              {item.q}
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div
+              className="faq-a"
+              ref={(el) => {
+                answerRefs.current[i] = el;
+              }}
+            >
+              {item.a}
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-  );
-}
-
-function FaqItem({ q, a }: { q: string, a: string }) {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className={`faq-item ${isOpen ? 'open' : ''}`}>
-      <div className="faq-q" onClick={() => setIsOpen(!isOpen)}>
-        {q}
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
-      </div>
-      <div className="faq-a">{a}</div>
     </div>
   );
 }

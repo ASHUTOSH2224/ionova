@@ -1960,6 +1960,7 @@
   position: relative;
   overflow: hidden;
   margin-top: var(--space-3xl);
+  margin-bottom: var(--space-3xl);
   text-align: center
 }
 

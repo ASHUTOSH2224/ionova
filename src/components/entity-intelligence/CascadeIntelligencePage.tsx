@@ -7,10 +7,11 @@ interface Props {
 
 export function CascadeIntelligencePage({ navigate }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({});
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const answerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const toggleFaq = (index: number) => {
-    setOpenFaqs(prev => ({ ...prev, [index]: !prev[index] }));
+    setOpenFaqIndex(prev => (prev === index ? null : index));
   };
 
   useEffect(() => {
@@ -30,6 +31,17 @@ export function CascadeIntelligencePage({ navigate }: Props) {
     elements.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    answerRefs.current.forEach((el, i) => {
+      if (!el) return;
+      if (openFaqIndex === i) {
+        el.style.maxHeight = el.scrollHeight + 'px';
+      } else {
+        el.style.maxHeight = '0px';
+      }
+    });
+  }, [openFaqIndex]);
 
   return (
     <div ref={containerRef}>
@@ -99,11 +111,19 @@ export function CascadeIntelligencePage({ navigate }: Props) {
               a: <p>The cascade implements a continuous <strong>data flywheel</strong>: every resolution decision feeds back into the optimization loop. When an analyst overrides a score, that feedback tightens matching thresholds. When an LLM escalation resolves to a pattern the fuzzy matcher could have caught, the system promotes that pattern to an earlier (faster, cheaper) stage. Over time, more comparisons resolve at faster, cheaper stages — increasing the percentage handled by Stages 1 and 2 while reducing costly LLM escalations. This creates compounding cost and speed improvements: organizations typically see cascade efficiency increase by 10–15% in the first year as the system learns their specific entity landscape.</p>
             }
           ].map((item, i) => (
-            <div key={i} className={`faq-item ${openFaqs[i] ? 'open' : ''}`} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+            <div key={i} className={`faq-item ${openFaqIndex === i ? 'open' : ''}`} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
               <div className="faq-q" itemProp="name" onClick={() => toggleFaq(i)}>
                 {item.q}<svg className="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
               </div>
-              <div className="faq-a" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+              <div
+                className="faq-a"
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+                ref={(el) => {
+                  answerRefs.current[i] = el;
+                }}
+              >
                 <div className="faq-a-inner" itemProp="text">{item.a}</div>
               </div>
             </div>

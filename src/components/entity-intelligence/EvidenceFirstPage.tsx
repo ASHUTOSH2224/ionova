@@ -7,10 +7,11 @@ interface Props {
 
 export function EvidenceFirstPage({ navigate }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({});
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const answerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const toggleFaq = (index: number) => {
-    setOpenFaqs(prev => ({ ...prev, [index]: !prev[index] }));
+    setOpenFaqIndex(prev => (prev === index ? null : index));
   };
 
   useEffect(() => {
@@ -30,6 +31,17 @@ export function EvidenceFirstPage({ navigate }: Props) {
     elements.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    answerRefs.current.forEach((el, i) => {
+      if (!el) return;
+      if (openFaqIndex === i) {
+        el.style.maxHeight = el.scrollHeight + 'px';
+      } else {
+        el.style.maxHeight = '0px';
+      }
+    });
+  }, [openFaqIndex]);
 
   return (
     <div ref={containerRef}>
@@ -108,11 +120,19 @@ export function EvidenceFirstPage({ navigate }: Props) {
               a: <p>Unlike generic AI that either provides an answer or declines, ioNova uses a <strong>graduated confidence scoring system</strong> from 0 to 100, with configurable thresholds for different workflow types. When confidence falls below threshold, the system explicitly flags the claim as uncertain and routes it for human review — it never silently guesses. This approach means analysts know precisely which elements of an AI-generated response they can trust and which require additional verification, eliminating the binary "trust everything or nothing" dilemma that plagues generic AI deployments in regulated environments.</p>
             }
           ].map((item, i) => (
-            <div key={i} className={`faq-item ${openFaqs[i] ? 'open' : ''}`} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+            <div key={i} className={`faq-item ${openFaqIndex === i ? 'open' : ''}`} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
               <div className="faq-q" itemProp="name" onClick={() => toggleFaq(i)}>
                 {item.q}<svg className="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
               </div>
-              <div className="faq-a" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+              <div
+                className="faq-a"
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+                ref={(el) => {
+                  answerRefs.current[i] = el;
+                }}
+              >
                 <div className="faq-a-inner" itemProp="text">{item.a}</div>
               </div>
             </div>

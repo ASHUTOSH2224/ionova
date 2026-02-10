@@ -7,10 +7,11 @@ interface Props {
 
 export function OverlayFirstPage({ navigate }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [openFaqs, setOpenFaqs] = useState<Record<number, boolean>>({});
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const answerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const toggleFaq = (index: number) => {
-    setOpenFaqs(prev => ({ ...prev, [index]: !prev[index] }));
+    setOpenFaqIndex(prev => (prev === index ? null : index));
   };
 
   useEffect(() => {
@@ -30,6 +31,17 @@ export function OverlayFirstPage({ navigate }: Props) {
     elements.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    answerRefs.current.forEach((el, i) => {
+      if (!el) return;
+      if (openFaqIndex === i) {
+        el.style.maxHeight = el.scrollHeight + 'px';
+      } else {
+        el.style.maxHeight = '0px';
+      }
+    });
+  }, [openFaqIndex]);
 
   return (
     <div ref={containerRef}>
@@ -98,11 +110,19 @@ export function OverlayFirstPage({ navigate }: Props) {
               a: <p>Yes. ioNova is built with <strong>pre-built connectors</strong> for enterprise systems across CRM, ERP, compliance case management, payment platforms, HR systems, and supply chain management tools. The platform is designed to read data where it lives — across your existing infrastructure — and resolve entities in real-time without requiring data consolidation. Copilots embed directly within your existing interfaces as sidebar panels, so your teams continue working in familiar tools while gaining entity intelligence capabilities.</p>
             }
           ].map((item, i) => (
-            <div key={i} className={`faq-item ${openFaqs[i] ? 'open' : ''}`} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+            <div key={i} className={`faq-item ${openFaqIndex === i ? 'open' : ''}`} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
               <div className="faq-q" itemProp="name" onClick={() => toggleFaq(i)}>
                 {item.q}<svg className="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
               </div>
-              <div className="faq-a" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+              <div
+                className="faq-a"
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+                ref={(el) => {
+                  answerRefs.current[i] = el;
+                }}
+              >
                 <div className="faq-a-inner" itemProp="text">{item.a}</div>
               </div>
             </div>
