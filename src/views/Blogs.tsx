@@ -31,11 +31,15 @@ const BlogsContent = () => {
             </section>
 
             {/* Featured Blogs Section */}
-            <section className="py-8 md:py-12 bg-background">
-                <div className="container">
-                    <div className="mb-6 flex items-center gap-2">
-                        <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                            Featured Blogs
+            <section className="py-12 md:py-16 bg-white relative overflow-hidden">
+                {/* Background decoration */}
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+
+                <div className="container relative z-10">
+                    <div className="mb-8 flex items-center justify-center md:justify-start">
+                        <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-blue-100 rounded-full text-xs font-bold uppercase tracking-wider text-teal-600 shadow-sm">
+                            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+                            Featured Insights
                         </span>
                     </div>
 
@@ -48,36 +52,49 @@ const BlogsContent = () => {
                     >
                         <CarouselContent>
                             {featuredPosts.map((post, index) => (
-                                <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
+                                <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1 pl-4">
                                     <div className="p-1">
-                                        <Card className="border-slate-200 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                                        <Card className="border border-slate-100 overflow-hidden bg-white shadow-[0_4px_20px_rgba(14,25,53,0.06)] hover:shadow-[0_20px_60px_rgba(14,25,53,0.12)] transition-all duration-500 rounded-3xl group h-full">
                                             <CardContent className="p-0">
-                                                <div className="grid md:grid-cols-2 gap-0">
+                                                <div className="grid md:grid-cols-12 gap-0 h-full">
                                                     {/* Image Section */}
-                                                    <div className="relative h-64 md:h-auto bg-slate-100 flex items-center justify-center p-8">
-                                                        {/* Placeholder for blog image */}
-                                                        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-slate-100 opacity-50"></div>
-                                                        <FileText className="h-20 w-20 text-blue-200 relative z-10" />
+                                                    <div className="md:col-span-5 relative h-64 md:h-auto bg-gradient-to-br from-slate-50 to-blue-50/30 flex items-center justify-center p-8 overflow-hidden">
+                                                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent opacity-100"></div>
+                                                        <div className="relative z-10 transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700 ease-out">
+                                                            <div className="bg-white p-6 rounded-2xl shadow-lg shadow-blue-900/5 ring-1 ring-black/5">
+                                                                <FileText className="h-16 w-16 text-blue-600" />
+                                                            </div>
+                                                        </div>
                                                     </div>
 
                                                     {/* Content Section */}
-                                                    <div className="p-8 md:p-12 flex flex-col justify-center">
-                                                        <h2 className="text-2xl md:text-3xl font-bold text-navy-950 mb-4 leading-tight hover:text-blue-600 cursor-pointer transition-colors">
+                                                    <div className="md:col-span-7 p-8 md:p-12 flex flex-col justify-center relative">
+                                                        <div className="mb-4">
+                                                            <span className="text-teal-600 font-bold text-sm tracking-wide uppercase">{post.category}</span>
+                                                        </div>
+                                                        <h2 className="text-3xl md:text-4xl font-extrabold text-navy-950 mb-6 leading-tight group-hover:text-blue-700 transition-colors">
                                                             {post.title}
                                                         </h2>
-                                                        <p className="text-slate-600 mb-6 text-lg leading-relaxed line-clamp-3">
+                                                        <p className="text-slate-600 mb-8 text-lg leading-relaxed line-clamp-3 font-medium">
                                                             {post.excerpt}
                                                         </p>
 
-                                                        <div className="flex items-center gap-4 mt-auto">
+                                                        <div className="flex items-center gap-5 mt-auto border-t border-slate-100 pt-6">
                                                             <div className="flex -space-x-2">
-                                                                <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center border-2 border-white text-xs font-bold text-blue-700">
+                                                                <div className="h-10 w-10 rounded-full bg-navy-900 text-white flex items-center justify-center border-2 border-white text-sm font-bold shadow-md">
                                                                     {post.author.charAt(0)}
                                                                 </div>
                                                             </div>
                                                             <div className="text-sm">
-                                                                <p className="font-semibold text-navy-950">{post.author}</p>
-                                                                <p className="text-slate-500">{post.readTime} • {post.date}</p>
+                                                                <p className="font-bold text-navy-950">{post.author}</p>
+                                                                <p className="text-slate-500 font-medium">{post.readTime} • {post.date}</p>
+                                                            </div>
+                                                            <div className="ml-auto">
+                                                                <Link to={`/blog/${post.slug}`}>
+                                                                    <Button className="rounded-full bg-navy-950 text-white hover:bg-blue-700 px-6 shadow-lg shadow-blue-900/20 group-hover:scale-105 transition-all">
+                                                                        Read Article <ArrowRight className="ml-2 h-4 w-4" />
+                                                                    </Button>
+                                                                </Link>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -88,61 +105,92 @@ const BlogsContent = () => {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-                        <div className="hidden md:block absolute -right-4 top-1/2 -translate-y-1/2 z-10">
-                            <CarouselNext />
+                        <div className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 gap-2">
+                            <CarouselNext className="bg-white border-slate-200 text-navy-950 hover:bg-navy-50 hover:text-blue-600 h-12 w-12 rounded-full shadow-lg" />
                         </div>
-                        <div className="hidden md:block absolute -left-4 top-1/2 -translate-y-1/2 z-10">
-                            <CarouselPrevious />
+                        <div className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 gap-2">
+                            <CarouselPrevious className="bg-white border-slate-200 text-navy-950 hover:bg-navy-50 hover:text-blue-600 h-12 w-12 rounded-full shadow-lg" />
                         </div>
                     </Carousel>
                 </div>
             </section>
 
             {/* All Blog Posts Grid */}
-            <section className="py-16 bg-slate-50/50">
-                <div className="container">
-                    <h2 className="text-3xl font-bold text-navy-950 mb-10">All Blog Posts</h2>
+            <section className="py-20 bg-surface-2 relative">
+                {/* Noise overlay simulation */}
+                <div className="absolute inset-0 opacity-[0.015] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+
+                <div className="container relative z-10">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                        <div>
+                            <span className="text-teal-600 font-bold tracking-widest uppercase text-xs mb-2 block">Knowledge Base</span>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-navy-950 tracking-tight">Latest Articles</h2>
+                        </div>
+
+                        {/* Filter Tabs (Mock) */}
+                        <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
+                            {['All', 'Technology', 'Strategy', 'Compliance'].map((filter, i) => (
+                                <button key={i} className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${i === 0 ? 'bg-navy-950 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-100 border border-transparent'}`}>
+                                    {filter}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {allPosts.map((post, index) => (
-                            <Link to={`/blog/${post.slug}`} key={index} className="group h-full">
-                                <Card className="h-full border-slate-200 bg-white shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col">
+                            <Link to={`/blog/${post.slug}`} key={index} className="group h-full block">
+                                <article className="h-full bg-white rounded-2xl overflow-hidden shadow-[0_2px_8px_rgba(14,25,53,0.04)] hover:shadow-[0_20px_40px_rgba(14,25,53,0.12)] transition-all duration-300 hover:-translate-y-1 border border-slate-100 flex flex-col">
                                     {/* Card Image Area */}
-                                    <div className="h-48 bg-gradient-to-br from-slate-100 to-white relative overflow-hidden">
-                                        <div className="absolute inset-0 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
-                                            <post.icon className="h-16 w-16 text-blue-200/50" />
+                                    <div className="h-56 bg-gradient-to-br from-slate-50 to-blue-50/50 relative overflow-hidden group-hover:from-blue-50 group-hover:to-indigo-50/50 transition-colors duration-500">
+                                        <div className="absolute inset-0 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 ease-out">
+                                            <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-sm">
+                                                <post.icon className="h-10 w-10 text-blue-600/80" />
+                                            </div>
                                         </div>
                                         {/* Category Badge */}
                                         <div className="absolute top-4 left-4">
-                                            <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-md text-xs font-bold text-navy-950 shadow-sm border border-slate-100 uppercase tracking-wide">
+                                            <span className="bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold text-navy-950 shadow-sm border border-slate-100 uppercase tracking-widest">
                                                 {post.category}
                                             </span>
                                         </div>
                                     </div>
 
-                                    <CardContent className="p-6 flex flex-col flex-grow">
-                                        <h3 className="text-xl font-bold text-navy-950 mb-3 group-hover:text-blue-600 transition-colors leading-tight line-clamp-3">
+                                    <div className="p-7 flex flex-col flex-grow relative">
+                                        {/* Decorative gradient line */}
+                                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-200 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                                        <h3 className="text-xl font-bold text-navy-950 mb-3 group-hover:text-blue-700 transition-colors leading-snug line-clamp-2">
                                             {post.title}
                                         </h3>
 
-                                        <div className="mt-auto pt-6 flex items-center gap-3">
-                                            <div className="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-600">
-                                                {post.author.charAt(0)}
+                                        <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2">
+                                            {post.excerpt || "Explore key insights and strategies driving the future of payment orchestration and address intelligence."}
+                                        </p>
+
+                                        <div className="mt-auto flex items-center justify-between border-t border-slate-50 pt-5">
+                                            <div className="flex items-center gap-3">
+                                                <div className="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-navy-800 border border-white shadow-sm">
+                                                    {post.author.charAt(0)}
+                                                </div>
+                                                <div className="text-xs text-slate-500 font-medium">
+                                                    <span className="block text-navy-950 font-semibold">{post.author}</span>
+                                                    <span>{post.date} · {post.readTime}</span>
+                                                </div>
                                             </div>
-                                            <div className="text-xs text-slate-500">
-                                                <span className="font-semibold text-navy-950 block">{post.author}</span>
-                                                <span>{post.readTime} • {post.date}</span>
+                                            <div className="h-8 w-8 rounded-full bg-slate-50 flex items-center justify-center text-blue-600 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                                                <ArrowRight className="h-4 w-4" />
                                             </div>
                                         </div>
-                                    </CardContent>
-                                </Card>
+                                    </div>
+                                </article>
                             </Link>
                         ))}
                     </div>
 
-                    <div className="mt-12 text-center">
-                        <Button variant="outline" size="lg" className="border-blue-200 text-blue-700 hover:bg-blue-50">
-                            View More Articles <ArrowRight className="ml-2 h-4 w-4" />
+                    <div className="mt-16 text-center">
+                        <Button variant="outline" size="lg" className="rounded-full border-2 border-slate-200 text-navy-950 font-bold hover:border-blue-600 hover:text-blue-600 hover:bg-white px-8 h-12">
+                            Load More Articles <ChevronRight className="ml-2 h-4 w-4" />
                         </Button>
                     </div>
                 </div>
