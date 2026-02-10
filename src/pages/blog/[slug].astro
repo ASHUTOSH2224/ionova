@@ -1,21 +1,45 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { AppWrapper } from '@/components/AppWrapper';
 import BlogPostView from '@/views/BlogPost';
-import { featuredPosts, allPosts } from "@/data/blogPosts";
+import { ghostAPI } from '@/lib/ghost';
 
 export async function getStaticPaths() {
-  const posts = [...featuredPosts, ...allPosts];
-  return posts.map(post => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+  // Ghost posts
+  let ghostPaths: any[] = [];
+  try {
+    const ghostPosts = await ghostAPI.getPosts({ limit: 'all' });
+
+    ghostPaths = ghostPosts
+      .map(gp => ({
+        params: { slug: gp.slug },
+        props: {
+          post: {
+            title: gp.title,
+            slug: gp.slug,
+            excerpt: gp.excerpt || '',
+            html: gp.html || '',
+            author: gp.authors?.[0]?.name || 'ioNova Team',
+            date: gp.published_at
+              ? new Date(gp.published_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+              : '',
+            readTime: `${gp.reading_time || 5} min read`,
+            category: gp.tags?.[0]?.name || 'Insights',
+            image: gp.feature_image || undefined,
+          },
+          source: 'ghost',
+        },
+      }));
+  } catch (error) {
+    console.error('Error fetching Ghost posts for static paths:', error);
+  }
+
+  return ghostPaths;
 }
 
 const { slug } = Astro.params;
 const { post } = Astro.props;
 ---
 
-<Layout title="Blog - ioNova">
+<Layout title={`${post?.title || 'Blog'} - ioNova`}>
 	<BlogPostView client:only="react" post={post} />
 </Layout>

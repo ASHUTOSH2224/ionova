@@ -312,6 +312,7 @@ export function Navbar() {
             Company
           </Link>
 
+          {/* 
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -351,6 +352,17 @@ export function Navbar() {
               <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
             </NavigationMenuList>
           </NavigationMenu>
+          */}
+
+          <Link
+            to="/blogs"
+            className={cn(
+              "text-base font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
+              isResourcesActive && "text-blue-600 font-semibold bg-blue-50/50"
+            )}
+          >
+            Resources
+          </Link>
         </div>
 
         {/* Desktop CTA */}
