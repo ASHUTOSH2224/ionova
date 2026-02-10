@@ -42,26 +42,26 @@ function Architecture() {
         <p>The address resolution engine operates as an adjacent service. It does not replace any component. No modifications to core banking systems, payment engines, or legacy infrastructure.</p>
       </div>
       <div className="arch-diagram">
-        <pre>{`  ┌─────────────────────────────────────────────────────────────┐
-  │                    EXISTING INFRASTRUCTURE                   │
-  │                                                             │
-  │  ┌──────────┐    ┌───────────────┐    ┌──────────────────┐ │
-  │  │ Payment  │───▶│  Middleware   │───▶│  Correspondent   │ │
-  │  │ Initiation│   │  (MuleSoft,  │    │  Banking /       │ │
-  │  │ System   │    │   Volante,   │    │  SWIFT Network   │ │
-  │  │          │    │   Finastra)  │    │                  │ │
-  │  └──────────┘    └──────┬───────┘    └──────────────────┘ │
-  │                         │                                   │
-  │                    API Call                                  │
-  │                         │                                   │
-  │                  ┌──────▼───────┐                           │
-  │                  │   `}<span style={{ color: 'var(--cyan-400)' }}>ioNova</span>{`     │                           │
-  │                  │   Address    │  ◀── SIDECAR SERVICE      │
-  │                  │   Resolution │      (No core changes)    │
-  │                  │   Engine     │                           │
-  │                  └──────────────┘                           │
-  │                                                             │
-  └─────────────────────────────────────────────────────────────┘`}</pre>
+        <pre>{`┌───────────────────────────────────────────────────────────────────┐
+│                     EXISTING INFRASTRUCTURE                       │
+│                                                                   │
+│  ┌──────────┐    ┌───────────────┐    ┌──────────────────┐        │
+│  │ Payment  │───▶│  Middleware   │───▶│  Correspondent   │        │
+│  │Initiation│    │  (MuleSoft,   │    │  Banking /       │        │
+│  │ System   │    │   Volante,    │    │  SWIFT Network   │        │
+│  │          │    │   Finastra)   │    │                  │        │
+│  └──────────┘    └──────┬────────┘    └──────────────────┘        │
+│                         │                                         │
+│                    API Call                                       │
+│                         │                                         │
+│                  ┌──────▼───────┐                                 │
+│                  │   `}<span style={{ color: 'var(--cyan-400)' }}>ioNova</span>{`     │                                 │
+│                  │   Address    │  ◀── SIDECAR SERVICE            │
+│                  │   Resolution │      (No core changes)          │
+│                  │   Engine     │                                 │
+│                  └──────────────┘                                 │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘`}</pre>
       </div>
     </div>
   );

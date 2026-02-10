@@ -197,10 +197,65 @@ export function PlatformPage({ navigate }: Props) {
         </div>
       </div>
 
-      <div className="cta-band">
-        <h2 className="cta-hl">Your Entities Are Your Business.<br /><span className="text-grad">It's Time They Worked Like It.</span></h2>
-        <p className="cta-sub">See how ioNova delivers measurable outcomes in 90 days — with your data, your workflows, your compliance requirements.</p>
-        <div className="cta-btns"><a className="btn btn-accent btn-lg">Schedule a Demo <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></a><a className="btn btn-outline">Download Platform Overview</a></div>
+      <div className="section" style={{ paddingTop: 'var(--space-3xl)', paddingBottom: 'var(--space-3xl)' }}>
+        <div style={{
+          background: 'linear-gradient(135deg, #0E1935 0%, #243574 50%, #0E1935 100%)',
+          borderRadius: '24px',
+          padding: '48px',
+          position: 'relative',
+          overflow: 'hidden',
+          border: '0',
+          textAlign: 'center',
+          maxWidth: '900px',
+          margin: '0 auto'
+        }}>
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '3px',
+            background: 'linear-gradient(90deg, #5FCFD0, #43ADC1, #3C75B5)'
+          }}></div>
+          <h3 style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'clamp(22px, 3vw, 32px)',
+            fontWeight: '700',
+            color: '#fff',
+            letterSpacing: '-1px',
+            marginBottom: '16px',
+            position: 'relative',
+            zIndex: 1
+          }}>
+            Purpose-Built for Regulated Industries
+          </h3>
+          <p style={{
+            fontSize: '16px',
+            color: 'rgba(255, 255, 255, 0.7)',
+            maxWidth: '600px',
+            margin: '0 auto 24px',
+            lineHeight: '1.6',
+            position: 'relative',
+            zIndex: 1
+          }}>
+            The only entity intelligence platform trusted by the world's leading financial institutions for their most consequential data challenges.
+          </p>
+          <div style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '12px',
+            fontWeight: '600',
+            letterSpacing: '1px',
+            textTransform: 'uppercase',
+            position: 'relative',
+            zIndex: 1,
+            background: 'linear-gradient(135deg, #5FCFD0, #43ADC1, #8ECDF2)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            ioNova AI · Powered by Knowledge First AI™
+          </div>
+        </div>
       </div>
     </div>
   );

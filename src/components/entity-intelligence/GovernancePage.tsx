@@ -143,7 +143,66 @@ export function GovernancePage({ navigate }: Props) {
         </div>
       </div>
 
-      <div className="cta-band"><h2 className="cta-hl">Governance Should Accelerate AI, <span className="text-grad">Not Slow It Down.</span></h2><p className="cta-sub">Audit-grade by architecture. Compliant by design. Ready today.</p><div className="cta-btns"><a className="btn btn-accent btn-lg">See Governance in Action</a><a className="btn btn-outline">Download Regulatory Guide</a></div></div>
+      <div className="section" style={{ paddingTop: 'var(--space-3xl)', paddingBottom: 'var(--space-3xl)' }}>
+        <div style={{
+          background: 'linear-gradient(135deg, #0E1935 0%, #243574 50%, #0E1935 100%)',
+          borderRadius: '24px',
+          padding: '48px',
+          position: 'relative',
+          overflow: 'hidden',
+          border: '0',
+          textAlign: 'center',
+          maxWidth: '900px',
+          margin: '0 auto'
+        }}>
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '3px',
+            background: 'linear-gradient(90deg, #5FCFD0, #43ADC1, #3C75B5)'
+          }}></div>
+          <h3 style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'clamp(22px, 3vw, 32px)',
+            fontWeight: '700',
+            color: '#fff',
+            letterSpacing: '-1px',
+            marginBottom: '16px',
+            position: 'relative',
+            zIndex: 1
+          }}>
+            Purpose-Built for Regulated Industries
+          </h3>
+          <p style={{
+            fontSize: '16px',
+            color: 'rgba(255, 255, 255, 0.7)',
+            maxWidth: '600px',
+            margin: '0 auto 24px',
+            lineHeight: '1.6',
+            position: 'relative',
+            zIndex: 1
+          }}>
+            The only entity intelligence platform trusted by the world's leading financial institutions for their most consequential data challenges.
+          </p>
+          <div style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '12px',
+            fontWeight: '600',
+            letterSpacing: '1px',
+            textTransform: 'uppercase',
+            position: 'relative',
+            zIndex: 1,
+            background: 'linear-gradient(135deg, #5FCFD0, #43ADC1, #8ECDF2)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            ioNova AI · Powered by Knowledge First AI™
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
