@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { PillarNav } from './PillarNav';
+
 
 interface Props {
   navigate: (page: string) => void;
@@ -35,7 +35,7 @@ export function EvidenceFirstPage({ navigate }: Props) {
     <div ref={containerRef}>
       <div className="hero">
         <div className="hero-orb"></div>
-        <PillarNav activePage="evidence" onNavigate={navigate} />
+
         <div className="hero-badge"><span className="pulse-dot"></span> Platform Pillar — Evidence-First AI</div>
         <h1>AI That Cites Every Source.<br /><span className="accent">Defends Every Decision.</span></h1>
         <p className="hero-sub">No uncited claims. Every copilot response is grounded in specific source documents with citations you can trace, verify, and defend to any regulator.</p>

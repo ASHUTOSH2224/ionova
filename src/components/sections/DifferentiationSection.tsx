@@ -90,7 +90,7 @@ export function DifferentiationSection() {
             marginBottom: "32px",
           }}
         >
-          Why Postal Validation Tools and LLMs Fail for Payment Compliance
+          Why Postal Validation Tools, LLMs, and generic vendors Fail for Payment Compliance
         </h2>
 
         {/* Table */}

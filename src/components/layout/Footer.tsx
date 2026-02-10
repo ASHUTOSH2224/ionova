@@ -145,7 +145,7 @@ export function Footer() {
           </p>
           <div className="flex gap-6">
             <a
-              href="/privacy"
+              href="/privacy-policy"
               style={{
                 fontFamily: "'Figtree', system-ui, sans-serif",
                 fontSize: "13px",
@@ -158,7 +158,7 @@ export function Footer() {
               Privacy Policy
             </a>
             <a
-              href="/terms"
+              href="/terms-of-service"
               style={{
                 fontFamily: "'Figtree', system-ui, sans-serif",
                 fontSize: "13px",

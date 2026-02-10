@@ -17,13 +17,13 @@ const pillars = [
   {
     icon: Target,
     title: "Geographic Disambiguation",
-    description: "Resolves 28 \"Paris\" locations using postal formats.",
+    description: "Resolves 28 \"Paris\" locations using postal formats and street patterns.",
     detail: "Distinguishes between Paris, TX and Paris, France with context."
   },
   {
     icon: ShieldCheck,
     title: "Historical Name Resolution",
-    description: "Automates mapping for \"Bombay\" → \"Mumbai.\"",
+    description: "Automates bidirectional mapping for cities like \"Bombay\" → \"Mumbai.\"",
     detail: "Handles legacy city names and street changes automatically."
   },
   {
@@ -35,13 +35,13 @@ const pillars = [
   {
     icon: Lock,
     title: "Full Explainability",
-    description: "Provides field-by-field audit trails.",
+    description: "Provides field-by-field audit trails with specific rule citations.",
     detail: "Every decision is cited with a specific rule for compliance audit."
   },
   {
     icon: Settings2,
     title: "Confidence Scoring",
-    description: "Threshold-based routing (0.95+ auto-process).",
+    description: "Threshold-based routing (0.95+ auto-process) to minimize manual review.",
     detail: "Minimizes manual review by auto-processing high confidence data."
   }
 ];

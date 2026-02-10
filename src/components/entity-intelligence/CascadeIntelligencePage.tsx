@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { PillarNav } from './PillarNav';
+
 
 interface Props {
   navigate: (page: string) => void;
@@ -35,7 +35,7 @@ export function CascadeIntelligencePage({ navigate }: Props) {
     <div ref={containerRef}>
       <div className="hero">
         <div className="hero-orb"></div>
-        <PillarNav activePage="cascade" onNavigate={navigate} />
+
         <div className="hero-badge"><span className="pulse-dot"></span> Platform Pillar — Cascade Intelligence</div>
         <h1>Fast When Certainty Is High.<br /><span className="accent">Smart When It's Not.</span></h1>
         <p className="hero-sub">Every entity comparison is routed through the fastest, cheapest, most accurate method first — escalating only when needed. 90%+ cost reduction vs. LLM-everywhere approaches.</p>

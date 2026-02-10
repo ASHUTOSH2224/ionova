@@ -65,7 +65,7 @@ export function HeroSection() {
 
                 {/* Subtitle */}
                 <span className="block max-w-xl mx-auto lg:mx-0 text-lg leading-relaxed text-blue-100/90 md:text-xl font-medium tracking-normal">
-                  AI-native address resolution for SWIFT CBPR+ and SEPA compliance. Done in weeks.
+                  Hybrid addresses pass minimum compliance. Structured addresses pass every test. ioNova delivers AI-native structured address resolution for SWIFT CBPR+ and SEPA
                 </span>
               </h1>
 
@@ -76,7 +76,7 @@ export function HeroSection() {
                   asChild
                 >
                   <Link to="/demo">
-                    View a Demo
+                    See ioNova in action
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -85,7 +85,7 @@ export function HeroSection() {
                   asChild
                 >
                   <a href="#roi-calculator" className="flex items-center gap-3">
-                    Calculate ROI
+                    Calculate your Savings
                     <div className="bg-white/20 p-1.5 rounded-full">
                       <Calculator className="h-4 w-4" />
                     </div>
@@ -93,20 +93,21 @@ export function HeroSection() {
                 </Button>
               </div>
 
-              {/* Trust indicators */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-3 text-sm font-medium text-blue-200/80">
-                <div className="flex items-center gap-2.5">
-                  <div className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.6)]"></div>
-                  <span>Bank-Grade Security</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <div className="h-2 w-2 rounded-full bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.6)]"></div>
-                  <span>15-Week Implementation</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <div className="h-2 w-2 rounded-full bg-indigo-400 shadow-[0_0_10px_rgba(129,140,248,0.6)]"></div>
-                  <span>Zero Hallucination Risk</span>
-                </div>
+              {/* Metric boxes */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                {[
+                  { value: "98%+", label: "STP Rates" },
+                  { value: "195", label: "Countries" },
+                  { value: "10–16", label: "Weeks to Production" },
+                ].map((metric) => (
+                  <div
+                    key={metric.label}
+                    className="flex flex-col items-center justify-center rounded-xl border border-white/15 bg-white/5 backdrop-blur-md px-6 py-3 min-w-[120px]"
+                  >
+                    <span className="text-2xl font-extrabold text-white">{metric.value}</span>
+                    <span className="text-xs font-medium text-blue-200/80 uppercase tracking-wider mt-1">{metric.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
