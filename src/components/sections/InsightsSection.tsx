@@ -5,21 +5,21 @@ export function InsightsSection() {
       title: "November 2026: The Deadline That Won't Move",
       description:
         "What SWIFT CBPR+ and SEPA enforcement actually means for your payment operations — and why the 9-month implementation window starts now.",
-      href: "/resources#blogs",
+      href: "/blogs",
     },
     {
       badge: "Blog",
       title: "Why LLMs Fail at Payment Address Parsing",
       description:
         "Non-deterministic output, hallucination risk, and zero audit trail. Why general-purpose AI models are unsuitable for regulated payment compliance.",
-      href: "/resources#blogs",
+      href: "/blogs",
     },
     {
       badge: "Blog",
       title: "The $8–12 Billion Problem: Address Data Quality Economics",
       description:
         "How poor address data drives $25–50 per-exception costs, suppresses STP rates, and inflates sanctions false positives across the industry.",
-      href: "/resources#blogs",
+      href: "/blogs",
     },
   ];
 
@@ -33,7 +33,7 @@ export function InsightsSection() {
           <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
             Latest from <span className="text-gradient">ioNova Resource Center</span>
             <span className="block mt-4 mx-auto max-w-2xl text-lg text-text-muted font-normal tracking-normal">
-              Research, analysis, and practical guidance for ISO 20022 address compliance.
+              Research, analysis, and practical guidance for ISO 20022 address compliance
             </span>
           </h2>
         </div>
@@ -121,7 +121,7 @@ export function InsightsSection() {
         {/* View All Button */}
         <div className="mt-8 text-center">
           <a
-            href="/resources"
+            href="/blogs"
             className="inline-flex items-center gap-2 rounded-full border border-[#D0DAEB] px-7 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#B8CCE2] hover:shadow-md"
             style={{
               fontFamily: "'Outfit', system-ui, sans-serif",

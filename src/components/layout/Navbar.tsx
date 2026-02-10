@@ -95,22 +95,22 @@ const addressIntelligencePillars = [
 const resourcesItems = [
   {
     label: "Content Hub",
-    href: "/resources",
+    href: "/blogs",
     icon: Library,
   },
   {
     label: "Blogs",
-    href: "/resources#blogs",
+    href: "/blogs",
     icon: BookOpen,
   },
   {
     label: "Whitepaper",
-    href: "/resources#whitepaper",
+    href: "/blogs#whitepaper",
     icon: FileText,
   },
   {
     label: "ISO 20022 Compliance Checklist",
-    href: "/resources#checklist",
+    href: "/blogs#checklist",
     icon: ClipboardCheck,
   },
 ];
@@ -160,7 +160,7 @@ export function Navbar() {
   const isAddressIntelligenceActive = location.pathname.startsWith(
     "/address-intelligence"
   );
-  const isResourcesActive = location.pathname === "/resources" || location.hash.startsWith("#whitepaper") || location.hash.startsWith("#checklist");
+  const isResourcesActive = location.pathname === "/blogs" || location.hash.startsWith("#whitepaper") || location.hash.startsWith("#checklist");
   const isCompanyActive = location.pathname === "/company" || location.pathname === "/privacy-policy" || location.pathname === "/terms-of-service";
   // Attach navbar purely based on scroll position for all pages
   const isAttached = isScrolled;
