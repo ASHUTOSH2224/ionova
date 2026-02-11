@@ -22,7 +22,7 @@ export function LogosSection() {
                 <div className="mb-8 text-center">
                     <p className="text-sm font-medium text-gray-500 uppercase tracking-wider md:text-base">
                         Our team has eliminated Payment Failures for{" "}
-                        <span className="text-blue-600 font-semibold">the Industry's Best</span>
+                        <span className="text-blue-600 font-semibold">leading global Banks</span>
                     </p>
                 </div>
 

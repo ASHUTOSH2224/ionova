@@ -157,7 +157,7 @@ export function CTABandSection() {
                 minWidth: "200px",
               }}
             >
-              <span className="relative z-10">See Structured Resolution</span>
+              <span className="relative z-10">See Structured Resolution in Action</span>
               <svg
                 width="14"
                 height="14"

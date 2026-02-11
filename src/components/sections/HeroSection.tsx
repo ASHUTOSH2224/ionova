@@ -94,7 +94,7 @@ export function HeroSection() {
               </div>
 
               {/* Metric boxes */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              {/*<div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                 {[
                   { value: "98%+", label: "STP Rates" },
                   { value: "195", label: "Countries" },
@@ -109,6 +109,7 @@ export function HeroSection() {
                   </div>
                 ))}
               </div>
+              */}
             </div>
           </div>
 
