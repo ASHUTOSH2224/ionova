@@ -131,12 +131,20 @@ export function Navbar() {
 
   const isActive = (path: string) => {
     const [pathPart, hashPart] = path.split("#");
+    const currentPath = location.pathname.replace(/\/+$/, "");
+    const targetPath = pathPart.replace(/\/+$/, "");
+
+    // Exact match for root
+    if (path === "/" && location.pathname !== "/") {
+      return false;
+    }
+
     if (hashPart) {
       // For hash links like /address-intelligence#business
-      return location.pathname === pathPart && location.hash === `#${hashPart}`;
+      return currentPath === targetPath && location.hash === `#${hashPart}`;
     }
     // For plain paths like /address-intelligence, only match if no hash is present
-    return location.pathname === pathPart && !location.hash;
+    return currentPath === targetPath && !location.hash;
   };
   const isEntityIntelligenceActive = location.pathname.startsWith("/platform");
   const isAddressIntelligenceActive = location.pathname.startsWith(
@@ -201,10 +209,16 @@ export function Navbar() {
                                 isActive(item.href) && "bg-blue-50"
                               )}
                             >
-                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
+                              <span className={cn(
+                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
+                                isActive(item.href) && "bg-blue-100 text-blue-600"
+                              )}>
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-sm">{item.label}</span>
+                              <span className={cn(
+                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
+                                isActive(item.href) && "text-blue-700 font-semibold"
+                              )}>{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -223,10 +237,16 @@ export function Navbar() {
                                 isActive(item.href) && "bg-blue-50"
                               )}
                             >
-                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
+                              <span className={cn(
+                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
+                                isActive(item.href) && "bg-blue-100 text-blue-600"
+                              )}>
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-sm">{item.label}</span>
+                              <span className={cn(
+                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
+                                isActive(item.href) && "text-blue-700 font-semibold"
+                              )}>{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -264,10 +284,16 @@ export function Navbar() {
                                 isActive(item.href) && "bg-blue-50"
                               )}
                             >
-                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
+                              <span className={cn(
+                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
+                                isActive(item.href) && "bg-blue-100 text-blue-600"
+                              )}>
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-sm">{item.label}</span>
+                              <span className={cn(
+                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
+                                isActive(item.href) && "text-blue-700 font-semibold"
+                              )}>{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -286,10 +312,16 @@ export function Navbar() {
                                 isActive(item.href) && "bg-blue-50"
                               )}
                             >
-                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
+                              <span className={cn(
+                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
+                                isActive(item.href) && "bg-blue-100 text-blue-600"
+                              )}>
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
-                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-sm">{item.label}</span>
+                              <span className={cn(
+                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
+                                isActive(item.href) && "text-blue-700 font-semibold"
+                              )}>{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
                         </li>
