@@ -184,7 +184,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-1 md:gap-1 lg:gap-1 md:flex">
+        <div className="hidden items-center gap-1 xl:gap-1 xl:flex">
           <Link
             to="/"
             className={cn(
@@ -408,7 +408,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden md:block ml-2 md:ml-2 lg:ml-4">
+        <div className="hidden xl:block ml-4">
           <Button variant="hero" className="rounded-full px-6" asChild>
             <Link to="/demo">View Demo</Link>
           </Button>
@@ -417,7 +417,7 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <button
           type="button"
-          className="md:hidden"
+          className="xl:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -431,7 +431,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto absolute top-full left-4 right-4 mt-2 rounded-2xl border border-border/50 bg-white/95 shadow-2xl backdrop-blur-xl p-6 md:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200 max-h-[80vh] overflow-y-auto">
+        <div className="pointer-events-auto absolute top-full left-4 right-4 mt-2 rounded-2xl border border-border/50 bg-white/95 shadow-2xl backdrop-blur-xl p-6 xl:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200 max-h-[80vh] overflow-y-auto">
           <Link
             to="/"
             className="block text-base font-medium text-navy-900"
@@ -540,9 +540,9 @@ export function Navbar() {
             </div>
           </div>
 
-          <Button variant="hero" size="lg" className="w-full rounded-full mt-2" asChild>
+          <Button variant="hero" className="w-3/4 h-14 mx-auto rounded-full mt-2 text-lg" asChild>
             <Link to="/demo" onClick={() => setMobileMenuOpen(false)}>
-              View Demo
+              View a Demo
             </Link>
           </Button>
         </div>
