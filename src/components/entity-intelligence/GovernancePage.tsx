@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { Link } from '@/lib/router-shim';
+import { WhitepaperDownloadDialog } from './WhitepaperDownloadDialog';
 
 interface Props {
   navigate: (page: string) => void;
@@ -222,12 +223,10 @@ export function GovernancePage({ navigate }: Props) {
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </Link>
-            <a
-              className="btn btn-outline btn-lg"
-              style={{ borderColor: 'rgba(255,255,255,0.25)', color: '#fff' }}
-            >
-              Download Platform Overview
-            </a>
+            <WhitepaperDownloadDialog
+              buttonClassName="btn btn-outline btn-lg"
+              buttonStyle={{ borderColor: 'rgba(255,255,255,0.25)', color: '#fff' }}
+            />
           </div>
         </div>
       </div>
