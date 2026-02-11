@@ -106,7 +106,7 @@ export default function ROICalculator() {
                     min={STATIC_MIN}
                     max={STATIC_MAX}
                     step={STATIC_STEP}
-                    className="w-full [&>span:first-child]:bg-slate-200 [&>span:first-child>span]:bg-gradient-to-r [&>span:first-child>span]:from-blue-900 [&>span:first-child>span]:to-navy-950 [&>span:last-child]:border-navy-950"
+                    className="w-full cursor-pointer [&>span:first-child]:bg-slate-200 [&>span:first-child>span]:bg-gradient-to-r [&>span:first-child>span]:from-blue-900 [&>span:first-child>span]:to-navy-950 [&>span:last-child]:border-navy-950"
                   />
                 </div>
               </div>
@@ -121,7 +121,7 @@ export default function ROICalculator() {
                     min={MONTHLY_MIN}
                     max={MONTHLY_MAX}
                     step={MONTHLY_STEP}
-                    className="w-full [&>span:first-child]:bg-slate-200 [&>span:first-child>span]:bg-gradient-to-r [&>span:first-child>span]:from-blue-900 [&>span:first-child>span]:to-navy-950 [&>span:last-child]:border-navy-950"
+                    className="w-full cursor-pointer [&>span:first-child]:bg-slate-200 [&>span:first-child>span]:bg-gradient-to-r [&>span:first-child>span]:from-blue-900 [&>span:first-child>span]:to-navy-950 [&>span:last-child]:border-navy-950"
                   />
                 </div>
               </div>
