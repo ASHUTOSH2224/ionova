@@ -140,7 +140,7 @@ export function EvidenceFirstPage({ navigate }: Props) {
             overflow: 'hidden',
             border: '0',
             textAlign: 'center',
-            maxWidth: '900px',
+            maxWidth: '1100px',
             margin: '0 auto',
           }}
         >
@@ -166,9 +166,9 @@ export function EvidenceFirstPage({ navigate }: Props) {
               zIndex: 1,
             }}
           >
-            Your Entities Are Your Business.
+            Your Entities Are Your Business
             <br />
-            <span style={{ color: '#8ECDF2' }}>It's Time They Worked Like It.</span>
+            <span style={{ color: '#8ECDF2' }}>It's Time They Worked Like It</span>
           </h3>
           <p
             style={{
