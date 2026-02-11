@@ -53,7 +53,6 @@ export function PlatformPage({ navigate }: Props) {
         <p className="hero-sub">The first platform to unify Named Entity Recognition, golden record creation, evidence-first AI copilots, and permissioned agentic automation — all governed from day one. Purpose-built for regulated industries that demand accuracy, auditability, and speed.</p>
         <div className="hero-ctas">
           <Link to="/demo" className="btn btn-accent btn-lg">See It In Action <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></Link>
-          <a className="btn btn-outline" onClick={() => navigate('cascade')} style={{ cursor: 'pointer' }} data-nav="cascade">Explore the Architecture <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></a>
         </div>
         <div className="proof-bar">
           <div className="kpi-tile"><div className="kpi-value grad">&lt;200ms</div><div className="kpi-label">End-to-end entity resolution</div></div>

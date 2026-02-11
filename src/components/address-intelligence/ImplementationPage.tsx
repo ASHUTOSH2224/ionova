@@ -27,7 +27,7 @@ function Hero() {
       <p className="hero-sub">The most persistent objection to structured address compliance is the assumption that it requires replacing core payment systems. <strong>It does not.</strong> The integration effort is identical for hybrid and structured.</p>
       <div className="btn-row">
         <button className="btn btn-accent">See Architecture Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></button>
-        <button className="btn btn-outline">Download Technical Overview</button>
+        <button className="btn btn-outline">Calculate Your ROI</button>
       </div>
     </div>
   );
