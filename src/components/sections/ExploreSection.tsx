@@ -74,7 +74,8 @@ export function ExploreSection() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full py-12 flex justify-center items-center overflow-hidden bg-surface-2"
+            className="relative w-full flex justify-center items-center overflow-hidden bg-surface-2"
+            style={{ paddingTop: 'var(--section-padding-y)', paddingBottom: 'var(--section-padding-y)' }}
         >
             <div className="w-[95%] mx-auto">
                 <div
@@ -92,14 +93,13 @@ export function ExploreSection() {
 
                 <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
                     {/* Hero Content - Centered */}
-                    <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
-                        {/* Main Headline */}
-                        <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
+                    <div className="landing-section-header text-center mb-12 md:mb-20 max-w-3xl mx-auto">
+                        <h2 className="landing-section-title mb-4">
                             Master the Mandate: <span className="text-gradient">The 4 Pillars of Structured Data</span>
-                            <span className="block mt-4 mx-auto max-w-2xl text-lg text-text-muted font-normal tracking-normal">
-                                Deep dive into the requirements, the ROI, and the technology behind ioNova.
-                            </span>
                         </h2>
+                        <span className="landing-section-subtitle">
+                            Deep dive into the requirements, the ROI, and the technology behind ioNova.
+                        </span>
                     </div>
 
                     {/* Cards - Single Row */}
@@ -120,17 +120,17 @@ export function ExploreSection() {
                                 {/* Content Wrapper for flex spacing */}
                                 <div className="flex flex-col h-full">
                                     {/* Title */}
-                                    <h3 className="text-lg font-bold text-navy-950 mb-2 leading-tight">
+                                    <h3 className="landing-card-title mb-2">
                                         {card.title}
                                     </h3>
 
                                     {/* Subtitle */}
-                                    <div className="text-sm font-medium text-blue-600 mb-4">
+                                    <div className="text-sm font-medium text-blue-600 mb-4" style={{ fontFamily: "var(--landing-font-body)" }}>
                                         {card.subtitle}
                                     </div>
 
                                     {/* Description */}
-                                    <p className="text-sm text-navy-800/70 leading-relaxed">
+                                    <p className="landing-card-body">
                                         {card.description}
                                     </p>
 

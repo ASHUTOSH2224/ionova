@@ -24,18 +24,16 @@ export function InsightsSection() {
   ];
 
   return (
-    <section className="bg-surface-2 py-24 px-6" id="insights">
+    <section className="bg-surface-2 px-6" id="insights" style={{ paddingTop: 'var(--section-padding-y)', paddingBottom: 'var(--section-padding-y)' }}>
       <div className="mx-auto max-w-[1200px]">
         {/* Section Header */}
-        <div className="mb-12 text-center lg:mb-16">
-
-
-          <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
+        <div className="landing-section-header mb-12 text-center lg:mb-16">
+          <h2 className="landing-section-title mb-4">
             Latest from <span className="text-gradient">ioNova Resource Center</span>
-            <span className="block mt-4 mx-auto max-w-2xl text-lg text-text-muted font-normal tracking-normal">
-              Research, analysis, and practical guidance for ISO 20022 address compliance
-            </span>
           </h2>
+          <span className="landing-section-subtitle">
+            Research, analysis, and practical guidance for ISO 20022 address compliance
+          </span>
         </div>
 
         {/* Article Cards */}

@@ -59,13 +59,11 @@ export function DifferentiationSection() {
   ];
 
   return (
-    <section className="bg-surface-2 py-24 px-6" id="comparison">
+    <section className="bg-surface-2 px-6" id="comparison" style={{ paddingTop: 'var(--section-padding-y)', paddingBottom: 'var(--section-padding-y)' }}>
       <div className="mx-auto max-w-[1200px]">
         {/* Section Header */}
-        <div className="mb-12 text-center lg:mb-16">
-
-
-          <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
+        <div className="landing-section-header mb-12 text-center lg:mb-16">
+          <h2 className="landing-section-title mb-4">
             Why Postal Validation Tools, LLMs and generic vendors Fail for <span className="text-gradient">Payment Compliance</span>
           </h2>
         </div>

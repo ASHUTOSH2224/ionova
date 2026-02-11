@@ -19,7 +19,7 @@ const BusinessValue = () => {
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold text-sky-200 md:text-5xl lg:text-6xl">
+            <h1 className="mb-4 font-bold text-sky-200">
               Compliance is the Floor. <span className="text-gradient-accent">Operational Excellence</span> is the Ceiling.
             </h1>
             <p className="text-lg text-sky-200/80">
@@ -38,7 +38,7 @@ const BusinessValue = () => {
                 <DollarSign className="h-4 w-4" />
                 Industry Economics
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 The $12 Billion Problem
               </h2>
             </div>
@@ -118,7 +118,7 @@ const BusinessValue = () => {
                 <Zap className="h-4 w-4" />
                 Operational Excellence
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 From 40% STP to 98%+ with Structured Data
               </h2>
             </div>
@@ -210,7 +210,7 @@ const BusinessValue = () => {
                 <ShieldCheck className="h-4 w-4" />
                 Sanctions Screening
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 Reduce False Positives by ~30%
               </h2>
             </div>
@@ -299,7 +299,7 @@ const BusinessValue = () => {
                 <Target className="h-4 w-4" />
                 Future-Proofing
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 Structured Data: The Foundation for AI Automation
               </h2>
             </div>
@@ -344,7 +344,7 @@ const BusinessValue = () => {
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <TrendingUp className="mx-auto mb-4 h-12 w-12 text-blue-500" />
-            <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl">
+            <h2 className="mb-4 font-bold text-navy-950">
               Turn Compliance into Competitive Advantage
             </h2>
             <p className="mb-8 text-lg text-text-muted">

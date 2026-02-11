@@ -55,7 +55,8 @@ export function CTABandSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-8 flex justify-center items-center overflow-hidden bg-surface-2"
+      className="relative w-full flex justify-center items-center overflow-hidden bg-surface-2"
+      style={{ paddingTop: 'var(--section-padding-y)', paddingBottom: 'var(--section-padding-y)' }}
     >
       {/* Background decoration or context if needed, currently kept clean for the card effect */}
 
@@ -73,14 +74,15 @@ export function CTABandSection() {
 
         <div className="relative px-6 py-10 sm:px-12 sm:py-12 flex flex-col items-center text-center">
 
-          {/* Title Group */}
+          {/* Title Group — same font/size style as About page CTA */}
           <div className="max-w-4xl mx-auto mb-8">
             <h2
               className="mb-4"
               style={{
                 fontFamily: "'Outfit', system-ui, sans-serif",
                 fontWeight: 700,
-                fontSize: "clamp(24px, 4vw, 36px)", // Reduced size
+                fontSize: "38.4px",
+                letterSpacing: "-0.8px",
                 lineHeight: 1.2,
                 color: "#E2E8F4",
               }}
@@ -88,7 +90,7 @@ export function CTABandSection() {
               The November 2026 ISO 20022 Deadline Won't Wait<br />
               <span
                 style={{
-                  background: "linear-gradient(135deg, #60A5FA, #3B82F6, #2563EB)", // Updated to blue-ish tailored gradient for clarity
+                  background: "linear-gradient(135deg, #60A5FA, #3B82F6, #2563EB)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -101,8 +103,9 @@ export function CTABandSection() {
             <p
               style={{
                 fontFamily: "'Figtree', system-ui, sans-serif",
-                fontSize: "15px",
-                color: "#94A3B8",
+                fontSize: "16px",
+                lineHeight: 1.65,
+                color: "rgba(255, 255, 255, 0.7)",
                 maxWidth: "600px",
                 margin: "0 auto",
               }}

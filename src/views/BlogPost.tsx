@@ -45,7 +45,7 @@ const BlogPostContent = ({ post: propPost }: { post?: MockPost }) => {
       <Layout>
         <div className="container py-16">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-3xl font-bold text-navy-950">Post Not Found</h1>
+            <h1 className="mb-4 font-bold text-navy-950">Post Not Found</h1>
             <p className="mb-8 text-text-muted">
               The blog post you're looking for doesn't exist or couldn't be loaded.
             </p>
@@ -108,7 +108,7 @@ const BlogPostContent = ({ post: propPost }: { post?: MockPost }) => {
               </Link>
             </Button>
 
-            <h1 className="mt-6 text-3xl font-bold tracking-tight text-navy-950 md:text-4xl lg:text-5xl">
+            <h1 className="mt-6 font-bold tracking-tight text-navy-950">
               {displayTitle}
             </h1>
           </div>

@@ -20,7 +20,7 @@ const WhyPurposeBuilt = () => {
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold text-sky-200 md:text-5xl lg:text-6xl">
+            <h1 className="mb-4 font-bold text-sky-200">
               Postal Validation ≠ <span className="text-gradient-accent">Payment Validation</span>
             </h1>
             <p className="text-lg text-sky-200/80">
@@ -39,7 +39,7 @@ const WhyPurposeBuilt = () => {
                 <Cpu className="h-4 w-4" />
                 Purpose-Built Capabilities
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 The 6 Capabilities Generic Tools Lack
               </h2>
               <p className="text-lg text-text-muted">
@@ -187,7 +187,7 @@ const WhyPurposeBuilt = () => {
                 <AlertTriangle className="h-4 w-4" />
                 Critical Distinction
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 Why Postal Validation Fails at Payments
               </h2>
             </div>
@@ -285,7 +285,7 @@ const WhyPurposeBuilt = () => {
                 <Brain className="h-4 w-4" />
                 The LLM Problem
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 Why Generic LLMs Fail at Payment Parsing
               </h2>
             </div>
@@ -380,7 +380,7 @@ const WhyPurposeBuilt = () => {
       <section className="bg-surface-2 py-16 lg:py-24">
         <div className="container">
           <div className="mx-auto max-w-6xl">
-            <h2 className="mb-12 text-center text-3xl font-bold text-navy-950 md:text-4xl">
+            <h2 className="mb-12 text-center font-bold text-navy-950">
               Comparison: ioNova vs. Generic Tools vs. Raw LLMs
             </h2>
 
@@ -467,7 +467,7 @@ const WhyPurposeBuilt = () => {
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <Cpu className="mx-auto mb-4 h-12 w-12 text-blue-500" />
-            <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl">
+            <h2 className="mb-4 font-bold text-navy-950">
               Purpose-Built for Banking, Not Just Delivery
             </h2>
             <p className="mb-8 text-lg text-text-muted">

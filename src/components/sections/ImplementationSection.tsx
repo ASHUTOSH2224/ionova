@@ -24,18 +24,16 @@ export function ImplementationSection() {
   ];
 
   return (
-    <section className="bg-surface-2 py-24 px-6" id="implementation">
+    <section className="bg-surface-2 px-6" id="implementation" style={{ paddingTop: 'var(--section-padding-y)', paddingBottom: 'var(--section-padding-y)' }}>
       <div className="mx-auto max-w-[1200px]">
         {/* Section Header */}
-        <div className="mb-12 text-center lg:mb-16">
-
-
-          <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
+        <div className="landing-section-header mb-12 text-center lg:mb-16">
+          <h2 className="landing-section-title mb-4">
             One Integration Full Compliance <span className="text-gradient">Zero Legacy Overhaul</span>
-            <span className="block mt-4 mx-auto max-w-2xl text-lg text-text-muted font-normal tracking-normal">
-              Deploys as a sidecar service. Repairs messages in real time or does a one time cleanup on your legacy data.
-            </span>
           </h2>
+          <span className="landing-section-subtitle">
+            Deploys as a sidecar service. Repairs messages in real time or does a one time cleanup on your legacy data.
+          </span>
         </div>
 
         {/* Phase Cards */}

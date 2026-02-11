@@ -81,13 +81,13 @@ const DemoContent = () => {
 
   return (
     <Layout>
-      <section className="bg-surface-2 pt-24 pb-12 lg:pt-32 lg:pb-16">
+      <section className="bg-surface-2" style={{ paddingTop: 'var(--section-padding-y)', paddingBottom: 'var(--section-padding-y)' }}>
         <div className="container">
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-10 lg:grid-cols-2">
               {/* Left - Content */}
               <div>
-                <h1 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
+                <h1 className="mb-4 font-bold text-navy-950">
                   See ioNova in Action.
                 </h1>
                 <p className="mb-8 text-lg text-text-muted">

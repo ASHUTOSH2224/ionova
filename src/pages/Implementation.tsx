@@ -19,7 +19,7 @@ const Implementation = () => {
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold text-sky-200 md:text-5xl lg:text-6xl">
+            <h1 className="mb-4 font-bold text-sky-200">
               One Integration. <span className="text-gradient-accent">Full Compliance.</span> Zero Legacy Overhaul.
             </h1>
             <p className="text-lg text-sky-200/80">
@@ -38,7 +38,7 @@ const Implementation = () => {
                 <Layers className="h-4 w-4" />
                 Integration Architecture
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 The "Sidecar" Model: No Core System Replacement Required
               </h2>
             </div>
@@ -151,7 +151,7 @@ const Implementation = () => {
                 <BarChart3 className="h-4 w-4" />
                 Cost-Benefit Analysis
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 Hybrid vs. Full Structured: Same Effort, Different Outcomes
               </h2>
             </div>
@@ -261,7 +261,7 @@ const Implementation = () => {
                 <Clock className="h-4 w-4" />
                 Implementation Timeline
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 From Kickoff to Go-Live in 10-16 Weeks
               </h2>
             </div>
@@ -400,7 +400,7 @@ const Implementation = () => {
                 <Workflow className="h-4 w-4" />
                 Intelligent Handling
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 The Automatic Fallback: Confidence-Based Routing
               </h2>
             </div>
@@ -467,7 +467,7 @@ const Implementation = () => {
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <Workflow className="mx-auto mb-4 h-12 w-12 text-blue-500" />
-            <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl">
+            <h2 className="mb-4 font-bold text-navy-950">
               Ready to Start Your Implementation?
             </h2>
             <p className="mb-8 text-lg text-text-muted">

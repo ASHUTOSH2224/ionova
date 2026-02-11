@@ -44,7 +44,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-blue-900 to-navy-950 flex flex-col justify-center pt-24 pb-8 md:pt-24 lg:pt-32 md:pb-8">
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-900 to-navy-950 flex flex-col justify-center pt-20 pb-6 md:pt-24 lg:pt-28 md:pb-6">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-blue-600/20 blur-[120px]" />
@@ -57,7 +57,7 @@ export function HeroSection() {
           <div className="w-full lg:w-6/12 flex flex-col items-center lg:items-start justify-center">
             <div ref={leftColumnRef} className="text-center lg:text-left w-full relative z-20">
               {/* Headline */}
-              <h1 className="mb-8 text-4xl font-extrabold leading-[1.15] tracking-tight text-white md:text-5xl lg:text-6xl xl:text-[4rem]">
+              <h1 className="hero-page-heading mb-8 font-extrabold leading-[1.15] tracking-tight text-white">
                 <span className="block mb-2">Achieve ISO 20022 compliance with</span>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-sky-200 to-white drop-shadow-sm block mb-6">
                   fully Structured Payment Addresses

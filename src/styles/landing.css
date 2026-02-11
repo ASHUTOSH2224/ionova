@@ -9,11 +9,15 @@
 /* ─── Landing-specific variables (align with design system) ─── */
 :root {
   --landing-container-max: 1200px;
-  --landing-section-py: 6rem;       /* py-24 */
-  --landing-section-py-sm: 2rem;   /* pt-8 pb-8 */
+  /* Consistent vertical spacing between sections site-wide */
+  --section-padding-y: 2.5rem;      /* 40px - padding top/bottom per section */
+  --section-padding-y-sm: 1.5rem;  /* 24px - tighter where needed */
+  --landing-section-py: 2.5rem;
+  --landing-section-py-sm: 1.5rem;
   --landing-border: #D0DAEB;
   --landing-surface-raised: #EFF2F7;
-  --landing-text-body: hsl(var(--text-label));
+  --landing-text-body: #466587;
+  --landing-text-primary: #0E1935;
   --landing-font-display: 'Outfit', system-ui, sans-serif;
   --landing-font-body: 'Figtree', system-ui, sans-serif;
   --landing-font-mono: 'JetBrains Mono', monospace;
@@ -21,6 +25,8 @@
   --landing-navy: #0E1935;
   --landing-shadow-card: 0 1px 3px rgba(14, 25, 53, 0.05), 0 1px 2px rgba(14, 25, 53, 0.03);
   --landing-shadow-card-open: 0 4px 12px rgba(14, 25, 53, 0.07), 0 2px 4px rgba(14, 25, 53, 0.04);
+  --space-md: 16px;
+  --space-lg: 24px;
 }
 
 /* ─── Missing animation used by HeroSection (glow) ─── */
@@ -70,7 +76,7 @@
   }
 }
 
-/* ─── Section headers (Challenge, Pillars, Explore, Differentiation, Implementation, Insights, FAQ) ─── */
+/* ─── Section headers (match About page / ds-v5 section-title, section-desc) ─── */
 .landing-section-header {
   text-align: center;
   margin-bottom: 2rem;
@@ -84,38 +90,52 @@
 
 .landing-section-title {
   font-family: var(--landing-font-display);
+  font-size: 38.4px;
   font-weight: 700;
-  font-size: 1.875rem;
+  letter-spacing: -0.8px;
   line-height: 1.2;
   color: var(--landing-navy);
-  margin-bottom: 1rem;
-}
-
-@media (min-width: 768px) {
-  .landing-section-title {
-    font-size: 2.25rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .landing-section-title {
-    font-size: 3rem;
-  }
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-lg, 24px);
 }
 
 .landing-section-subtitle {
   display: block;
-  margin-top: 1rem;
+  margin-top: var(--space-md, 16px);
   margin-left: auto;
   margin-right: auto;
-  max-width: 42rem;
-  font-size: 1.125rem;
+  max-width: 600px;
+  font-family: var(--landing-font-body);
+  font-size: 16px;
   font-weight: 400;
-  letter-spacing: normal;
-  color: hsl(var(--text-muted));
+  line-height: 1.65;
+  color: #466587;
+}
+
+/* Card typography (match About philosophy-card / content-block) */
+.landing-card-title {
+  font-family: var(--landing-font-display);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--landing-navy);
+  line-height: 1.35;
+}
+
+.landing-card-body {
+  font-family: var(--landing-font-body);
+  font-size: 15px;
+  line-height: 1.75;
+  color: #466587;
 }
 
 /* ─── Hero ─── */
+.hero-page-heading {
+  font-size: 52.8px;
+}
+
 .landing-hero {
   position: relative;
   overflow: hidden;
@@ -567,7 +587,7 @@
 .landing-cta-band__title {
   font-family: var(--landing-font-display);
   font-weight: 700;
-  font-size: clamp(24px, 4vw, 36px);
+  font-size: 38.4px;
   line-height: 1.2;
   color: #E2E8F4;
 }

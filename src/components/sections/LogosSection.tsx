@@ -16,11 +16,11 @@ export function LogosSection() {
     ];
 
     return (
-        <section className="bg-surface-2 pt-8 pb-16 lg:pt-10 lg:pb-20 overflow-hidden">
+        <section className="bg-surface-2 overflow-hidden" style={{ paddingTop: 'var(--section-padding-y)', paddingBottom: 'var(--section-padding-y)' }}>
             <div className="container">
                 {/* Section header */}
-                <div className="mb-8 text-center">
-                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider md:text-base">
+                <div className="landing-section-header mb-8 text-center">
+                    <p className="landing-section-subtitle" style={{ marginTop: 0, textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '14px', fontWeight: 500 }}>
                         Our team has eliminated Payment Failures for{" "}
                         <span className="text-blue-600 font-semibold">leading global Banks</span>
                     </p>

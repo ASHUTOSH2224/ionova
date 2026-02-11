@@ -8,6 +8,10 @@
 
 @layer base {
   :root {
+    /* Section spacing (consistent between components site-wide) */
+    --section-padding-y: 2.5rem;
+    --section-padding-y-sm: 1.5rem;
+
     /* Primary Brand Colors (HSL converted from hex) */
     --navy-950: 220 60% 13%;
     /* #0E1935 - Primary headlines, body text */
@@ -149,6 +153,11 @@
   h6 {
     @apply font-heading tracking-tight;
   }
+
+  h1,
+  h2 {
+    font-size: 38.4px;
+  }
 }
 
 @layer utilities {
@@ -268,12 +277,9 @@
     @apply font-bold text-navy-950 mb-4 mt-8;
   }
 
-  .ghost-content h1 {
-    @apply text-4xl;
-  }
-
+  .ghost-content h1,
   .ghost-content h2 {
-    @apply text-3xl;
+    font-size: 38.4px;
   }
 
   .ghost-content h3 {

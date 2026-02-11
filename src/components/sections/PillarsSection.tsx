@@ -48,16 +48,16 @@ const pillars = [
 
 export function PillarsSection() {
   return (
-    <section id="platform" className="bg-surface-2 flex flex-col justify-center py-12 md:py-20 lg:py-24">
+    <section id="platform" className="bg-surface-2 flex flex-col justify-center" style={{ paddingTop: 'var(--section-padding-y)', paddingBottom: 'var(--section-padding-y)' }}>
       <div className="container">
         {/* Section header */}
-        <div className="mb-12 text-center lg:mb-16">
-          <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
+        <div className="landing-section-header mb-12 text-center lg:mb-16">
+          <h2 className="landing-section-title mb-4">
             6 Signature Capabilities that Drive <span className="text-gradient">98%+ Straight-Through Processing</span>
-            <span className="block mt-4 mx-auto max-w-2xl text-lg text-text-muted font-normal tracking-normal">
-              ioNova is differentiated by deep banking logic
-            </span>
           </h2>
+          <span className="landing-section-subtitle">
+            ioNova is differentiated by deep banking logic
+          </span>
         </div>
 
         {/* Pillars grid */}
@@ -74,18 +74,18 @@ export function PillarsSection() {
                   <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100/50 text-blue-600">
                     <pillar.icon className="h-6 w-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-navy-950 leading-tight pt-1">
+                  <h3 className="landing-card-title pt-1">
                     {pillar.title}
                   </h3>
                 </div>
 
                 {/* Content */}
                 <div className="mt-auto">
-                  <p className="mb-3 font-medium text-text-body text-lg leading-relaxed">
+                  <p className="landing-card-body mb-3 font-medium">
                     {pillar.description}
                   </p>
                   <div className="h-px w-full bg-slate-100 my-4 group-hover:bg-blue-100 transition-colors"></div>
-                  <p className="text-sm text-text-muted leading-relaxed">
+                  <p className="landing-card-body" style={{ fontSize: '15px' }}>
                     {pillar.detail}
                   </p>
                 </div>

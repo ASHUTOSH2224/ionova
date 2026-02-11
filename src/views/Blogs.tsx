@@ -165,7 +165,7 @@ const BlogsContent = () => {
                                                             <div className="mb-4">
                                                                 <span className="text-teal-600 font-bold text-sm tracking-wide uppercase">{post.category}</span>
                                                             </div>
-                                                            <h2 className="text-3xl md:text-4xl font-extrabold text-navy-950 mb-6 leading-tight group-hover:text-blue-700 transition-colors">
+                                                            <h2 className="font-extrabold text-navy-950 mb-6 leading-tight group-hover:text-blue-700 transition-colors">
                                                                 {post.title}
                                                             </h2>
                                                             <p className="text-slate-600 mb-8 text-lg leading-relaxed line-clamp-3 font-medium">
@@ -218,7 +218,7 @@ const BlogsContent = () => {
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                         <div>
                             <span className="text-teal-600 font-bold tracking-widest uppercase text-xs mb-2 block">Knowledge Base</span>
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-navy-950 tracking-tight">Latest Articles</h2>
+                            <h2 className="font-extrabold text-navy-950 tracking-tight">Latest Articles</h2>
                         </div>
 
                         {/* Filter Tabs (Mock) 

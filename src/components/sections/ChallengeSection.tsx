@@ -146,14 +146,12 @@ export function ChallengeSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="bg-surface-2 flex flex-col justify-center pt-8 pb-8 md:pt-12 md:pb-12 lg:pb-16 overflow-hidden relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent opacity-50"></div>
-
+    <section ref={containerRef} className="bg-surface-2 flex flex-col justify-center overflow-hidden relative" style={{ paddingTop: 'var(--section-padding-y)', paddingBottom: 'var(--section-padding-y)' }}>
       <div className="container">
         <div className="mx-auto max-w-6xl">
           {/* Section header */}
-          <div className="mb-0 md:mb-8 text-center relative z-10 w-full">
-            <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl lg:text-5xl">
+          <div className="landing-section-header mb-0 md:mb-8 text-center relative z-10 w-full">
+            <h2 className="landing-section-title mb-4">
               The Clock is Ticking: <br className="hidden md:block" />
               You Are Entering the <span className="text-gradient">{displayMonths}-Month Window.</span>
             </h2>

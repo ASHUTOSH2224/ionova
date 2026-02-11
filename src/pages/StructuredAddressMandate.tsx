@@ -17,7 +17,7 @@ const StructuredAddressMandate = () => {
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold text-sky-200 md:text-5xl lg:text-6xl">
+            <h1 className="mb-4 font-bold text-sky-200">
               The Regulatory Mandate: <span className="text-gradient-accent">Structured Data</span> is No Longer Optional
             </h1>
             <p className="text-lg text-sky-200/80">
@@ -36,7 +36,7 @@ const StructuredAddressMandate = () => {
                 <Shield className="h-4 w-4" />
                 Regulatory Requirements
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 What Regulators Actually Require
               </h2>
             </div>
@@ -116,7 +116,7 @@ const StructuredAddressMandate = () => {
       <section className="bg-surface-2 py-16 lg:py-24">
         <div className="container">
           <div className="mx-auto max-w-5xl">
-            <h2 className="mb-12 text-center text-3xl font-bold text-navy-950 md:text-4xl">
+            <h2 className="mb-12 text-center font-bold text-navy-950">
               Postal Address vs Structured Address
             </h2>
 
@@ -197,7 +197,7 @@ const StructuredAddressMandate = () => {
                 <AlertTriangle className="h-4 w-4" />
                 Critical Understanding
               </div>
-              <h2 className="mb-6 text-3xl font-bold text-navy-950 md:text-4xl">
+              <h2 className="mb-6 font-bold text-navy-950">
                 The Structured-Hybrid Relationship
               </h2>
             </div>
@@ -245,7 +245,7 @@ const StructuredAddressMandate = () => {
       <section className="bg-surface-2 py-16 lg:py-24">
         <div className="container">
           <div className="mx-auto max-w-5xl">
-            <h2 className="mb-12 text-center text-3xl font-bold text-navy-950 md:text-4xl">
+            <h2 className="mb-12 text-center font-bold text-navy-950">
               The Timeline: A Binary Event
             </h2>
 
@@ -335,7 +335,7 @@ const StructuredAddressMandate = () => {
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <Clock className="mx-auto mb-4 h-12 w-12 text-blue-500" />
-            <h2 className="mb-4 text-3xl font-bold text-navy-950 md:text-4xl">
+            <h2 className="mb-4 font-bold text-navy-950">
               Don't Wait Until the Deadline Looms
             </h2>
             <p className="mb-8 text-lg text-text-muted">
