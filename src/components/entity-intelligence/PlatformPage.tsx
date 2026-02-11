@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { Link } from '@/lib/router-shim';
 
 interface Props {
   navigate: (page: string) => void;
@@ -50,7 +51,7 @@ export function PlatformPage({ navigate }: Props) {
         <h1>Every Enterprise Runs on Entities Now<br /><span className="accent">They Can Finally Trust Them</span></h1>
         <p className="hero-sub">The first platform to unify Named Entity Recognition, golden record creation, evidence-first AI copilots, and permissioned agentic automation — all governed from day one. Purpose-built for regulated industries that demand accuracy, auditability, and speed.</p>
         <div className="hero-ctas">
-          <a className="btn btn-accent btn-lg">See It In Action <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></a>
+          <Link to="/demo" className="btn btn-accent btn-lg">See It In Action <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></Link>
           <a className="btn btn-outline" onClick={() => navigate('cascade')} style={{ cursor: 'pointer' }} data-nav="cascade">Explore the Architecture <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></a>
         </div>
         <div className="proof-bar">

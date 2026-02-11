@@ -108,16 +108,6 @@ export function GovernancePage({ navigate }: Props) {
           </tbody>
         </table>
       </div>
-
-      <div className="section reveal">
-        <div className="proof-bar" style={{ animation: 'none' }}>
-          <div className="kpi-tile"><div className="kpi-value grad">80%</div><div className="kpi-label">Faster audit response</div></div>
-          <div className="kpi-tile"><div className="kpi-value grad-b">100%</div><div className="kpi-label">Decision traceability</div></div>
-          <div className="kpi-tile"><div className="kpi-value grad-t">SR 11-7</div><div className="kpi-label">Architecture aligned</div></div>
-          <div className="kpi-tile"><div className="kpi-value grad">24/7</div><div className="kpi-label">Continuous drift detection</div></div>
-        </div>
-      </div>
-
       <div className="faq-section reveal" id="faq-governance" itemScope itemType="https://schema.org/FAQPage">
         <div className="section-header"><div className="section-label">Frequently Asked Questions</div><h2 className="section-title">Governance-by-Design — Your Questions Answered</h2></div>
         <div className="faq-list">

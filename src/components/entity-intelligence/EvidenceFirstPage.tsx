@@ -54,7 +54,7 @@ export function EvidenceFirstPage({ navigate }: Props) {
       </div>
 
       <div className="section reveal">
-        <div className="section-header"><div className="section-label">The Trust Problem</div><h2 className="section-title">Generative AI Has a Trust Problem. In Regulated Industries, It's a Compliance Problem.</h2></div>
+        <div className="section-header"><div className="section-label">The Trust Problem</div><h2 className="section-title">Generative AI Has a Trust Problem In Regulated Industries, It's a Compliance Problem</h2></div>
         <div className="prose">
           <p>When ChatGPT tells you a company is on a sanctions list, you can't submit that to your regulator. There's no source document, no confidence score, no audit trail, no way to verify the claim was accurate at the time it was made.</p>
           <p>For enterprises under regulatory scrutiny — financial institutions under BSA/AML, healthcare under HIPAA — <strong>"the AI said so" is not an acceptable basis for a compliance decision.</strong> Regulators require reproducible, auditable evidence trails.</p>
@@ -72,7 +72,7 @@ export function EvidenceFirstPage({ navigate }: Props) {
       </div>
 
       <div className="section reveal">
-        <div className="section-header"><div className="section-label">Comparison</div><h2 className="section-title">Evidence-First vs. Generic AI</h2></div>
+        <div className="section-header"><div className="section-label">Comparison</div><h2 className="section-title">Evidence-First vs Generic AI</h2></div>
         <table className="token-table">
           <thead><tr><th>Dimension</th><th>Generic AI Copilots</th><th style={{ background: 'rgba(95,207,208,.08)', color: 'var(--teal-500)' }}>ioNova Evidence-First</th></tr></thead>
           <tbody>
@@ -85,16 +85,6 @@ export function EvidenceFirstPage({ navigate }: Props) {
           </tbody>
         </table>
       </div>
-
-      <div className="section reveal">
-        <div className="proof-bar" style={{ animation: 'none' }}>
-          <div className="kpi-tile"><div className="kpi-value grad">100%</div><div className="kpi-label">Citation coverage</div></div>
-          <div className="kpi-tile"><div className="kpi-value grad-b">50–70%</div><div className="kpi-label">Investigation time savings</div></div>
-          <div className="kpi-tile"><div className="kpi-value grad-t">80%</div><div className="kpi-label">Faster audit response</div></div>
-          <div className="kpi-tile"><div className="kpi-value grad">Zero</div><div className="kpi-label">Uncited claims policy</div></div>
-        </div>
-      </div>
-
       <div className="faq-section reveal" id="faq-evidence" itemScope itemType="https://schema.org/FAQPage">
         <div className="section-header"><div className="section-label">Frequently Asked Questions</div><h2 className="section-title">Evidence-First AI — Your Questions Answered</h2></div>
         <div className="faq-list">
