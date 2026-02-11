@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
-import { Menu, X, FileCheck, TrendingUp, Map, Cpu, CheckCircle, BookOpen, FileText, ClipboardCheck, Users, BadgeCheck, Monitor, GitMerge, Shield, MapPin, DollarSign, Code, Library } from "lucide-react";
+import { Menu, X, FileCheck, TrendingUp, Map, Cpu, CheckCircle, BookOpen, FileText, ClipboardCheck, Users, BadgeCheck, Monitor, GitMerge, Shield, MapPin, DollarSign, Code, Library, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -117,8 +117,16 @@ const resourcesItems = [
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openMobileSections, setOpenMobileSections] = useState<Record<string, boolean>>({});
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  const toggleMobileSection = (section: string) => {
+    setOpenMobileSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -402,7 +410,7 @@ export function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden md:block ml-2 md:ml-2 lg:ml-4">
           <Button variant="hero" className="rounded-full px-6" asChild>
-            <Link to="/demo">View a Demo</Link>
+            <Link to="/demo">View Demo</Link>
           </Button>
         </div>
 
@@ -423,7 +431,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto absolute top-full left-4 right-4 mt-2 rounded-2xl border border-border/50 bg-white/95 shadow-2xl backdrop-blur-xl p-6 md:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200">
+        <div className="pointer-events-auto absolute top-full left-4 right-4 mt-2 rounded-2xl border border-border/50 bg-white/95 shadow-2xl backdrop-blur-xl p-6 md:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200 max-h-[80vh] overflow-y-auto">
           <Link
             to="/"
             className="block text-base font-medium text-navy-900"
@@ -432,63 +440,79 @@ export function Navbar() {
             Home
           </Link>
           <div className="space-y-2">
-            <div className="text-base font-medium text-navy-900">Address Intelligence</div>
-            <div className="pl-4 space-y-1 border-l-2 border-primary/10 ml-1">
-              <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-1 pb-0.5">Overview</p>
-              {addressIntelligenceOverview.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              ))}
-              <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Four Pillars</p>
-              {addressIntelligencePillars.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+            <button
+              onClick={() => toggleMobileSection('address')}
+              className="flex w-full items-center justify-between text-base font-medium text-navy-900"
+            >
+              Address Intelligence
+              <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileSections['address'] ? "rotate-180" : "")} />
+            </button>
+            {openMobileSections['address'] && (
+              <div className="pl-4 space-y-1 border-l-2 border-primary/10 ml-1 animate-in slide-in-from-top-2 fade-in duration-200">
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-1 pb-0.5">Overview</p>
+                {addressIntelligenceOverview.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Four Pillars</p>
+                {addressIntelligencePillars.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="space-y-2">
-            <div className="text-base font-medium text-navy-900">Entity Intelligence</div>
-            <div className="pl-4 space-y-1 border-l-2 border-primary/10 ml-1">
-              <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-1 pb-0.5">Platform</p>
-              {entityIntelligencePlatformItems.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              ))}
-              <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Capabilities</p>
-              {entityIntelligenceCapabilities.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+            <button
+              onClick={() => toggleMobileSection('entity')}
+              className="flex w-full items-center justify-between text-base font-medium text-navy-900"
+            >
+              Entity Intelligence
+              <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileSections['entity'] ? "rotate-180" : "")} />
+            </button>
+            {openMobileSections['entity'] && (
+              <div className="pl-4 space-y-1 border-l-2 border-primary/10 ml-1 animate-in slide-in-from-top-2 fade-in duration-200">
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-1 pb-0.5">Platform</p>
+                {entityIntelligencePlatformItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Capabilities</p>
+                {entityIntelligenceCapabilities.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
           <Link
@@ -518,7 +542,7 @@ export function Navbar() {
 
           <Button variant="hero" size="lg" className="w-full rounded-full mt-2" asChild>
             <Link to="/demo" onClick={() => setMobileMenuOpen(false)}>
-              View a Demo
+              View Demo
             </Link>
           </Button>
         </div>
