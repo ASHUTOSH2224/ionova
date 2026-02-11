@@ -81,7 +81,7 @@ const DemoContent = () => {
 
   return (
     <Layout>
-      <section className="bg-surface-2" style={{ paddingTop: 'var(--section-padding-y)', paddingBottom: 'var(--section-padding-y)' }}>
+      <section className="bg-surface-2" style={{ paddingTop: '8rem', paddingBottom: 'var(--section-padding-y)' }}>
         <div className="container">
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-10 lg:grid-cols-2">
