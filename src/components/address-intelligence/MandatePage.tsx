@@ -28,7 +28,7 @@ function Hero() {
       <p className="hero-sub">Hybrid is the allowed minimum. This single misunderstanding has led hundreds of institutions to optimise for the floor rather than the ceiling—with <strong>identical implementation effort</strong> required either way.</p>
       <div className="btn-row">
         <button className="btn btn-accent">Download Compliance Checklist <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></button>
-        <button className="btn btn-outline">Calculate Savings</button>
+        <a href="/roi-calculator" className="btn btn-outline">Calculate Savings</a>
       </div>
     </div>
   );

@@ -175,7 +175,7 @@ export function CTABandSection() {
             </a>
 
             <a
-              href="/demo"
+              href="/roi-calculator"
               className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 transition-all duration-300 hover:bg-white/5 hover:border-white/30"
               style={{
                 fontFamily: "'Outfit', system-ui, sans-serif",

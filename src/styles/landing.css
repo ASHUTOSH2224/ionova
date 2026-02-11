@@ -10,8 +10,10 @@
 :root {
   --landing-container-max: 1200px;
   /* Consistent vertical spacing between sections site-wide */
-  --section-padding-y: 2.5rem;      /* 40px - padding top/bottom per section */
-  --section-padding-y-sm: 1.5rem;  /* 24px - tighter where needed */
+  --section-padding-y: 2.5rem;
+  /* 40px - padding top/bottom per section */
+  --section-padding-y-sm: 1.5rem;
+  /* 24px - tighter where needed */
   --landing-section-py: 2.5rem;
   --landing-section-py-sm: 1.5rem;
   --landing-border: #D0DAEB;
@@ -31,8 +33,17 @@
 
 /* ─── Missing animation used by HeroSection (glow) ─── */
 @keyframes pulse-slow {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
 }
 
 .animate-pulse-slow {
@@ -615,6 +626,15 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* ─── ROI Calculator ─── */
+.ds-v5 .roi-calculator-section.section {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+/* Slider track/thumb visibility on ROI page */
+
 
 /* ─── Footer (used in Layout on landing) ─── */
 .landing-footer {
