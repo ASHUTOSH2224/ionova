@@ -151,7 +151,7 @@ export function Navbar() {
     "/address-intelligence"
   );
   const isResourcesActive = location.pathname === "/blogs" || location.hash.startsWith("#whitepaper") || location.hash.startsWith("#checklist");
-  const isCompanyActive = location.pathname === "/company" || location.pathname === "/privacy-policy" || location.pathname === "/terms-of-service";
+  const isCompanyActive = location.pathname === "/company";
   // Attach navbar purely based on scroll position for all pages
   const isAttached = isScrolled;
 
