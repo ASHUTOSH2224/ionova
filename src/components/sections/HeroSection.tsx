@@ -84,12 +84,12 @@ export function HeroSection() {
                   className="h-14 px-8 text-lg font-medium bg-white/5 hover:bg-white/10 text-white border border-white/20 backdrop-blur-md rounded-full transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto"
                   asChild
                 >
-                  <a href="#roi-calculator" className="flex items-center gap-3">
+                  <Link to="/roi-calculator" className="flex items-center gap-3">
                     Calculate your Savings
                     <div className="bg-white/20 p-1.5 rounded-full">
                       <Calculator className="h-4 w-4" />
                     </div>
-                  </a>
+                  </Link>
                 </Button>
               </div>
 

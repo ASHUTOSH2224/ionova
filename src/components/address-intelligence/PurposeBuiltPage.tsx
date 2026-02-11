@@ -27,7 +27,7 @@ function Hero() {
       <p className="hero-sub">Generic address tools solve a fundamentally different problem. Postal validation asks &quot;can a letter be delivered here?&quot; Payment compliance asks &quot;does this address identify a legal entity across 195 countries and 50+ writing systems?&quot;</p>
       <div className="btn-row">
         <button className="btn btn-accent">See the Difference <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></button>
-        <button className="btn btn-outline">Calculate Your ROI</button>
+        <button className="btn btn-outline" onClick={() => window.location.href = '/roi-calculator'}>Calculate Your ROI</button>
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ function Hero() {
       <h1>Compliance Is the Floor. <span className="accent">Operational Excellence</span> Is the Ceiling.</h1>
       <p className="hero-sub">The same investment that satisfies regulators also eliminates billions in operational waste, transforms sanctions screening accuracy, and builds the data foundation for AI-driven payment automation.</p>
       <div className="btn-row">
-        <button className="btn btn-accent">Calculate Your ROI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></button>
+        <button className="btn btn-accent" onClick={() => window.location.href = '/roi-calculator'}>Calculate Your ROI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></button>
         <button className="btn btn-outline">Request a Demo</button>
       </div>
     </div>

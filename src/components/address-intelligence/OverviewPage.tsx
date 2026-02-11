@@ -261,7 +261,7 @@ function Cta() {
       <h3>Start Your Address Intelligence Journey</h3>
       <p>The November 2026 deadline is approaching. The business case is proven. The implementation path is clear.</p>
       <div className="btn-row">
-        <button className="btn btn-accent">
+        <button className="btn btn-accent" onClick={() => window.location.href = '/roi-calculator'}>
           Calculate Your ROI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
         </button>
         <button className="btn btn-outline" style={{ borderColor: 'rgba(255,255,255,0.25)', color: '#fff' }}>
