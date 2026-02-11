@@ -153,7 +153,7 @@ export function ChallengeSection() {
           <div className="landing-section-header mb-0 md:mb-8 text-center relative z-10 w-full">
             <h2 className="landing-section-title mb-4">
               The Clock is Ticking: <br className="hidden md:block" />
-              You Are Entering the <span className="text-gradient">{displayMonths}-Month Window.</span>
+              You Are Entering the <span className="text-gradient">{displayMonths}-Month Window</span>
             </h2>
 
             {/* Dynamic Flip Counter */}
