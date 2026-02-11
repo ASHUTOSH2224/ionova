@@ -1,0 +1,12 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { GovernancePage } from '@/components/entity-intelligence/GovernancePage';
+---
+
+<Layout
+  title="Governance-by-Design - ioNova"
+  description="SR 11-7 and EU AI Act compliant. Audit-grade evidence packs, decision replayability, and continuous drift monitoring."
+>
+  <PageLayout client:only="react" pageId="entity-governance" />
+</Layout>

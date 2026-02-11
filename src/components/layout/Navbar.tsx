@@ -18,7 +18,7 @@ const entityIntelligencePlatformItems = [
   {
     label: "Platform Overview",
     description: "NER, golden records, AI copilots & governance",
-    href: "/platform",
+    href: "/entity-intelligence",
     icon: Users,
   },
 ];
@@ -27,31 +27,31 @@ const entityIntelligenceCapabilities = [
   {
     label: "Evidence-First AI",
     description: "100% citation coverage, audit-defensible",
-    href: "/platform#evidence",
+    href: "/entity-intelligence/evidence",
     icon: BadgeCheck,
   },
   {
     label: "Overlay-First Deployment",
     description: "90-day value, zero data migration",
-    href: "/platform#overlay",
+    href: "/entity-intelligence/overlay",
     icon: Monitor,
   },
   {
     label: "Progressive Autonomy",
     description: "Explain \u2192 Recommend \u2192 Prepare \u2192 Execute",
-    href: "/platform#autonomy",
+    href: "/entity-intelligence/autonomy",
     icon: TrendingUp,
   },
   {
     label: "Cascade Intelligence",
     description: "Multi-stage resolution, 90%+ cost reduction",
-    href: "/platform#cascade",
+    href: "/entity-intelligence/cascade",
     icon: GitMerge,
   },
   {
     label: "Governance-by-Design",
     description: "SR 11-7, EU AI Act ready, audit-grade",
-    href: "/platform#governance",
+    href: "/entity-intelligence/governance",
     icon: Shield,
   },
 ];
@@ -69,25 +69,25 @@ const addressIntelligencePillars = [
   {
     label: "Structured Address Mandate",
     description: "Pillar 1 \u2014 Regulatory mandate & Nov 2026 deadline",
-    href: "/address-intelligence#mandate",
+    href: "/address-intelligence/structured-address-mandate",
     icon: FileCheck,
   },
   {
     label: "Business Value",
     description: "Pillar 2 \u2014 The $8\u201312B problem & ROI metrics",
-    href: "/address-intelligence#business",
+    href: "/address-intelligence/structured-address-value",
     icon: DollarSign,
   },
   {
     label: "Implementation Guide",
     description: "Pillar 3 \u2014 Sidecar architecture, 10\u201316 weeks",
-    href: "/address-intelligence#implementation",
+    href: "/address-intelligence/address-implementation",
     icon: Code,
   },
   {
     label: "Why Purpose-Built",
     description: "Pillar 4 \u2014 Postal \u2260 payment validation. 195 countries",
-    href: "/address-intelligence#purpose",
+    href: "/address-intelligence/purpose-built-address-solution",
     icon: Shield,
   },
 ];
@@ -146,7 +146,7 @@ export function Navbar() {
     // For plain paths like /address-intelligence, only match if no hash is present
     return currentPath === targetPath && !location.hash;
   };
-  const isEntityIntelligenceActive = location.pathname.startsWith("/platform");
+  const isEntityIntelligenceActive = location.pathname.startsWith("/entity-intelligence");
   const isAddressIntelligenceActive = location.pathname.startsWith(
     "/address-intelligence"
   );

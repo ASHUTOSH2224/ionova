@@ -2,11 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Link } from '@/lib/router-shim';
 import { WhitepaperDownloadDialog } from './WhitepaperDownloadDialog';
 
-interface Props {
-  navigate: (page: string) => void;
-}
-
-export function PlatformPage({ navigate }: Props) {
+export function PlatformPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const answerRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -89,28 +85,28 @@ export function PlatformPage({ navigate }: Props) {
           <p className="section-desc">Each layer builds on the previous to create capabilities no point solution can match.</p>
         </div>
         <div className="g2">
-          <div className="card card-accent" onClick={() => navigate('cascade')} style={{ cursor: 'pointer' }} data-nav="cascade">
+          <div className="card card-accent" onClick={() => window.location.href = '/entity-intelligence/cascade'} style={{ cursor: 'pointer' }} data-nav="cascade">
             <div className="icon-box ib-teal"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" /></svg></div>
             <div className="card-label">Layer 1 — The Foundation</div>
             <div className="card-title">Entity Intelligence Core</div>
             <div className="card-body">Advanced NER with cascade entity resolution and golden record creation. Extracts persons, organizations, locations, products, and monetary values with 95%+ precision in &lt;200ms. Cascade matching: Exact (&lt;5ms) → Fuzzy (&lt;50ms) → Semantic (&lt;200ms).</div>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '16px' }}><span className="badge badge-accent">90%+ Duplicate Detection</span><span className="badge badge-accent">&lt;5ms Exact Match</span></div>
           </div>
-          <div className="card card-accent" onClick={() => navigate('evidence')} style={{ cursor: 'pointer' }} data-nav="evidence">
+          <div className="card card-accent" onClick={() => window.location.href = '/entity-intelligence/evidence'} style={{ cursor: 'pointer' }} data-nav="evidence">
             <div className="icon-box ib-blue"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg></div>
             <div className="card-label">Layer 2 — AI That Shows Its Work</div>
             <div className="card-title">Evidence-First Copilots</div>
             <div className="card-body">RAG-grounded assistants with mandatory citations. When a copilot states a counterparty is sanctioned, it provides the exact source, date, authority, and confidence score. Transforms generative AI into an audit-defensible decision-support system.</div>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '16px' }}><span className="badge badge-accent">100% Citation Coverage</span><span className="badge badge-accent">50–70% Time Savings</span></div>
           </div>
-          <div className="card card-accent" onClick={() => navigate('autonomy')} style={{ cursor: 'pointer' }} data-nav="autonomy">
+          <div className="card card-accent" onClick={() => window.location.href = '/entity-intelligence/autonomy'} style={{ cursor: 'pointer' }} data-nav="autonomy">
             <div className="icon-box ib-cyan"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg></div>
             <div className="card-label">Layer 3 — Automation That Earns Trust</div>
             <div className="card-title">Permissioned Agentic AI</div>
             <div className="card-body">Progressive autonomy: Explain → Recommend → Prepare → Execute. Each level gated by governance approval with audit evidence. Start with recommendations, graduate to autonomous execution for pre-approved, low-risk, reversible operations.</div>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '16px' }}><span className="badge badge-accent">60–90% AHT Reduction</span><span className="badge badge-accent">4 Autonomy Levels</span></div>
           </div>
-          <div className="card card-accent" onClick={() => navigate('governance')} style={{ cursor: 'pointer' }} data-nav="governance">
+          <div className="card card-accent" onClick={() => window.location.href = '/entity-intelligence/governance'} style={{ cursor: 'pointer' }} data-nav="governance">
             <div className="icon-box ib-navy"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg></div>
             <div className="card-label">Layer 4 — Built for Regulators</div>
             <div className="card-title">Governance-by-Design</div>

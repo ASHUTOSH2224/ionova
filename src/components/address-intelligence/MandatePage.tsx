@@ -1,10 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
-interface Props {
-  navigate: (page: string) => void;
-}
-
-export function MandatePage({ navigate }: Props) {
+export function MandatePage() {
   return (
     <div className="mandate-page">
       <Hero />
@@ -14,7 +10,7 @@ export function MandatePage({ navigate }: Props) {
       <Timeline />
       <Comparison />
       <Faq />
-      <RelatedPillars navigate={navigate} />
+      <RelatedPillars />
     </div>
   );
 }
@@ -229,19 +225,19 @@ function Faq() {
   );
 }
 
-function RelatedPillars({ navigate }: { navigate: (page: string) => void }) {
+function RelatedPillars() {
   return (
     <div className="section">
       <div className="section-label">Explore</div>
       <div className="section-title">Related Pillars</div>
       <div className="related-grid">
-        <div className="related-card" onClick={() => navigate('business')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/structured-address-value'} style={{ cursor: 'pointer' }}>
           <h4>Business Value Beyond Compliance →</h4><p>The $8–12 billion cost of poor address data and the economics of structured resolution.</p>
         </div>
-        <div className="related-card" onClick={() => navigate('implementation')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/address-implementation'} style={{ cursor: 'pointer' }}>
           <h4>Implementation Guide →</h4><p>Week-by-week timeline and sidecar architecture explained.</p>
         </div>
-        <div className="related-card" onClick={() => navigate('purpose')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/purpose-built-address-solution'} style={{ cursor: 'pointer' }}>
           <h4>Why Purpose-Built? →</h4><p>Why postal tools and LLMs fail at payment address compliance.</p>
         </div>
       </div>

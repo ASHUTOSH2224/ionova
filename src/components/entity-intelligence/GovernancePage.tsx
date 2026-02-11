@@ -2,11 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Link } from '@/lib/router-shim';
 import { WhitepaperDownloadDialog } from './WhitepaperDownloadDialog';
 
-interface Props {
-  navigate: (page: string) => void;
-}
-
-export function GovernancePage({ navigate }: Props) {
+export function GovernancePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const answerRefs = useRef<(HTMLDivElement | null)[]>([]);

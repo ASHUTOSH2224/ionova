@@ -1,0 +1,12 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { PlatformPage } from '@/components/entity-intelligence/PlatformPage';
+---
+
+<Layout
+  title="Entity Intelligence Platform - ioNova"
+  description="Resolve entities across 50+ systems. 95%+ precision. <200ms latency. The only platform with evidence-first AI and progressive autonomy."
+>
+  <PageLayout client:only="react" pageId="entity-overview" />
+</Layout>

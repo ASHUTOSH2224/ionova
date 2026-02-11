@@ -1,0 +1,12 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { ProgressiveAutonomyPage } from '@/components/entity-intelligence/ProgressiveAutonomyPage';
+---
+
+<Layout
+  title="Progressive AI Autonomy - ioNova"
+  description="From explanation to execution. A 4-level framework for governing AI agency in regulated enterprises."
+>
+  <PageLayout client:only="react" pageId="entity-autonomy" />
+</Layout>

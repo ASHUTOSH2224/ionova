@@ -1,0 +1,12 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { EvidenceFirstPage } from '@/components/entity-intelligence/EvidenceFirstPage';
+---
+
+<Layout
+  title="Evidence-First AI - ioNova"
+  description="AI copilots that cite their sources. Every claim grounded in documents with mandatory citations and confidence scores."
+>
+  <PageLayout client:only="react" pageId="entity-evidence" />
+</Layout>

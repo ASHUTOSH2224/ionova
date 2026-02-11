@@ -1,10 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
-interface Props {
-  navigate: (page: string) => void;
-}
-
-export function BusinessValuePage({ navigate }: Props) {
+export function BusinessValuePage() {
   return (
     <div className="business-value-page">
       <Hero />
@@ -13,7 +9,7 @@ export function BusinessValuePage({ navigate }: Props) {
       <Compliance />
       <Return />
       <Faq />
-      <RelatedPillars navigate={navigate} />
+      <RelatedPillars />
     </div>
   );
 }
@@ -27,7 +23,7 @@ function Hero() {
       <p className="hero-sub">The same investment that satisfies regulators also eliminates billions in operational waste, transforms sanctions screening accuracy, and builds the data foundation for AI-driven payment automation.</p>
       <div className="btn-row">
         <button className="btn btn-accent" onClick={() => window.location.href = '/roi-calculator'}>Calculate Your ROI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></button>
-        <button className="btn btn-outline">Request a Demo</button>
+        <button className="btn btn-outline" onClick={() => window.location.href = '/demo'}>Request a Demo</button>
       </div>
     </div>
   );
@@ -207,19 +203,19 @@ function Faq() {
   );
 }
 
-function RelatedPillars({ navigate }: { navigate: (page: string) => void }) {
+function RelatedPillars() {
   return (
     <div className="section">
       <div className="section-label">Explore</div>
       <div className="section-title">Related Pillars</div>
       <div className="related-grid">
-        <div className="related-card" onClick={() => navigate('mandate')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/structured-address-mandate'} style={{ cursor: 'pointer' }}>
           <h4>Regulatory Mandate →</h4><p>What EPC, SWIFT, and CPMI actually require for November 2026.</p>
         </div>
-        <div className="related-card" onClick={() => navigate('implementation')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/address-implementation'} style={{ cursor: 'pointer' }}>
           <h4>Implementation Guide →</h4><p>The sidecar architecture and 10–16 week deployment timeline.</p>
         </div>
-        <div className="related-card" onClick={() => navigate('purpose')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/purpose-built-address-solution'} style={{ cursor: 'pointer' }}>
           <h4>Why Purpose-Built? →</h4><p>Postal validation ≠ payment validation. Why generic tools fail.</p>
         </div>
       </div>

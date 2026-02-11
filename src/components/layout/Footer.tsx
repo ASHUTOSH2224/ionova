@@ -4,9 +4,9 @@ export function Footer() {
       title: "PLATFORM",
       links: [
         { label: "Address Intelligence", href: "/address-intelligence" },
-        { label: "Entity Intelligence", href: "/platform#entity" },
-        { label: "Cascade Engine", href: "/platform#cascade" },
-        { label: "Governance", href: "/platform#governance" },
+        { label: "Entity Intelligence", href: "/entity-intelligence" },
+        { label: "Cascade Engine", href: "/entity-intelligence/cascade" },
+        { label: "Governance", href: "/entity-intelligence/governance" },
       ],
     },
     resources: {
@@ -24,16 +24,16 @@ export function Footer() {
       links: [
         {
           label: "Structured Address Mandate",
-          href: "/address-intelligence#mandate",
+          href: "/address-intelligence/structured-address-mandate",
         },
-        { label: "Business Value", href: "/address-intelligence#business" },
+        { label: "Business Value", href: "/address-intelligence/structured-address-value" },
         {
           label: "Implementation",
-          href: "/address-intelligence#implementation",
+          href: "/address-intelligence/address-implementation",
         },
         {
           label: "Purpose-Built Solution",
-          href: "/address-intelligence#purpose",
+          href: "/address-intelligence/purpose-built-address-solution",
         },
       ],
     },

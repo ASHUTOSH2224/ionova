@@ -1,0 +1,12 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { OverlayFirstPage } from '@/components/entity-intelligence/OverlayFirstPage';
+---
+
+<Layout
+  title="Overlay-First Deployment - ioNova"
+  description="Deploy entity intelligence in 90 days. Read-only pilot, no rip-and-replace, no data migration required."
+>
+  <PageLayout client:only="react" pageId="entity-overlay" />
+</Layout>

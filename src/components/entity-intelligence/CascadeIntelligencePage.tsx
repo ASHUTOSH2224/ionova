@@ -2,11 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Link } from '@/lib/router-shim';
 import { WhitepaperDownloadDialog } from './WhitepaperDownloadDialog';
 
-interface Props {
-  navigate: (page: string) => void;
-}
-
-export function CascadeIntelligencePage({ navigate }: Props) {
+export function CascadeIntelligencePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const answerRefs = useRef<(HTMLDivElement | null)[]>([]);

@@ -1,10 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
-interface Props {
-  navigate: (page: string) => void;
-}
-
-export function ImplementationPage({ navigate }: Props) {
+export function ImplementationPage() {
   return (
     <div className="implementation-page">
       <Hero />
@@ -13,7 +9,7 @@ export function ImplementationPage({ navigate }: Props) {
       <Timeline />
       <Safety />
       <Faq />
-      <RelatedPillars navigate={navigate} />
+      <RelatedPillars />
     </div>
   );
 }
@@ -221,19 +217,19 @@ function Faq() {
   );
 }
 
-function RelatedPillars({ navigate }: { navigate: (page: string) => void }) {
+function RelatedPillars() {
   return (
     <div className="section">
       <div className="section-label">Explore</div>
       <div className="section-title">Related Pillars</div>
       <div className="related-grid">
-        <div className="related-card" onClick={() => navigate('mandate')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/structured-address-mandate'} style={{ cursor: 'pointer' }}>
           <h4>Regulatory Mandate →</h4><p>What EPC, SWIFT, and CPMI require before November 2026.</p>
         </div>
-        <div className="related-card" onClick={() => navigate('business')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/structured-address-value'} style={{ cursor: 'pointer' }}>
           <h4>Business Value →</h4><p>The $8–12B problem and the economics of structured data.</p>
         </div>
-        <div className="related-card" onClick={() => navigate('purpose')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/purpose-built-address-solution'} style={{ cursor: 'pointer' }}>
           <h4>Why Purpose-Built? →</h4><p>Why postal APIs and LLMs fail at payment address compliance.</p>
         </div>
       </div>

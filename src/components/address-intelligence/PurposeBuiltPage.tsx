@@ -1,10 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
-interface Props {
-  navigate: (page: string) => void;
-}
-
-export function PurposeBuiltPage({ navigate }: Props) {
+export function PurposeBuiltPage() {
   return (
     <div className="purpose-built-page">
       <Hero />
@@ -13,7 +9,7 @@ export function PurposeBuiltPage({ navigate }: Props) {
       <HeadToHead />
       <Decision />
       <Faq />
-      <RelatedPillars navigate={navigate} />
+      <RelatedPillars />
     </div>
   );
 }
@@ -245,19 +241,19 @@ function Faq() {
   );
 }
 
-function RelatedPillars({ navigate }: { navigate: (page: string) => void }) {
+function RelatedPillars() {
   return (
     <div className="section">
       <div className="section-label">Explore</div>
       <div className="section-title">Related Pillars</div>
       <div className="related-grid">
-        <div className="related-card" onClick={() => navigate('mandate')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/structured-address-mandate'} style={{ cursor: 'pointer' }}>
           <h4>Regulatory Mandate →</h4><p>What EPC, SWIFT, and CPMI require before November 2026.</p>
         </div>
-        <div className="related-card" onClick={() => navigate('business')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/structured-address-value'} style={{ cursor: 'pointer' }}>
           <h4>Business Value →</h4><p>The $8–12B problem and the economics of structured data.</p>
         </div>
-        <div className="related-card" onClick={() => navigate('implementation')} style={{ cursor: 'pointer' }}>
+        <div className="related-card" onClick={() => window.location.href = '/address-intelligence/address-implementation'} style={{ cursor: 'pointer' }}>
           <h4>Implementation Guide →</h4><p>Sidecar architecture and deployment timeline.</p>
         </div>
       </div>

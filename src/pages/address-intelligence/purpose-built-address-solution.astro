@@ -1,0 +1,12 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { PurposeBuiltPage } from '@/components/address-intelligence/PurposeBuiltPage';
+---
+
+<Layout
+  title="Purpose-Built Address Solution - ioNova"
+  description="Why postal validation and generic LLMs fail at payment address compliance. 195 countries covered."
+>
+  <PageLayout client:only="react" pageId="address-purpose" />
+</Layout>

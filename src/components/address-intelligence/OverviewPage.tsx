@@ -1,16 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 
-interface Props {
-  navigate: (page: string) => void;
-}
-
-export function OverviewPage({ navigate }: Props) {
+export function OverviewPage() {
   return (
     <div className="overview-page">
-      <Hero navigate={navigate} />
+      <Hero />
       <KpiGrid />
       <Definition />
-      <Pillars navigate={navigate} />
+      <Pillars />
       <Differentiation />
       <Stakeholders />
       <Faq />
@@ -19,7 +15,7 @@ export function OverviewPage({ navigate }: Props) {
   );
 }
 
-function Hero({ navigate }: { navigate: (page: string) => void }) {
+function Hero() {
   return (
     <div className="hero">
       <div className="hero-badge">
@@ -31,10 +27,10 @@ function Hero({ navigate }: { navigate: (page: string) => void }) {
         <strong>Every cross-border payment carries an address. Most of them are wrong.</strong> Unstructured, inconsistent address data costs the global payments industry $8–12 billion annually. With ISO 20022 mandating structured addresses by November 2026, the question is whether you build to the floor—or the ceiling.
       </p>
       <div className="btn-row">
-        <button className="btn btn-accent" onClick={() => navigate('business')} style={{ cursor: 'pointer' }}>
+        <button className="btn btn-accent" onClick={() => window.location.href = '/address-intelligence/structured-address-value'} style={{ cursor: 'pointer' }}>
           Calculate Your Savings <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
         </button>
-        <button className="btn btn-outline">
+        <button className="btn btn-outline" onClick={() => window.location.href = '/demo'}>
           Request a Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
         </button>
       </div>
@@ -75,7 +71,7 @@ function Definition() {
   );
 }
 
-function Pillars({ navigate }: { navigate: (page: string) => void }) {
+function Pillars() {
   return (
     <div className="section">
       <div className="section-label">Core Framework</div>
@@ -83,7 +79,7 @@ function Pillars({ navigate }: { navigate: (page: string) => void }) {
       <div className="section-desc">Each pillar represents a critical dimension of the payment address challenge—with its own dedicated deep-dive.</div>
 
       <div className="pillar-grid">
-        <div className="pillar-card" onClick={() => navigate('mandate')} style={{ cursor: 'pointer' }}>
+        <div className="pillar-card" onClick={() => window.location.href = '/address-intelligence/structured-address-mandate'} style={{ cursor: 'pointer' }}>
           <div className="icon-container ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg></div>
           <div className="pillar-num">Pillar 1 · The Regulatory Mandate</div>
           <h3>ISO 20022 Structured Address Requirements</h3>
@@ -91,7 +87,7 @@ function Pillars({ navigate }: { navigate: (page: string) => void }) {
           <span className="pillar-link">Explore the mandate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
         </div>
 
-        <div className="pillar-card" onClick={() => navigate('business')} style={{ cursor: 'pointer' }}>
+        <div className="pillar-card" onClick={() => window.location.href = '/address-intelligence/structured-address-value'} style={{ cursor: 'pointer' }}>
           <div className="icon-container ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg></div>
           <div className="pillar-num">Pillar 2 · The Business Case</div>
           <h3>Business Value Beyond Compliance</h3>
@@ -99,7 +95,7 @@ function Pillars({ navigate }: { navigate: (page: string) => void }) {
           <span className="pillar-link">See the economics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
         </div>
 
-        <div className="pillar-card" onClick={() => navigate('implementation')} style={{ cursor: 'pointer' }}>
+        <div className="pillar-card" onClick={() => window.location.href = '/address-intelligence/address-implementation'} style={{ cursor: 'pointer' }}>
           <div className="icon-container ic-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg></div>
           <div className="pillar-num">Pillar 3 · The Implementation Reality</div>
           <h3>One Integration. Full Compliance. Zero Legacy Overhaul.</h3>
@@ -107,7 +103,7 @@ function Pillars({ navigate }: { navigate: (page: string) => void }) {
           <span className="pillar-link">See how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
         </div>
 
-        <div className="pillar-card" onClick={() => navigate('purpose')} style={{ cursor: 'pointer' }}>
+        <div className="pillar-card" onClick={() => window.location.href = '/address-intelligence/purpose-built-address-solution'} style={{ cursor: 'pointer' }}>
           <div className="icon-container ic-navy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg></div>
           <div className="pillar-num">Pillar 4 · The Competitive Clarity</div>
           <h3>Why Payment Addresses Require Purpose-Built Intelligence</h3>

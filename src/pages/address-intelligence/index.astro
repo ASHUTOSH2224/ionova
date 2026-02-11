@@ -1,10 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import AddressIntelligenceSPA from '@/views/AddressIntelligenceSPA';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { OverviewPage } from '@/components/address-intelligence/OverviewPage';
 ---
+
 <Layout
-  title="Address Intelligence Platform - ioNova"
-  description="AI-native ISO 20022 address resolution for cross-border payments. Parse, validate, and structure payment addresses across 195 countries. Achieve 98%+ STP rates. SWIFT November 2026 deadline ready."
+  title="Address Intelligence - ioNova"
+  description="The missing layer in your payment infrastructure. Parse, validate, and enrich payment addresses for ISO 20022 compliance."
 >
-  <AddressIntelligenceSPA client:only="react" />
+  <PageLayout client:only="react" pageId="address-overview" />
 </Layout>

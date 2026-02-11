@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 
-interface EntityNavProps {
-  activePage: string;
-  onNavigate: (page: string) => void;
-}
+
 
 const navItems = [
   {
@@ -71,7 +68,13 @@ const navItems = [
   },
 ];
 
-export function EntityNav({ activePage, onNavigate }: EntityNavProps) {
+
+const getUrl = (page: string) => {
+  if (page === 'platform') return '/entity-intelligence';
+  return `/entity-intelligence/${page}`;
+};
+
+export function EntityNav({ activePage }: { activePage: string }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -93,7 +96,7 @@ export function EntityNav({ activePage, onNavigate }: EntityNavProps) {
             {navItems.map((item) => (
               <li key={item.page}>
                 <a
-                  onClick={() => onNavigate(item.page)}
+                  onClick={() => window.location.href = getUrl(item.page)}
                   className={activePage === item.page ? 'active' : ''}
                   style={{ cursor: 'pointer' }}
                 >
