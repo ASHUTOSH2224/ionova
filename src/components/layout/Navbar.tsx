@@ -166,6 +166,8 @@ export function Navbar() {
           <img
             src="/Logo/ionova logo/logo.PNG"
             alt="ioNova AI logo"
+            width={52}
+            height={52}
             className="h-11 w-11 lg:h-[3.25rem] lg:w-[3.25rem] object-contain"
           />
           <span className="text-[1.35rem] lg:text-[1.55rem] font-bold text-navy-950 font-heading tracking-tight">

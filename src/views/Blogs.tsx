@@ -141,12 +141,14 @@ const BlogsContent = () => {
                                                 <CardContent className="p-0">
                                                     <div className="grid md:grid-cols-12 gap-0 h-full">
                                                         {/* Image Section */}
-                                                        <div className="md:col-span-5 relative h-64 md:h-auto bg-gradient-to-br from-slate-50 to-blue-50/30 flex items-center justify-center p-8 overflow-hidden">
+                                                        <div className="md:col-span-5 relative h-64 md:min-h-[280px] bg-gradient-to-br from-slate-50 to-blue-50/30 flex items-center justify-center p-8 overflow-hidden">
                                                             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent opacity-100"></div>
                                                             {post.featureImage ? (
                                                                 <img
                                                                     src={post.featureImage}
                                                                     alt={post.title}
+                                                                    width={800}
+                                                                    height={500}
                                                                     className="relative z-10 w-full h-full object-cover rounded-2xl"
                                                                 />
                                                             ) : (
@@ -245,6 +247,8 @@ const BlogsContent = () => {
                                                 <img
                                                     src={post.featureImage}
                                                     alt={post.title}
+                                                    width={400}
+                                                    height={224}
                                                     className="w-full h-full object-cover"
                                                     loading="lazy"
                                                 />

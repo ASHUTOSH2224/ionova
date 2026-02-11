@@ -15,13 +15,13 @@ export function ExploreSection() {
             gsap.fromTo(
                 cardRef.current,
                 {
-                    width: "80%",
+                    scaleX: 80 / 95,
                     borderRadius: "2rem",
                     y: 50,
                     opacity: 0.8,
                 },
                 {
-                    width: "95%",
+                    scaleX: 1,
                     borderRadius: "2.5rem",
                     y: 0,
                     opacity: 1,
@@ -76,10 +76,11 @@ export function ExploreSection() {
             ref={sectionRef}
             className="relative w-full py-12 flex justify-center items-center overflow-hidden bg-surface-2"
         >
-            <div
-                ref={cardRef}
-                className="relative z-10 mx-auto bg-white overflow-hidden py-16 lg:py-24 shadow-2xl ring-1 ring-black/5 will-change-transform will-change-[width]"
-            >
+            <div className="w-[95%] mx-auto">
+                <div
+                    ref={cardRef}
+                    className="relative z-10 mx-auto bg-white overflow-hidden py-16 lg:py-24 shadow-2xl ring-1 ring-black/5 will-change-transform origin-center"
+                >
                 {/* Subtle geometric background pattern */}
                 <div className="absolute inset-0 opacity-[0.4] pointer-events-none">
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#0E1935_1px,transparent_1px),linear-gradient(to_bottom,#0E1935_1px,transparent_1px)] bg-[size:64px_64px] opacity-[0.05]"></div>
@@ -143,6 +144,7 @@ export function ExploreSection() {
                         ))}
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     );
