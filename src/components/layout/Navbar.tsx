@@ -170,7 +170,7 @@ export function Navbar() {
     )}>
       <nav className="pointer-events-auto flex items-center justify-between w-full max-w-7xl h-16 lg:h-20 rounded-full border border-border/50 bg-white/80 shadow-2xl backdrop-blur-xl px-4 md:px-4 lg:px-8 transition-all">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 mr-2 md:mr-4 lg:mr-8">
+        <Link to="/" className="flex items-center gap-3 mr-2 md:mr-4 lg:mr-8 shrink-0">
           <img
             src="/Logo/ionova logo/logo.PNG"
             alt="ioNova AI logo"
@@ -178,13 +178,13 @@ export function Navbar() {
             height={52}
             className="h-11 w-11 lg:h-[3.25rem] lg:w-[3.25rem] object-contain"
           />
-          <span className="text-[1.35rem] lg:text-[1.55rem] font-bold text-navy-950 font-heading tracking-tight">
+          <span className="text-[1.35rem] lg:text-[1.55rem] font-bold text-navy-950 font-heading tracking-tight whitespace-nowrap">
             ioNova AI
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-1 xl:gap-1 xl:flex">
+        <div className="hidden items-center gap-1 min-[1100px]:gap-1 min-[1100px]:flex">
           <Link
             to="/"
             className={cn(
@@ -408,7 +408,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden xl:block ml-4">
+        <div className="hidden min-[1100px]:block ml-4">
           <Button variant="hero" className="rounded-full px-6" asChild>
             <Link to="/demo">View Demo</Link>
           </Button>
@@ -417,7 +417,7 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <button
           type="button"
-          className="xl:hidden"
+          className="min-[1100px]:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -431,7 +431,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto absolute top-full left-4 right-4 mt-2 rounded-2xl border border-border/50 bg-white/95 shadow-2xl backdrop-blur-xl p-6 xl:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200 max-h-[80vh] overflow-y-auto">
+        <div className="pointer-events-auto absolute top-full left-4 right-4 mt-2 rounded-2xl border border-border/50 bg-white/95 shadow-2xl backdrop-blur-xl p-6 min-[1100px]:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200 max-h-[80vh] overflow-y-auto">
           <Link
             to="/"
             className="block text-base font-medium text-navy-900"
