@@ -1,0 +1,18 @@
+# AWS CloudFront Deployment Files
+deploy-cloudfront.sh
+deploy-quick.sh
+rollback.sh
+cloudformation-cloudfront.yml
+CLOUDFRONT_DEPLOYMENT.md
+
+# CloudFormation outputs (if generated locally)
+cloudformation-outputs.json
+
+# AWS credentials (never commit)
+.aws/
+*.pem
+*.key
+
+# Deployment logs
+deployment-logs/
+*.log

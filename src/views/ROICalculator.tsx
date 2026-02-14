@@ -24,8 +24,8 @@ const OPTIONS: { id: OptionId; name: string; icon: React.ElementType; isIonova?:
 ];
 
 const STATIC_MIN = 0;
-const STATIC_MAX = 500_000;
-const STATIC_STEP = 5000;
+const STATIC_MAX = 10_000_000_000;
+const STATIC_STEP = 100_000_000;
 const MONTHLY_MIN = 0;
 const MONTHLY_MAX = 50_000;
 const MONTHLY_STEP = 500;
