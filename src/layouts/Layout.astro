@@ -1,6 +1,7 @@
 ---
 import '@/index.css';
 import '@/styles/ionova-design-system-v5.css';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title?: string;
@@ -28,6 +29,7 @@ const ogImageURL = new URL(ogImage, Astro.site).href;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
         <link rel="canonical" href={canonicalURL} />
+        <ViewTransitions />
         <meta name="keywords" content="ISO 20022, SWIFT CBPR+, SEPA, payment compliance, address resolution, fintech, banking AI, payment data" />
         <meta name="author" content="ioNova" />
         <meta name="robots" content="index, follow" />

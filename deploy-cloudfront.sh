@@ -181,11 +181,13 @@ aws s3 sync dist/ "s3://${BUCKET_NAME}/" \
     --exclude "*" \
     --include "*.xml" || true
 
-# Upload robots.txt with short cache
-aws s3 cp dist/robots.txt "s3://${BUCKET_NAME}/robots.txt" \
+# Upload txt files (robots.txt, llms.txt) with short cache
+aws s3 sync dist/ "s3://${BUCKET_NAME}/" \
     --region "${REGION}" \
     --cache-control "public, max-age=3600, must-revalidate" \
-    --content-type "text/plain" || true
+    --content-type "text/plain" \
+    --exclude "*" \
+    --include "*.txt" || true
 
 echo -e "${GREEN}✓ Files synced to S3${NC}"
 echo ""
