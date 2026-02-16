@@ -11,15 +11,45 @@ export function ChallengeSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Dynamic Date Calculation
-  const today = new Date();
-  const currentMonthStr = today.toLocaleString('default', { month: 'short' });
-  const currentYearStr = today.getFullYear().toString().slice(-2);
+  const [currentMarkerDate, setCurrentMarkerDate] = useState("Now");
+  const [displayMonths, setDisplayMonths] = useState(0);
 
-  // Calculate months until Nov 1, 2026
-  const deadlineDate = new Date("2026-11-01");
-  const monthsRemaining = (deadlineDate.getFullYear() - today.getFullYear()) * 12 + (deadlineDate.getMonth() - today.getMonth());
-  const displayMonths = Math.max(0, monthsRemaining);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+  });
+
+  useEffect(() => {
+    const currentDate = new Date();
+    const monthStr = currentDate.toLocaleString('en-US', { month: 'short' });
+    const yearStr = currentDate.getFullYear().toString().slice(-2);
+    setCurrentMarkerDate(`${monthStr} '${yearStr}`);
+
+    const deadlineDate = new Date("2026-11-01");
+    const monthsRemaining =
+      (deadlineDate.getFullYear() - currentDate.getFullYear()) * 12 +
+      (deadlineDate.getMonth() - currentDate.getMonth());
+    setDisplayMonths(Math.max(0, monthsRemaining));
+
+    // Target date: November 1, 2026
+    const targetDate = new Date("2026-11-01T00:00:00").getTime();
+
+    const calculateTimeLeft = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    // Update every minute instead of every second since we only show days
+    const timer = setInterval(calculateTimeLeft, 60000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const timelineEvents = [
     {
@@ -30,7 +60,7 @@ export function ChallengeSection() {
       borderColor: "border-blue-400"
     },
     {
-      date: `${currentMonthStr} '${currentYearStr}`,
+      date: currentMarkerDate,
       // description removed
       color: "bg-blue-600",
       textColor: "text-blue-700",
@@ -53,32 +83,6 @@ export function ChallengeSection() {
       borderColor: "border-slate-400"
     }
   ];
-
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-  });
-
-  useEffect(() => {
-    // Target date: November 1, 2026
-    const targetDate = new Date("2026-11-01T00:00:00").getTime();
-
-    const calculateTimeLeft = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        });
-      }
-    };
-
-    calculateTimeLeft();
-    // Update every minute instead of every second since we only show days
-    const timer = setInterval(calculateTimeLeft, 60000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {

@@ -187,6 +187,7 @@ export function Navbar() {
         <div className="hidden items-center gap-1 min-[1100px]:gap-1 min-[1100px]:flex">
           <Link
             to="/"
+            data-astro-prefetch="viewport"
             className={cn(
               "text-base font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
               isActive("/") && "text-blue-600 font-semibold bg-blue-50/50"
@@ -346,6 +347,7 @@ export function Navbar() {
 
           <Link
             to="/company"
+            data-astro-prefetch="viewport"
             className={cn(
               "text-base font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
               isCompanyActive && "text-blue-600 font-semibold bg-blue-50/50"
@@ -398,6 +400,7 @@ export function Navbar() {
 
           <Link
             to="/blogs"
+            data-astro-prefetch="viewport"
             className={cn(
               "text-base font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
               isResourcesActive && "text-blue-600 font-semibold bg-blue-50/50"
@@ -410,7 +413,7 @@ export function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden min-[1100px]:block ml-4">
           <Button variant="hero" className="rounded-full px-6" asChild>
-            <Link to="/demo">View Demo</Link>
+            <Link to="/demo" data-astro-prefetch="viewport">View Demo</Link>
           </Button>
         </div>
 
@@ -434,6 +437,7 @@ export function Navbar() {
         <div className="pointer-events-auto absolute top-full left-4 right-4 mt-2 rounded-2xl border border-border/50 bg-white/95 shadow-2xl backdrop-blur-xl p-6 min-[1100px]:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200 max-h-[80vh] overflow-y-auto">
           <Link
             to="/"
+            data-astro-prefetch="tap"
             className="block text-base font-medium text-navy-900"
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -454,6 +458,7 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     to={item.href}
+                    data-astro-prefetch="tap"
                     className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -466,6 +471,7 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     to={item.href}
+                    data-astro-prefetch="tap"
                     className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -492,6 +498,7 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     to={item.href}
+                    data-astro-prefetch="tap"
                     className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -504,6 +511,7 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     to={item.href}
+                    data-astro-prefetch="tap"
                     className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -517,6 +525,7 @@ export function Navbar() {
 
           <Link
             to="/company"
+            data-astro-prefetch="tap"
             className="block text-base font-medium text-navy-900"
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -530,6 +539,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   to={item.href}
+                  data-astro-prefetch="tap"
                   className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -541,7 +551,7 @@ export function Navbar() {
           </div>
 
           <Button variant="hero" className="w-3/4 h-14 mx-auto rounded-full mt-2 text-lg" asChild>
-            <Link to="/demo" onClick={() => setMobileMenuOpen(false)}>
+            <Link to="/demo" data-astro-prefetch="tap" onClick={() => setMobileMenuOpen(false)}>
               View a Demo
             </Link>
           </Button>

@@ -1,9 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { AppWrapper } from '@/components/AppWrapper';
 import DemoView from '@/views/Demo';
 ---
 
 <Layout title="Request a Demo - ioNova" description="Schedule a demo to see ioNova in action.">
-	<DemoView client:only="react" />
+	<DemoView client:idle />
 </Layout>

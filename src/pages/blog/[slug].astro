@@ -41,5 +41,5 @@ const { post } = Astro.props;
 ---
 
 <Layout title={`${post?.title || 'Blog'} - ioNova`}>
-	<BlogPostView client:only="react" post={post} />
+	<BlogPostView client:idle post={post} />
 </Layout>
