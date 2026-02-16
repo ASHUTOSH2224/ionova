@@ -88,7 +88,11 @@ else
         --query 'Stacks[0].Parameters[?ParameterKey==`ACMCertificateArn`].ParameterValue' \
         --output text || echo "")
 
-    if [ -n "$EXISTING_DOMAIN" ] && [ "$EXISTING_DOMAIN" != "None" ]; then
+    # Normalize AWS CLI "None" or empty to empty string so existing domain/cert are preserved correctly
+    [ -z "$EXISTING_DOMAIN" ] || [ "$EXISTING_DOMAIN" = "None" ] && EXISTING_DOMAIN=""
+    [ -z "$EXISTING_CERT" ] || [ "$EXISTING_CERT" = "None" ] && EXISTING_CERT=""
+
+    if [ -n "$EXISTING_DOMAIN" ]; then
         echo -e "${GREEN}✓ Detected existing domain: ${EXISTING_DOMAIN}${NC}"
     fi
 
@@ -142,27 +146,46 @@ echo ""
 echo -e "${YELLOW}Step 4: Syncing files to S3...${NC}"
 # Limit concurrent requests to prevent SSL EOF errors on some networks
 aws configure set default.s3.max_concurrent_requests 5
+
+# Upload static assets with long cache (exclude HTML, JSON, XML, txt)
 aws s3 sync dist/ "s3://${BUCKET_NAME}/" \
     --region "${REGION}" \
     --delete \
     --cache-control "public, max-age=31536000, immutable" \
     --exclude "*.html" \
-    --exclude "*.json"
+    --exclude "*.json" \
+    --exclude "*.xml" \
+    --exclude "*.txt" || true
 
-# Upload HTML and JSON files with shorter cache
+# Upload HTML files with short cache
 aws s3 sync dist/ "s3://${BUCKET_NAME}/" \
     --region "${REGION}" \
     --cache-control "public, max-age=0, must-revalidate" \
     --content-type "text/html" \
     --exclude "*" \
-    --include "*.html"
+    --include "*.html" || true
 
+# Upload JSON files with short cache
 aws s3 sync dist/ "s3://${BUCKET_NAME}/" \
     --region "${REGION}" \
     --cache-control "public, max-age=0, must-revalidate" \
     --content-type "application/json" \
     --exclude "*" \
-    --include "*.json"
+    --include "*.json" || true
+
+# Upload XML files (sitemap) with short cache
+aws s3 sync dist/ "s3://${BUCKET_NAME}/" \
+    --region "${REGION}" \
+    --cache-control "public, max-age=3600, must-revalidate" \
+    --content-type "application/xml" \
+    --exclude "*" \
+    --include "*.xml" || true
+
+# Upload robots.txt with short cache
+aws s3 cp dist/robots.txt "s3://${BUCKET_NAME}/robots.txt" \
+    --region "${REGION}" \
+    --cache-control "public, max-age=3600, must-revalidate" \
+    --content-type "text/plain" || true
 
 echo -e "${GREEN}✓ Files synced to S3${NC}"
 echo ""

@@ -5,12 +5,17 @@ import '@/styles/ionova-design-system-v5.css';
 interface Props {
 	title?: string;
     description?: string;
+    ogImage?: string;
 }
 
-const { 
+const {
     title = "ioNova - AI-Native ISO 20022 Address Resolution for Payments",
-    description = "Make your payment data ISO 20022 ready with AI-native address resolution. Convert unstructured payment data into SWIFT CBPR+ and SEPA compliant structured addresses with 100% deterministic accuracy before the November 2026 deadline."
+    description = "Make your payment data ISO 20022 ready with AI-native address resolution. Convert unstructured payment data into SWIFT CBPR+ and SEPA compliant structured addresses with 100% deterministic accuracy before the November 2026 deadline.",
+    ogImage = "/Logo/hero Image/hero.png",
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageURL = new URL(ogImage, Astro.site).href;
 ---
 
 <!doctype html>
@@ -22,6 +27,7 @@ const {
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+        <link rel="canonical" href={canonicalURL} />
         <meta name="keywords" content="ISO 20022, SWIFT CBPR+, SEPA, payment compliance, address resolution, fintech, banking AI, payment data" />
         <meta name="author" content="ioNova" />
         <meta name="robots" content="index, follow" />
@@ -30,14 +36,19 @@ const {
         
         <!-- Open Graph / Social Media -->
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="ioNova - AI-Native ISO 20022 Address Resolution" />
-        <meta property="og:description" content="Automatically convert unstructured payment data into SWIFT CBPR+ and SEPA compliant structured addresses with 100% deterministic accuracy." />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImageURL} />
         <meta property="og:site_name" content="ioNova" />
-        
+        <meta property="og:locale" content="en_US" />
+
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ioNova - AI-Native ISO 20022 Address Resolution" />
-        <meta name="twitter:description" content="Make your payment data ISO 20022 ready before the November 2026 deadline." />
+        <meta name="twitter:url" content={canonicalURL} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImageURL} />
         
         <!-- Fonts - Optimized with display=swap and preload -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,11 +79,16 @@ const {
             "provider": {
               "@type": "Organization",
               "name": "ioNova",
+              "url": "https://ionova.ai",
+              "logo": "https://ionova.ai/Logo/ionova logo/logo.PNG",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Bengaluru",
                 "addressCountry": "IN"
-              }
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/ionova-ai"
+              ]
             }
           }
         </script>
