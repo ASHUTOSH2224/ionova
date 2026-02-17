@@ -6,9 +6,60 @@ import EntityPlatform from '@/views/EntityPlatform.astro';
 ---
 
 <Layout
-  title="Entity Intelligence Platform - ioNova"
-  description="Resolve entities across 50+ systems. 95%+ precision. <200ms latency. The only platform with evidence-first AI and progressive autonomy."
+  title="Entity Intelligence Platform — 95%+ Precision | ioNova AI"
+  description="Resolve entities across 50+ systems with 95%+ precision and sub-200ms latency. Evidence-first AI with progressive autonomy and governance-by-design."
+  keywords="entity intelligence, entity resolution platform, AI entity matching, regulated enterprise AI, evidence-first AI, 95% precision"
+  ogImage="/Logo/hero Image/hero.png"
+  ogImageAlt="ioNova Entity Intelligence Platform"
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Entity Intelligence Platform — 95%+ Precision",
+      "description": "Resolve entities across 50+ systems with 95%+ precision and sub-200ms latency. Evidence-first AI with progressive autonomy and governance-by-design for regulated enterprises.",
+      "url": "https://ionova.ai/entity-intelligence",
+      "dateModified": "2026-02-17",
+      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+          { "@type": "ListItem", "position": 2, "name": "Entity Intelligence", "item": "https://ionova.ai/entity-intelligence" }
+        ]
+      }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Entity Intelligence Platform",
+      "description": "Resolve entities across 50+ systems with 95%+ precision and sub-200ms latency. Evidence-first AI with progressive autonomy and governance-by-design for regulated financial institutions.",
+      "url": "https://ionova.ai/entity-intelligence",
+      "provider": {
+        "@type": "Organization",
+        "name": "ioNova AI",
+        "url": "https://ionova.ai"
+      },
+      "serviceType": "Entity Intelligence & Resolution",
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Financial Institutions, Banks, Regulated Enterprises"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Entity Intelligence Features",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cascade Entity Resolution" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Evidence-First AI Copilots" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SR 11-7 & EU AI Act Governance" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "90-Day Overlay Deployment" } }
+        ]
+      }
+    }
+  </script>
   <div class="flex min-h-screen flex-col">
     <Navbar client:idle />
     <main class="flex-1">

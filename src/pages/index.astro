@@ -16,11 +16,30 @@ import { CTABandSection } from '@/components/sections/CTABandSection';
 
 <Layout
   title="ioNova — AI-Native ISO 20022 Address Resolution for Payments"
-  description="Make your payment data ISO 20022 ready with AI-native address resolution. Convert unstructured payment data into SWIFT CBPR+ and SEPA compliant structured addresses with 100% deterministic accuracy before the November 2026 deadline."
+  description="AI-native ISO 20022 address resolution. Convert unstructured payment data into SWIFT CBPR+ and SEPA compliant structured addresses before November 2026."
+  keywords="ISO 20022, SWIFT CBPR+, SEPA, address resolution, payment compliance, structured addresses, November 2026 deadline, AI payments, fintech"
+  ogImage="/Logo/hero Image/hero.png"
+  ogImageAlt="ioNova — AI-Native ISO 20022 Address Resolution Platform"
+  preloadHero={true}
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "ioNova — AI-Native ISO 20022 Address Resolution for Payments",
+      "description": "Make payments ISO 20022 ready with AI-native address resolution. Convert unstructured data into SWIFT CBPR+ and SEPA compliant structured addresses before the November 2026 deadline.",
+      "url": "https://ionova.ai/",
+      "dateModified": "2026-02-17",
+      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "about": { "@type": "Thing", "name": "ISO 20022 Address Intelligence" },
+      "provider": { "@type": "Organization", "name": "ioNova AI", "url": "https://ionova.ai" }
+    }
+  </script>
 	<div class="flex min-h-screen flex-col">
 		<Navbar client:idle />
 		<main class="flex-1">
+			<!-- SSR H1 — server-rendered for crawlers; visually hidden since HeroSection renders its own styled H1 -->
+			<h1 class="sr-only">Achieve ISO 20022 Compliance with Fully Structured Payment Addresses</h1>
 			<HeroSection client:visible />
 			<LogosSection client:load />
 			<ChallengeSection client:visible />

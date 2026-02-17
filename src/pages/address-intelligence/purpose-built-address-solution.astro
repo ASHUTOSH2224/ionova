@@ -6,9 +6,31 @@ import AddressPurposeBuilt from '@/views/AddressPurposeBuilt.astro';
 ---
 
 <Layout
-  title="Purpose-Built Address Solution - ioNova"
-  description="Why postal validation and generic LLMs fail at payment address compliance. 195 countries covered."
+  title="Purpose-Built ISO 20022 Address Solution — ioNova AI"
+  description="Generic postal APIs and LLMs fail ISO 20022 compliance. ioNova is purpose-built: deterministic output, 195 countries, 50+ financial identifiers."
+  keywords="ISO 20022 address solution, postal API alternative, LLM limitations payments, deterministic address validation, 195 countries, financial identifiers"
+  ogImage="/Logo/hero Image/hero.png"
+  ogImageAlt="Purpose-Built ISO 20022 Address Solution — ioNova AI"
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Purpose-Built ISO 20022 Address Solution — ioNova AI",
+      "description": "Generic postal validation and LLMs cannot deliver ISO 20022 compliance. ioNova is purpose-built: deterministic output, 195 countries, 50+ financial identifiers, full audit trail.",
+      "url": "https://ionova.ai/address-intelligence/purpose-built-address-solution",
+      "dateModified": "2026-02-17",
+      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+          { "@type": "ListItem", "position": 2, "name": "Address Intelligence", "item": "https://ionova.ai/address-intelligence" },
+          { "@type": "ListItem", "position": 3, "name": "Purpose-Built Solution", "item": "https://ionova.ai/address-intelligence/purpose-built-address-solution" }
+        ]
+      }
+    }
+  </script>
   <div class="flex min-h-screen flex-col">
     <Navbar client:idle />
     <main class="flex-1">

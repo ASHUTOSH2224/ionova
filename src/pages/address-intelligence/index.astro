@@ -6,9 +6,60 @@ import AddressOverview from '@/views/AddressOverview.astro';
 ---
 
 <Layout
-  title="Address Intelligence - ioNova"
-  description="The missing layer in your payment infrastructure. Parse, validate, and enrich payment addresses for ISO 20022 compliance."
+  title="ISO 20022 Address Intelligence Platform | ioNova AI"
+  description="AI-native parsing, validation, and enrichment of payment addresses for ISO 20022 SWIFT CBPR+ and SEPA compliance across 195 countries."
+  keywords="ISO 20022 address intelligence, payment address resolution, SWIFT CBPR+ addresses, SEPA compliance, structured address parsing, 195 countries"
+  ogImage="/Logo/hero Image/hero.png"
+  ogImageAlt="ioNova Address Intelligence — ISO 20022 Payment Address Resolution"
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Address Intelligence — ISO 20022 Payment Address Resolution",
+      "description": "AI-native parsing, validation, and enrichment of payment addresses for ISO 20022 SWIFT CBPR+ and SEPA compliance across 195 countries.",
+      "url": "https://ionova.ai/address-intelligence",
+      "dateModified": "2026-02-17",
+      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+          { "@type": "ListItem", "position": 2, "name": "Address Intelligence", "item": "https://ionova.ai/address-intelligence" }
+        ]
+      }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Address Intelligence — ISO 20022 Payment Address Resolution",
+      "description": "AI-native parsing, validation, and enrichment of payment addresses for ISO 20022 SWIFT CBPR+ and SEPA compliance across 195 countries. Achieve 98%+ STP rates in 10–16 weeks.",
+      "url": "https://ionova.ai/address-intelligence",
+      "provider": {
+        "@type": "Organization",
+        "name": "ioNova AI",
+        "url": "https://ionova.ai"
+      },
+      "serviceType": "Payment Address Resolution",
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Financial Institutions, Banks, Payment Processors"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Address Intelligence Features",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ISO 20022 Structured Address Parsing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SWIFT CBPR+ Compliance Validation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEPA Address Enrichment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "195-Country Address Coverage" } }
+        ]
+      }
+    }
+  </script>
   <div class="flex min-h-screen flex-col">
     <Navbar client:idle />
     <main class="flex-1">

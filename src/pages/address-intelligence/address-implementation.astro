@@ -6,9 +6,79 @@ import AddressImplementation from '@/views/AddressImplementation.astro';
 ---
 
 <Layout
-  title="Address Intelligence Implementation - ioNova"
-  description="Sidecar architecture, 10-16 week timeline, zero legacy rip-and-replace."
+  title="ISO 20022 Sidecar Implementation — 10–16 Weeks | ioNova"
+  description="Deploy ISO 20022 address compliance via sidecar in 10–16 weeks. No legacy changes. Pre-built connectors for MuleSoft, Volante, Finastra, and SWIFT."
+  keywords="ISO 20022 implementation, sidecar architecture, MuleSoft connector, SWIFT Alliance integration, payment compliance deployment, 10-16 weeks"
+  ogImage="/Logo/hero Image/hero.png"
+  ogImageAlt="ISO 20022 Address Intelligence Sidecar Implementation"
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "ISO 20022 Address Compliance Implementation — Sidecar Architecture",
+      "description": "Deploy ISO 20022 address compliance via sidecar architecture in 10–16 weeks. No legacy replacement. Pre-built connectors for MuleSoft, Volante, Finastra, and SWIFT Alliance.",
+      "url": "https://ionova.ai/address-intelligence/address-implementation",
+      "dateModified": "2026-02-17",
+      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+          { "@type": "ListItem", "position": 2, "name": "Address Intelligence", "item": "https://ionova.ai/address-intelligence" },
+          { "@type": "ListItem", "position": 3, "name": "Implementation", "item": "https://ionova.ai/address-intelligence/address-implementation" }
+        ]
+      }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does implementing address intelligence require replacing core banking systems?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The ioNova address resolution engine operates as a sidecar service alongside existing infrastructure. No modifications are required to core banking systems, payment engines, or legacy infrastructure. It connects via standard API to existing middleware layers such as MuleSoft, Volante, Finastra, or direct SWIFT connections without disrupting payment routing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is sidecar architecture for payment address resolution?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sidecar architecture is a deployment pattern where the address resolution engine operates as an adjacent, independent service. It intercepts payment messages via API call, resolves and structures the address data, and returns the enriched message without modifying the core payment flow. A built-in circuit-breaker ensures payments route through the existing flow if the service is unavailable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to implement ISO 20022 address structuring?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Typical implementation completes in 10–16 weeks. Phase 1 (weeks 1–4) covers data quality audit, payment flow mapping, and country-specific parsing rule configuration. Phase 2 (weeks 5–10) handles API connection, message interception, and ISO 20022 schema compliance testing. Phase 3 (weeks 11–16) manages staged production rollout, accuracy monitoring, and operational handover."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What middleware platforms support address intelligence integration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ioNova provides pre-built integration for MuleSoft Anypoint (via pre-built connector on Anypoint Exchange), Volante VolPay (direct API integration with the message transformation layer), and Finastra Fusion (via FusionFabric.cloud open API framework). A standard REST API is also available for other platforms, along with direct SWIFT integration via Alliance Lite2 and Alliance Access."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if the address resolution service goes down during payment processing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No payment is ever held, delayed, or rejected. A built-in circuit-breaker mechanism ensures payments automatically route through the existing flow if the resolution service experiences any disruption. Every resolution attempt produces a confidence score: addresses above threshold receive fully structured output, while those below automatically fall back to hybrid format. Initial implementations achieve 85–90% full structuring, rising to 95%+ within the first quarter."
+          }
+        }
+      ]
+    }
+  </script>
   <div class="flex min-h-screen flex-col">
     <Navbar client:idle />
     <main class="flex-1">

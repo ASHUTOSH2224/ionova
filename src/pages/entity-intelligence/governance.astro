@@ -6,9 +6,31 @@ import EntityGovernance from '@/views/EntityGovernance.astro';
 ---
 
 <Layout
-  title="Governance-by-Design - ioNova"
-  description="SR 11-7 and EU AI Act compliant. Audit-grade evidence packs, decision replayability, and continuous drift monitoring."
+  title="AI Governance-by-Design — SR 11-7 & EU AI Act | ioNova AI"
+  description="SR 11-7 and EU AI Act compliant governance. Audit-grade evidence packs, decision replayability, and model drift monitoring for regulated institutions."
+  keywords="SR 11-7 compliance, EU AI Act, AI governance banking, model risk management, audit trail AI, financial AI regulation"
+  ogImage="/Logo/hero Image/hero.png"
+  ogImageAlt="ioNova Governance-by-Design — SR 11-7 and EU AI Act Compliance"
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Governance-by-Design — SR 11-7 & EU AI Act Compliance",
+      "description": "SR 11-7 and EU AI Act compliant AI governance. Audit-grade evidence packs, decision replayability, and continuous model drift monitoring for regulated financial institutions.",
+      "url": "https://ionova.ai/entity-intelligence/governance",
+      "dateModified": "2026-02-17",
+      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+          { "@type": "ListItem", "position": 2, "name": "Entity Intelligence", "item": "https://ionova.ai/entity-intelligence" },
+          { "@type": "ListItem", "position": 3, "name": "Governance-by-Design", "item": "https://ionova.ai/entity-intelligence/governance" }
+        ]
+      }
+    }
+  </script>
   <div class="flex min-h-screen flex-col">
     <Navbar client:idle />
     <main class="flex-1">

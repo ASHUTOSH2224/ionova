@@ -6,9 +6,35 @@ import AboutPage from '@/views/About.astro';
 ---
 
 <Layout
-  title="ioNova AI — About · The Entity Intelligence Platform"
-  description="The Entity Intelligence Company. 100+ years combined experience across AI, banking technology, payments, compliance, and enterprise security."
+  title="About ioNova AI — The Entity Intelligence Company"
+  description="100+ years combined experience in AI, banking, payments, compliance, and security. Building the intelligence layer for global financial infrastructure."
+  keywords="ioNova AI, entity intelligence company, AI banking, payment compliance team, fintech leadership, ISO 20022 experts"
+  ogImage="/Logo/hero Image/hero.png"
+  ogImageAlt="ioNova AI — The Entity Intelligence Company"
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About ioNova AI — The Entity Intelligence Company",
+      "description": "100+ years combined experience across AI, banking, payments, compliance, and enterprise security. Building the intelligence layer for global financial infrastructure.",
+      "url": "https://ionova.ai/company",
+      "dateModified": "2026-02-17",
+      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "about": {
+        "@type": "Organization",
+        "name": "ioNova AI",
+        "url": "https://ionova.ai"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://ionova.ai/company" }
+        ]
+      }
+    }
+  </script>
   <div class="flex min-h-screen flex-col">
     <Navbar client:idle />
     <main class="flex-1">

@@ -52,21 +52,21 @@ export function ExploreSection() {
             title: "Business Value Beyond Compliance",
             subtitle: "Business Value",
             description: "Turn compliance cost into operational advantage with 98% straight-through processing rates.",
-            href: "/address-intelligence/business-value",
+            href: "/address-intelligence/structured-address-value",
             icon: TrendingUp,
         },
         {
             title: "Implementing Structured Address Resolution",
             subtitle: "Implementation",
             description: "Achieve full compliance in 10-16 weeks with zero legacy system overhaul required.",
-            href: "/address-intelligence/implementation",
+            href: "/address-intelligence/address-implementation",
             icon: Map,
         },
         {
             title: "Why Payment Addresses Require Purpose-Built Intelligence",
             subtitle: "Purpose-Built AI",
             description: "Discover why postal validation tools and generic LLMs fail at cross-border payment addresses.",
-            href: "/address-intelligence/why-purpose-built",
+            href: "/address-intelligence/purpose-built-address-solution",
             icon: Cpu,
         }
     ];

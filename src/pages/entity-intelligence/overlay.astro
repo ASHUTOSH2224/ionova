@@ -6,9 +6,31 @@ import EntityOverlay from '@/views/EntityOverlay.astro';
 ---
 
 <Layout
-  title="Overlay-First Deployment - ioNova"
-  description="Deploy entity intelligence in 90 days. Read-only pilot, no rip-and-replace, no data migration required."
+  title="Overlay-First Entity Intelligence — 90-Day Deploy | ioNova"
+  description="Deploy entity intelligence as a read-only overlay in 90 days. No data migration, no core system changes. Live on production traffic from day one."
+  keywords="entity intelligence overlay, non-invasive AI deployment, 90-day implementation, no rip-and-replace, production overlay architecture"
+  ogImage="/Logo/hero Image/hero.png"
+  ogImageAlt="ioNova Overlay-First Entity Intelligence Deployment"
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Overlay-First Entity Intelligence Deployment — 90 Days",
+      "description": "Deploy ioNova's entity intelligence as a read-only overlay in 90 days. No data migration, no core system changes. Live on production traffic from day one.",
+      "url": "https://ionova.ai/entity-intelligence/overlay",
+      "dateModified": "2026-02-17",
+      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+          { "@type": "ListItem", "position": 2, "name": "Entity Intelligence", "item": "https://ionova.ai/entity-intelligence" },
+          { "@type": "ListItem", "position": 3, "name": "Overlay Deployment", "item": "https://ionova.ai/entity-intelligence/overlay" }
+        ]
+      }
+    }
+  </script>
   <div class="flex min-h-screen flex-col">
     <Navbar client:idle />
     <main class="flex-1">

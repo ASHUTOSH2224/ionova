@@ -6,9 +6,31 @@ import EntityCascade from '@/views/EntityCascade.astro';
 ---
 
 <Layout
-  title="Cascade Entity Resolution - ioNova"
-  description="Reduce entity resolution costs by 90% with our multi-stage cascade. Exact, fuzzy, and semantic matching before LLM escalation."
+  title="Cascade Entity Resolution — 90% Cost Reduction | ioNova AI"
+  description="Reduce entity resolution costs by 90% with multi-stage cascade: exact match, fuzzy match, semantic matching, and LLM escalation only when needed."
+  keywords="cascade entity resolution, multi-stage matching, entity resolution cost reduction, fuzzy matching, semantic entity matching, LLM escalation"
+  ogImage="/Logo/hero Image/hero.png"
+  ogImageAlt="ioNova Cascade Entity Resolution"
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Cascade Entity Resolution — 90% Cost Reduction",
+      "description": "Reduce entity resolution costs by 90% with ioNova's multi-stage cascade: exact match, fuzzy match, semantic matching, and LLM escalation only when needed.",
+      "url": "https://ionova.ai/entity-intelligence/cascade",
+      "dateModified": "2026-02-17",
+      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+          { "@type": "ListItem", "position": 2, "name": "Entity Intelligence", "item": "https://ionova.ai/entity-intelligence" },
+          { "@type": "ListItem", "position": 3, "name": "Cascade Resolution", "item": "https://ionova.ai/entity-intelligence/cascade" }
+        ]
+      }
+    }
+  </script>
   <div class="flex min-h-screen flex-col">
     <Navbar client:idle />
     <main class="flex-1">

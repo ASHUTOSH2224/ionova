@@ -6,9 +6,79 @@ import AddressMandate from '@/views/AddressMandate.astro';
 ---
 
 <Layout
-  title="Structured Address Mandate - ioNova"
-  description="Meet the November 2026 ISO 20022 mandate. Structured addresses are required by SWIFT, EPC, and CPMI."
+  title="ISO 20022 Structured Address Mandate — Nov 2026 | ioNova"
+  description="Meet the November 2026 ISO 20022 structured address mandate. SWIFT CBPR+, SEPA, and CPMI require structured postal addresses. Deploy in 10–16 weeks."
+  keywords="ISO 20022 structured address mandate, November 2026 deadline, SWIFT CBPR+ compliance, SEPA addresses, CPMI structured addresses"
+  ogImage="/Logo/hero Image/hero.png"
+  ogImageAlt="ISO 20022 Structured Address Mandate — November 2026 SWIFT Deadline"
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "ISO 20022 Structured Address Mandate — November 2026 SWIFT Deadline",
+      "description": "Meet the November 2026 ISO 20022 structured address mandate. SWIFT CBPR+, SEPA, and CPMI require structured postal addresses. ioNova deploys compliance in 10–16 weeks.",
+      "url": "https://ionova.ai/address-intelligence/structured-address-mandate",
+      "dateModified": "2026-02-17",
+      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+          { "@type": "ListItem", "position": 2, "name": "Address Intelligence", "item": "https://ionova.ai/address-intelligence" },
+          { "@type": "ListItem", "position": 3, "name": "Structured Address Mandate", "item": "https://ionova.ai/address-intelligence/structured-address-mandate" }
+        ]
+      }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the SWIFT ISO 20022 migration deadline for structured addresses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SWIFT's ISO 20022 address structuring enforcement begins in November 2026. Structured XML address elements will be required in cross-border payment messages sent over the SWIFT network via CBPR+. After November 2026, institutions sending unstructured address data face increasing rejection rates and operational disruption."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which regulatory bodies require structured addresses for cross-border payments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three independent bodies converge on the same requirement: the European Payments Council (EPC) mandates structured elements for SEPA with TwnNm and Ctry as minimum required fields, SWIFT CBPR+ requires structured addressing as best practice, and CPMI/BIS through the G20 roadmap identifies structured data as foundational to global payments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does hybrid-only ISO 20022 compliance meet the full regulatory mandate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Hybrid is explicitly defined as the allowed minimum fallback, not the target state. The EPC, SWIFT, and CPMI/BIS all designate fully structured addresses as the regulatory objective. Hybrid-only compliance delivers only marginal STP improvement (5–15%) and requires a second integration project when enforcement tightens."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What ISO 20022 XML elements are required for a fully structured postal address?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A fully structured ISO 20022 postal address uses the PstlAdr element with sub-elements: StrtNm (street name), BldgNb (building number), PstCd (postal code), TwnNm (town name), CtrySubDvsn (country sub-division), and Ctry (country code). Hybrid format uses free-text AdrLine elements plus only TwnNm and Ctry."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if my institution does not comply with ISO 20022 address requirements by November 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non-compliant institutions face progressive enforcement tightening after November 2026. Payment messages with improperly structured address data will experience increasing rejection rates from correspondent banks and the SWIFT network. Each rejected payment requires manual intervention costing $25–50, and correspondents may impose surcharges or restrict corridors for non-compliant originators."
+          }
+        }
+      ]
+    }
+  </script>
   <div class="flex min-h-screen flex-col">
     <Navbar client:idle />
     <main class="flex-1">
