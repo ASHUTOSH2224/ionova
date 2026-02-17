@@ -20,5 +20,9 @@ export default defineConfig({
   }), sitemap({
     // Exclude noindex pages from the sitemap
     filter: (page) => !page.includes('/privacy-policy') && !page.includes('/terms-of-service'),
+    serialize(item) {
+      item.lastmod = new Date().toISOString().split('T')[0];
+      return item;
+    },
   })],
 });

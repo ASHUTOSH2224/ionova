@@ -18,7 +18,7 @@ try {
   console.error('[blogs.astro] Failed to fetch Ghost posts:', err);
 }
 
-// Normalise helper
+// Normalise helpers
 function formatDate(dateStr: string) {
   if (!dateStr) return '';
   return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
@@ -66,7 +66,6 @@ function getPrimaryAuthor(post: GhostPost) {
   <div class="flex min-h-screen flex-col">
     <Navbar client:idle />
     <main class="flex-1">
-
       <!-- Hero -->
       <div class="ds-v5">
         <section class="hero">

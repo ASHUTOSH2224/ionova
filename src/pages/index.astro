@@ -35,11 +35,69 @@ import { CTABandSection } from '@/components/sections/CTABandSection';
       "provider": { "@type": "Organization", "name": "ioNova AI", "url": "https://ionova.ai" }
     }
   </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is address intelligence and how is it different from address validation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Address intelligence parses, validates, enriches, and structures postal address data to meet ISO 20022 compliance. Unlike postal validation — which confirms a physical location exists — address intelligence resolves against regulatory standards, sanctions screening precision, and payment routing across 195 countries simultaneously."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between structured and hybrid addresses in ISO 20022?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Structured addresses populate dedicated XML elements (StrtNm, BldgNb, TwnNm, PstCd, Ctry) with validated components. Hybrid combines some structured with free-text. Regulators mandate structured as the target — hybrid is the minimum fallback. Delivering structured automatically satisfies hybrid with identical effort."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why can't postal APIs or LLMs handle payment compliance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Postal APIs lack ISO 20022 XML output, can't handle financial identifiers, and cover primarily Latin-script markets. LLMs fail due to non-deterministic output, hallucination risk, latency exceeding sub-100ms requirements, and no regulatory audit trail."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does implementation take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Address intelligence deploys in 10–16 weeks via sidecar architecture alongside existing infrastructure. No core banking system replacement required. Pre-built connectors for MuleSoft, Volante, and Finastra."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What ROI can institutions expect?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Institutions processing 500,000+ cross-border payments annually typically achieve 30–50x ROI within 12 months. The Entity Intelligence Platform delivers 366%+ three-year ROI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the SWIFT ISO 20022 deadline for structured addresses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enforcement begins November 2026. MT was refused for new messages in November 2025. February 2026 marks the start of the 9-month critical implementation window. The E&I Mandate in November 2027 tightens further."
+          }
+        }
+      ]
+    }
+  </script>
 	<div class="flex min-h-screen flex-col">
 		<Navbar client:idle />
 		<main class="flex-1">
 			<!-- SSR H1 — server-rendered for crawlers; visually hidden since HeroSection renders its own styled H1 -->
 			<h1 class="sr-only">Achieve ISO 20022 Compliance with Fully Structured Payment Addresses</h1>
+			<!-- Canonical definition paragraph — server-rendered for LLM/AI crawler extraction; visually hidden since HeroSection renders styled content -->
+			<p class="sr-only">ioNova AI is an enterprise platform that converts unstructured payment address data into ISO 20022-compliant structured formats using AI-native address resolution. It serves banks, payment processors, and financial institutions preparing for the November 2026 SWIFT CBPR+ and SEPA structured address mandate, achieving 98%+ straight-through processing rates across 195 countries. The platform deploys in 10–16 weeks via sidecar architecture with no legacy system replacement required.</p>
 			<HeroSection client:visible />
 			<LogosSection client:load />
 			<ChallengeSection client:visible />

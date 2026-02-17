@@ -60,6 +60,62 @@ import EntityPlatform from '@/views/EntityPlatform.astro';
       }
     }
   </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an entity intelligence platform and how does it differ from traditional MDM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An entity intelligence platform unifies four capabilities that have historically required separate tools: Named Entity Recognition (NER) for extraction, entity resolution for matching and deduplication, AI copilots for investigation, and agentic automation for workflow execution. Unlike traditional master data management (MDM), which focuses on storing a single source of truth through batch ETL processes and schema consolidation, entity intelligence operates in real-time across existing systems without requiring data migration. ioNova overlays intelligence on your current infrastructure, resolving entities across 50+ systems in under 200ms, while traditional MDM implementations typically require 18–24 months and $2–10M+ in deployment costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is entity resolution and why does it matter for regulated enterprises?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entity resolution is the process of determining whether different data records refer to the same real-world entity — such as recognizing that \"Acme Corp,\" \"ACME Corporation,\" and \"Acme Inc.\" all refer to one company. For regulated enterprises, this is critical because inaccurate entity data directly impacts compliance decisions: KYC/AML screening, sanctions monitoring, beneficial ownership verification, and transaction surveillance all depend on correctly identifying who you're dealing with. ioNova achieves 95%+ NER extraction precision with end-to-end resolution in under 200ms, creating auditable golden records with evidence trails that satisfy regulators including SR 11-7, EU AI Act, and BSA/AML requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a golden record and how does ioNova create them with evidence trails?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A golden record is the single, authoritative representation of an entity — the best version of the truth assembled from multiple source systems. ioNova creates golden records differently from traditional MDM: instead of requiring data migration into a centralized repository, it reads data where it lives, resolves matches in real-time using a four-stage cascade (exact match, fuzzy match, semantic match, LLM escalation), and constructs the golden record with full provenance. Every attribute in a golden record carries its source document, confidence score, and timestamp. This means every golden record is defensible to auditors — not just accurate, but provably accurate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which industries benefit most from entity intelligence?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entity intelligence delivers measurable outcomes across six primary domains. Financial services see 60–70% false positive reduction in AML monitoring and accelerated KYC screening. Healthcare achieves 87% duplicate resolution across EHR systems for patient 360 views. Sales and marketing teams report 3.2x conversion lifts with entity-grounded targeting. Human resources sees 85% onboarding acceleration through employee master management. Supply chain organizations achieve 92% first-time-right matching for vendor and contract management. Risk and compliance teams benefit from 80% faster audit response with automated entity risk registries."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What ROI can enterprises expect from deploying ioNova?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ioNova delivers a documented 366%+ three-year ROI with a 6–12 month payback period. Annual savings range from $250K to $890K per domain, driven by reduced false positives (60–70% in AML), accelerated investigations (50–70% time savings), and eliminated manual data reconciliation. The overlay-first deployment model means organizations can start proving value with a pilot from $75K and see measurable outcomes within 90 days — without the multi-million-dollar, multi-year commitment required by traditional MDM implementations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does ioNova compare to using LLMs directly for entity resolution?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Using LLMs for every entity comparison is economically unsustainable at enterprise scale. Processing 10 million entity comparisons monthly through an LLM-everywhere approach costs $200K–$600K in inference alone. ioNova's cascade architecture reduces this by 90%+ (to $15K–$40K/month) by routing 70–80% of comparisons through deterministic, sub-50ms stages (exact and fuzzy matching) and only escalating genuinely ambiguous cases (roughly 10%) to LLM reasoning. This also improves auditability — 90% of decisions are fully deterministic and explainable — while reducing latency from 200–500ms to under 50ms weighted average."
+          }
+        }
+      ]
+    }
+  </script>
   <div class="flex min-h-screen flex-col">
     <Navbar client:idle />
     <main class="flex-1">
