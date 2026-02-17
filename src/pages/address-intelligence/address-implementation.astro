@@ -1,12 +1,23 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { PageLayout } from '@/components/layout/PageLayout';
-import { ImplementationPage } from '@/components/address-intelligence/ImplementationPage';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import AddressImplementation from '@/views/AddressImplementation.astro';
 ---
 
 <Layout
   title="Address Intelligence Implementation - ioNova"
   description="Sidecar architecture, 10-16 week timeline, zero legacy rip-and-replace."
 >
-  <PageLayout client:idle pageId="address-implementation" />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <AddressImplementation />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
 </Layout>

@@ -7,6 +7,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://ionova.ai',
   output: 'static',
+  build: {
+    inlineStylesheets: 'always',
+  },
   prefetch: {
     prefetchAll: false,
     defaultStrategy: 'hover',

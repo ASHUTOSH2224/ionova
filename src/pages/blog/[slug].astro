@@ -40,6 +40,11 @@ const { slug } = Astro.params;
 const { post } = Astro.props;
 ---
 
-<Layout title={`${post?.title || 'Blog'} - ioNova`}>
+<Layout
+  title={`${post?.title || 'Blog'} - ioNova`}
+  description={post?.excerpt || `Read ${post?.title || 'this article'} on the ioNova AI blog.`}
+  ogImage={post?.image || '/Logo/hero Image/hero.png'}
+  ogImageAlt={post?.title || 'ioNova Blog Post'}
+>
 	<BlogPostView client:idle post={post} />
 </Layout>

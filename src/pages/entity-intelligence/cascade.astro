@@ -1,12 +1,23 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { PageLayout } from '@/components/layout/PageLayout';
-import { CascadeIntelligencePage } from '@/components/entity-intelligence/CascadeIntelligencePage';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import EntityCascade from '@/views/EntityCascade.astro';
 ---
 
 <Layout
   title="Cascade Entity Resolution - ioNova"
   description="Reduce entity resolution costs by 90% with our multi-stage cascade. Exact, fuzzy, and semantic matching before LLM escalation."
 >
-  <PageLayout client:idle pageId="entity-cascade" />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <EntityCascade />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
 </Layout>

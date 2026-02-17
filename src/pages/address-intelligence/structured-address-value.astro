@@ -1,12 +1,23 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { PageLayout } from '@/components/layout/PageLayout';
-import { BusinessValuePage } from '@/components/address-intelligence/BusinessValuePage';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import AddressBusinessValue from '@/views/AddressBusinessValue.astro';
 ---
 
 <Layout
   title="Business Value of Structured Data - ioNova"
   description="Beyond compliance: 98%+ STP, 30% fewer false positives, and $8-12B in industry savings."
 >
-  <PageLayout client:idle pageId="address-value" />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <AddressBusinessValue />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
 </Layout>

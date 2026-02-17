@@ -1861,6 +1861,33 @@
   border: 1px solid var(--border)
 }
 
+/* CSS-only FAQ accordion for static .astro pages */
+.ds-v5 details.faq-item {
+  list-style: none
+}
+.ds-v5 details.faq-item > summary {
+  list-style: none
+}
+.ds-v5 details.faq-item > summary::-webkit-details-marker {
+  display: none
+}
+.ds-v5 details.faq-item[open] {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md)
+}
+.ds-v5 details.faq-item[open] > summary.faq-q {
+  color: var(--teal-500)
+}
+.ds-v5 details.faq-item[open] > summary.faq-q .faq-chevron {
+  transform: rotate(180deg);
+  stroke: var(--teal-500)
+}
+.ds-v5 details.faq-item > .faq-a {
+  display: block;
+  max-height: none;
+  opacity: 1
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    ARCHITECTURE DIAGRAM
@@ -1902,6 +1929,7 @@
   padding: 0;
 }
 
+
 .ds-v5 .arch-diagram pre * {
   font-family: 'Courier New', Courier, monospace;
   letter-spacing: 0;
@@ -1909,6 +1937,7 @@
   font-kerning: none;
   font-feature-settings: "liga" 0, "calt" 0
 }
+
 
 
 /* ═══════════════════════════════════════════════════════════════
@@ -2580,17 +2609,36 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
-   SCROLL REVEAL (Entity Intelligence)
+   SCROLL REVEAL (Entity Intelligence) — CSS-only, no JS needed
    ═══════════════════════════════════════════════════════════════ */
-.ds-v5 .reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .7s var(--ease), transform .7s var(--ease)
+@keyframes reveal-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.ds-v5 .reveal.visible {
-  opacity: 1;
-  transform: translateY(0)
+.ds-v5 .reveal {
+  animation: reveal-fade-up 0.7s var(--ease, ease) both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+/* Fallback for browsers without scroll-driven animations */
+@supports not (animation-timeline: view()) {
+  .ds-v5 .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .7s var(--ease, ease), transform .7s var(--ease, ease);
+  }
+  .ds-v5 .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 

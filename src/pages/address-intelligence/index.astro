@@ -1,12 +1,23 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { PageLayout } from '@/components/layout/PageLayout';
-import { OverviewPage } from '@/components/address-intelligence/OverviewPage';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import AddressOverview from '@/views/AddressOverview.astro';
 ---
 
 <Layout
   title="Address Intelligence - ioNova"
   description="The missing layer in your payment infrastructure. Parse, validate, and enrich payment addresses for ISO 20022 compliance."
 >
-  <PageLayout client:idle pageId="address-overview" />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <AddressOverview />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
 </Layout>

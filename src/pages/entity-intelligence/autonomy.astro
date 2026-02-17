@@ -1,12 +1,23 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { PageLayout } from '@/components/layout/PageLayout';
-import { ProgressiveAutonomyPage } from '@/components/entity-intelligence/ProgressiveAutonomyPage';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import EntityAutonomy from '@/views/EntityAutonomy.astro';
 ---
 
 <Layout
   title="Progressive AI Autonomy - ioNova"
   description="From explanation to execution. A 4-level framework for governing AI agency in regulated enterprises."
 >
-  <PageLayout client:idle pageId="entity-autonomy" />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <EntityAutonomy />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
 </Layout>

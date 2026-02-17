@@ -1,12 +1,23 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { PageLayout } from '@/components/layout/PageLayout';
-import { PurposeBuiltPage } from '@/components/address-intelligence/PurposeBuiltPage';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import AddressPurposeBuilt from '@/views/AddressPurposeBuilt.astro';
 ---
 
 <Layout
   title="Purpose-Built Address Solution - ioNova"
   description="Why postal validation and generic LLMs fail at payment address compliance. 195 countries covered."
 >
-  <PageLayout client:idle pageId="address-purpose" />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <AddressPurposeBuilt />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
 </Layout>

@@ -1,8 +1,37 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import IndexView from '@/views/Index';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { LogosSection } from '@/components/sections/LogosSection';
+import { ChallengeSection } from '@/components/sections/ChallengeSection';
+import PillarsSection from '@/components/sections/PillarsSection.astro';
+import { ExploreSection } from '@/components/sections/ExploreSection';
+import { DifferentiationSection } from '@/components/sections/DifferentiationSection';
+import { ImplementationSection } from '@/components/sections/ImplementationSection';
+import { InsightsSection } from '@/components/sections/InsightsSection';
+import { FAQSection } from '@/components/sections/FAQSection';
+import { CTABandSection } from '@/components/sections/CTABandSection';
 ---
 
-<Layout>
-	<IndexView client:idle />
+<Layout
+  title="ioNova — AI-Native ISO 20022 Address Resolution for Payments"
+  description="Make your payment data ISO 20022 ready with AI-native address resolution. Convert unstructured payment data into SWIFT CBPR+ and SEPA compliant structured addresses with 100% deterministic accuracy before the November 2026 deadline."
+>
+	<div class="flex min-h-screen flex-col">
+		<Navbar client:idle />
+		<main class="flex-1">
+			<HeroSection client:visible />
+			<LogosSection client:load />
+			<ChallengeSection client:visible />
+			<PillarsSection />
+			<ExploreSection client:visible />
+			<DifferentiationSection client:visible />
+			<ImplementationSection client:visible />
+			<InsightsSection client:visible />
+			<FAQSection client:visible />
+			<CTABandSection client:visible />
+		</main>
+		<Footer />
+	</div>
 </Layout>

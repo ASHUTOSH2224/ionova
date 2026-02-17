@@ -7,16 +7,21 @@ interface Props {
 	title?: string;
     description?: string;
     ogImage?: string;
+    ogImageAlt?: string;
+    noindex?: boolean;
 }
 
 const {
     title = "ioNova - AI-Native ISO 20022 Address Resolution for Payments",
     description = "Make your payment data ISO 20022 ready with AI-native address resolution. Convert unstructured payment data into SWIFT CBPR+ and SEPA compliant structured addresses with 100% deterministic accuracy before the November 2026 deadline.",
     ogImage = "/Logo/hero Image/hero.png",
+    ogImageAlt = "ioNova AI — ISO 20022 Address Resolution Platform",
+    noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 const ogImageURL = new URL(ogImage, Astro.site).href;
+const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
 ---
 
 <!doctype html>
@@ -25,53 +30,115 @@ const ogImageURL = new URL(ogImage, Astro.site).href;
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
         <link rel="canonical" href={canonicalURL} />
         <ViewTransitions />
         <meta name="keywords" content="ISO 20022, SWIFT CBPR+, SEPA, payment compliance, address resolution, fintech, banking AI, payment data" />
         <meta name="author" content="ioNova" />
-        <meta name="robots" content="index, follow" />
-        
+        <meta name="robots" content={robotsContent} />
+
         <!-- Note: Security headers (CSP, X-Frame-Options, HSTS, COOP) are configured via HTTP headers in public/_headers -->
-        
+
         <!-- Open Graph / Social Media -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalURL} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImageURL} />
+        <meta property="og:image:alt" content={ogImageAlt} />
         <meta property="og:site_name" content="ioNova" />
         <meta property="og:locale" content="en_US" />
 
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ionova_ai" />
         <meta name="twitter:url" content={canonicalURL} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImageURL} />
-        
-        <!-- Fonts - Optimized with display=swap and preload -->
+        <meta name="twitter:image:alt" content={ogImageAlt} />
+
+        <!-- Fonts - Non-render-blocking load with print trick, noscript fallback -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" />
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
         <noscript>
           <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
         </noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-        
+
         <!-- Preload LCP image for faster paint -->
         <link rel="preload" as="image" href="/Logo/hero Image/hero.webp" fetchpriority="high" />
-        
+
         <!-- JSON-LD Structured Data -->
         <script type="application/ld+json">
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "ioNova",
-            "url": "https://ionova.ai"
+            "name": "ioNova AI",
+            "url": "https://ionova.ai",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://ionova.ai/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          }
+        </script>
+
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "ioNova AI",
+            "url": "https://ionova.ai",
+            "logo": "https://ionova.ai/Logo/ionova%20logo/logo.PNG",
+            "sameAs": [
+              "https://www.linkedin.com/company/ionova-ai"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "3606 Springbrook Drive",
+              "addressLocality": "Edison",
+              "addressRegion": "NJ",
+              "postalCode": "08820",
+              "addressCountry": "US"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "sales",
+              "email": "parth@ionova.ai"
+            }
+          }
+        </script>
+
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "ioNova AI",
+            "image": "https://ionova.ai/Logo/hero%20Image/hero.png",
+            "url": "https://ionova.ai",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "3606 Springbrook Drive",
+              "addressLocality": "Edison",
+              "addressRegion": "NJ",
+              "postalCode": "08820",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 40.5187,
+              "longitude": -74.4121
+            },
+             "sameAs": [
+              "https://www.linkedin.com/company/ionova-ai"
+             ]
           }
         </script>
 
@@ -79,7 +146,7 @@ const ogImageURL = new URL(ogImage, Astro.site).href;
           {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "ioNova",
+            "name": "ioNova Platform",
             "description": "AI-Native Address Resolution for ISO 20022 Compliance",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "Web",
@@ -89,17 +156,8 @@ const ogImageURL = new URL(ogImage, Astro.site).href;
             },
             "provider": {
               "@type": "Organization",
-              "name": "ioNova",
-              "url": "https://ionova.ai",
-              "logo": "https://ionova.ai/Logo/ionova logo/logo.PNG",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Bengaluru",
-                "addressCountry": "IN"
-              },
-              "sameAs": [
-                "https://www.linkedin.com/company/ionova-ai"
-              ]
+              "name": "ioNova AI",
+              "url": "https://ionova.ai"
             }
           }
         </script>

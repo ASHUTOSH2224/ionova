@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
-import { Menu, X, FileCheck, TrendingUp, Map, Cpu, CheckCircle, BookOpen, FileText, ClipboardCheck, Users, BadgeCheck, Monitor, GitMerge, Shield, MapPin, DollarSign, Code, Library, ChevronDown } from "lucide-react";
+import { Menu, X, FileCheck, TrendingUp, Map, Cpu, CheckCircle, Users, BadgeCheck, Monitor, GitMerge, Shield, MapPin, DollarSign, Code, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -89,29 +89,6 @@ const addressIntelligencePillars = [
     description: "Pillar 4 \u2014 Postal \u2260 payment validation. 195 countries",
     href: "/address-intelligence/purpose-built-address-solution",
     icon: Shield,
-  },
-];
-
-const resourcesItems = [
-  {
-    label: "Content Hub",
-    href: "/blogs",
-    icon: Library,
-  },
-  {
-    label: "Blogs",
-    href: "/blogs",
-    icon: BookOpen,
-  },
-  {
-    label: "Whitepaper",
-    href: "/blogs#whitepaper",
-    icon: FileText,
-  },
-  {
-    label: "ISO 20022 Compliance Checklist",
-    href: "/blogs#checklist",
-    icon: ClipboardCheck,
   },
 ];
 
@@ -532,23 +509,14 @@ export function Navbar() {
             Company
           </Link>
 
-          <div className="space-y-2">
-            <div className="text-base font-medium text-navy-900">Resources</div>
-            <div className="pl-4 space-y-3 border-l-2 border-primary/10 ml-1">
-              {resourcesItems.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  data-astro-prefetch="tap"
-                  className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+          <Link
+            to="/blogs"
+            data-astro-prefetch="tap"
+            className="block text-base font-medium text-navy-900"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Resources
+          </Link>
 
           <Button variant="hero" className="w-3/4 h-14 mx-auto rounded-full mt-2 text-lg" asChild>
             <Link to="/demo" data-astro-prefetch="tap" onClick={() => setMobileMenuOpen(false)}>

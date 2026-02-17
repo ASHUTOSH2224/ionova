@@ -1,12 +1,23 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { PageLayout } from '@/components/layout/PageLayout';
-import { EvidenceFirstPage } from '@/components/entity-intelligence/EvidenceFirstPage';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import EntityEvidence from '@/views/EntityEvidence.astro';
 ---
 
 <Layout
   title="Evidence-First AI - ioNova"
   description="AI copilots that cite their sources. Every claim grounded in documents with mandatory citations and confidence scores."
 >
-  <PageLayout client:idle pageId="entity-evidence" />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <EntityEvidence />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
 </Layout>

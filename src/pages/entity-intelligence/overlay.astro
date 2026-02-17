@@ -1,12 +1,23 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { PageLayout } from '@/components/layout/PageLayout';
-import { OverlayFirstPage } from '@/components/entity-intelligence/OverlayFirstPage';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import EntityOverlay from '@/views/EntityOverlay.astro';
 ---
 
 <Layout
   title="Overlay-First Deployment - ioNova"
   description="Deploy entity intelligence in 90 days. Read-only pilot, no rip-and-replace, no data migration required."
 >
-  <PageLayout client:idle pageId="entity-overlay" />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <EntityOverlay />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
 </Layout>

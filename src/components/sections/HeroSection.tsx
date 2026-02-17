@@ -44,7 +44,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-blue-900 to-navy-950 flex flex-col justify-center pt-20 pb-6 md:pt-24 lg:pt-28 md:pb-6">
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-900 to-navy-950 flex flex-col justify-center pt-32 pb-6 md:pt-24 lg:pt-28 md:pb-6">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-blue-600/20 blur-[120px]" />
@@ -57,7 +57,7 @@ export function HeroSection() {
           <div className="w-full lg:w-6/12 flex flex-col items-center lg:items-start justify-center">
             <div ref={leftColumnRef} className="text-center lg:text-left w-full relative z-20">
               {/* Headline */}
-              <h1 className="hero-page-heading mb-8 font-extrabold leading-[1.15] tracking-tight text-white">
+              <h1 className="hero-page-heading mb-8 font-extrabold tracking-tight text-white">
                 <span className="block mb-2">Achieve ISO 20022 compliance with</span>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-sky-200 to-white drop-shadow-sm block mb-6">
                   fully Structured Payment Addresses
@@ -72,7 +72,7 @@ export function HeroSection() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12 md:gap-6 md:mb-16 w-full">
                 <Button
-                  className="h-14 px-8 text-lg font-bold bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto"
+                  className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg font-bold bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all duration-300 hover:-translate-y-1 w-auto sm:w-auto"
                   asChild
                 >
                   <Link to="/demo">
@@ -81,7 +81,7 @@ export function HeroSection() {
                   </Link>
                 </Button>
                 <Button
-                  className="h-14 px-8 text-lg font-medium bg-white/5 hover:bg-white/10 text-white border border-white/20 backdrop-blur-md rounded-full transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto"
+                  className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg font-medium bg-white/5 hover:bg-white/10 text-white border border-white/20 backdrop-blur-md rounded-full transition-all duration-300 hover:-translate-y-1 w-auto sm:w-auto"
                   asChild
                 >
                   <Link to="/roi-calculator" className="flex items-center gap-3">

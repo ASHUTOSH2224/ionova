@@ -1,11 +1,19 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import PrivacyPolicy from '@/views/PrivacyPolicy';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import PrivacyPolicy from '@/views/PrivacyPolicy.astro';
 ---
 
 <Layout
   title="ioNova AI — Privacy Policy · Data Protection & Security"
   description="Learn how ioNova AI collects, uses, and protects your information. ISO 27001 certified, SOC 1 Type II compliant, and GDPR compliant."
 >
-  <PrivacyPolicy />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <PrivacyPolicy />
+    </main>
+    <Footer />
+  </div>
 </Layout>

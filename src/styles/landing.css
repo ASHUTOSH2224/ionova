@@ -144,7 +144,15 @@
 
 /* ─── Hero ─── */
 .hero-page-heading {
-  font-size: 52.8px;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .hero-page-heading {
+    font-size: 52.8px;
+    line-height: 1.15;
+  }
 }
 
 .landing-hero {

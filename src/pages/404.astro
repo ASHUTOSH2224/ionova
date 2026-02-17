@@ -1,11 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { AppWrapper } from '@/components/AppWrapper';
-import NotFoundView from '@/views/NotFound';
+import NotFoundView from '@/views/NotFound.astro';
 ---
 
-<Layout title="Page Not Found - ioNova">
-	<AppWrapper>
-		<NotFoundView />
-	</AppWrapper>
+<Layout
+  title="Page Not Found - ioNova"
+  description="The page you are looking for could not be found."
+  noindex={true}
+>
+  <NotFoundView />
 </Layout>
