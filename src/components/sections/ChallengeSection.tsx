@@ -246,7 +246,7 @@ export function ChallengeSection() {
                         </div>
                       )}
 
-                      <h3 className={cn("font-bold text-lg text-left md:text-center flex items-center gap-2 md:block", event.textColor, event.description ? "mb-1 mt-1" : "m-0")}>
+                      <p className={cn("font-bold text-lg text-left md:text-center flex items-center gap-2 md:block", event.textColor, event.description ? "mb-1 mt-1" : "m-0")}>
                         {event.date}
                         {/* "We are Here" Badge - Mobile only (inline with date) */}
                         {event.highlight && (
@@ -254,7 +254,7 @@ export function ChallengeSection() {
                             WE ARE HERE
                           </span>
                         )}
-                      </h3>
+                      </p>
                       {event.description && (
                         <p className="text-xs text-text-muted text-left md:text-center leading-relaxed">
                           {event.description}

@@ -57,17 +57,17 @@ export function HeroSection() {
           <div className="w-full lg:w-6/12 flex flex-col items-center lg:items-start justify-center">
             <div ref={leftColumnRef} className="text-center lg:text-left w-full relative z-20">
               {/* Headline */}
-              <h1 className="hero-page-heading mb-8 font-extrabold tracking-tight text-white">
+              <h1 className="hero-page-heading mb-6 font-extrabold tracking-tight text-white">
                 <span className="block mb-2">Achieve ISO 20022 compliance with</span>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-sky-200 to-white drop-shadow-sm block mb-6">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-sky-200 to-white drop-shadow-sm block">
                   fully Structured Payment Addresses
                 </span>
-
-                {/* Subtitle */}
-                <span className="block max-w-xl mx-auto lg:mx-0 text-lg leading-relaxed text-blue-100/90 md:text-xl font-medium tracking-normal">
-                  Hybrid addresses pass minimum compliance. Structured addresses pass every test. ioNova delivers AI-native structured address resolution for SWIFT CBPR+ and SEPA
-                </span>
               </h1>
+
+              {/* Subtitle */}
+              <p className="block max-w-xl mx-auto lg:mx-0 text-lg leading-relaxed text-blue-100/90 md:text-xl font-medium tracking-normal mb-8">
+                Hybrid addresses pass minimum compliance. Structured addresses pass every test. ioNova delivers AI-native structured address resolution for SWIFT CBPR+ and SEPA
+              </p>
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12 md:gap-6 md:mb-16 w-full">

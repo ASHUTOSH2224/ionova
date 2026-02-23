@@ -62,7 +62,7 @@ export function ImplementationSection() {
               </div>
 
               {/* Phase Title */}
-              <h3
+              <p
                 style={{
                   fontFamily: "'Outfit', system-ui, sans-serif",
                   fontWeight: 700,
@@ -72,7 +72,7 @@ export function ImplementationSection() {
                 }}
               >
                 {phase.title}
-              </h3>
+              </p>
 
               {/* Phase Description */}
               <p

@@ -105,9 +105,8 @@ export function ExploreSection() {
                     {/* Cards - Single Row */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                         {exploreCards.map((card) => (
-                            <Link
+                            <div
                                 key={card.title}
-                                to={card.href}
                                 className="group relative flex flex-col bg-[#EFF2F7] h-full rounded-xl border border-transparent p-8 transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-blue-100/50 hover:-translate-y-1"
                             >
                                 {/* Icon */}
@@ -119,9 +118,11 @@ export function ExploreSection() {
 
                                 {/* Content Wrapper for flex spacing */}
                                 <div className="flex flex-col h-full">
-                                    {/* Title */}
+                                    {/* Title as link with stretched-link for full card click */}
                                     <h3 className="landing-card-title mb-2">
-                                        {card.title}
+                                        <Link to={card.href} className="after:absolute after:inset-0">
+                                            {card.title}
+                                        </Link>
                                     </h3>
 
                                     {/* Subtitle */}
@@ -140,7 +141,7 @@ export function ExploreSection() {
                                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                     </div>
                                 </div>
-                            </Link>
+                            </div>
                         ))}
                     </div>
                 </div>

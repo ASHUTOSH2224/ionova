@@ -12,8 +12,8 @@ export default defineConfig({
     inlineStylesheets: 'always',
   },
   prefetch: {
-    prefetchAll: false,
-    defaultStrategy: 'hover',
+    prefetchAll: true,
+    defaultStrategy: 'viewport',
   },
   integrations: [react(), tailwind({
     applyBaseStyles: false,
