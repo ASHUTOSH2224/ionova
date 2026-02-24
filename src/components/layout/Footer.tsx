@@ -42,7 +42,7 @@ export function Footer() {
       links: [
         { label: "About", href: "/company" },
         { label: "Contact", href: "/demo" },
-        { label: "ROI Calculator", href: "/roi-calculator" },
+        // { label: "ROI Calculator", href: "/roi-calculator" },
       ],
     },
   };

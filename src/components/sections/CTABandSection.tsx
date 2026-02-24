@@ -5,7 +5,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 export function CTABandSection() {
-  const [days, setDays] = useState(0);
+  // Pre-compute at render time so SSR/SSG shows real countdown
+  // (Googlebot may not execute useEffect, so "0 DAYS LEFT" would hurt indexing)
+  const initialDays = Math.max(0, Math.floor((new Date("2026-11-01T00:00:00Z").getTime() - Date.now()) / 864e5));
+  const [days, setDays] = useState(initialDays);
   const containerRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -174,7 +177,7 @@ export function CTABandSection() {
               </svg>
             </a>
 
-            <a
+            {/* <a
               href="/roi-calculator"
               className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 transition-all duration-300 hover:bg-white/5 hover:border-white/30"
               style={{
@@ -187,7 +190,7 @@ export function CTABandSection() {
               }}
             >
               Calculate Savings
-            </a>
+            </a> */}
           </div>
 
         </div>

@@ -11,11 +11,21 @@ export function ChallengeSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  const [currentMarkerDate, setCurrentMarkerDate] = useState("Now");
-  const [displayMonths, setDisplayMonths] = useState(0);
+  // Pre-compute values at render time so SSR/SSG output shows real numbers
+  // instead of "0" (critical for Googlebot which may not execute useEffect)
+  const deadlineDate = new Date("2026-11-01");
+  const buildDate = new Date();
+  const initialMonths = Math.max(0,
+    (deadlineDate.getFullYear() - buildDate.getFullYear()) * 12 +
+    (deadlineDate.getMonth() - buildDate.getMonth()));
+  const initialDays = Math.max(0, Math.floor((deadlineDate.getTime() - buildDate.getTime()) / (1000 * 60 * 60 * 24)));
+  const initialMarkerDate = `${buildDate.toLocaleString('en-US', { month: 'short' })} '${buildDate.getFullYear().toString().slice(-2)}`;
+
+  const [currentMarkerDate, setCurrentMarkerDate] = useState(initialMarkerDate);
+  const [displayMonths, setDisplayMonths] = useState(initialMonths);
 
   const [timeLeft, setTimeLeft] = useState({
-    days: 0,
+    days: initialDays,
   });
 
   useEffect(() => {
@@ -24,7 +34,6 @@ export function ChallengeSection() {
     const yearStr = currentDate.getFullYear().toString().slice(-2);
     setCurrentMarkerDate(`${monthStr} '${yearStr}`);
 
-    const deadlineDate = new Date("2026-11-01");
     const monthsRemaining =
       (deadlineDate.getFullYear() - currentDate.getFullYear()) * 12 +
       (deadlineDate.getMonth() - currentDate.getMonth());

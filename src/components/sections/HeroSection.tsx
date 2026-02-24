@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import { Link } from "@/lib/router-shim";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, CheckCircle, Calculator } from "lucide-react";
+import { ArrowRight, Shield, CheckCircle } from "lucide-react";
 import gsap from "gsap";
 
 export function HeroSection() {
@@ -80,7 +80,7 @@ export function HeroSection() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button
+                {/* <Button
                   className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg font-medium bg-white/5 hover:bg-white/10 text-white border border-white/20 backdrop-blur-md rounded-full transition-all duration-300 hover:-translate-y-1 w-auto sm:w-auto"
                   asChild
                 >
@@ -90,7 +90,7 @@ export function HeroSection() {
                       <Calculator className="h-4 w-4" />
                     </div>
                   </Link>
-                </Button>
+                </Button> */}
               </div>
 
               {/* Metric boxes */}

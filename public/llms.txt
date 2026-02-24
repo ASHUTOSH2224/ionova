@@ -28,7 +28,7 @@ Resolve entities across 50+ systems with 95%+ precision and <200ms latency. The 
 ## Company
 - [About](https://ionova.ai/company/): 100+ years combined experience across AI, banking technology, payments, compliance, and enterprise security
 - [Blog](https://ionova.ai/blogs/): Insights and articles about ISO 20022 and address resolution
-- [ROI Calculator](https://ionova.ai/roi-calculator/): Calculate compliance cost and savings
+<!-- - [ROI Calculator](https://ionova.ai/roi-calculator/): Calculate compliance cost and savings -->
 - [Request Demo](https://ionova.ai/demo/): Schedule a demo
 
 ## Key Facts

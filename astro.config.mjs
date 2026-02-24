@@ -19,10 +19,9 @@ export default defineConfig({
     applyBaseStyles: false,
   }), sitemap({
     // Exclude noindex pages from the sitemap
-    filter: (page) => !page.includes('/privacy-policy') && !page.includes('/terms-of-service'),
-    serialize(item) {
-      item.lastmod = new Date().toISOString().split('T')[0];
-      return item;
-    },
+    filter: (page) => !page.includes('/privacy-policy') && !page.includes('/terms-of-service') && !page.includes('/roi-calculator'),
+    // Note: lastmod intentionally omitted — Google distrusts sitemaps that set
+    // lastmod to the build date on every deploy. Omitting it lets Google rely on
+    // its own crawl signals, which improves indexing trust & crawl efficiency.
   })],
 });

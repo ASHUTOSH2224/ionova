@@ -56,7 +56,7 @@ export interface GhostPost {
 }
 
 export const ghostAPI = {
-  async getPosts(options?: { limit?: number | string; include?: string }): Promise<GhostPost[]> {
+  async getPosts(options?: { limit?: number | string; include?: string; filter?: string }): Promise<GhostPost[]> {
     const api = getApi();
     if (!api) return [];
 
@@ -64,6 +64,7 @@ export const ghostAPI = {
       const posts = await api.posts.browse({
         limit: options?.limit || 10,
         include: options?.include || 'tags,authors',
+        filter: options?.filter || 'status:published',
       });
       return posts as GhostPost[];
     } catch (error) {
@@ -95,7 +96,7 @@ export const ghostAPI = {
     try {
       const posts = await api.posts.browse({
         limit,
-        filter: 'featured:true,tag:featured',
+        filter: 'featured:true+status:published',
         include: 'tags,authors',
       });
       return posts as GhostPost[];
