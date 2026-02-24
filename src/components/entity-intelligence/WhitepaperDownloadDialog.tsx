@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import { subscribeToKit } from '@/lib/kit';
+import { subscribeToWhitepaperKit } from '@/lib/kit';
 
 const INITIAL_FORM = {
   firstName: '',
@@ -42,12 +42,7 @@ export function WhitepaperDownloadDialog({
     e.preventDefault();
     setSubmitting(true);
     try {
-      await subscribeToKit({
-        ...form,
-        jobTitle: '',
-        volume: '',
-        message: '',
-      });
+      await subscribeToWhitepaperKit(form);
       toast({
         title: 'Thank you',
         description: 'Your request has been submitted. We will send the whitepaper to your email.',

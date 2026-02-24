@@ -54,27 +54,18 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr]">
           {/* Brand Column */}
           <div className="max-w-[300px]">
-            <a href="/" className="inline-block mb-5">
-              <span
-                style={{
-                  fontFamily: "'Outfit', system-ui, sans-serif",
-                  fontWeight: 700,
-                  fontSize: "20px",
-                  letterSpacing: "-0.3px",
-                }}
+            <a href="/" className="flex items-center gap-3 mb-5">
+              <img
+                src="/Logo/ionova logo/logo.PNG"
+                alt="ioNova AI logo"
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain"
+              />
+              <span className="text-xl font-bold text-[#0E1935] tracking-tight whitespace-nowrap"
+                style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
               >
-                <span
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #5FCFD0, #43ADC1, #3C75B5, #243574)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  io
-                </span>
-                <span style={{ color: "#0E1935" }}> Nova AI</span>
+                ioNova AI
               </span>
             </a>
             <p
