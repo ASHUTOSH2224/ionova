@@ -31,6 +31,7 @@ export async function getStaticPaths() {
             // All tag names joined for keywords meta
             tags: gp.tags?.map((t: any) => t.name).join(', ') || '',
             image: gp.feature_image || undefined,
+            codeinjection_head: gp.codeinjection_head || '',
           },
           source: 'ghost',
         },
@@ -71,29 +72,8 @@ const postKeywords = post?.tags
   {isoDateModified && <meta property="article:modified_time" content={isoDateModified} slot="head" />}
   <meta property="article:author" content={post?.author || 'ioNova Team'} slot="head" />
   <meta property="article:section" content={post?.category || 'Insights'} slot="head" />
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": post?.title || "ioNova Blog",
-    "description": description,
-    "image": post?.image || "https://ionova.ai/Logo/ionova%20logo/logo.PNG",
-    "datePublished": isoDate || undefined,
-    "dateModified": isoDateModified || undefined,
-    "author": {
-      "@type": "Person",
-      "name": post?.author || "ioNova Team"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "ioNova AI",
-      "url": "https://ionova.ai",
-      "logo": { "@type": "ImageObject", "url": "https://ionova.ai/Logo/ionova%20logo/logo.png" }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://ionova.ai/blog/${post?.slug || ''}`
-    }
-  })} />
+  <!-- Ghost Code Injection: custom JSON-LD / scripts from Ghost dashboard -->
+  {post?.codeinjection_head && <Fragment set:html={post.codeinjection_head} slot="head" />}
 
   <!-- SSR-rendered blog post — full content in HTML, no React hydration needed -->
   <div class="flex min-h-screen flex-col">

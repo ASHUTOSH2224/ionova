@@ -53,6 +53,8 @@ export interface GhostPost {
     slug: string;
     profile_image: string | null;
   }>;
+  codeinjection_head?: string | null;
+  codeinjection_foot?: string | null;
 }
 
 export const ghostAPI = {
