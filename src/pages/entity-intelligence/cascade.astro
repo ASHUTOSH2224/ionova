@@ -20,7 +20,7 @@ import EntityCascade from '@/views/EntityCascade.astro';
       "description": "Reduce entity resolution costs by 90% with ioNova's multi-stage cascade: exact match, fuzzy match, semantic matching, and LLM escalation only when needed.",
       "url": "https://ionova.ai/entity-intelligence/cascade",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -29,6 +29,49 @@ import EntityCascade from '@/views/EntityCascade.astro';
           { "@type": "ListItem", "position": 3, "name": "Cascade Resolution", "item": "https://ionova.ai/entity-intelligence/cascade" }
         ]
       }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Cascade Entity Resolution — Multi-Stage Matching with 90% Cost Reduction",
+      "description": "ioNova's multi-stage cascade entity resolution reduces resolution costs by 90% by routing through deterministic exact match, fuzzy match, and semantic matching stages before escalating to LLMs only when required. Achieves 95%+ precision at sub-200ms latency.",
+      "url": "https://ionova.ai/entity-intelligence/cascade",
+      "provider": {
+        "@type": "Organization",
+        "name": "ioNova AI",
+        "url": "https://ionova.ai"
+      },
+      "serviceType": "Entity Resolution & Multi-Stage Matching",
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Financial Institutions, Banks, Data Engineering Teams, KYC / AML Teams"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cascade Resolution Stages",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stage 1 — Exact Match (Deterministic, Zero Cost)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stage 2 — Fuzzy Match (High Recall, Low Cost)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stage 3 — Semantic Matching (Embedding-Based)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stage 4 — LLM Escalation (Exception-Only, Minimised Cost)" } }
+        ]
+      }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Cascade Entity Resolution — 90% Cost Reduction",
+      "description": "Reduce entity resolution costs by 90% with multi-stage cascade: exact match, fuzzy match, semantic matching, and LLM escalation only when needed.",
+      "url": "https://ionova.ai/entity-intelligence/cascade",
+      "dateModified": "2026-02-17",
+      "author": { "@id": "https://ionova.ai/#organization" },
+      "publisher": { "@id": "https://ionova.ai/#organization" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" }
     }
   </script>
   <div class="flex min-h-screen flex-col">

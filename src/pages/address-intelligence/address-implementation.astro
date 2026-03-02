@@ -20,7 +20,7 @@ import AddressImplementation from '@/views/AddressImplementation.astro';
       "description": "Deploy ISO 20022 address compliance via sidecar architecture in 10–16 weeks. No legacy replacement. Pre-built connectors for MuleSoft, Volante, Finastra, and SWIFT Alliance.",
       "url": "https://ionova.ai/address-intelligence/address-implementation",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -77,6 +77,45 @@ import AddressImplementation from '@/views/AddressImplementation.astro';
           }
         }
       ]
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Implement ISO 20022 Structured Address Resolution with ioNova",
+      "description": "Deploy ISO 20022-compliant address resolution in 10-16 weeks with zero legacy system overhaul.",
+      "totalTime": "P16W",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Phase 1: Analysis & Configuration (Weeks 1-4)",
+          "text": "Connect to existing infrastructure. Analyse address data quality. Configure parsing rules and confidence thresholds."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 2: Integration & Testing (Weeks 5-10)",
+          "text": "Pre-built connectors for MuleSoft, Volante, Finastra. SWIFT integration via Alliance Lite2 and Alliance Access."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 3: Production Deployment (Weeks 11-16)",
+          "text": "Circuit-breaker protection. 85-90% initial structuring, rising to 95%+ in the first quarter. Zero downtime risk."
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "ISO 20022 Sidecar Implementation — 10–16 Weeks",
+      "description": "Deploy ISO 20022 address compliance via sidecar in 10–16 weeks. No legacy changes. Pre-built connectors for MuleSoft, Volante, Finastra, and SWIFT.",
+      "url": "https://ionova.ai/address-intelligence/address-implementation",
+      "dateModified": "2026-02-17",
+      "author": { "@id": "https://ionova.ai/#organization" },
+      "publisher": { "@id": "https://ionova.ai/#organization" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" }
     }
   </script>
   <div class="flex min-h-screen flex-col">

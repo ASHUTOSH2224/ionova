@@ -23,7 +23,7 @@
 
   <div class="kpi-grid">
     <div class="kpi-tile"><div class="kpi-value">$8-12B</div><div class="kpi-label">Annual Industry Cost</div></div>
-    <div class="kpi-tile"><div class="kpi-value blue">98%+</div><div class="kpi-label">STP Rate Achieved</div></div>
+    <div class="kpi-tile"><div class="kpi-value blue">&gt;99%</div><div class="kpi-label">STP Rate Achieved</div></div>
     <div class="kpi-tile"><div class="kpi-value teal">~30%</div><div class="kpi-label">Fewer False Positives</div></div>
     <div class="kpi-tile"><div class="kpi-value">195</div><div class="kpi-label">Countries Covered</div></div>
   </div>
@@ -54,7 +54,7 @@
         <div class="icon-container ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg></div>
         <div class="pillar-num">Pillar 2 · The Business Case</div>
         <h3>Business Value Beyond Compliance</h3>
-        <p>The $8–12 billion cost of poor address data is a structural drain. Institutions that structure addresses achieve 98%+ STP and 30–50x ROI.</p>
+        <p>The $8–12 billion cost of poor address data is a structural drain. Institutions that structure addresses achieve &gt;99% STP and 30–50x ROI.</p>
         <span class="pillar-link">See the economics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
       </a>
       <a href="/address-intelligence/address-implementation" class="pillar-card">
@@ -86,17 +86,33 @@
         <tr><td>Geographic disambiguation</td><td>Limited or none</td><td>Full context-aware resolution</td></tr>
         <tr><td>Financial ID preservation</td><td>Not supported</td><td>LEI, IBAN, BIC preserved</td></tr>
         <tr><td>Audit trail</td><td>Minimal</td><td>Full deterministic provenance</td></tr>
-        <tr><td>STP improvement</td><td>Marginal</td><td>From ~40% to 98%+</td></tr>
+        <tr><td>STP improvement</td><td>Marginal</td><td>From ~40% to &gt;99%</td></tr>
         <tr><td>Implementation</td><td>6–18 months</td><td>10–16 weeks</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="section">
+    <div class="section-label">Engine Architecture</div>
+    <h2 class="section-title">Deterministic Core + Agentic Exception Handling</h2>
+    <div class="content-block" style="margin-top:var(--space-lg);">
+      <p>ioNova's Address Resolution Engine operates as a <strong>4-stage deterministic pipeline</strong> — Exact Match → Fuzzy Match → NLP/Heuristics → Enrichment — that resolves 98% of addresses with sub-50ms P95 latency and a full audit trail. No LLM involvement; no non-deterministic risk.</p>
+      <p>The remaining 2% of structurally ambiguous addresses are routed to the <strong>Agentic Workbench</strong>: an AI-powered exception handler with human-in-the-loop capability that resolves edge cases in under 2 seconds. The combined result: <strong>&gt;99% STP</strong> across the full address population.</p>
+      <p>Completing the architecture is the <strong>Autonomous Learning System (ALS)</strong>: a self-testing and self-training layer that continuously evaluates resolution quality and updates parsing rules without manual re-training cycles. As transaction volumes grow, accuracy improves automatically.</p>
+    </div>
+    <div class="kpi-grid" style="margin-top:var(--space-lg);">
+      <div class="kpi-tile"><div class="kpi-value blue">98%</div><div class="kpi-label">Deterministic Engine (sub-50ms)</div></div>
+      <div class="kpi-tile"><div class="kpi-value teal">2%</div><div class="kpi-label">Agentic Workbench (&lt;2 seconds)</div></div>
+      <div class="kpi-tile"><div class="kpi-value">&gt;99%</div><div class="kpi-label">Combined STP Resolution Rate</div></div>
+      <div class="kpi-tile"><div class="kpi-value blue">ALS</div><div class="kpi-label">Self-Testing &amp; Self-Training</div></div>
+    </div>
+  </div>
+
+  <div class="section">
     <div class="section-label">Stakeholders</div>
     <h2 class="section-title">Who Benefits from Address Intelligence</h2>
     <div class="persona-grid">
-      <div class="persona-card"><div class="persona-role">Heads of Payments Operations</div><div class="persona-desc">Reduce manual exception handling by up to 95% and achieve STP rates above 98% across cross-border corridors.</div></div>
+      <div class="persona-card"><div class="persona-role">Heads of Payments Operations</div><div class="persona-desc">Reduce manual exception handling by up to 95% and achieve &gt;99% STP across cross-border corridors.</div></div>
       <div class="persona-card"><div class="persona-role">Chief Compliance Officers</div><div class="persona-desc">Meet the November 2026 structured address mandate with full regulatory documentation and deterministic audit trails.</div></div>
       <div class="persona-card"><div class="persona-role">Chief Technology Officers</div><div class="persona-desc">Integrate without legacy system replacement, using standard API connectivity to existing middleware platforms.</div></div>
       <div class="persona-card"><div class="persona-role">Financial Crime Teams</div><div class="persona-desc">Reduce sanctions screening false positives by ~30% through field-level address matching rather than string comparison.</div></div>
@@ -137,7 +153,19 @@
       </details>
       <details class="faq-item">
         <summary class="faq-q">What countries and writing systems does address intelligence support?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
-        <div class="faq-a"><div class="faq-a-inner"><p>ioNova's address intelligence engine covers 195 countries and over 50 writing systems natively—including Latin, Cyrillic, Arabic, Chinese, Japanese, Korean (CJK), Devanagari, Thai, and Hebrew scripts. This is critical for cross-border payment processing where addresses arrive in multiple scripts and formats. Unlike postal validation tools that focus primarily on major Latin markets, purpose-built payment address resolution handles script normalisation, transliteration, and multi-format parsing from day one.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>ioNova's address intelligence roadmap covers 195 countries and 50+ writing systems. Wave 1 (live) covers the top payment corridors—US, UK, and EU. Full script support including Cyrillic, Arabic, Chinese, Japanese, Korean (CJK), Devanagari, Thai, and Hebrew is on the delivery roadmap for Q3 2026. This multi-script capability is critical for cross-border payment processing where addresses arrive in multiple formats from across global corridors.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Which payment corridors does ioNova prioritise first?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>ioNova's corridor coverage is sequenced by SWIFT traffic volume and regulatory urgency. The five priority corridors are: <strong>USD↔EUR</strong> (#1 — largest cross-border volume), <strong>USD↔GBP</strong> (#2), <strong>EUR↔GBP</strong> (#3), <strong>USD↔JPY</strong> (#4), and <strong>EUR↔CHF</strong> (#5). Wave 1 (live, February 2026) covers the US, UK, and EU markets that span all five corridors. Wave 2 (March–June 2026) extends to 20 additional countries; Wave 3 (July–September 2026) completes coverage to 195 countries.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What is the Agentic Workbench and when does it activate?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>The Agentic Workbench is ioNova's AI-powered exception-handling layer. The deterministic Address Resolution Engine resolves 98% of addresses autonomously at sub-50ms P95 latency. For the remaining 2%—addresses too ambiguous for deterministic resolution—the Agentic Workbench applies AI reasoning with optional human-in-the-loop review, returning a structured result in under 2 seconds. This two-tier architecture delivers a combined &gt;99% STP resolution rate while maintaining the deterministic audit trail required for regulatory compliance.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How does the Autonomous Learning System (ALS) work?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>The Autonomous Learning System continuously evaluates resolution accuracy through automated self-testing pipelines and updates parsing rules without manual re-training cycles. As transaction volumes grow and new address patterns emerge, the ALS improves engine performance automatically. This means an institution that deploys ioNova today benefits from ongoing accuracy gains without requiring engineering intervention—accuracy rises from 85–90% at initial deployment to 95%+ within the first quarter and continues improving thereafter.</p></div></div>
       </details>
     </div>
   </div>

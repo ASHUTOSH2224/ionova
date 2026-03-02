@@ -6,8 +6,8 @@ import AddressBusinessValue from '@/views/AddressBusinessValue.astro';
 ---
 
 <Layout
-  title="ISO 20022 Structured Address ROI — 98%+ STP Rates | ioNova"
-  description="ISO 20022 structured addresses drive 98%+ STP rates, 30% fewer sanctions false positives, and $8–12B industry savings. Quantify your compliance ROI."
+  title="ISO 20022 Structured Address ROI — >99% STP Rates | ioNova"
+  description="ISO 20022 structured addresses drive >99% STP rates, ~30% fewer sanctions false positives, and $8–12B industry savings. Quantify your compliance ROI."
   keywords="ISO 20022 ROI, STP rates, sanctions false positives reduction, payment compliance savings, structured address business value"
   ogImage="/og-image.png"
   ogImageAlt="Business Value of ISO 20022 Structured Addresses"
@@ -16,11 +16,11 @@ import AddressBusinessValue from '@/views/AddressBusinessValue.astro';
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "ISO 20022 Structured Address ROI — 98%+ STP Rates",
-      "description": "ISO 20022 structured addresses drive 98%+ STP rates, 30% fewer sanctions false positives, and $8–12B in annual industry savings. Quantify the compliance ROI.",
+      "name": "ISO 20022 Structured Address ROI — >99% STP Rates",
+      "description": "ISO 20022 structured addresses drive >99% STP rates, ~30% fewer sanctions false positives, and $8–12B in annual industry savings. Quantify the compliance ROI.",
       "url": "https://ionova.ai/address-intelligence/structured-address-value",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -29,6 +29,97 @@ import AddressBusinessValue from '@/views/AddressBusinessValue.astro';
           { "@type": "ListItem", "position": 3, "name": "Business Value", "item": "https://ionova.ai/address-intelligence/structured-address-value" }
         ]
       }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "ISO 20022 Structured Address Business Value — >99% STP",
+      "description": "ISO 20022 structured addresses deliver >99% STP rates, ~30% reduction in sanctions false positives, and quantifiable ROI for financial institutions. ioNova's Address Intelligence Platform achieves 366%+ three-year ROI.",
+      "url": "https://ionova.ai/address-intelligence/structured-address-value",
+      "provider": {
+        "@type": "Organization",
+        "name": "ioNova AI",
+        "url": "https://ionova.ai"
+      },
+      "serviceType": "Payment Compliance ROI & Address Intelligence",
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Financial Institutions, Banks, Payment Processors, Compliance Officers"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Structured Address ROI Outcomes",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": ">99% Straight-Through Processing Rate" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "~30% Sanctions False Positive Reduction" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "366%+ Three-Year ROI" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "$8–12B Industry-Wide Cost Savings" } }
+        ]
+      }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much do payment exceptions cost the banking industry annually?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Poor address data costs the global cross-border payments industry an estimated $8–12 billion annually. Individual payment exceptions cost $25–50 each in manual investigation, correspondent queries, and processing delays. A mid-tier institution processing 500,000 cross-border payments per year with the industry-average 40% STP rate generates approximately 300,000 exceptions annually, costing $7.5M–$15M. These costs are structural — they recur every year and scale with transaction volume."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What STP rate improvement can structured addresses deliver for cross-border payments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Structured address resolution typically improves straight-through processing (STP) rates from the industry average of approximately 40% to >99%. This transformative improvement occurs because structured addressing eliminates the primary source of STP failure: ambiguous, free-text address data that correspondent banks and intermediaries cannot parse consistently. Each address component occupies a designated XML field, removing the need for free-text interpretation at receiving institutions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the ROI of implementing payment address intelligence?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Institutions processing 500,000 or more cross-border payments annually typically achieve 30–50x return on investment within the first 12 months of deployment. The ROI derives from four value dimensions: STP improvement (representing 60–70% of total savings), sanctions screening false positive reduction (15–20%), operational efficiency through staff reallocation (10–15%), and strategic AI/ML readiness through structured data foundations. The same investment that satisfies the November 2026 regulatory mandate also delivers this operational return."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does structured address data reduce sanctions screening false positives?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unstructured address data forces screening engines to perform string-level matching across entire address blocks, producing false positive rates exceeding 95%. 'Cuba Street, Wellington' triggers Cuba sanctions alerts; 'Paris Hilton, London' triggers alerts for both a jurisdiction and a city. Structured addresses enable field-level screening: matching the Ctry element against sanctioned jurisdictions independently of street or city names. This reduces false positives by approximately 30%, freeing financial crime teams to investigate genuine risk rather than clearing noise generated by string-matching artefacts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the business case for structured addresses beyond regulatory compliance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Compliance is the floor — operational excellence is the ceiling. Beyond satisfying ISO 20022 mandates, structured address data creates a foundation for AI-driven payment automation, enables predictive analytics on payment corridors, improves correspondent banking relationships through reliable data quality, reduces manual intervention headcount, and positions institutions for future regulatory requirements including the November 2027 E&I mandate. Institutions that treat address structuring as a pure compliance exercise capture less than 20% of the available value."
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "ISO 20022 Structured Address ROI — >99% STP Rates",
+      "description": "ISO 20022 structured addresses drive >99% STP rates, ~30% fewer sanctions false positives, and $8–12B industry savings. Quantify your compliance ROI.",
+      "url": "https://ionova.ai/address-intelligence/structured-address-value",
+      "dateModified": "2026-02-17",
+      "author": { "@id": "https://ionova.ai/#organization" },
+      "publisher": { "@id": "https://ionova.ai/#organization" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" }
     }
   </script>
   <div class="flex min-h-screen flex-col">

@@ -20,7 +20,7 @@ import AddressMandate from '@/views/AddressMandate.astro';
       "description": "Meet the November 2026 ISO 20022 structured address mandate. SWIFT CBPR+, SEPA, and CPMI require structured postal addresses. ioNova deploys compliance in 10–16 weeks.",
       "url": "https://ionova.ai/address-intelligence/structured-address-mandate",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -75,8 +75,29 @@ import AddressMandate from '@/views/AddressMandate.astro';
             "@type": "Answer",
             "text": "Non-compliant institutions face progressive enforcement tightening after November 2026. Payment messages with improperly structured address data will experience increasing rejection rates from correspondent banks and the SWIFT network. Each rejected payment requires manual intervention costing $25–50, and correspondents may impose surcharges or restrict corridors for non-compliant originators."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the November 2027 E&I mandate and how does it extend ISO 20022 requirements?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "November 2027 brings the Exceptions & Investigations (E&I) mandate, requiring institutions to send and receive camt.110 and camt.111 messages via SWIFT Case Management. This extends ISO 20022 compliance beyond payment initiation into the full lifecycle of payment investigation and resolution. Institutions that have structured their address data correctly for the November 2026 deadline will be better positioned for the 2027 E&I mandate, as clean structured data reduces the volume of exceptions that trigger investigation workflows."
+          }
         }
       ]
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "ISO 20022 Structured Address Mandate — November 2026 SWIFT Deadline",
+      "description": "Meet the November 2026 ISO 20022 structured address mandate. SWIFT CBPR+, SEPA, and CPMI require structured postal addresses. ioNova deploys compliance in 10–16 weeks.",
+      "url": "https://ionova.ai/address-intelligence/structured-address-mandate",
+      "dateModified": "2026-02-17",
+      "author": { "@id": "https://ionova.ai/#organization" },
+      "publisher": { "@id": "https://ionova.ai/#organization" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" }
     }
   </script>
   <div class="flex min-h-screen flex-col">

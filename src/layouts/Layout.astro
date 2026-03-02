@@ -17,7 +17,7 @@ interface Props {
 
 const {
     title = "ioNova - AI-Native ISO 20022 Address Resolution for Payments",
-    description = "Make your payment data ISO 20022 ready with AI-native address resolution. Convert unstructured payment data into SWIFT CBPR+ and SEPA compliant structured addresses with 100% deterministic accuracy.",
+    description = "Make your payment data ISO 20022 ready with AI-native address resolution. Convert unstructured payment data into SWIFT CBPR+ and SEPA compliant structured addresses with >99% STP accuracy.",
     keywords = "ISO 20022, SWIFT CBPR+, SEPA, payment compliance, address resolution, fintech, banking AI, payment data",
     ogImage = "/og-image.png",
     ogImageAlt = "ioNova AI — ISO 20022 Address Resolution Platform",
@@ -94,8 +94,19 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
+            "@id": "https://ionova.ai/#website",
             "name": "ioNova AI",
-            "url": "https://ionova.ai"
+            "url": "https://ionova.ai",
+            "description": "AI-native ISO 20022 Address Resolution and Entity Intelligence Platform for global payment compliance.",
+            "inLanguage": "en-US",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://ionova.ai/blogs?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
           }
         </script>
 
@@ -103,11 +114,15 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
           {
             "@context": "https://schema.org",
             "@type": "Organization",
+            "@id": "https://ionova.ai/#organization",
             "name": "ioNova AI",
+            "alternateName": "ioNova",
             "url": "https://ionova.ai",
+            "founder": { "@id": "https://ionova.ai/#parth-desai" },
+            "description": "AI-native Entity Intelligence platform for ISO 20022 payment compliance, structured address resolution, and entity data quality across 195 countries for regulated financial institutions.",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://ionova.ai/Logo/ionova%20logo/logo.png",
+              "url": "https://ionova.ai/Logo/ionova%20logo/logo.PNG",
               "width": 200,
               "height": 60
             },
@@ -125,7 +140,26 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "sales",
+              "email": "hello@ionova.ai",
               "availableLanguage": "English"
+            },
+            "knowsAbout": [
+              "ISO 20022",
+              "SWIFT CBPR+ Compliance",
+              "SEPA Payment Standards",
+              "Structured Address Resolution",
+              "Entity Intelligence",
+              "Payment Compliance",
+              "AML / KYC",
+              "Financial Data Quality"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "ioNova Products",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Address Intelligence — ISO 20022 Address Resolution", "url": "https://ionova.ai/address-intelligence" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Entity Intelligence Platform", "url": "https://ionova.ai/entity-intelligence" } }
+              ]
             }
           }
         </script>
@@ -134,19 +168,39 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
           {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "ioNova Platform",
-            "description": "AI-Native Address Resolution for ISO 20022 Compliance",
+            "@id": "https://ionova.ai/#address-intelligence-product",
+            "name": "ioNova Address Intelligence Platform",
+            "description": "AI-native Address Resolution Engine for ISO 20022 compliance. Converts unstructured payment addresses into SWIFT CBPR+, HVPS+, and SEPA-compliant structured formats with >99% STP rates and sub-50ms latency across 195 countries.",
             "applicationCategory": "FinanceApplication",
-            "operatingSystem": "Web",
+            "operatingSystem": "Web, API, Cloud",
+            "featureList": [
+              "ISO 20022 Structured Address Resolution",
+              "SWIFT CBPR+ Compliance Validation",
+              "HVPS+ Format Validation",
+              "SEPA Address Enrichment",
+              "UK CHAPS Format Validation",
+              "Hybrid Address Format Output: TwnNm + Ctry + AdrLine",
+              "pain.001 & pacs.008 Payment Message Support",
+              "Transaction Processing: Real-Time API (<50ms P95) + Batch Files",
+              "Master Records Restructuring: API, Files, Direct Database Integration",
+              "195-Country Coverage",
+              "Sub-50ms API Latency (P95)",
+              ">99% STP Resolution Rate (Combined Deterministic + Agentic)",
+              "Deterministic Engine: 98% of Requests",
+              "Agentic Workbench: 2% Exception Handling (<2 seconds)",
+              "Autonomous Learning System — Self-Testing & Self-Training",
+              "Confidence Scoring & Explainability",
+              "File Processing SLA: <5 min per 10K Records",
+              "Database Remediation SLA: <1 hour per 1M Records",
+              "Sidecar Architecture — No Legacy Changes Required",
+              "Full Decision Audit Trail"
+            ],
             "offers": {
               "@type": "Offer",
-              "category": "Enterprise Software"
+              "category": "Enterprise Software",
+              "seller": { "@id": "https://ionova.ai/#organization" }
             },
-            "provider": {
-              "@type": "Organization",
-              "name": "ioNova AI",
-              "url": "https://ionova.ai"
-            }
+            "provider": { "@id": "https://ionova.ai/#organization" }
           }
         </script>
 

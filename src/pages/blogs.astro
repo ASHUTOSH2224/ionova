@@ -41,18 +41,13 @@ function getPrimaryAuthor(post: GhostPost) {
   <script type="application/ld+json" slot="head">
     {
       "@context": "https://schema.org",
-      "@type": "Blog",
+      "@type": "CollectionPage",
       "name": "ioNova AI Blog",
       "description": "Expert analysis on ISO 20022 structured addresses, SWIFT CBPR+ deadlines, entity intelligence, and payment compliance for financial institutions.",
       "url": "https://ionova.ai/blogs",
       "inLanguage": "en-US",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
-      "publisher": {
-        "@type": "Organization",
-        "name": "ioNova AI",
-        "url": "https://ionova.ai",
-        "logo": { "@type": "ImageObject", "url": "https://ionova.ai/Logo/ionova%20logo/logo.png" }
-      },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
+      "publisher": { "@id": "https://ionova.ai/#organization" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [

@@ -20,7 +20,7 @@ import EntityPlatform from '@/views/EntityPlatform.astro';
       "description": "Resolve entities across 50+ systems with 95%+ precision and sub-200ms latency. Evidence-first AI with progressive autonomy and governance-by-design for regulated enterprises.",
       "url": "https://ionova.ai/entity-intelligence",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -154,6 +154,19 @@ import EntityPlatform from '@/views/EntityPlatform.astro';
           }
         }
       ]
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "@id": "https://ionova.ai/#entity-intelligence-product",
+      "name": "ioNova Entity Intelligence Platform",
+      "description": "Resolve entities across 50+ systems with 95%+ precision and sub-200ms latency. Evidence-first AI with progressive autonomy and governance-by-design for regulated enterprises.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web, API, Cloud",
+      "url": "https://ionova.ai/entity-intelligence",
+      "provider": { "@id": "https://ionova.ai/#organization" }
     }
   </script>
   <div class="flex min-h-screen flex-col">

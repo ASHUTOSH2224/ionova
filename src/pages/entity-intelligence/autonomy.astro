@@ -20,7 +20,7 @@ import EntityAutonomy from '@/views/EntityAutonomy.astro';
       "description": "ioNova's 4-level progressive autonomy framework governs AI agency safely in regulated financial institutions — from read-only recommendations to fully autonomous actions.",
       "url": "https://ionova.ai/entity-intelligence/autonomy",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -29,6 +29,49 @@ import EntityAutonomy from '@/views/EntityAutonomy.astro';
           { "@type": "ListItem", "position": 3, "name": "Progressive Autonomy", "item": "https://ionova.ai/entity-intelligence/autonomy" }
         ]
       }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Progressive AI Autonomy Framework for Regulated Financial Institutions",
+      "description": "ioNova's 4-level progressive autonomy framework enables safe AI agency in regulated enterprises — from read-only recommendations through supervised automation to fully autonomous workflows — with human-in-the-loop controls at every level.",
+      "url": "https://ionova.ai/entity-intelligence/autonomy",
+      "provider": {
+        "@type": "Organization",
+        "name": "ioNova AI",
+        "url": "https://ionova.ai"
+      },
+      "serviceType": "AI Governance & Progressive Autonomy",
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Regulated Financial Institutions, Banks, Compliance Officers, Risk Managers"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Progressive Autonomy Levels",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Level 1 — Read-Only AI Recommendations" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Level 2 — Supervised AI Actions with Human Approval" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Level 3 — AI Automation with Exception Escalation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Level 4 — Full AI Autonomy with Audit Trail" } }
+        ]
+      }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Progressive AI Autonomy — 4-Level Framework",
+      "description": "ioNova's 4-level progressive autonomy framework governs AI agency in regulated financial institutions — from read-only recommendations to full autonomy.",
+      "url": "https://ionova.ai/entity-intelligence/autonomy",
+      "dateModified": "2026-02-17",
+      "author": { "@id": "https://ionova.ai/#organization" },
+      "publisher": { "@id": "https://ionova.ai/#organization" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" }
     }
   </script>
   <div class="flex min-h-screen flex-col">

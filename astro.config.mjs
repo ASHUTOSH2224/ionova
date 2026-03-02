@@ -19,9 +19,50 @@ export default defineConfig({
     applyBaseStyles: false,
   }), sitemap({
     // Exclude noindex pages from the sitemap
-    filter: (page) => !page.includes('/privacy-policy') && !page.includes('/terms-of-service') && !page.includes('/roi-calculator'),
+    filter: (page) =>
+      !page.includes('/roi-calculator'),
+
     // Note: lastmod intentionally omitted — Google distrusts sitemaps that set
     // lastmod to the build date on every deploy. Omitting it lets Google rely on
     // its own crawl signals, which improves indexing trust & crawl efficiency.
+
+    // Priority + changefreq signals help Google understand crawl importance hierarchy
+    serialize(item) {
+      const url = item.url.replace(/\/$/, ''); // normalise trailing slash
+
+      // Homepage — highest signal
+      if (url === 'https://ionova.ai') {
+        return { ...item, changefreq: 'weekly', priority: 1.0 };
+      }
+
+      // Primary hub pages — section indexes
+      const hubPages = [
+        'https://ionova.ai/address-intelligence',
+        'https://ionova.ai/entity-intelligence',
+        'https://ionova.ai/blogs',
+        'https://ionova.ai/company',
+      ];
+      if (hubPages.includes(url)) {
+        return { ...item, changefreq: 'weekly', priority: 0.9 };
+      }
+
+      // Demo — key conversion page, slightly lower than hubs
+      if (url === 'https://ionova.ai/demo') {
+        return { ...item, changefreq: 'weekly', priority: 0.6 };
+      }
+
+      // Blog posts — evergreen content, lower crawl frequency
+      if (url.includes('/blog/')) {
+        return { ...item, changefreq: 'monthly', priority: 0.7 };
+      }
+
+      // Legal pages — low priority, included for completeness
+      if (url.includes('/privacy-policy') || url.includes('/terms-of-service')) {
+        return { ...item, changefreq: 'yearly', priority: 0.3 };
+      }
+
+      // All other sub-pages (address-intelligence/*, entity-intelligence/*)
+      return { ...item, changefreq: 'monthly', priority: 0.8 };
+    },
   })],
 });

@@ -20,7 +20,7 @@ import AddressPurposeBuilt from '@/views/AddressPurposeBuilt.astro';
       "description": "Generic postal validation and LLMs cannot deliver ISO 20022 compliance. ioNova is purpose-built: deterministic output, 195 countries, 50+ financial identifiers, full audit trail.",
       "url": "https://ionova.ai/address-intelligence/purpose-built-address-solution",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -65,7 +65,7 @@ import AddressPurposeBuilt from '@/views/AddressPurposeBuilt.astro';
           "name": "How does purpose-built address intelligence differ from generic address validation APIs?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Generic address validation APIs produce standardised postal output; purpose-built intelligence produces native ISO 20022 structured XML elements. Generic tools do not support financial identifier handling (LEI, IBAN, BIC); purpose-built systems automatically recognise and route these to correct fields. Generic tools cover major markets; purpose-built covers 195 countries and 50+ writing systems. Generic provides basic valid/invalid results; purpose-built delivers full deterministic provenance chains. Generic achieves marginal STP improvement; purpose-built transforms STP from ~40% to 98%+. The implementation timeline for generic retrofitting is 6–18 months; purpose-built deploys in 10–16 weeks."
+            "text": "Generic address validation APIs produce standardised postal output; purpose-built intelligence produces native ISO 20022 structured XML elements. Generic tools do not support financial identifier handling (LEI, IBAN, BIC); purpose-built systems automatically recognise and route these to correct fields. Generic tools cover major markets; purpose-built covers 195 countries and 50+ writing systems. Generic provides basic valid/invalid results; purpose-built delivers full deterministic provenance chains. Generic achieves marginal STP improvement; purpose-built transforms STP from ~40% to >99%. The implementation timeline for generic retrofitting is 6–18 months; purpose-built deploys in 10–16 weeks."
           }
         },
         {
@@ -85,6 +85,19 @@ import AddressPurposeBuilt from '@/views/AddressPurposeBuilt.astro';
           }
         }
       ]
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Purpose-Built ISO 20022 Address Solution — ioNova AI",
+      "description": "Generic postal APIs and LLMs fail ISO 20022 compliance. ioNova is purpose-built: deterministic output, 195 countries, 50+ financial identifiers.",
+      "url": "https://ionova.ai/address-intelligence/purpose-built-address-solution",
+      "dateModified": "2026-02-17",
+      "author": { "@id": "https://ionova.ai/#organization" },
+      "publisher": { "@id": "https://ionova.ai/#organization" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" }
     }
   </script>
   <div class="flex min-h-screen flex-col">

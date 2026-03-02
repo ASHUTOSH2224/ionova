@@ -26,13 +26,14 @@ import { CTABandSection } from '@/components/sections/CTABandSection';
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
+      "@id": "https://ionova.ai/#webpage",
       "name": "ioNova | AI-Native ISO 20022 Address Resolution for Payments",
       "description": "Make payments ISO 20022 ready with AI-native address resolution. Convert unstructured data into SWIFT CBPR+ and SEPA compliant structured addresses before the November 2026 deadline.",
       "url": "https://ionova.ai",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "about": { "@type": "Thing", "name": "ISO 20022 Address Intelligence" },
-      "provider": { "@type": "Organization", "name": "ioNova AI", "url": "https://ionova.ai" }
+      "provider": { "@id": "https://ionova.ai/#organization" }
     }
   </script>
   <script type="application/ld+json" slot="head">
@@ -91,11 +92,37 @@ import { CTABandSection } from '@/components/sections/CTABandSection';
       ]
     }
   </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Implement ISO 20022 Structured Address Resolution with ioNova",
+      "description": "Deploy ISO 20022-compliant address resolution in 10-16 weeks with zero legacy system overhaul.",
+      "totalTime": "P16W",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Phase 1: Analysis & Configuration (Weeks 1-4)",
+          "text": "Connect to existing infrastructure. Analyse address data quality. Configure parsing rules and confidence thresholds."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 2: Integration & Testing (Weeks 5-10)",
+          "text": "Pre-built connectors for MuleSoft, Volante, Finastra. SWIFT integration via Alliance Lite2 and Alliance Access."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 3: Production Deployment (Weeks 11-16)",
+          "text": "Circuit-breaker protection. 85-90% initial structuring, rising to 95%+ in the first quarter. Zero downtime risk."
+        }
+      ]
+    }
+  </script>
 	<div class="flex min-h-screen flex-col">
 		<Navbar client:idle />
 		<main class="flex-1">
 			<!-- Canonical definition paragraph — server-rendered for LLM/AI crawler extraction; visually hidden since HeroSection renders styled content -->
-			<p class="sr-only">ioNova AI is an enterprise platform that converts unstructured payment address data into ISO 20022-compliant structured formats using AI-native address resolution. It serves banks, payment processors, and financial institutions preparing for the November 2026 SWIFT CBPR+ and SEPA structured address mandate, achieving 98%+ straight-through processing rates across 195 countries. The platform deploys in 10–16 weeks via sidecar architecture with no legacy system replacement required.</p>
+			<p class="sr-only">ioNova AI is an enterprise platform that converts unstructured payment address data into ISO 20022-compliant structured formats using AI-native address resolution. It serves banks, payment processors, and financial institutions preparing for the November 2026 SWIFT CBPR+ and SEPA structured address mandate, achieving >99% straight-through processing rates across 195 countries. The platform deploys in 10–16 weeks via sidecar architecture with no legacy system replacement required.</p>
 			<HeroSection client:visible />
 			<LogosSection client:idle />
 			<ChallengeSection client:visible />

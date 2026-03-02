@@ -20,7 +20,7 @@ import AddressOverview from '@/views/AddressOverview.astro';
       "description": "AI-native parsing, validation, and enrichment of payment addresses for ISO 20022 SWIFT CBPR+ and SEPA compliance across 195 countries.",
       "url": "https://ionova.ai/address-intelligence",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -35,7 +35,7 @@ import AddressOverview from '@/views/AddressOverview.astro';
       "@context": "https://schema.org",
       "@type": "Service",
       "name": "Address Intelligence — ISO 20022 Payment Address Resolution",
-      "description": "AI-native parsing, validation, and enrichment of payment addresses for ISO 20022 SWIFT CBPR+ and SEPA compliance across 195 countries. Achieve 98%+ STP rates in 10–16 weeks.",
+      "description": "AI-native parsing, validation, and enrichment of payment addresses for ISO 20022 SWIFT CBPR+ and SEPA compliance across 195 countries. Achieve >99% STP rates in 10–16 weeks.",
       "url": "https://ionova.ai/address-intelligence",
       "provider": {
         "@type": "Organization",
@@ -52,10 +52,23 @@ import AddressOverview from '@/views/AddressOverview.astro';
         "@type": "OfferCatalog",
         "name": "Address Intelligence Features",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ISO 20022 Structured Address Parsing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ISO 20022 Structured Address Parsing — 4-Stage Deterministic Pipeline" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SWIFT CBPR+ Compliance Validation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "HVPS+ Format Validation" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEPA Address Enrichment" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "195-Country Address Coverage" } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UK CHAPS Format Validation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hybrid Address Output: TwnNm + Ctry + AdrLine (SWIFT Mandate)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "pain.001 & pacs.008 Payment Message Support" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Transaction Processing: Real-Time API + Batch Files" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Master Records Restructuring: API, Files, Databases" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "195-Country Coverage" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Confidence Scoring & Explainability" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": ">99% STP Resolution Rate (Deterministic + Agentic)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sub-50ms API Latency (P95)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agentic Workbench: <2 Seconds Exception Handling" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Autonomous Learning System — Self-Testing & Self-Training" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "File Processing SLA: <5 Min per 10K Records" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Database Remediation SLA: <1 Hour per 1M Records" } }
         ]
       }
     }
@@ -126,8 +139,42 @@ import AddressOverview from '@/views/AddressOverview.astro';
           "name": "What countries and writing systems does address intelligence support?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "ioNova's address intelligence engine covers 195 countries and over 50 writing systems natively — including Latin, Cyrillic, Arabic, Chinese, Japanese, Korean (CJK), Devanagari, Thai, and Hebrew scripts. This is critical for cross-border payment processing where addresses arrive in multiple scripts and formats. Unlike postal validation tools that focus primarily on major Latin markets, purpose-built payment address resolution handles script normalisation, transliteration, and multi-format parsing from day one."
+            "text": "ioNova's address intelligence roadmap covers 195 countries and 50+ writing systems. Wave 1 (live) covers the top payment corridors — US, UK, and EU. Full script support including Cyrillic, Arabic, Chinese, Japanese, Korean (CJK), Devanagari, Thai, and Hebrew is on the delivery roadmap for Q3 2026. This multi-script capability is critical for cross-border payment processing where addresses arrive in multiple formats from across global corridors."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the November 2027 E&I mandate and how does it relate to the November 2026 deadline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There are two ISO 20022 compliance deadlines. November 2026 mandates structured and hybrid addresses (TwnNm + Ctry required) in payment messages — this is the immediate priority. November 2027 introduces the Exceptions & Investigations (E&I) mandate, requiring institutions to exchange camt.110 and camt.111 messages via SWIFT Case Management for payment investigation workflows. Institutions that achieve clean structured address data by November 2026 will see significantly fewer exceptions, directly reducing E&I workload ahead of the 2027 mandate."
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Implement ISO 20022 Structured Address Resolution with ioNova",
+      "description": "Deploy ISO 20022-compliant address resolution in 10-16 weeks with zero legacy system overhaul.",
+      "totalTime": "P16W",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Phase 1: Analysis & Configuration (Weeks 1-4)",
+          "text": "Connect to existing infrastructure. Analyse address data quality. Configure parsing rules and confidence thresholds."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 2: Integration & Testing (Weeks 5-10)",
+          "text": "Pre-built connectors for MuleSoft, Volante, Finastra. SWIFT integration via Alliance Lite2 and Alliance Access."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 3: Production Deployment (Weeks 11-16)",
+          "text": "Circuit-breaker protection. 85-90% initial structuring, rising to 95%+ in the first quarter. Zero downtime risk."
         }
       ]
     }

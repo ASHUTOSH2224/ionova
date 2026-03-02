@@ -20,7 +20,7 @@ import EntityEvidence from '@/views/EntityEvidence.astro';
       "description": "AI copilots that cite every claim. Mandatory document citations, field-level confidence scores, and full decision audit trails for financial services compliance.",
       "url": "https://ionova.ai/entity-intelligence/evidence",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -29,6 +29,49 @@ import EntityEvidence from '@/views/EntityEvidence.astro';
           { "@type": "ListItem", "position": 3, "name": "Evidence-First AI", "item": "https://ionova.ai/entity-intelligence/evidence" }
         ]
       }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Evidence-First AI — Explainable AI Copilots for Financial Services",
+      "description": "ioNova's evidence-first AI copilots require mandatory document citations for every decision, provide field-level confidence scores, and maintain full decision audit trails. Purpose-built for SR 11-7, EU AI Act, and DORA compliance in regulated financial institutions.",
+      "url": "https://ionova.ai/entity-intelligence/evidence",
+      "provider": {
+        "@type": "Organization",
+        "name": "ioNova AI",
+        "url": "https://ionova.ai"
+      },
+      "serviceType": "Explainable AI & Evidence-First Copilots",
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Financial Institutions, Compliance Teams, Model Risk Managers, Regulators"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Evidence-First AI Capabilities",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mandatory Document Citations for Every AI Decision" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Field-Level Confidence Scores" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full Decision Audit Trail" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SR 11-7 & EU AI Act Compliance Evidence Packs" } }
+        ]
+      }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Evidence-First AI — Explainable AI Copilots",
+      "description": "AI copilots with mandatory document citations, field-level confidence scores, and full audit trails — built for financial services compliance.",
+      "url": "https://ionova.ai/entity-intelligence/evidence",
+      "dateModified": "2026-02-17",
+      "author": { "@id": "https://ionova.ai/#organization" },
+      "publisher": { "@id": "https://ionova.ai/#organization" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" }
     }
   </script>
   <div class="flex min-h-screen flex-col">

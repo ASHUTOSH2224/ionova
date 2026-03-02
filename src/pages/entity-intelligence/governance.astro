@@ -20,7 +20,7 @@ import EntityGovernance from '@/views/EntityGovernance.astro';
       "description": "SR 11-7 and EU AI Act compliant AI governance. Audit-grade evidence packs, decision replayability, and continuous model drift monitoring for regulated financial institutions.",
       "url": "https://ionova.ai/entity-intelligence/governance",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -29,6 +29,49 @@ import EntityGovernance from '@/views/EntityGovernance.astro';
           { "@type": "ListItem", "position": 3, "name": "Governance-by-Design", "item": "https://ionova.ai/entity-intelligence/governance" }
         ]
       }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Governance-by-Design — SR 11-7 & EU AI Act Compliance",
+      "description": "ioNova's governance-by-design framework embeds SR 11-7 and EU AI Act compliance into every AI decision. Provides audit-grade evidence packs, complete decision replayability, and continuous model drift monitoring for regulated financial institutions.",
+      "url": "https://ionova.ai/entity-intelligence/governance",
+      "provider": {
+        "@type": "Organization",
+        "name": "ioNova AI",
+        "url": "https://ionova.ai"
+      },
+      "serviceType": "AI Governance & Model Risk Management",
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Financial Institutions, Model Risk Managers, Internal Audit, Regulators, Chief Risk Officers"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI Governance Capabilities",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SR 11-7 Model Risk Management Compliance" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "EU AI Act High-Risk AI Documentation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Audit-Grade Decision Evidence Packs" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Continuous Model Drift Monitoring" } }
+        ]
+      }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "AI Governance-by-Design — SR 11-7 & EU AI Act",
+      "description": "SR 11-7 and EU AI Act compliant governance. Audit-grade evidence packs, decision replayability, and model drift monitoring for regulated institutions.",
+      "url": "https://ionova.ai/entity-intelligence/governance",
+      "dateModified": "2026-02-17",
+      "author": { "@id": "https://ionova.ai/#organization" },
+      "publisher": { "@id": "https://ionova.ai/#organization" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" }
     }
   </script>
   <div class="flex min-h-screen flex-col">

@@ -20,12 +20,8 @@ import AboutPage from '@/views/About.astro';
       "description": "100+ years combined experience across AI, banking, payments, compliance, and enterprise security. Building the intelligence layer for global financial infrastructure.",
       "url": "https://ionova.ai/company",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
-      "about": {
-        "@type": "Organization",
-        "name": "ioNova AI",
-        "url": "https://ionova.ai"
-      },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
+      "about": { "@id": "https://ionova.ai/#organization" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -33,6 +29,27 @@ import AboutPage from '@/views/About.astro';
           { "@type": "ListItem", "position": 2, "name": "About", "item": "https://ionova.ai/company" }
         ]
       }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://ionova.ai/#parth-desai",
+      "name": "Parth Desai",
+      "url": "https://ionova.ai/company",
+      "jobTitle": "Founder and Chairman",
+      "description": "Founder and Chairman of ioNova AI. Leads a team with 100+ years of combined experience across AI, banking technology, payments, compliance, and enterprise security.",
+      "worksFor": { "@id": "https://ionova.ai/#organization" },
+      "knowsAbout": [
+        "ISO 20022",
+        "Payment Compliance",
+        "Entity Intelligence",
+        "AI in Financial Services",
+        "Banking Technology",
+        "SWIFT CBPR+",
+        "SEPA Compliance"
+      ]
     }
   </script>
   <div class="flex min-h-screen flex-col">

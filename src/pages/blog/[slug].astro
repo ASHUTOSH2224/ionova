@@ -5,48 +5,56 @@ import Footer from '@/components/layout/Footer.astro';
 import { ghostAPI } from '@/lib/ghost';
 
 export async function getStaticPaths() {
-  // Ghost posts
-  let ghostPaths: any[] = [];
-  try {
-    const ghostPosts = await ghostAPI.getPosts({ limit: 'all' });
+  const ghostPosts = await ghostAPI.getPosts({ limit: 'all' });
 
-    ghostPaths = ghostPosts
-      .map(gp => ({
-        params: { slug: gp.slug },
-        props: {
-          post: {
-            title: gp.title,
-            slug: gp.slug,
-            excerpt: gp.excerpt || '',
-            html: gp.html || '',
-            author: gp.authors?.[0]?.name || 'ioNova Team',
-            date: gp.published_at
-              ? new Date(gp.published_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-              : '',
-            isoDate: gp.published_at || '',
-            // Map updated_at separately for dateModified — differs from published_at on edits
-            isoDateModified: gp.updated_at || gp.published_at || '',
-            readTime: `${gp.reading_time || 5} min read`,
-            category: gp.tags?.[0]?.name || 'Insights',
-            // All tag names joined for keywords meta
-            tags: gp.tags?.map((t: any) => t.name).join(', ') || '',
-            image: gp.feature_image || undefined,
-            codeinjection_head: gp.codeinjection_head || '',
-          },
-          source: 'ghost',
-        },
-      }));
-  } catch (error) {
-    console.error('Error fetching Ghost posts for static paths:', error);
+  // Fail the build if Ghost is configured but returned 0 posts — prevents silently
+  // deploying a site with no blog routes when the CMS was unreachable at build time.
+  const ghostUrl = import.meta.env.VITE_GHOST_API_URL || import.meta.env.PUBLIC_GHOST_API_URL;
+  if (ghostUrl && ghostPosts.length === 0) {
+    throw new Error(
+      '[Build] Ghost returned 0 posts. Ensure Ghost is reachable at build time, ' +
+      'or unset VITE_GHOST_API_URL / PUBLIC_GHOST_API_URL to skip blog generation.'
+    );
   }
 
-  return ghostPaths;
+  return ghostPosts.map(gp => ({
+    params: { slug: gp.slug },
+    props: {
+      post: {
+        title: gp.title,
+        slug: gp.slug,
+        excerpt: gp.excerpt || '',
+        html: gp.html || '',
+        author: gp.authors?.[0]?.name || 'ioNova Team',
+        date: gp.published_at
+          ? new Date(gp.published_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+          : '',
+        isoDate: gp.published_at || '',
+        // Map updated_at separately for dateModified — differs from published_at on edits
+        isoDateModified: gp.updated_at || gp.published_at || '',
+        readTime: `${gp.reading_time || 5} min read`,
+        category: gp.tags?.[0]?.name || 'Insights',
+        // All tag names joined for keywords meta
+        tags: gp.tags?.map((t: any) => t.name).join(', ') || '',
+        image: gp.feature_image || undefined,
+        codeinjection_head: gp.codeinjection_head || '',
+      },
+      source: 'ghost',
+    },
+  }));
 }
 
 const { slug } = Astro.params;
 const { post } = Astro.props;
 const isoDate = post?.isoDate || '';
 const isoDateModified = post?.isoDateModified || isoDate;
+
+// Strip JSON-LD scripts from Ghost codeinjection_head to prevent duplicate/conflicting schemas.
+// Ghost dashboard-authored BlogPosting schemas often reference stale slugs/dates; our authoritative
+// BlogPosting below is the canonical schema Google should consume.
+const safeInjection = post?.codeinjection_head
+  ? post.codeinjection_head.replace(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, '')
+  : '';
 
 // Ensure description is at least 50 chars
 const rawExcerpt = post?.excerpt || '';
@@ -72,8 +80,46 @@ const postKeywords = post?.tags
   {isoDateModified && <meta property="article:modified_time" content={isoDateModified} slot="head" />}
   <meta property="article:author" content={post?.author || 'ioNova Team'} slot="head" />
   <meta property="article:section" content={post?.category || 'Insights'} slot="head" />
-  <!-- Ghost Code Injection: custom JSON-LD / scripts from Ghost dashboard -->
-  {post?.codeinjection_head && <Fragment set:html={post.codeinjection_head} slot="head" />}
+  <!-- Ghost Code Injection: non-schema scripts/meta from Ghost dashboard (JSON-LD stripped to prevent conflicts) -->
+  {safeInjection && <Fragment set:html={safeInjection} slot="head" />}
+
+  <!-- BlogPosting JSON-LD — primary schema for Google Rich Results and AI/LLM crawlers -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post?.title || '',
+    "description": description,
+    "url": `https://ionova.ai/blog/${slug}`,
+    ...(isoDate ? { "datePublished": isoDate } : {}),
+    ...(isoDateModified ? { "dateModified": isoDateModified } : {}),
+    "author": {
+      "@type": "Person",
+      "name": post?.author || 'ioNova Team',
+      "worksFor": { "@id": "https://ionova.ai/#organization" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ioNova AI",
+      "url": "https://ionova.ai",
+      "logo": { "@type": "ImageObject", "url": "https://ionova.ai/Logo/ionova%20logo/logo.PNG", "width": 200, "height": 60 }
+    },
+    "image": post?.image
+      ? { "@type": "ImageObject", "url": post.image }
+      : { "@type": "ImageObject", "url": "https://ionova.ai/og-image.png" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": `https://ionova.ai/blog/${slug}` },
+    "isPartOf": { "@id": "https://ionova.ai/#website" },
+    "about": { "@type": "Thing", "name": "ISO 20022 Address Intelligence & Payment Compliance" },
+    "keywords": postKeywords,
+    "inLanguage": "en-US",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ionova.ai/blogs" },
+        { "@type": "ListItem", "position": 3, "name": post?.title || 'Article', "item": `https://ionova.ai/blog/${slug}` }
+      ]
+    }
+  })} slot="head"></script>
 
   <!-- SSR-rendered blog post — full content in HTML, no React hydration needed -->
   <div class="flex min-h-screen flex-col">

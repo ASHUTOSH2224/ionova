@@ -10,7 +10,35 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# AI crawlers — permitted for LLM training and AI-powered search indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Block high-volume scrapers with no SEO or AI-indexing value
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Default: allow all, block Ghost CMS admin paths
 User-agent: *
 Allow: /
+Disallow: /ghost/
 
 Sitemap: https://ionova.ai/sitemap-index.xml

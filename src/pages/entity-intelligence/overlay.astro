@@ -20,7 +20,7 @@ import EntityOverlay from '@/views/EntityOverlay.astro';
       "description": "Deploy ioNova's entity intelligence as a read-only overlay in 90 days. No data migration, no core system changes. Live on production traffic from day one.",
       "url": "https://ionova.ai/entity-intelligence/overlay",
       "dateModified": "2026-02-17",
-      "isPartOf": { "@type": "WebSite", "url": "https://ionova.ai" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -29,6 +29,49 @@ import EntityOverlay from '@/views/EntityOverlay.astro';
           { "@type": "ListItem", "position": 3, "name": "Overlay Deployment", "item": "https://ionova.ai/entity-intelligence/overlay" }
         ]
       }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Overlay-First Entity Intelligence — 90-Day Non-Invasive Deployment",
+      "description": "Deploy ioNova's entity intelligence as a read-only overlay in 90 days with no data migration, no core system replacement, and no disruption to existing workflows. Live on production traffic from day one via a non-invasive sidecar architecture.",
+      "url": "https://ionova.ai/entity-intelligence/overlay",
+      "provider": {
+        "@type": "Organization",
+        "name": "ioNova AI",
+        "url": "https://ionova.ai"
+      },
+      "serviceType": "Non-Invasive AI Deployment & Overlay Architecture",
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Financial Institutions, Technology Teams, CIOs, Enterprise Architects"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Overlay Deployment Capabilities",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Read-Only Overlay — Zero Production Risk" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "90-Day Live Deployment Timeline" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "No Data Migration Required" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "No Core System Replacement" } }
+        ]
+      }
+    }
+  </script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Overlay-First Entity Intelligence — 90-Day Deploy",
+      "description": "Deploy entity intelligence as a read-only overlay in 90 days. No data migration, no core system changes. Live on production traffic from day one.",
+      "url": "https://ionova.ai/entity-intelligence/overlay",
+      "dateModified": "2026-02-17",
+      "author": { "@id": "https://ionova.ai/#organization" },
+      "publisher": { "@id": "https://ionova.ai/#organization" },
+      "isPartOf": { "@id": "https://ionova.ai/#website" }
     }
   </script>
   <div class="flex min-h-screen flex-col">
