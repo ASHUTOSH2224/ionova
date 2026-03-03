@@ -1,0 +1,7 @@
+name = "ghost-webhook-relay"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Secrets (set via `npx wrangler secret put <NAME>`):
+# - WEBHOOK_SECRET: shared secret for Ghost webhook validation
+# - GITHUB_TOKEN: GitHub PAT with repo scope for ASHUTOSH2224/ionova
