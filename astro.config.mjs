@@ -12,7 +12,7 @@ export default defineConfig({
     inlineStylesheets: 'always',
   },
   prefetch: {
-    prefetchAll: true,
+    prefetchAll: false,
     defaultStrategy: 'viewport',
   },
   integrations: [react(), tailwind({
@@ -35,20 +35,28 @@ export default defineConfig({
         return { ...item, changefreq: 'weekly', priority: 1.0 };
       }
 
-      // Primary hub pages — section indexes
-      const hubPages = [
+      // Primary hub pages — address + entity are top-tier (0.9)
+      const tier1Hubs = [
         'https://ionova.ai/address-intelligence',
         'https://ionova.ai/entity-intelligence',
-        'https://ionova.ai/blogs',
-        'https://ionova.ai/company',
       ];
-      if (hubPages.includes(url)) {
-        return { ...item, changefreq: 'weekly', priority: 0.9 };
+      if (tier1Hubs.includes(url)) {
+        return { ...item, changefreq: 'monthly', priority: 0.9 };
       }
 
-      // Demo — key conversion page, slightly lower than hubs
+      // Blog index — high priority, updated frequently
+      if (url === 'https://ionova.ai/blogs') {
+        return { ...item, changefreq: 'weekly', priority: 0.8 };
+      }
+
+      // Company — informational, lower priority
+      if (url === 'https://ionova.ai/company') {
+        return { ...item, changefreq: 'monthly', priority: 0.7 };
+      }
+
+      // Demo — key conversion page
       if (url === 'https://ionova.ai/demo') {
-        return { ...item, changefreq: 'weekly', priority: 0.6 };
+        return { ...item, changefreq: 'monthly', priority: 0.6 };
       }
 
       // Blog posts — evergreen content, lower crawl frequency
@@ -61,7 +69,12 @@ export default defineConfig({
         return { ...item, changefreq: 'yearly', priority: 0.3 };
       }
 
-      // All other sub-pages (address-intelligence/*, entity-intelligence/*)
+      // Entity Intelligence sub-pages — priority 0.7 per spec
+      if (url.includes('/entity-intelligence/')) {
+        return { ...item, changefreq: 'monthly', priority: 0.7 };
+      }
+
+      // Address Intelligence sub-pages and any remaining pages
       return { ...item, changefreq: 'monthly', priority: 0.8 };
     },
   })],

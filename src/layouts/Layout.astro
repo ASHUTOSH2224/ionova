@@ -81,13 +81,13 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
         <!-- Fonts - Non-render-blocking load with print trick, noscript fallback -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
         <noscript>
-          <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
         </noscript>
 
         <!-- Preload LCP image for faster paint — only on homepage where hero.webp is the actual LCP -->
-        {preloadHero && <link rel="preload" as="image" href="/Logo/hero Image/hero.webp" fetchpriority="high" />}
+        {preloadHero && <link rel="preload" as="image" href="/Logo/hero%20Image/hero-480w.webp" fetchpriority="high" imagesrcset="/Logo/hero%20Image/hero-480w.webp 480w, /Logo/hero%20Image/hero-768w.webp 768w, /Logo/hero%20Image/hero.webp 1024w" imagesizes="(max-width: 768px) 300px, (max-width: 1024px) 400px, 600px" />}
 
         <!-- JSON-LD Structured Data -->
         <script type="application/ld+json">
@@ -97,6 +97,7 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
             "@id": "https://ionova.ai/#website",
             "name": "ioNova AI",
             "url": "https://ionova.ai",
+            "publisher": { "@id": "https://ionova.ai/#organization" },
             "description": "AI-native ISO 20022 Address Resolution and Entity Intelligence Platform for global payment compliance.",
             "inLanguage": "en-US",
             "potentialAction": {
@@ -171,7 +172,7 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
             "@id": "https://ionova.ai/#address-intelligence-product",
             "name": "ioNova Address Intelligence Platform",
             "description": "AI-native Address Resolution Engine for ISO 20022 compliance. Converts unstructured payment addresses into SWIFT CBPR+, HVPS+, and SEPA-compliant structured formats with >99% STP rates and sub-50ms latency across 195 countries.",
-            "applicationCategory": "FinanceApplication",
+            "applicationCategory": "BusinessApplication",
             "operatingSystem": "Web, API, Cloud",
             "featureList": [
               "ISO 20022 Structured Address Resolution",

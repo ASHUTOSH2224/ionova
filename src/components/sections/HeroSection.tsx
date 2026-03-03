@@ -1,46 +1,46 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "@/lib/router-shim";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, CheckCircle } from "lucide-react";
-import gsap from "gsap";
+import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   const leftColumnRef = useRef<HTMLDivElement>(null);
   const rightImageRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate text elements stagger in
-      gsap.from(leftColumnRef.current?.children || [], {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.15,
-        ease: "power3.out",
-        delay: 0.2
-      });
+  useEffect(() => {
+    let ctx: any;
+    import("gsap").then(({ default: gsap }) => {
+      ctx = gsap.context(() => {
+        // Animate text elements stagger in (no opacity — keeps SSR content visible for fast LCP)
+        gsap.from(leftColumnRef.current?.children || [], {
+          y: 30,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power3.out",
+          delay: 0.2
+        });
 
-      // Animate image fade in and scale
-      gsap.from(rightImageRef.current, {
-        x: 50,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power3.out",
-        delay: 0.5
-      });
+        // Animate image slide in (no opacity — keeps SSR content visible for fast LCP)
+        gsap.from(rightImageRef.current, {
+          x: 50,
+          duration: 1.5,
+          ease: "power3.out",
+          delay: 0.5
+        });
 
-      // Continuous floating animation for the image
-      gsap.to(rightImageRef.current, {
-        y: -20,
-        duration: 4,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1,
-        delay: 2 // Start floating after entrance
+        // Continuous floating animation for the image
+        gsap.to(rightImageRef.current, {
+          y: -20,
+          duration: 4,
+          ease: "sine.inOut",
+          yoyo: true,
+          repeat: -1,
+          delay: 2 // Start floating after entrance
+        });
       });
     });
 
-    return () => ctx.revert();
+    return () => ctx?.revert();
   }, []);
 
   return (
@@ -58,7 +58,7 @@ export function HeroSection() {
             <div ref={leftColumnRef} className="text-center lg:text-left w-full relative z-20">
               {/* Headline */}
               <h1 className="hero-page-heading mb-6 font-extrabold tracking-tight text-white">
-                <span className="block mb-2">Achieve ISO 20022 compliance with</span>
+                <span className="block mb-2">Achieve ISO 20022 compliance with </span>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-sky-200 to-white drop-shadow-sm block">
                   fully Structured Payment Addresses
                 </span>
@@ -121,9 +121,11 @@ export function HeroSection() {
 
               <img
                 src="/Logo/hero Image/hero.webp"
+                srcSet="/Logo/hero%20Image/hero-480w.webp 480w, /Logo/hero%20Image/hero-768w.webp 768w, /Logo/hero%20Image/hero.webp 1024w"
+                sizes="(max-width: 768px) 300px, (max-width: 1024px) 400px, 600px"
                 alt="ISO 20022 Compliance Platform"
-                width={900}
-                height={900}
+                width={1024}
+                height={1024}
                 loading="eager"
                 fetchPriority="high"
                 className="relative z-10 w-full h-auto drop-shadow-2xl"

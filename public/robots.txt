@@ -36,9 +36,10 @@ Disallow: /
 User-agent: CCBot
 Disallow: /
 
-# Default: allow all, block Ghost CMS admin paths
+# Default: allow all, block Ghost CMS admin paths and internal API
 User-agent: *
 Allow: /
+Disallow: /api/
 Disallow: /ghost/
 
 Sitemap: https://ionova.ai/sitemap-index.xml

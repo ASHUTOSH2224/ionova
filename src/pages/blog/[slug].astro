@@ -92,17 +92,10 @@ const postKeywords = post?.tags
     "url": `https://ionova.ai/blog/${slug}`,
     ...(isoDate ? { "datePublished": isoDate } : {}),
     ...(isoDateModified ? { "dateModified": isoDateModified } : {}),
-    "author": {
-      "@type": "Person",
-      "name": post?.author || 'ioNova Team',
-      "worksFor": { "@id": "https://ionova.ai/#organization" }
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "ioNova AI",
-      "url": "https://ionova.ai",
-      "logo": { "@type": "ImageObject", "url": "https://ionova.ai/Logo/ionova%20logo/logo.PNG", "width": 200, "height": 60 }
-    },
+    "author": post?.author === 'Parth Desai'
+      ? { "@type": "Person", "@id": "https://ionova.ai/#parth-desai", "name": "Parth Desai" }
+      : { "@type": "Person", "name": post?.author || 'ioNova Team', "worksFor": { "@id": "https://ionova.ai/#organization" } },
+    "publisher": { "@id": "https://ionova.ai/#organization" },
     "image": post?.image
       ? { "@type": "ImageObject", "url": post.image }
       : { "@type": "ImageObject", "url": "https://ionova.ai/og-image.png" },
