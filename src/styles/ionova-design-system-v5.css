@@ -2955,6 +2955,101 @@
   box-shadow: 0 0 15px rgba(67, 173, 193, 0.1)
 }
 
+/* Quote cards (Testimonials) */
+.ds-v5 .quote-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg)
+}
+
+.ds-v5 .quote-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: all .35s var(--ease);
+  position: relative;
+  overflow: hidden
+}
+
+.ds-v5 .quote-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-brand);
+  background-size: 200% 100%;
+  animation: gradient-x 4s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity .3s
+}
+
+.ds-v5 .quote-card:hover::before {
+  opacity: 1
+}
+
+.ds-v5 .quote-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px)
+}
+
+[data-theme="dark"] .ds-v5 .quote-card:hover {
+  box-shadow: var(--shadow-colored)
+}
+
+.ds-v5 .quote-mark {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--teal-500);
+  opacity: 0.3;
+  margin-bottom: var(--space-sm)
+}
+
+.ds-v5 .quote-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-label);
+  font-style: italic;
+  margin-bottom: var(--space-md)
+}
+
+.ds-v5 .quote-author {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary)
+}
+
+.ds-v5 .quote-role {
+  font-size: 12px;
+  color: var(--text-muted)
+}
+
+.ds-v5 .quote-proof {
+  margin-top: var(--space-sm)
+}
+
+.ds-v5 .quote-proof a {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--teal-500);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(67, 173, 193, 0.08);
+  border: 1px solid rgba(67, 173, 193, 0.15);
+  transition: all .2s;
+  text-decoration: none
+}
+
+.ds-v5 .quote-proof a:hover {
+  background: rgba(67, 173, 193, 0.15)
+}
+
 /* Leadership cards */
 .ds-v5 .leaders-grid {
   display: grid;
@@ -3282,6 +3377,10 @@
   }
 
   .ds-v5 .why-grid {
+    grid-template-columns: 1fr
+  }
+
+  .ds-v5 .quote-grid {
     grid-template-columns: 1fr
   }
 }

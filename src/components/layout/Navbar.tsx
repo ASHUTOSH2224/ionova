@@ -323,59 +323,6 @@ export function Navbar() {
           </NavigationMenu>
 
           <Link
-            to="/company"
-            data-astro-prefetch="viewport"
-            className={cn(
-              "text-base font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
-              isCompanyActive && "text-blue-600 font-semibold bg-blue-50/50"
-            )}
-          >
-            Company
-          </Link>
-
-          {/* 
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  className={cn(
-                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium text-base",
-                    isResourcesActive && "text-blue-600 font-semibold bg-blue-50/50"
-                  )}
-                >
-                  Resources
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[280px] bg-white rounded-xl shadow-xl border border-border/50 p-3">
-                    <ul className="grid gap-0.5">
-                      {resourcesItems.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.href}
-                              className={cn(
-                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
-                                isActive(item.href) && "bg-blue-50"
-                              )}
-                            >
-                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors">
-                                <item.icon className="h-3.5 w-3.5" />
-                              </span>
-                              <span className="font-medium text-navy-900 group-hover:text-blue-700 text-sm">{item.label}</span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
-            </NavigationMenuList>
-          </NavigationMenu>
-          */}
-
-          <Link
             to="/blogs"
             data-astro-prefetch="viewport"
             className={cn(
@@ -384,6 +331,17 @@ export function Navbar() {
             )}
           >
             Resources
+          </Link>
+
+          <Link
+            to="/company"
+            data-astro-prefetch="viewport"
+            className={cn(
+              "text-base font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
+              isCompanyActive && "text-blue-600 font-semibold bg-blue-50/50"
+            )}
+          >
+            Company
           </Link>
         </div>
 
@@ -501,21 +459,21 @@ export function Navbar() {
           </div>
 
           <Link
-            to="/company"
-            data-astro-prefetch="tap"
-            className="block text-base font-medium text-navy-900"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Company
-          </Link>
-
-          <Link
             to="/blogs"
             data-astro-prefetch="tap"
             className="block text-base font-medium text-navy-900"
             onClick={() => setMobileMenuOpen(false)}
           >
             Resources
+          </Link>
+
+          <Link
+            to="/company"
+            data-astro-prefetch="tap"
+            className="block text-base font-medium text-navy-900"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Company
           </Link>
 
           <Button variant="hero" className="w-3/4 h-14 mx-auto rounded-full mt-2 text-lg" asChild>
