@@ -67,3 +67,33 @@ jobs:
           aws cloudfront create-invalidation \
             --distribution-id "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" \
             --paths "/*"
+
+      - name: Notify Bing IndexNow
+        run: |
+          SITE="https://ionova.ai"
+          KEY="9b529d484b3f4c6e8fa5738595469ee7"
+
+          # Extract all URLs from built sitemap files
+          URLS=$(grep -ohP '(?<=<loc>)[^<]+' dist/sitemap-*.xml | sort -u)
+          URL_COUNT=$(echo "$URLS" | wc -l | tr -d ' ')
+
+          # Build JSON array
+          URL_JSON=$(echo "$URLS" | awk '{printf "    \"%s\"", $0; if (NR>0) printf ",\n"}' | sed '$ s/,$//')
+
+          echo "Submitting ${URL_COUNT} URLs to IndexNow..."
+
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X POST "https://api.indexnow.org/IndexNow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{
+              \"host\": \"ionova.ai\",
+              \"key\": \"${KEY}\",
+              \"keyLocation\": \"${SITE}/${KEY}.txt\",
+              \"urlList\": [
+          ${URL_JSON}
+              ]
+            }")
+
+          echo "IndexNow response: HTTP ${RESPONSE}"
+          if [ "$RESPONSE" != "200" ] && [ "$RESPONSE" != "202" ]; then
+            echo "Warning: IndexNow returned unexpected status. URLs may not have been submitted."
+          fi
