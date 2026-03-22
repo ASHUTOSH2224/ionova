@@ -56,10 +56,18 @@ const safeInjection = post?.codeinjection_head
   ? post.codeinjection_head.replace(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, '')
   : '';
 
-// Ensure description is at least 50 chars
+// Ensure description is 50–160 chars for Bing/Google SEO compliance
 const rawExcerpt = post?.excerpt || '';
 const fallbackDesc = `Read "${post?.title || 'this article'}" on the ioNova AI blog — expert insights on ISO 20022 and payment compliance.`;
-const description = rawExcerpt.length >= 50 ? rawExcerpt : fallbackDesc;
+const longDesc = rawExcerpt.length >= 50 ? rawExcerpt : fallbackDesc;
+const description = longDesc.length > 160 ? longDesc.slice(0, 157) + '...' : longDesc;
+
+// Truncate title to stay under 60 chars (Bing's limit) including " | ioNova AI" suffix
+const suffix = ' | ioNova AI';
+const rawTitle = post?.title || 'Blog';
+const pageTitle = (rawTitle + suffix).length > 60
+  ? rawTitle.slice(0, 60 - suffix.length - 3) + '...' + suffix
+  : rawTitle + suffix;
 
 // Build per-post keywords from Ghost tags, falling back to category
 const postKeywords = post?.tags
@@ -68,7 +76,7 @@ const postKeywords = post?.tags
 ---
 
 <Layout
-  title={`${post?.title || 'Blog'} | ioNova AI`}
+  title={pageTitle}
   description={description}
   keywords={postKeywords}
   ogImage={post?.image || '/og-image.png'}

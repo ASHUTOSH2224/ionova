@@ -62,6 +62,26 @@ jobs:
             --exclude "*" \
             --include "*.json"
 
+      - name: Set S3 301 redirects for old blog slugs
+        run: |
+          BUCKET="${{ secrets.S3_BUCKET_NAME }}"
+
+          # /blog/iso-20022-paradox-message-migration → renamed slug
+          aws s3api put-object \
+            --bucket "$BUCKET" \
+            --key "blog/iso-20022-paradox-message-migration/index.html" \
+            --website-redirect-location "/blog/the-iso-20022-paradox-why-message-migration-is-the-easy-part" \
+            --content-type "text/html"
+
+          # /blog/why-your-sanctions-screening-is-only-as-good-as-your-address-data → deleted, redirect to blog index
+          aws s3api put-object \
+            --bucket "$BUCKET" \
+            --key "blog/why-your-sanctions-screening-is-only-as-good-as-your-address-data/index.html" \
+            --website-redirect-location "/blogs" \
+            --content-type "text/html"
+
+          echo "S3 301 redirects configured for 2 old blog slugs."
+
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
