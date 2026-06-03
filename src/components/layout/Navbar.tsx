@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
-import { Menu, X, FileCheck, TrendingUp, Map, Cpu, CheckCircle, Users, BadgeCheck, Monitor, GitMerge, Shield, MapPin, DollarSign, Code, ChevronDown } from "lucide-react";
+import { Menu, X, FileCheck, TrendingUp, Map, Cpu, CheckCircle, Users, BadgeCheck, Monitor, GitMerge, Shield, MapPin, DollarSign, Code, ChevronDown, LayoutGrid, Terminal, Plug } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -92,6 +92,42 @@ const addressIntelligencePillars = [
   },
 ];
 
+const arsPlatformOverview = [
+  {
+    label: "Platform Overview",
+    description: "The ARS platform \u2014 deterministic, four components",
+    href: "/ionova-ars",
+    icon: LayoutGrid,
+  },
+];
+
+const arsPlatformComponents = [
+  {
+    label: "AI Engine",
+    description: "Deterministic 7-step pipeline, sub-50ms P95",
+    href: "/ionova-ars/engine",
+    icon: Cpu,
+  },
+  {
+    label: "Developer Portal",
+    description: "Quick Start, 24 endpoints, sandbox",
+    href: "/ionova-ars/developers",
+    icon: Terminal,
+  },
+  {
+    label: "Exceptions Workbench",
+    description: "No-code resolution + Agentic Workbench",
+    href: "/ionova-ars/workbench",
+    icon: Monitor,
+  },
+  {
+    label: "Channels & Integrations",
+    description: "Sidecar deployment, 6 native channels",
+    href: "/ionova-ars/integrations",
+    icon: Plug,
+  },
+];
+
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMobileSections, setOpenMobileSections] = useState<Record<string, boolean>>({});
@@ -135,6 +171,7 @@ export function Navbar() {
   const isAddressIntelligenceActive = location.pathname.startsWith(
     "/address-intelligence"
   );
+  const isArsPlatformActive = location.pathname.startsWith("/ionova-ars");
   const isResourcesActive = location.pathname === "/blogs" || location.hash.startsWith("#whitepaper") || location.hash.startsWith("#checklist");
   const isCompanyActive = location.pathname === "/company";
   // Attach navbar purely based on scroll position for all pages
@@ -216,6 +253,81 @@ export function Navbar() {
                     <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Four Pillars</p>
                     <ul className="grid gap-0.5">
                       {addressIntelligencePillars.map((item) => (
+                        <li key={item.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={item.href}
+                              className={cn(
+                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
+                                isActive(item.href) && "bg-blue-50"
+                              )}
+                            >
+                              <span className={cn(
+                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
+                                isActive(item.href) && "bg-blue-100 text-blue-600"
+                              )}>
+                                <item.icon className="h-3.5 w-3.5" />
+                              </span>
+                              <span className={cn(
+                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
+                                isActive(item.href) && "text-blue-700 font-semibold"
+                              )}>{item.label}</span>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium text-base",
+                    isArsPlatformActive && "text-blue-600 font-semibold bg-blue-50/50"
+                  )}
+                >
+                  ARS Platform
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="w-[300px] bg-white rounded-xl shadow-xl border border-border/50 p-3">
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">ARS Platform</p>
+                    <ul className="grid gap-0.5">
+                      {arsPlatformOverview.map((item) => (
+                        <li key={item.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={item.href}
+                              className={cn(
+                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
+                                isActive(item.href) && "bg-blue-50"
+                              )}
+                            >
+                              <span className={cn(
+                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
+                                isActive(item.href) && "bg-blue-100 text-blue-600"
+                              )}>
+                                <item.icon className="h-3.5 w-3.5" />
+                              </span>
+                              <span className={cn(
+                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
+                                isActive(item.href) && "text-blue-700 font-semibold"
+                              )}>{item.label}</span>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="border-t border-border/50 my-2" />
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Four Components</p>
+                    <ul className="grid gap-0.5">
+                      {arsPlatformComponents.map((item) => (
                         <li key={item.href}>
                           <NavigationMenuLink asChild>
                             <Link
@@ -403,6 +515,46 @@ export function Navbar() {
                 ))}
                 <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Four Pillars</p>
                 {addressIntelligencePillars.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    data-astro-prefetch="tap"
+                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <button
+              onClick={() => toggleMobileSection('ars')}
+              className="flex w-full items-center justify-between text-base font-medium text-navy-900"
+            >
+              ARS Platform
+              <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileSections['ars'] ? "rotate-180" : "")} />
+            </button>
+            {openMobileSections['ars'] && (
+              <div className="pl-4 space-y-1 border-l-2 border-primary/10 ml-1 animate-in slide-in-from-top-2 fade-in duration-200">
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-1 pb-0.5">Overview</p>
+                {arsPlatformOverview.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    data-astro-prefetch="tap"
+                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Four Components</p>
+                {arsPlatformComponents.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}

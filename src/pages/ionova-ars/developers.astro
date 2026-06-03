@@ -1,0 +1,168 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import '@/styles/ars-platform.css';
+---
+
+<Layout
+  title="ioNova ARS Developer Portal — ISO 20022 Address Resolution API"
+  description="First API call in five minutes. Full reference for 24 endpoints, RFC 9421 authentication, a 30-code reason catalogue and a production-shaped sandbox for ISO 20022 address resolution."
+  keywords="ioNova ARS developer portal, ISO 20022 API, address resolution REST API, RFC 9421, sandbox, Quick Start, reason codes"
+  ogImage="/og-image.png"
+  ogImageAlt="ioNova ARS Developer Portal — ISO 20022 Address Resolution API"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ioNova ARS Developer Portal — ISO 20022 Address Resolution API",
+    "description": "First API call in five minutes. Full reference for 24 endpoints, RFC 9421 authentication, a 30-code reason catalogue and a production-shaped sandbox.",
+    "url": "https://ionova.ai/ionova-ars/developers",
+    "isPartOf": { "@id": "https://ionova.ai/#website" },
+    "about": { "@id": "https://ionova.ai/#ars-platform-product" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+        { "@type": "ListItem", "position": 2, "name": "ioNova ARS", "item": "https://ionova.ai/ionova-ars" },
+        { "@type": "ListItem", "position": 3, "name": "Developer Portal", "item": "https://ionova.ai/ionova-ars/developers" }
+      ]
+    }
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ioNova ARS — Developer Portal",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web-based (SaaS), private VPC, on-premise",
+    "url": "https://ionova.ai/ionova-ars/developers",
+    "description": "Developer portal and REST API for ISO 20022 address resolution: 24 documented endpoints, RFC 9421 authentication, a 30-code reason catalogue and a production-shaped sandbox.",
+    "publisher": { "@id": "https://ionova.ai/#organization" }
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How long does it take to make a first ARS API call?", "acceptedAnswer": { "@type": "Answer", "text": "About five minutes via the Quick Start — sign up, get a key, POST a message, read the corrected response." } },
+      { "@type": "Question", "name": "How is the API authenticated?", "acceptedAnswer": { "@type": "Answer", "text": "Per-tenant API keys plus RFC 9421 HTTP Message Signatures and JWT, with strict per-tenant isolation." } },
+      { "@type": "Question", "name": "Is there a sandbox?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — a production-shaped sandbox with sample data. Most pilots call sandbox endpoints by week 4 and can validate behaviour with no client code via the Playground." } },
+      { "@type": "Question", "name": "Will upgrades break my integration?", "acceptedAnswer": { "@type": "Answer", "text": "No. v4.4 is backwards-compatible: the legacy issues[] array is preserved alongside the newer reasons[] array." } }
+    ]
+  })} />
+
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ars-platform">
+        <div class="ars-container">
+
+          <section class="hero">
+            <div class="hero-inner">
+              <div class="hero-badge"><span class="pulse-dot"></span><span>For developers · REST API</span></div>
+              <h1>From zero to first API call <span class="accent">in five minutes</span></h1>
+              <p>The integrator's front door: a five-minute Quick Start, full reference for all 24 endpoints, authentication, the 30-code reason catalogue, and a production-shaped sandbox. It turns a regulatory deadline into a delivery plan you can run in days.</p>
+              <div class="hero-cta">
+                <a class="btn btn-accent" href="/ionova-ars">Get API keys <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a class="btn btn-outline" href="#quickstart">Read the Quick Start</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="quickstart">
+            <div class="answer-block"><strong>The ARS Developer Portal is the integrator's front door: a five-minute Quick Start, full reference for all 24 endpoints across five layers, authentication and security, the 30-code reason catalogue, and a production-shaped sandbox.</strong></div>
+
+            <div class="section-header" style="margin-top:var(--space-2xl)">
+              <div class="section-label">Quick Start</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>A first call in five minutes</h2>
+            </div>
+            <div class="steps">
+              <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Sign up &amp; generate an API key</h4><p>Per-tenant key, issued instantly.</p></div></div>
+              <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Point at the base URL</h4><p><span style="font-family:var(--font-mono);color:var(--teal-500)">https://api.ionova.ai/v4.4</span></p></div></div>
+              <div class="step"><div class="step-num">3</div><div class="step-body"><h4>POST a message</h4><p>Hit the AutoCorrect endpoint with a <span style="font-family:var(--font-mono);color:var(--teal-500)">channelName</span>.</p></div></div>
+              <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Read back the result</h4><p>The corrected ISO 20022 message and its status.</p></div></div>
+            </div>
+            <div class="code-block"><pre><span class="comment"># One channelName + payload — scheme, direction, format & corridor</span>
+<span class="comment"># all come from the registered Channel Profile.</span>
+curl https://api.ionova.ai/v4.4/<span class="prop">convert-message-party-addresses</span> \
+  -H <span class="string">"Authorization: Bearer $ARS_API_KEY"</span> \
+  -H <span class="string">"Content-Type: application/json"</span> \
+  -d <span class="string">'&#123; "channelName": "SCT_OUT", "message_xml": "&lt;...pain.001...&gt;" &#125;'</span></pre></div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">API surface</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>24 endpoints across 5 layers</h2>
+              <p class="section-desc">Fully documented with request/response schemas and worked examples.</p>
+            </div>
+            <div class="grid-3">
+              <div class="card"><div class="card-title" style="font-size:15px">PreCheck</div><div class="card-body">Sub-100ms structural validation.</div></div>
+              <div class="card"><div class="card-title" style="font-size:15px">AutoCorrect</div><div class="card-body">Message-level — returns the complete corrected XML.</div></div>
+              <div class="card"><div class="card-title" style="font-size:15px">Batch</div><div class="card-body">Up to 1,000 sets or 100 messages per call.</div></div>
+              <div class="card"><div class="card-title" style="font-size:15px">Message-level</div><div class="card-body">Whole-message AutoCorrect with XPath write-back.</div></div>
+              <div class="card"><div class="card-title" style="font-size:15px">R-transactions</div><div class="card-body">Dedicated endpoints applying the EPC §8.3 pass-through exemption.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Auth &amp; security</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Defence in depth</h2>
+            </div>
+            <ul class="flist">
+              <li><span class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Per-tenant API keys, RFC 9421 HTTP Message Signatures, and JWT</strong> — with strict per-tenant isolation.</span></li>
+              <li><span class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Data-sovereign deployments</strong> — runs on-premise, in a private VPC, or air-gapped; no PII need leave the institution.</span></li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Reason codes</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>30-code catalogue</h2>
+              <p class="section-desc">Every non-compliant or repaired response carries structured reason codes, each mapped to the regulatory <span style="font-family:var(--font-mono);color:var(--teal-500)">rule_source</span> it maps to. Downstream systems route by code prefix without parsing free text.</p>
+            </div>
+            <div class="table-wrap"><table class="token-table">
+              <thead><tr><th>Content area</th><th>What you find there</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">Quick Start</td><td>First call in five minutes</td></tr>
+                <tr><td class="mono">API Reference</td><td>All 24 endpoints, schemas, examples</td></tr>
+                <tr><td class="mono">Authentication</td><td>Keys, signatures, JWT, isolation</td></tr>
+                <tr><td class="mono">Reason Codes &amp; Status</td><td>30 codes, four-state taxonomy</td></tr>
+                <tr><td class="mono">Editions &amp; Channels</td><td>Edition matrix, channel comparison</td></tr>
+                <tr><td class="mono">Operate</td><td>Cutover mechanics, go-live checklist, support tiers</td></tr>
+              </tbody>
+            </table></div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Sandbox &amp; go-live</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>From first call to production</h2>
+            </div>
+            <div class="grid-2">
+              <div class="card card-accent"><div class="icon-container ic-cyan"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="card-title" style="font-size:16px">Production-shaped sandbox</div><div class="card-body">Call real endpoints with sample data before writing client code — most pilots are calling sandbox endpoints by week 4.</div></div>
+              <div class="card"><div class="icon-container ic-blue"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="card-title" style="font-size:16px">Go-live checklist</div><div class="card-body">A numbered checklist, signed off by security review, takes you from first call to production.</div></div>
+            </div>
+            <div class="alert alert-green">
+              <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div class="alert-content"><div class="alert-title">No breaking changes in v4.4</div><div class="alert-body">v4.4 preserves the v4.0 <span style="font-family:var(--font-mono)">issues[]</span> array alongside the v4.2 <span style="font-family:var(--font-mono)">reasons[]</span> array — backwards-compatible.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header"><div class="section-label">FAQ</div><h2 class="section-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Frequently asked questions</h2></div>
+            <div class="faq-list">
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does it take to make a first ARS API call?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>About five minutes via the Quick Start — sign up, get a key, POST a message, read the corrected response.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is the API authenticated?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Per-tenant API keys plus RFC 9421 HTTP Message Signatures and JWT, with strict per-tenant isolation.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there a sandbox?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Yes — a production-shaped sandbox with sample data. Most pilots call sandbox endpoints by week 4 and can validate behaviour with no client code via the Playground.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Will upgrades break my integration?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>No. v4.4 is backwards-compatible: the legacy issues[] array is preserved alongside the newer reasons[] array.</p></div></div>
+            </div>
+            <div class="related"><span class="rlabel">Related</span><a href="/ionova-ars">Platform overview</a><a href="/ionova-ars/engine">AI Engine</a><a href="/ionova-ars/workbench">Exceptions Workbench</a><a href="/ionova-ars/integrations">Channels &amp; Integrations</a></div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

@@ -35,10 +35,11 @@ export default defineConfig({
         return { ...item, changefreq: 'weekly', priority: 1.0 };
       }
 
-      // Primary hub pages — address + entity are top-tier (0.9)
+      // Primary hub pages — address + entity + ARS are top-tier (0.9)
       const tier1Hubs = [
         'https://ionova.ai/address-intelligence',
         'https://ionova.ai/entity-intelligence',
+        'https://ionova.ai/ionova-ars',
       ];
       if (tier1Hubs.includes(url)) {
         return { ...item, changefreq: 'monthly', priority: 0.9 };
@@ -72,6 +73,11 @@ export default defineConfig({
       // Entity Intelligence sub-pages — priority 0.7 per spec
       if (url.includes('/entity-intelligence/')) {
         return { ...item, changefreq: 'monthly', priority: 0.7 };
+      }
+
+      // ARS Platform sub-pages — priority 0.8 (matches Address Intelligence sub-pages)
+      if (url.includes('/ionova-ars/')) {
+        return { ...item, changefreq: 'monthly', priority: 0.8 };
       }
 
       // Address Intelligence sub-pages and any remaining pages

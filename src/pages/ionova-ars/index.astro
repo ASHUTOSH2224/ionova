@@ -1,0 +1,197 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import '@/styles/ars-platform.css';
+---
+
+<Layout
+  title="ioNova ARS — Address Resolution Service for ISO 20022 Payments"
+  description="Deterministic address intelligence for ISO 20022 payments. ioNova ARS resolves free-text or hybrid addresses into compliant output in one API call."
+  keywords="ioNova ARS, Address Resolution Service, ISO 20022, SWIFT CBPR+, SEPA, deterministic address resolution, payment compliance"
+  ogImage="/og-image.png"
+  ogImageAlt="ioNova ARS — Address Resolution Service for ISO 20022 Payments"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ioNova ARS — Address Resolution Service for ISO 20022 Payments",
+    "description": "Deterministic address intelligence for ISO 20022 payments. ioNova ARS resolves free-text or hybrid addresses into compliant output in one API call.",
+    "url": "https://ionova.ai/ionova-ars",
+    "isPartOf": { "@id": "https://ionova.ai/#website" },
+    "about": { "@id": "https://ionova.ai/#ars-platform-product" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+        { "@type": "ListItem", "position": 2, "name": "ioNova ARS", "item": "https://ionova.ai/ionova-ars" }
+      ]
+    }
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://ionova.ai/#ars-platform-product",
+    "name": "ioNova ARS",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web-based (SaaS), private VPC, on-premise",
+    "url": "https://ionova.ai/ionova-ars",
+    "description": "SaaS address-resolution platform that converts free-text, hybrid or structured payment addresses into ISO 20022-compliant structured output in a single API call, purpose-built for SWIFT CBPR+ and SEPA.",
+    "publisher": { "@id": "https://ionova.ai/#organization" }
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is ioNova ARS?", "acceptedAnswer": { "@type": "Answer", "text": "ARS (Address Resolution Service) is a SaaS platform that converts unstructured or hybrid payment addresses into ISO 20022-compliant structured output in a single API call, purpose-built for SWIFT CBPR+ and SEPA." } },
+      { "@type": "Question", "name": "Is ARS deterministic or LLM-based?", "acceptedAnswer": { "@type": "Answer", "text": "The core engine is deterministic — identical input always produces identical output, with every correction tied to a cited regulatory rule. An AI-assisted workbench handles only the small share of genuinely ambiguous cases, with human-in-the-loop review." } },
+      { "@type": "Question", "name": "How quickly can we start using ARS?", "acceptedAnswer": { "@type": "Answer", "text": "You can sign up, get keys and run corrections in the sandbox the same day, and connect a live channel within days. Full enterprise production typically follows in 10–16 weeks." } },
+      { "@type": "Question", "name": "Do we have to replace our core systems?", "acceptedAnswer": { "@type": "Answer", "text": "No. ARS deploys as a sidecar alongside existing infrastructure and connects through standard channels and pre-built middleware connectors." } },
+      { "@type": "Question", "name": "What straight-through rate does ARS achieve?", "acceptedAnswer": { "@type": "Answer", "text": "The deterministic engine resolves about 98% of addresses automatically; the remainder route to the Exceptions Workbench, lifting the combined straight-through rate above 99% while preserving a full deterministic audit trail." } }
+    ]
+  })} />
+
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ars-platform">
+        <div class="ars-container">
+
+          <section class="hero">
+            <div class="hero-inner">
+              <div class="hero-badge"><span class="pulse-dot"></span><span>SaaS · ISO 20022 · Live in days</span></div>
+              <h1>The <span class="accent">Address Resolution Service</span> for ISO 20022 payments</h1>
+              <p>ioNova ARS converts free-text, hybrid or structured payment addresses into ISO 20022-compliant structured output in a single API call — purpose-built for SWIFT CBPR+ and SEPA. One deterministic engine, four components, working in days.</p>
+              <div class="hero-cta">
+                <a class="btn btn-accent" href="/ionova-ars/developers">Start free <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a class="btn btn-outline" href="/demo">Book a demo</a>
+              </div>
+              <span class="hero-note">SaaS · self-serve sandbox · deploys as a sidecar with no core replacement</span>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="answer-block"><strong>ioNova ARS is a SaaS address-resolution platform that converts free-text, hybrid or structured payment addresses into ISO 20022-compliant structured output in a single API call.</strong> It runs on one deterministic engine delivered as four components — the AI Engine, the Developer Portal, the Exceptions Workbench, and Channels &amp; Integrations.</div>
+
+            <div class="alert alert-red">
+              <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+              <div class="alert-content"><div class="alert-title">Deadline: 15 November 2026</div><div class="alert-body">SWIFT CBPR+ SR2026 and the EPC 2025 SEPA Rulebook reject cross-border and SEPA payments whose postal address lacks a structured town and country. Rejection happens at the network boundary — and liability lands on the originating institution. More than 60% of cross-border payments still carry unstructured postal addresses (<a href="https://www.swift.com/standards/iso-20022/iso-20022-bytes/call-action-november-2026" target="_blank" rel="noopener">SWIFT, 2026</a>).</div></div>
+            </div>
+
+            <div class="decision-box">
+              <div class="decision-label">The ARS principle</div>
+              <div class="decision-body"><strong>Resolve and fix, not validate and block.</strong> Submit any address and receive it back corrected, regulation-aware, and ready to transmit — a complete corrected ISO 20022 message with namespaces preserved — in under 50 milliseconds. No exception queue to staff, no XPath write-back logic to build.</div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">One platform</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="2"/><rect x="14" y="2" width="8" height="8" rx="2"/><rect x="2" y="14" width="8" height="8" rx="2"/><rect x="14" y="14" width="8" height="8" rx="2"/></svg>Four feature components</h2>
+              <p class="section-desc">A single product delivered as four cohesive components that share the same database, the same audit trail, and the same regulatory intelligence.</p>
+            </div>
+            <div class="grid-2">
+              <a class="card card-accent card-link" href="/ionova-ars/engine">
+                <div class="card-eyebrow">01 · The engine</div>
+                <div class="icon-container ic-teal"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+                <div class="card-title">ARS AI Engine</div>
+                <div class="card-body">The deterministic core: 24 endpoints across 5 layers running a seven-step AutoCorrect pipeline at sub-50ms P95. Same input always produces the same output, every correction traceable to a cited regulatory rule.</div>
+                <span class="card-arrow">Explore the AI Engine <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              </a>
+              <a class="card card-accent card-link" href="/ionova-ars/developers">
+                <div class="card-eyebrow">02 · For developers</div>
+                <div class="icon-container ic-blue"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div class="card-title">Developer Portal</div>
+                <div class="card-body">The front door for integrators: a five-minute Quick Start, full API reference for all 24 endpoints, authentication, the 30-code reason catalogue, a production-shaped sandbox, and a go-live checklist.</div>
+                <span class="card-arrow">Open the Developer Portal <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              </a>
+              <a class="card card-accent card-link" href="/ionova-ars/workbench">
+                <div class="card-eyebrow">03 · The UI</div>
+                <div class="icon-container ic-cyan"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="8"/><rect x="12" y="6" width="3" height="12"/><rect x="17" y="13" width="3" height="5"/></svg></div>
+                <div class="card-title">Exceptions Workbench</div>
+                <div class="card-body">The no-code cockpit for operations, engineering and compliance: role-tuned dashboards, an exception queue with one-click resolution, an AI-assisted Agentic Workbench for ambiguous cases, and a full audit trail.</div>
+                <span class="card-arrow">See the Workbench <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              </a>
+              <a class="card card-accent card-link" href="/ionova-ars/integrations">
+                <div class="card-eyebrow">04 · Connect your rails</div>
+                <div class="icon-container ic-navy"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                <div class="card-title">Channels &amp; Integrations</div>
+                <div class="card-body">Six native channels (REST, MCP, IBM MQ, Kafka, SFTP, JDBC) plus pre-built connectors for MuleSoft, Volante, Finastra and SWIFT Alliance. Deploys as a sidecar beside your existing infrastructure.</div>
+                <span class="card-arrow">Browse Integrations <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              </a>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Live in days</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>How onboarding works</h2>
+              <p class="section-desc">ARS is SaaS. You do not wait months to see value — your team is correcting addresses in the sandbox on day one.</p>
+            </div>
+            <div class="steps">
+              <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Day 1 — Sign up &amp; first correction</h4><p>Get API keys, open your sandbox, run your first correction.</p></div></div>
+              <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Day 2 — Connect a channel</h4><p>REST, IBM MQ or SFTP using a pre-built connector.</p></div></div>
+              <div class="step"><div class="step-num">3–5</div><div class="step-body"><h4>Day 3–5 — Validate &amp; go live</h4><p>Validate outcomes in the Exceptions Workbench and switch a flow live.</p></div></div>
+            </div>
+            <div class="alert alert-green">
+              <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div class="alert-content"><div class="alert-title">Full enterprise rollout: 10–16 weeks</div><div class="alert-body">Enterprise-wide production rollout typically completes in 10–16 weeks, but your team is correcting addresses in the sandbox on day one.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">The outcomes</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>What changes</h2>
+            </div>
+            <div class="kpi-grid">
+              <div class="kpi-tile"><div class="kpi-value cyan">98%+</div><div class="kpi-label">Straight-through processing</div></div>
+              <div class="kpi-tile"><div class="kpi-value teal">&lt;$5</div><div class="kpi-label">Per-exception cost (from $15–40)</div></div>
+              <div class="kpi-tile"><div class="kpi-value blue">30–50×</div><div class="kpi-label">ROI within 12 months</div></div>
+              <div class="kpi-tile"><div class="kpi-value cyan">&lt;50ms</div><div class="kpi-label">P95 full-pipeline latency</div></div>
+            </div>
+            <div class="grid-2" style="margin-top:var(--space-md)">
+              <div class="card"><div class="card-title" style="font-size:15px">Coverage</div><div class="card-body">246 countries · 41 SEPA · 11+ payment schemes · 25+ ISO 20022 message types.</div></div>
+              <div class="card"><div class="card-title" style="font-size:15px">Performance &amp; scale</div><div class="card-body">Sub-50ms P95 · 1,000+ TPS sustained · 10B+ transactions/year capacity.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Who it's for</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Built for four teams</h2>
+            </div>
+            <div class="grid-2">
+              <div class="card"><div class="icon-container ic-teal"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="card-title" style="font-size:15px">Payments operations</div><div class="card-body">Raise STP and cut manual exception handling.</div></div>
+              <div class="card"><div class="icon-container ic-blue"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="card-title" style="font-size:15px">Compliance &amp; financial crime</div><div class="card-body">Reduce sanctions false positives ~30% with field-level address data.</div></div>
+              <div class="card"><div class="icon-container ic-cyan"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div class="card-title" style="font-size:15px">Engineering</div><div class="card-body">Integrate via API in days with no core replacement.</div></div>
+              <div class="card"><div class="icon-container ic-navy"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div class="card-title" style="font-size:15px">Treasury &amp; corporates</div><div class="card-body">Fix beneficiary and supplier data at source before it reaches the bank.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header"><div class="section-label">FAQ</div><h2 class="section-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Frequently asked questions</h2></div>
+            <div class="faq-list">
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is ioNova ARS?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>ARS (Address Resolution Service) is a SaaS platform that converts unstructured or hybrid payment addresses into ISO 20022-compliant structured output in a single API call, purpose-built for SWIFT CBPR+ and SEPA.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is ARS deterministic or LLM-based?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>The core engine is deterministic — identical input always produces identical output, with every correction tied to a cited regulatory rule. An AI-assisted workbench handles only the small share of genuinely ambiguous cases, with human-in-the-loop review.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How quickly can we start using ARS?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>You can sign up, get keys and run corrections in the sandbox the same day, and connect a live channel within days. Full enterprise production typically follows in 10–16 weeks.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do we have to replace our core systems?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>No. ARS deploys as a sidecar alongside existing infrastructure and connects through standard channels and pre-built middleware connectors.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What straight-through rate does ARS achieve?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>The deterministic engine resolves about 98% of addresses automatically; the remainder route to the Exceptions Workbench, lifting the combined straight-through rate above 99% while preserving a full deterministic audit trail.</p></div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="cta-strip">
+              <h3>Eliminate rejection risk before 15 November 2026</h3>
+              <p>Sign up, get keys and run corrections in the sandbox today. Connect a live channel within days.</p>
+              <div class="hero-cta"><a class="btn btn-accent" href="/ionova-ars/developers">Start free <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="btn btn-outline" href="/demo" style="border-color:rgba(255,255,255,0.3);color:#fff">Book a demo</a></div>
+            </div>
+            <div class="related"><span class="rlabel">Explore</span><a href="/ionova-ars/engine">AI Engine</a><a href="/ionova-ars/developers">Developer Portal</a><a href="/ionova-ars/workbench">Exceptions Workbench</a><a href="/ionova-ars/integrations">Channels &amp; Integrations</a></div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

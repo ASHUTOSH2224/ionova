@@ -15,6 +15,15 @@ The missing layer in payment infrastructure. Parse, validate, and enrich payment
 - [Purpose-Built Solution](https://ionova.ai/address-intelligence/purpose-built-address-solution): Why postal validation and generic LLMs fail at payment address compliance — deterministic, auditable, 195-country coverage
 - [Implementation](https://ionova.ai/address-intelligence/address-implementation): Sidecar architecture, 10–16 week timeline, zero legacy rip-and-replace, pre-built MuleSoft/Volante/Finastra/SWIFT connectors
 
+### ARS Platform (Address Resolution Service)
+SaaS address-resolution platform that converts free-text, hybrid or structured payment addresses into ISO 20022-compliant structured output in a single API call. One deterministic engine, four components: AI Engine, Developer Portal, Exceptions Workbench, Channels & Integrations. Sub-50ms P95 latency, >99% combined STP, deploys as a sidecar with no core replacement.
+
+- [ARS Platform Overview](https://ionova.ai/ionova-ars): The Address Resolution Service for ISO 20022 payments — deterministic core, four components, live in days, 10–16 week enterprise rollout
+- [ARS AI Engine](https://ionova.ai/ionova-ars/engine): Deterministic seven-step AutoCorrect pipeline across 24 endpoints, sub-50ms P95, every correction traceable to a cited regulatory rule_source
+- [ARS Developer Portal](https://ionova.ai/ionova-ars/developers): First API call in five minutes, full reference for 24 endpoints, RFC 9421 authentication, 30-code reason catalogue, production-shaped sandbox
+- [ARS Exceptions Workbench](https://ionova.ai/ionova-ars/workbench): No-code resolution of the ambiguous remainder — role-tuned dashboards, Agentic Workbench (<2s), Autonomous Learning System, 365-day audit retention
+- [ARS Channels & Integrations](https://ionova.ai/ionova-ars/integrations): Sidecar deployment alongside existing infrastructure — six native channels (REST, MCP, IBM MQ, Kafka, SFTP, JDBC) and pre-built connectors for MuleSoft Anypoint, Volante VolPay, Finastra FusionFabric, SWIFT Alliance
+
 ### Entity Intelligence
 Resolve entities across 50+ systems with 95%+ precision and <200ms latency. The only platform with evidence-first AI and progressive autonomy.
 

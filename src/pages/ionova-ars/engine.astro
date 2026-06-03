@@ -1,0 +1,174 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import '@/styles/ars-platform.css';
+---
+
+<Layout
+  title="ARS AI Engine — Deterministic ISO 20022 Address Resolution | ioNova"
+  description="The deterministic engine behind ioNova ARS: a seven-step pipeline across 24 endpoints at sub-50ms P95, every correction traceable to a cited regulatory clause — a guarantee LLM parsers cannot make."
+  keywords="ARS AI engine, deterministic address resolution, ISO 20022 pipeline, seven-step AutoCorrect, sub-50ms latency, regulatory rule_source"
+  ogImage="/og-image.png"
+  ogImageAlt="ARS AI Engine — Deterministic ISO 20022 Address Resolution"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ARS AI Engine — Deterministic ISO 20022 Address Resolution",
+    "description": "The deterministic engine behind ioNova ARS: a seven-step pipeline across 24 endpoints at sub-50ms P95, every correction traceable to a cited regulatory clause.",
+    "url": "https://ionova.ai/ionova-ars/engine",
+    "isPartOf": { "@id": "https://ionova.ai/#website" },
+    "about": { "@id": "https://ionova.ai/#ars-platform-product" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+        { "@type": "ListItem", "position": 2, "name": "ioNova ARS", "item": "https://ionova.ai/ionova-ars" },
+        { "@type": "ListItem", "position": 3, "name": "AI Engine", "item": "https://ionova.ai/ionova-ars/engine" }
+      ]
+    }
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ioNova ARS — AI Engine",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web-based (SaaS), private VPC, on-premise",
+    "url": "https://ionova.ai/ionova-ars/engine",
+    "description": "Deterministic address-resolution engine running a seven-step pipeline across 24 endpoints at sub-50ms P95, returning XSD-valid ISO 20022 output with every correction traceable to a cited regulatory clause.",
+    "publisher": { "@id": "https://ionova.ai/#organization" }
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Is there a REST API for ISO 20022 address resolution?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A single REST endpoint accepts free-text, hybrid or structured input and returns corrected ISO 20022 output. MCP, IBM MQ, Kafka, SFTP and JDBC channels are also supported." } },
+      { "@type": "Question", "name": "What is the latency of the address resolution engine?", "acceptedAnswer": { "@type": "Answer", "text": "Sub-50ms P95 for the full seven-step pipeline; the structural PreCheck path is sub-100ms." } },
+      { "@type": "Question", "name": "Is the parser deterministic or LLM-based?", "acceptedAnswer": { "@type": "Answer", "text": "Deterministic. Identical input always produces identical output, with every correction tied to a cited regulatory rule_source — a requirement LLM parsers cannot meet." } },
+      { "@type": "Question", "name": "Does it return the whole corrected message?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The engine writes corrections back into the correct XPaths, preserves all namespaces, leaves untouched elements intact, and returns a complete, XSD-valid ISO 20022 message — no XPath logic on your side." } }
+    ]
+  })} />
+
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ars-platform">
+        <div class="ars-container">
+
+          <section class="hero">
+            <div class="hero-inner">
+              <div class="hero-badge"><span class="pulse-dot"></span><span>The engine · Deterministic</span></div>
+              <h1>The deterministic AI engine <span class="accent">behind every correction</span></h1>
+              <p>A seven-step pipeline across 24 endpoints at sub-50ms P95 — every correction reproducible and traceable to a cited regulatory clause, a guarantee LLM-based parsers cannot make.</p>
+              <div class="hero-cta">
+                <a class="btn btn-accent" href="/ionova-ars/workbench">Try it in the Playground <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a class="btn btn-outline" href="/ionova-ars/developers">Get API keys</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="answer-block"><strong>The ARS AI Engine converts free-text, hybrid or structured payment addresses into ISO 20022-compliant output in a single call, running a deterministic seven-step pipeline across 24 endpoints at sub-50ms P95 latency.</strong> Every correction is reproducible and traceable to a cited regulatory clause.</div>
+
+            <div class="section-header" style="margin-top:var(--space-2xl)">
+              <div class="section-label">What it does</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>The seven-step AutoCorrect pipeline</h2>
+              <p class="section-desc">Behind every AutoCorrect call, the engine runs the same pipeline end to end, inside one API call.</p>
+            </div>
+            <div class="steps">
+              <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Classify</h4><p>Detect whether the input is unstructured, hybrid or structured.</p></div></div>
+              <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Validate</h4><p>Check field presence, character limits and occurrence rules per output mode.</p></div></div>
+              <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Postal-verify</h4><p>Match against real postal databases across 246 countries with a 0.0–1.0 confidence score.</p></div></div>
+              <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Extract entities</h4><p>Pull BIC, LEI and IBAN out of misplaced address lines into their correct structured fields.</p></div></div>
+              <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Convert format</h4><p>Promote town and country into structured fields; remove duplications; convert unstructured → hybrid or fully structured.</p></div></div>
+              <div class="step"><div class="step-num">6</div><div class="step-body"><h4>Apply scheme rules</h4><p>The regulation-aware step: eight layers of rules applied automatically from three parameters (scheme, party role, execution datetime).</p></div></div>
+              <div class="step"><div class="step-num">7</div><div class="step-body"><h4>Render</h4><p>Write corrected addresses back into the correct XPaths, preserve all namespaces, and return a complete, XSD-valid ISO 20022 message.</p></div></div>
+            </div>
+            <div class="alert alert-green">
+              <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div class="alert-content"><div class="alert-title">No regulation to encode</div><div class="alert-body">You do not encode EU Regulation 2023/1113, EPC153-22, PMPG v1.11 or the CBPR+ XSD. The engine reads them on your behalf.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Two endpoints</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>AutoCorrect vs PreCheck</h2>
+            </div>
+            <div class="grid-2">
+              <div class="card card-accent"><div class="icon-container ic-teal"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="card-title" style="font-size:16px">AutoCorrect</div><div class="card-body">The resolve-and-fix endpoint: submit a message, receive it corrected. One call solves the problem.</div></div>
+              <div class="card"><div class="icon-container ic-blue"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="card-title" style="font-size:16px">PreCheck</div><div class="card-body">A sub-100ms structural validation for keystroke-level UI feedback, or as a cost-optimisation pre-filter before AutoCorrect.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Deterministic by design</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Every decision traceable</h2>
+              <p class="section-desc">The same input always produces the same output, every time. Every decision is traceable through a <span style="font-family:var(--font-mono);color:var(--teal-500)">rule_source</span> field on each of 30 structured reason codes.</p>
+            </div>
+            <div class="decision-box">
+              <div class="decision-label">Audit-grade provenance</div>
+              <div class="decision-body">In an audit, <strong>rule_source: EPC153-22 §4</strong> points the examiner straight to the regulation — far more defensible than "unstructured address found." This determinism is the substrate that distinguishes ARS from probabilistic, LLM-based parsers.</div>
+            </div>
+            <div class="sub-label">30 reason codes · six families</div>
+            <div class="badge-row">
+              <span class="badge badge-accent">FMT — Format</span><span class="badge badge-accent">FLD — Field</span><span class="badge badge-accent">REG — Regulatory</span>
+              <span class="badge badge-accent">ENT — Entity</span><span class="badge badge-accent">VRF — Verify</span><span class="badge badge-accent">CNV — Convert</span>
+            </div>
+            <div class="sub-label">Four response statuses</div>
+            <div class="badge-row">
+              <span class="badge badge-green">VALIDATED</span><span class="badge badge-high">REPAIRED</span><span class="badge badge-amber">PARTIALLY_REPAIRED</span><span class="badge badge-red">NOT_REPAIRED</span>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Output modes</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>Four output modes, bidirectional</h2>
+              <p class="section-desc">A single engine renders to four configurable modes and converts in both directions — OUTBOUND to upgrade for the network, INBOUND to down-render for legacy sanctions or RTGS gateways, even mixed within a single call.</p>
+            </div>
+            <div class="grid-4">
+              <div class="kpi-tile"><div class="kpi-value cyan">7×70</div><div class="kpi-label">COMPLIANCE</div></div>
+              <div class="kpi-tile"><div class="kpi-value teal">2×35</div><div class="kpi-label">MT_LEGACY</div></div>
+              <div class="kpi-tile"><div class="kpi-value blue">3×35</div><div class="kpi-label">CBPR_PLUS</div></div>
+              <div class="kpi-tile"><div class="kpi-value cyan">2×70</div><div class="kpi-label">EPC</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Performance &amp; scale</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Specifications</h2>
+            </div>
+            <div class="table-wrap"><table class="token-table">
+              <thead><tr><th>Metric</th><th>Specification</th></tr></thead>
+              <tbody>
+                <tr><td>Latency</td><td class="mono">&lt; 50ms P95 for the full seven-step pipeline</td></tr>
+                <tr><td>Throughput</td><td class="mono">1,000+ TPS sustained</td></tr>
+                <tr><td>Capacity</td><td class="mono">10B+ transactions per year</td></tr>
+                <tr><td>Batch</td><td class="mono">Up to 1,000 transaction sets, or 100 messages, per call</td></tr>
+              </tbody>
+            </table></div>
+            <div class="sub-label">Coverage</div>
+            <p class="card-body">246 countries (including 41 SEPA: 30 EEA + 11 non-EEA), 11+ payment schemes (SCT, SCT Inst, SDD Core, SDD B2B, OCT Inst, CBPR+, CHAPS, T2, EURO1, Fedwire and more), and 25+ ISO 20022 message types across pain, pacs and camt.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-header"><div class="section-label">FAQ</div><h2 class="section-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Frequently asked questions</h2></div>
+            <div class="faq-list">
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there a REST API for ISO 20022 address resolution?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Yes. A single REST endpoint accepts free-text, hybrid or structured input and returns corrected ISO 20022 output. MCP, IBM MQ, Kafka, SFTP and JDBC channels are also supported.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the latency of the address resolution engine?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sub-50ms P95 for the full seven-step pipeline; the structural PreCheck path is sub-100ms.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is the parser deterministic or LLM-based?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Deterministic. Identical input always produces identical output, with every correction tied to a cited regulatory rule_source — a requirement LLM parsers cannot meet.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does it return the whole corrected message?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Yes. The engine writes corrections back into the correct XPaths, preserves all namespaces, leaves untouched elements intact, and returns a complete, XSD-valid ISO 20022 message — no XPath logic on your side.</p></div></div>
+            </div>
+            <div class="related"><span class="rlabel">Related</span><a href="/ionova-ars">Platform overview</a><a href="/ionova-ars/developers">Developer Portal</a><a href="/ionova-ars/workbench">Exceptions Workbench</a><a href="/ionova-ars/integrations">Channels &amp; Integrations</a></div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

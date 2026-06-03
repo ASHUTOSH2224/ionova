@@ -1,0 +1,287 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import '@/styles/ars-platform.css';
+---
+
+<Layout
+  title="ARS Exceptions Workbench — No-Code Address Resolution | ioNova"
+  description="Resolve the small share of addresses the deterministic engine cannot auto-correct. A no-code, auditable exception queue with an AI-assisted layer for genuinely ambiguous cases."
+  keywords="ARS Exceptions Workbench, no-code address resolution, Agentic Workbench, ALS, audit trail, payment exception queue"
+  ogImage="/og-image.png"
+  ogImageAlt="ARS Exceptions Workbench — No-Code Address Resolution"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ARS Exceptions Workbench — No-Code Address Resolution",
+    "description": "Resolve the small share of addresses the deterministic engine cannot auto-correct. A no-code, auditable exception queue with an AI-assisted layer for genuinely ambiguous cases.",
+    "url": "https://ionova.ai/ionova-ars/workbench",
+    "isPartOf": { "@id": "https://ionova.ai/#website" },
+    "about": { "@id": "https://ionova.ai/#ars-platform-product" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+        { "@type": "ListItem", "position": 2, "name": "ioNova ARS", "item": "https://ionova.ai/ionova-ars" },
+        { "@type": "ListItem", "position": 3, "name": "Exceptions Workbench", "item": "https://ionova.ai/ionova-ars/workbench" }
+      ]
+    }
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ioNova ARS — Exceptions Workbench",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web-based (SaaS), private VPC, on-premise",
+    "url": "https://ionova.ai/ionova-ars/workbench",
+    "description": "No-code exceptions workbench for resolving the small share of payment addresses the deterministic engine cannot auto-correct, with an AI-assisted layer and full audit trail.",
+    "publisher": { "@id": "https://ionova.ai/#organization" }
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do I need to write code to resolve exceptions?", "acceptedAnswer": { "@type": "Answer", "text": "No. The Workbench is a no-code web application; operations and compliance teams resolve exceptions through a queue with one-click actions." } },
+      { "@type": "Question", "name": "What share of addresses need manual review?", "acceptedAnswer": { "@type": "Answer", "text": "The deterministic engine clears about 98% automatically. The remaining ~2% route to the Workbench, where the Agentic layer plus optional human review lifts the combined rate above 99%." } },
+      { "@type": "Question", "name": "How does the Agentic Workbench differ from an LLM parser?", "acceptedAnswer": { "@type": "Answer", "text": "It applies AI reasoning only to the small ambiguous remainder, with human-in-the-loop review, and never replaces the deterministic, fully audited core." } },
+      { "@type": "Question", "name": "Is there an audit trail?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every decision is logged with provenance and reason codes, scoped per tenant, with a 365-day retention default." } }
+    ]
+  })} />
+
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ars-platform">
+        <div class="ars-container">
+
+          <section class="hero">
+            <div class="hero-inner">
+              <div class="hero-badge"><span class="pulse-dot"></span><span>The UI · No-code</span></div>
+              <h1>Resolve the 2% — <span class="accent">fast, auditable, no code</span></h1>
+              <p>The deterministic engine clears ~98% of addresses automatically. The Workbench routes the rest through a fast, auditable queue, with an AI-assisted layer for genuinely ambiguous cases.</p>
+              <div class="hero-cta">
+                <a class="btn btn-accent" href="#playground">See the Workbench <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a class="btn btn-outline" href="/ionova-ars">Open the platform overview</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="answer-block"><strong>The ARS Exceptions Workbench is the no-code web application where operations, engineering and compliance teams resolve the small share of addresses the engine cannot auto-correct.</strong> The deterministic engine clears ~98% automatically; the Workbench routes the rest through a fast, auditable queue.</div>
+
+            <div class="section-header" style="margin-top:var(--space-2xl)">
+              <div class="section-label">The two-tier model</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>&gt;99% straight-through resolution</h2>
+            </div>
+            <div class="grid-3">
+              <div class="kpi-tile"><div class="kpi-value cyan">~98%</div><div class="kpi-label">Deterministic, sub-50ms P95</div></div>
+              <div class="kpi-tile"><div class="kpi-value teal">~2%</div><div class="kpi-label">Agentic Workbench, &lt;2s</div></div>
+              <div class="kpi-tile"><div class="kpi-value blue">&gt;99%</div><div class="kpi-label">Combined straight-through</div></div>
+            </div>
+            <p class="card-body" style="margin-top:var(--space-md)">The combined outcome is straight-through resolution above 99% while preserving the deterministic audit trail regulators require.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Three lenses</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Role-tuned dashboards</h2>
+              <p class="section-desc">One web application, one data set, three lenses.</p>
+            </div>
+            <div class="grid-3">
+              <div class="card card-accent"><div class="icon-container ic-teal"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="card-title" style="font-size:16px">Operations</div><div class="card-body">Live oversight of throughput, STP rate, exceptions and SLA, with a 2-second-refresh processing stream and SLA-at-risk indicators.</div></div>
+              <div class="card card-accent"><div class="icon-container ic-blue"><svg viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div><div class="card-title" style="font-size:16px">Management</div><div class="card-body">Counterparty and currency quality analytics, blended cost per transaction, and SLA compliance by scheme.</div></div>
+              <div class="card card-accent"><div class="icon-container ic-cyan"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="card-title" style="font-size:16px">Analyzer</div><div class="card-body">Deep STP and repair-rate trends, scheme breakdowns and repair-outcome attribution for continuous-improvement programmes.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Live oversight</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Operations dashboard</h2>
+            </div>
+            <div class="dash">
+              <div class="dash-bar"><span>Operations · Processing stream</span><span class="dash-live">LIVE · 2s refresh</span></div>
+              <div class="dash-grid">
+                <div class="dash-cell"><div class="dv">98.4%</div><div class="dl">STP rate</div></div>
+                <div class="dash-cell"><div class="dv">1,284</div><div class="dl">TPS</div></div>
+                <div class="dash-cell"><div class="dv">17</div><div class="dl">In queue</div></div>
+                <div class="dash-cell"><div class="dv">42ms</div><div class="dl">P95 latency</div></div>
+              </div>
+              <div class="dash-rows" id="dashRows"></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">The exception queue</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Fast, auditable workflow</h2>
+            </div>
+            <ul class="flist">
+              <li><span class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Verify / Processed tabs</strong> with rich filtering and global search.</span></li>
+              <li><span class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>One-click resolution</strong> with the Accept → Verify → Review pipeline.</span></li>
+              <li><span class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Field-by-field provenance</strong> — source status (Matched / Derived), confidence scores, and the reason codes behind every decision.</span></li>
+              <li><span class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>SLA-at-risk indicators</strong> so ageing items are caught before they become incidents.</span></li>
+            </ul>
+            <div class="decision-box">
+              <div class="decision-label">The result</div>
+              <div class="decision-body">A measurable drop in cost-per-exception — from <strong>$15–40 toward under $5</strong> once correction is embedded.</div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">For the ambiguous 2%</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 0-4 4 4 4 0 0 0-1.5 7.7A4 4 0 0 0 12 22a4 4 0 0 0 5.5-8.3A4 4 0 0 0 16 6a4 4 0 0 0-4-4z"/><path d="M12 2v20"/></svg>Agentic Workbench &amp; ALS</h2>
+            </div>
+            <div class="grid-2">
+              <div class="card card-accent"><div class="icon-container ic-teal"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3"/></svg></div><div class="card-title" style="font-size:16px">Agentic Workbench</div><div class="card-body">Proposes a structured resolution and surfaces its reasoning, with an optional human-in-the-loop step for sign-off. Returns results in under two seconds and never bypasses the audit trail.</div></div>
+              <div class="card card-accent"><div class="icon-container ic-blue"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.2-8.6"/><polyline points="21 3 21 9 15 9"/></svg></div><div class="card-title" style="font-size:16px">Autonomous Learning System</div><div class="card-body">Continuously self-tests resolution quality and updates parsing rules with no manual re-training. Accuracy rises from 85–90% to 95%+ within the first quarter — no engineering intervention.</div></div>
+            </div>
+          </section>
+
+          <section class="section" id="playground">
+            <div class="section-header">
+              <div class="section-label">Built-in tools</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>Playground</h2>
+              <p class="section-desc">A real-time, no-code sandbox that accepts free-text, database records, ISO 20022 XML or SWIFT MT and returns a parsed result with four views.</p>
+            </div>
+            <div class="pg">
+              <div class="pg-head"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>ARS Playground · try a free-text address</div>
+              <div class="pg-body">
+                <label class="input-label" for="pgInput">Input address (free-text, hybrid or structured)</label>
+                <textarea class="input-field" id="pgInput" rows="2">Acme Trading Ltd, 12 high st, london ec1a 1bb</textarea>
+                <div style="margin-top:var(--space-md)"><button class="btn btn-accent btn-sm" id="pgRunBtn">Resolve <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+                <div class="pg-views" id="pgViews">
+                  <span class="pg-view active" data-view="fields">Fields</span>
+                  <span class="pg-view" data-view="xml">ISO XML</span>
+                  <span class="pg-view" data-view="db">Database row</span>
+                  <span class="pg-view" data-view="explain">Explanation</span>
+                </div>
+                <div class="pg-result" id="pgResult"></div>
+              </div>
+            </div>
+            <div class="grid-2" style="margin-top:var(--space-lg)">
+              <div class="card"><div class="icon-container ic-cyan"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><div class="card-title" style="font-size:15px">File Uploads</div><div class="card-body">Drag-and-drop CSV/XLSX for bulk remediation, with row-level evidence for governance.</div></div>
+              <div class="card"><div class="icon-container ic-navy"><svg viewBox="0 0 24 24"><path d="M14.5 2v6h6"/><path d="M4 7V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3"/><path d="m2 15 3 3-3 3"/><path d="M8 18H5"/></svg></div><div class="card-title" style="font-size:15px">Benchmark Arena</div><div class="card-body">Compare resolution outcomes across configurations before they reach production.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Audit &amp; retention</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>The evidence base for examination</h2>
+            </div>
+            <div class="alert alert-green">
+              <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div class="alert-content"><div class="alert-title">365-day retention, per-tenant</div><div class="alert-body">Every processing event persists in the ARS database, keyed by request and file IDs, scoped per tenant with no cross-tenant visibility. File backups carry a 365-day retention default.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header"><div class="section-label">FAQ</div><h2 class="section-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Frequently asked questions</h2></div>
+            <div class="faq-list">
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need to write code to resolve exceptions?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>No. The Workbench is a no-code web application; operations and compliance teams resolve exceptions through a queue with one-click actions.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What share of addresses need manual review?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>The deterministic engine clears about 98% automatically. The remaining ~2% route to the Workbench, where the Agentic layer plus optional human review lifts the combined rate above 99%.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the Agentic Workbench differ from an LLM parser?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>It applies AI reasoning only to the small ambiguous remainder, with human-in-the-loop review, and never replaces the deterministic, fully audited core.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there an audit trail?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Yes. Every decision is logged with provenance and reason codes, scoped per tenant, with a 365-day retention default.</p></div></div>
+            </div>
+            <div class="related"><span class="rlabel">Related</span><a href="/ionova-ars">Platform overview</a><a href="/ionova-ars/engine">AI Engine</a><a href="/ionova-ars/developers">Developer Portal</a><a href="/ionova-ars/integrations">Channels &amp; Integrations</a></div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>
+
+<script is:inline>
+  (function() {
+    /* ─── Workbench: live processing stream ─── */
+    var sampleAddrs = [
+      ["DE · Müllerstrasse 12, Berlin", "green", "0.98"],
+      ["GB · 12 High St, London EC1A", "green", "0.96"],
+      ["FR · 8 Rue de Rivoli, Paris", "green", "0.99"],
+      ["US · 350 5th Ave, New York", "green", "0.97"],
+      ["IT · Via Roma 1, Milano (town?)", "amber", "0.71"],
+      ["ES · Calle Mayor, Madrid", "green", "0.94"],
+      ["NL · Damrak 70, Amsterdam", "green", "0.98"],
+      ["BE · Grote Markt, Brussel (no ctry)", "amber", "0.68"]
+    ];
+    function renderDashRows() {
+      var host = document.getElementById("dashRows");
+      if (!host) return;
+      var pick = sampleAddrs.slice().sort(function() { return Math.random() - 0.5; }).slice(0, 5);
+      host.innerHTML = pick.map(function(row) {
+        var a = row[0], s = row[1], c = row[2];
+        return '<div class="dash-row"><span class="addr">' + a + '</span><span class="status-pill sp-' + s + '">' + (s === "green" ? "Repaired" : "Review") + '</span><span class="conf">' + c + '</span></div>';
+      }).join("");
+    }
+    var dashTimer = null;
+    function startDash() {
+      if (!document.getElementById("dashRows")) return;
+      renderDashRows();
+      if (dashTimer) clearInterval(dashTimer);
+      dashTimer = setInterval(renderDashRows, 2200);
+    }
+
+    /* ─── Playground simulation ─── */
+    var pgData = null, pgView = "fields";
+    function runPlayground() {
+      pgData = {
+        fields: { Name: "ACME TRADING LTD", StreetName: "High Street", BuildingNumber: "12", TownName: "London", PostCode: "EC1A 1BB", Country: "GB" },
+        status: "REPAIRED", confidence: 0.96
+      };
+      pgView = "fields";
+      document.querySelectorAll(".pg-view").forEach(function(v) {
+        v.classList.toggle("active", v.dataset.view === "fields");
+      });
+      paintPg();
+    }
+    function setPgView(v) {
+      if (!pgData) runPlayground();
+      pgView = v;
+      document.querySelectorAll(".pg-view").forEach(function(el) {
+        el.classList.toggle("active", el.dataset.view === v);
+      });
+      paintPg();
+    }
+    function paintPg() {
+      var r = document.getElementById("pgResult");
+      if (!r) return;
+      if (!pgData) { r.textContent = "Click Resolve to parse the address…"; return; }
+      var f = pgData.fields;
+      if (pgView === "fields") {
+        r.innerHTML = '<span class="ok">status: ' + pgData.status + '</span>  ·  confidence: ' + pgData.confidence + '\n\n' +
+          Object.entries(f).map(function(kv) { return '<span class="k">' + kv[0] + '</span>: <span class="s">"' + kv[1] + '"</span>'; }).join('\n');
+      } else if (pgView === "xml") {
+        r.innerHTML = '<span class="k">&lt;PstlAdr&gt;</span>\n  <span class="k">&lt;StrtNm&gt;</span><span class="s">' + f.StreetName + '</span><span class="k">&lt;/StrtNm&gt;</span>\n  <span class="k">&lt;BldgNb&gt;</span><span class="s">' + f.BuildingNumber + '</span><span class="k">&lt;/BldgNb&gt;</span>\n  <span class="k">&lt;PstCd&gt;</span><span class="s">' + f.PostCode + '</span><span class="k">&lt;/PstCd&gt;</span>\n  <span class="k">&lt;TwnNm&gt;</span><span class="s">' + f.TownName + '</span><span class="k">&lt;/TwnNm&gt;</span>\n  <span class="k">&lt;Ctry&gt;</span><span class="s">' + f.Country + '</span><span class="k">&lt;/Ctry&gt;</span>\n<span class="k">&lt;/PstlAdr&gt;</span>';
+      } else if (pgView === "db") {
+        r.innerHTML = '<span class="k">street_name</span> | <span class="k">bldg_no</span> | <span class="k">town</span> | <span class="k">post_code</span> | <span class="k">ctry</span>\n' +
+          '<span class="s">' + f.StreetName + '</span> | <span class="s">' + f.BuildingNumber + '</span> | <span class="s">' + f.TownName + '</span> | <span class="s">' + f.PostCode + '</span> | <span class="s">' + f.Country + '</span>';
+      } else {
+        r.innerHTML = '<span class="ok">Plain-language explanation</span>\n\nThe input was classified as unstructured. The town "London" and country "GB" were promoted into structured fields; "high st" was normalised to "High Street" and the building number split out. Postal-verify matched with confidence ' + pgData.confidence + '.\n\n<span class="k">Status:</span> <span class="s">REPAIRED</span> — ready for CBPR+ transmission.';
+      }
+    }
+
+    function init() {
+      var btn = document.getElementById("pgRunBtn");
+      if (btn) btn.addEventListener("click", runPlayground);
+      document.querySelectorAll(".pg-view").forEach(function(el) {
+        el.addEventListener("click", function() { setPgView(el.dataset.view); });
+      });
+      runPlayground();
+      startDash();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+    // Re-init on Astro view transitions
+    document.addEventListener("astro:page-load", init);
+  })();
+</script>

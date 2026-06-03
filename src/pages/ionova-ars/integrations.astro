@@ -1,0 +1,176 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import '@/styles/ars-platform.css';
+---
+
+<Layout
+  title="ioNova ARS Channels & Integrations — Sidecar ISO 20022 Deployment"
+  description="Deploy address resolution as a sidecar beside your existing payment infrastructure — no core replacement. Six native channels plus connectors for MuleSoft, Volante, Finastra and SWIFT Alliance."
+  keywords="ioNova ARS integrations, sidecar deployment, ISO 20022 channels, MuleSoft connector, Volante VolPay, Finastra FusionFabric, SWIFT Alliance"
+  ogImage="/og-image.png"
+  ogImageAlt="ioNova ARS Channels & Integrations — Sidecar ISO 20022 Deployment"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ioNova ARS Channels & Integrations — Sidecar ISO 20022 Deployment",
+    "description": "Deploy address resolution as a sidecar beside your existing payment infrastructure — no core replacement. Six native channels plus connectors for MuleSoft, Volante, Finastra and SWIFT Alliance.",
+    "url": "https://ionova.ai/ionova-ars/integrations",
+    "isPartOf": { "@id": "https://ionova.ai/#website" },
+    "about": { "@id": "https://ionova.ai/#ars-platform-product" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+        { "@type": "ListItem", "position": 2, "name": "ioNova ARS", "item": "https://ionova.ai/ionova-ars" },
+        { "@type": "ListItem", "position": 3, "name": "Channels & Integrations", "item": "https://ionova.ai/ionova-ars/integrations" }
+      ]
+    }
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ioNova ARS — Channels & Integrations",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web-based (SaaS), private VPC, on-premise",
+    "url": "https://ionova.ai/ionova-ars/integrations",
+    "description": "Sidecar deployment and integration layer for ISO 20022 address resolution, with six native channels and pre-built connectors for common payment middleware.",
+    "publisher": { "@id": "https://ionova.ai/#organization" }
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Does ARS replace our core banking or payment system?", "acceptedAnswer": { "@type": "Answer", "text": "No. It deploys as a sidecar alongside existing infrastructure and connects through standard channels, so no core replacement is required." } },
+      { "@type": "Question", "name": "Which middleware platforms have pre-built connectors?", "acceptedAnswer": { "@type": "Answer", "text": "MuleSoft Anypoint, Volante VolPay and Finastra FusionFabric, plus SWIFT Alliance Access and Alliance Lite2. REST, MCP, IBM MQ, Kafka, SFTP and JDBC cover the rest." } },
+      { "@type": "Question", "name": "Can we use more than one channel at once?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — for example REST for real-time and SFTP for nightly batch on the same Channel Profiles, with no quality penalty for mixing." } },
+      { "@type": "Question", "name": "How are scheme-rule changes handled?", "acceptedAnswer": { "@type": "Answer", "text": "Through Channel Profiles: upgrades such as SR2025 → SR2026 roll out per channel as configuration, with no code release." } }
+    ]
+  })} />
+
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ars-platform">
+        <div class="ars-container">
+
+          <section class="hero">
+            <div class="hero-inner">
+              <div class="hero-badge"><span class="pulse-dot"></span><span>Connect your rails · Sidecar</span></div>
+              <h1>Connect your rails in a day — <span class="accent">zero core change</span></h1>
+              <p>Deploy address resolution as a sidecar beside your existing payment infrastructure — no core replacement — connecting through six native channels and pre-built connectors for MuleSoft, Volante, Finastra and SWIFT Alliance.</p>
+              <div class="hero-cta">
+                <a class="btn btn-accent" href="#connectors">Browse connectors <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a class="btn btn-outline" href="/demo">Book a demo</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="answer-block"><strong>ARS Channels &amp; Integrations let you deploy address resolution as a sidecar beside your existing payment infrastructure — no core replacement — connecting through six native channels and pre-built connectors for MuleSoft, Volante, Finastra and SWIFT Alliance.</strong> Most teams connect a first channel within days.</div>
+
+            <div class="section-header" style="margin-top:var(--space-2xl)">
+              <div class="section-label">The sidecar model</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 6v12"/></svg>Correction belongs beside the rail</h2>
+            </div>
+            <div class="decision-box">
+              <div class="decision-label">No system to rip out</div>
+              <div class="decision-body">ARS runs as a <strong>sidecar service</strong> alongside existing infrastructure, repairing messages in real time or running a one-time cleanup on legacy data. Correction belongs beside the rail, not inside the core — so there is no system to rip out and no migration to schedule.</div>
+            </div>
+          </section>
+
+          <section class="section" id="connectors">
+            <div class="section-header">
+              <div class="section-label">Six native channels</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Every channel, one engine</h2>
+              <p class="section-desc">Every channel resolves against the same engine, the same database and the same audit trail.</p>
+            </div>
+            <div class="table-wrap"><table class="token-table">
+              <thead><tr><th>Channel</th><th>Pattern</th><th>Best for</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">REST API</td><td>Synchronous request/response</td><td>Real-time decisions in a customer journey</td></tr>
+                <tr><td class="mono">MCP</td><td>AI-agent / copilot interface</td><td>Agentic and copilot integrations</td></tr>
+                <tr><td class="mono">IBM MQ</td><td>Enterprise message bus</td><td>Bank-internal, high-volume bus integration</td></tr>
+                <tr><td class="mono">Apache Kafka</td><td>Streaming</td><td>Very-high-volume analytics pipelines</td></tr>
+                <tr><td class="mono">SFTP</td><td>File exchange</td><td>Nightly batches with no UI</td></tr>
+                <tr><td class="mono">JDBC / Database</td><td>Direct DB integration</td><td>DB-to-ARS pipelines on the system of record</td></tr>
+              </tbody>
+            </table></div>
+            <div class="alert alert-green">
+              <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div class="alert-content"><div class="alert-title">Mix channels freely</div><div class="alert-body">Many customers run REST for real-time decisioning and SFTP for nightly batch on the same Channel Profiles, with no quality penalty for mixing channels.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Pre-built middleware</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="2"/><rect x="14" y="2" width="8" height="8" rx="2"/><rect x="2" y="14" width="8" height="8" rx="2"/><rect x="14" y="14" width="8" height="8" rx="2"/></svg>Skip bespoke integration code</h2>
+              <p class="section-desc">Connectors for the platforms banks already run.</p>
+            </div>
+            <div class="grid-4">
+              <div class="card" style="text-align:center"><div class="card-title" style="font-size:15px;justify-content:center">MuleSoft Anypoint</div></div>
+              <div class="card" style="text-align:center"><div class="card-title" style="font-size:15px;justify-content:center">Volante VolPay</div></div>
+              <div class="card" style="text-align:center"><div class="card-title" style="font-size:15px;justify-content:center">Finastra FusionFabric</div></div>
+              <div class="card" style="text-align:center"><div class="card-title" style="font-size:15px;justify-content:center">SWIFT Alliance</div></div>
+            </div>
+            <p class="card-body" style="margin-top:var(--space-md)">ARS integrates with SWIFT through <strong style="color:var(--text-primary)">Alliance Access</strong> and <strong style="color:var(--text-primary)">Alliance Lite2</strong>, bringing structured-address correction to your existing SWIFT estate.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Config, not code</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Channel Profiles</h2>
+              <p class="section-desc">A named, reusable bundle of processing defaults — scheme, direction, output mode, corridor, repair preferences and regulatory flags — registered once and referenced by name in every call.</p>
+            </div>
+            <div class="alert alert-amber">
+              <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></div>
+              <div class="alert-content"><div class="alert-title">Scheme upgrades roll out as config</div><div class="alert-body">Upgrades such as SR2025 → SR2026 roll out centrally per channel without a code release. A single institution can run multiple profiles (SCT_OUT, CBPR_IN, FEDWIRE_OUT) side by side.</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Five guarantees</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Across every channel</h2>
+            </div>
+            <ul class="flist">
+              <li><span class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>One core, one database</strong> — unified audit, lineage and observability across all channels.</span></li>
+              <li><span class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Governance is mandatory</strong> — every request resolves against exactly one Channel Profile; no path bypasses governance.</span></li>
+              <li><span class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Enriched traceability</strong> — async channels carry a canonical key (file ID, customer ID, channel, original name) end to end.</span></li>
+              <li><span class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Per-tenant isolation</strong> — file-system, logical and auth isolation; reports scoped to the tenant.</span></li>
+              <li><span class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Audit &amp; retention</strong> — all events persist, keyed by request/file ID, with a 365-day backup default.</span></li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <div class="section-header">
+              <div class="section-label">Timeline</div>
+              <h2 class="section-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Deploy in days, scale in weeks</h2>
+            </div>
+            <div class="steps">
+              <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Weeks 1–4 — Analysis &amp; configuration</h4><p>Connect a first channel and run corrections in days.</p></div></div>
+              <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Weeks 5–10 — Integration &amp; testing</h4><p>With pre-built connectors.</p></div></div>
+              <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Weeks 11–16 — Production deployment</h4><p>Full enterprise rollout.</p></div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-header"><div class="section-label">FAQ</div><h2 class="section-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Frequently asked questions</h2></div>
+            <div class="faq-list">
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does ARS replace our core banking or payment system?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>No. It deploys as a sidecar alongside existing infrastructure and connects through standard channels, so no core replacement is required.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Which middleware platforms have pre-built connectors?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>MuleSoft Anypoint, Volante VolPay and Finastra FusionFabric, plus SWIFT Alliance Access and Alliance Lite2. REST, MCP, IBM MQ, Kafka, SFTP and JDBC cover the rest.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can we use more than one channel at once?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Yes — for example REST for real-time and SFTP for nightly batch on the same Channel Profiles, with no quality penalty for mixing.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How are scheme-rule changes handled?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Through Channel Profiles: upgrades such as SR2025 → SR2026 roll out per channel as configuration, with no code release.</p></div></div>
+            </div>
+            <div class="related"><span class="rlabel">Related</span><a href="/ionova-ars">Platform overview</a><a href="/ionova-ars/engine">AI Engine</a><a href="/ionova-ars/developers">Developer Portal</a><a href="/ionova-ars/workbench">Exceptions Workbench</a></div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

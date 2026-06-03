@@ -171,7 +171,8 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
               "name": "ioNova Products",
               "itemListElement": [
                 { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Address Intelligence — ISO 20022 Address Resolution", "url": "https://ionova.ai/address-intelligence" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Entity Intelligence Platform", "url": "https://ionova.ai/entity-intelligence" } }
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Entity Intelligence Platform", "url": "https://ionova.ai/entity-intelligence" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ioNova ARS — Address Resolution Service for ISO 20022 Payments", "url": "https://ionova.ai/ionova-ars" } }
               ]
             }
           }
@@ -207,6 +208,47 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
               "Database Remediation SLA: <1 hour per 1M Records",
               "Sidecar Architecture — No Legacy Changes Required",
               "Full Decision Audit Trail"
+            ],
+            "offers": {
+              "@type": "Offer",
+              "category": "Enterprise Software",
+              "seller": { "@id": "https://ionova.ai/#organization" }
+            },
+            "provider": { "@id": "https://ionova.ai/#organization" }
+          }
+        </script>
+
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "@id": "https://ionova.ai/#ars-platform-product",
+            "name": "ioNova ARS — Address Resolution Service",
+            "description": "SaaS address-resolution platform that converts free-text, hybrid or structured payment addresses into ISO 20022-compliant structured output in a single API call. Deterministic seven-step pipeline across 24 endpoints at sub-50ms P95, no core replacement, with a Developer Portal, Exceptions Workbench and six native channels.",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web-based (SaaS), private VPC, on-premise",
+            "url": "https://ionova.ai/ionova-ars",
+            "featureList": [
+              "Deterministic Seven-Step AutoCorrect Pipeline",
+              "24 Endpoints Across 5 Layers",
+              "Sub-50ms P95 Latency",
+              "Sub-100ms PreCheck Structural Validation",
+              "Returns Complete XSD-Valid ISO 20022 Messages",
+              "30-Code Structured Reason Catalogue with rule_source",
+              "Four Output Modes (COMPLIANCE 7×70, MT_LEGACY 2×35, CBPR_PLUS 3×35, EPC 2×70)",
+              "Bidirectional Conversion (OUTBOUND + INBOUND)",
+              "Production-Shaped Sandbox + Five-Minute Quick Start",
+              "RFC 9421 HTTP Message Signatures + JWT + Per-Tenant API Keys",
+              "No-Code Exceptions Workbench with Role-Tuned Dashboards",
+              "Agentic Workbench (<2s) + Autonomous Learning System",
+              ">99% Combined Straight-Through Resolution",
+              "Six Native Channels: REST, MCP, IBM MQ, Kafka, SFTP, JDBC",
+              "Pre-Built Connectors: MuleSoft Anypoint, Volante VolPay, Finastra FusionFabric, SWIFT Alliance",
+              "Channel Profiles (Config-Driven Scheme Upgrades, e.g. SR2025 → SR2026)",
+              "Per-Tenant Isolation + 365-Day Audit Retention",
+              "Sidecar Deployment — No Core Replacement",
+              "246-Country Coverage, 41 SEPA, 11+ Payment Schemes, 25+ ISO 20022 Message Types",
+              "1,000+ TPS Sustained, 10B+ Transactions/Year Capacity"
             ],
             "offers": {
               "@type": "Offer",
