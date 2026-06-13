@@ -12,38 +12,30 @@ export const useParams = <T extends Record<string, string | undefined> = Record<
     return params as T;
 };
 
-// Simple Link component that uses standard anchor tags for MPA navigation
-export const Link = ({
-    to,
-    children,
-    className,
-    ...props
-}: {
+// Simple Link component that uses standard anchor tags for MPA navigation.
+// forwardRef so libraries that forward refs (e.g. Radix Slot via `asChild`) work
+// without the "Function components cannot be given refs" warning.
+export const Link = React.forwardRef<HTMLAnchorElement, {
     to: string;
     children: React.ReactNode;
     className?: string;
     [key: string]: any;
-}) => {
+}>(({ to, children, className, ...props }, ref) => {
     return (
-        <a href={to} className={className} {...props}>
+        <a ref={ref} href={to} className={className} {...props}>
             {children}
         </a>
     );
-};
+});
+Link.displayName = 'Link';
 
-export const NavLink = ({
-    to,
-    children,
-    className,
-    activeClassName = "active",
-    ...props
-}: {
+export const NavLink = React.forwardRef<HTMLAnchorElement, {
     to: string;
     children: React.ReactNode;
     className?: string | ((props: { isActive: boolean }) => string);
     activeClassName?: string;
     [key: string]: any;
-}) => {
+}>(({ to, children, className, activeClassName = "active", ...props }, ref) => {
     const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {
@@ -57,11 +49,12 @@ export const NavLink = ({
         : `${className || ''} ${isActive ? activeClassName : ''}`;
 
     return (
-        <a href={to} className={resolvedClassName.trim()} {...props}>
+        <a ref={ref} href={to} className={resolvedClassName.trim()} {...props}>
             {children}
         </a>
     );
-};
+});
+NavLink.displayName = 'NavLink';
 
 export const useNavigate = () => {
     return (to: string) => {

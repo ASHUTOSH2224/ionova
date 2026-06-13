@@ -91,7 +91,7 @@ const DemoContent = () => {
                   See ioNova in Action.
                 </h1>
                 <p className="mb-8 text-lg text-text-muted">
-                  We can deploy a production-ready address resolution engine in as little as 10–16 weeks.
+                  We can deploy a production-ready address resolution engine in as little as 2–4 weeks.
                 </p>
 
                 {/* Trust signals */}

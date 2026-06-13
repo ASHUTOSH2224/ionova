@@ -1,0 +1,351 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+
+// ---------------------------------------------------------------------------
+// DUMMY DATA — design preview only.
+// In production the show is distributed via an RSS feed and episodes will be
+// fetched from Ghost (see GHOST-SETUP-VIDEOS-PODCASTS.md). Each episode is a
+// Ghost post tagged `#podcast`; the Spotify/Apple episode URLs + Spotify embed
+// ID live in the post's custom fields. Shape below mirrors that future model.
+// ---------------------------------------------------------------------------
+
+// Channel-level subscribe links (point your podcast hosts/feeds here).
+const channels = {
+  spotify: 'https://open.spotify.com/show/7vxJy3xdBaS42KfCdzWjis',
+  youtube: 'https://www.youtube.com/@ionova-insights',
+};
+
+interface Episode {
+  title: string;
+  slug: string;
+  episode: number;
+  excerpt: string;
+  spotifyEmbedId: string;   // Spotify episode ID used in the embed iframe
+  spotifyUrl: string;
+  youtubeUrl: string;       // matching episode on the Resolved! YouTube channel
+  duration: string;
+  category: string;
+  guest: string;
+  published_at: string;
+  featured?: boolean;
+}
+
+const episodes: Episode[] = [
+  {
+    title: 'ISO 20022 Addressing Decision: Hybrid vs Structured',
+    slug: 'iso-20022-addressing-decision-hybrid-vs-structured',
+    episode: 2,
+    excerpt: 'Parth on why so many institutions treat structured addressing as a compliance checkbox — and how to make the hybrid-vs-structured call.',
+    spotifyEmbedId: '60Nx93anhJC99Rm4pv9clP',
+    spotifyUrl: 'https://open.spotify.com/episode/60Nx93anhJC99Rm4pv9clP',
+    youtubeUrl: 'https://www.youtube.com/watch?v=7hk-irQqIFE',
+    duration: '13 min',
+    category: 'Practitioner',
+    guest: 'Parth Desai',
+    published_at: '2026-05-08',
+    featured: true,
+  },
+  {
+    title: 'ISO 20022: The Market Has It Backwards',
+    slug: 'iso-20022-the-market-has-it-backwards',
+    episode: 1,
+    excerpt: 'Parth on why most banks build their ISO 20022 strategy around the weakest version of the standard — and what a stronger, structured-first approach looks like.',
+    spotifyEmbedId: '4xrcP1a174QiK11VXSQzoG',
+    spotifyUrl: 'https://open.spotify.com/episode/4xrcP1a174QiK11VXSQzoG',
+    youtubeUrl: 'https://www.youtube.com/watch?v=LMcB5oo9tWU',
+    duration: '11 min',
+    category: 'Practitioner',
+    guest: 'Parth Desai',
+    published_at: '2026-04-09',
+  },
+];
+
+// Featured section commented out per request — all episodes are listed in the grid below.
+// const featured = episodes.find((e) => e.featured) || episodes[0];
+// const grid = episodes.filter((e) => e.slug !== featured.slug);
+
+function formatDate(dateStr: string) {
+  if (!dateStr) return '';
+  return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+}
+---
+
+<Layout
+  title="ioNova AI Podcast — ISO 20022, Payments & Entity Intelligence"
+  description="Listen to the ioNova podcast: conversations on ISO 20022 structured addresses, SWIFT CBPR+ migration, and entity intelligence. Available on Spotify and YouTube."
+  keywords="ISO 20022 podcast, payments podcast, SWIFT CBPR+ podcast, fintech podcast, entity intelligence, ioNova podcast"
+  ogImage="/og-image.png"
+  ogImageAlt="ioNova AI Podcast — ISO 20022 & Payments"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "PodcastSeries",
+    "name": "ioNova AI Podcast",
+    "description": "Conversations on ISO 20022 structured addresses, SWIFT CBPR+ migration, and entity intelligence for financial institutions.",
+    "url": "https://ionova.ai/podcasts",
+    "inLanguage": "en-US",
+    "publisher": { "@id": "https://ionova.ai/#organization" }
+  })} />
+
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <!-- Hero -->
+      <div class="ds-v5">
+        <section class="hero">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span style="position: relative; z-index: 1;">Listen Anywhere</span>
+          </div>
+          <h1>
+            The ioNova <br />
+            <span class="accent">Podcast</span>
+          </h1>
+          <p class="hero-subtitle" style="max-width: 800px; margin-inline: auto;">
+            Conversations on ISO 20022 structured addresses, SWIFT CBPR+ migration, and entity intelligence — with the people building the infrastructure behind global payments.
+          </p>
+        </section>
+      </div>
+
+      <!-- Subscribe bar -->
+      <section class="bg-background">
+        <div class="container">
+          <div class="-mt-2 mb-2 flex flex-wrap items-center justify-center gap-3">
+            <span class="text-sm font-semibold text-slate-500 mr-1">Subscribe:</span>
+            <a href={channels.spotify} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 px-4 py-2 text-sm font-semibold text-navy-950 shadow-sm hover:border-[#1DB954] hover:text-[#1DB954] transition-colors">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.1 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.32-1.32 11.4-1.02 15.84 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.66-1.56.3z"/></svg>
+              Spotify
+            </a>
+            <a href={channels.youtube} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 px-4 py-2 text-sm font-semibold text-navy-950 shadow-sm hover:border-[#FF0000] hover:text-[#FF0000] transition-colors">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              YouTube
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Episode — commented out per request; all episodes now appear in the grid below.
+      <section class="py-12 md:py-16 bg-background relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+        <div class="container relative z-10">
+          <div class="mb-8 flex items-center justify-center md:justify-start">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-blue-100 rounded-full text-xs font-bold uppercase tracking-wider text-teal-600 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+              Latest Episode
+            </span>
+          </div>
+          <div class="border border-slate-100 overflow-hidden bg-white shadow-[0_4px_20px_rgba(14,25,53,0.06)] rounded-3xl">
+            <div class="grid md:grid-cols-2 gap-0 items-stretch">
+              <!-- Content -->
+              <div class="min-w-0 p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
+                <div class="mb-4 flex items-center gap-3">
+                  <span class="text-teal-600 font-bold text-sm tracking-wide uppercase">{featured.category}</span>
+                  <span class="text-slate-300">&bull;</span>
+                  <span class="text-slate-500 font-semibold text-sm">Episode {featured.episode}</span>
+                </div>
+                <h2 class="font-extrabold text-navy-950 mb-6 leading-tight">
+                  {featured.title}
+                </h2>
+                <p class="text-slate-600 mb-8 text-lg leading-relaxed line-clamp-4 font-medium">
+                  {featured.excerpt}
+                </p>
+                <div class="flex items-center gap-5 mb-8 border-t border-slate-100 pt-6">
+                  <div class="h-10 w-10 rounded-full bg-navy-900 text-white flex items-center justify-center border-2 border-white text-sm font-bold shadow-md">
+                    {featured.guest.charAt(0)}
+                  </div>
+                  <div class="text-sm">
+                    <p class="font-bold text-navy-950">{featured.guest}</p>
+                    <p class="text-slate-500 font-medium">{featured.duration} &bull; {formatDate(featured.published_at)}</p>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                  <a href={featured.spotifyUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-[#1DB954] text-white px-5 py-2.5 text-sm font-semibold shadow-lg hover:bg-[#1aa34a] transition-colors">
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.1 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.32-1.32 11.4-1.02 15.84 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.66-1.56.3z"/></svg>
+                    Spotify
+                  </a>
+                  <a href={featured.youtubeUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-navy-950 text-white px-5 py-2.5 text-sm font-semibold shadow-lg hover:bg-[#FF0000] transition-colors">
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    Watch on YouTube
+                  </a>
+                </div>
+              </div>
+              <!-- Spotify Embed Player -->
+              <div class="min-w-0 p-6 md:p-8 flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50/30 order-1 md:order-2">
+                <iframe
+                  class="w-full max-w-full rounded-2xl shadow-lg"
+                  style="border-radius:16px"
+                  src={`https://open.spotify.com/embed/episode/${featured.spotifyEmbedId}?utm_source=generator&theme=0`}
+                  width="100%"
+                  height="352"
+                  frameborder="0"
+                  allowfullscreen
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                  title={`Spotify player: ${featured.title}`}
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      */}
+
+      <!-- Episode List (all episodes) -->
+      <section class="py-20 bg-background relative">
+        <div class="container relative z-10">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <span class="text-teal-600 font-bold tracking-widest uppercase text-xs mb-2 block">All Episodes</span>
+              <h2 class="font-extrabold text-navy-950 tracking-tight">Episode Archive</h2>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {episodes.map((ep) => (
+              <article class="group h-full bg-white rounded-2xl overflow-hidden shadow-[0_2px_8px_rgba(14,25,53,0.04)] hover:shadow-[0_20px_40px_rgba(14,25,53,0.12)] transition-all duration-300 hover:-translate-y-1 border border-slate-100 flex flex-col">
+                <!-- Cover (click to play) -->
+                <button
+                  type="button"
+                  class="podcast-trigger group/cover h-44 w-full bg-gradient-to-br from-navy-950 via-blue-700 to-blue-500 relative overflow-hidden flex items-center justify-center text-left"
+                  data-embed-id={ep.spotifyEmbedId}
+                  data-title={ep.title}
+                  aria-label={`Play episode: ${ep.title}`}
+                >
+                  <div class="absolute inset-0 opacity-20" style="background-image:radial-gradient(circle at 20% 30%, rgba(255,255,255,0.5) 0, transparent 40%), radial-gradient(circle at 80% 70%, rgba(95,207,208,0.5) 0, transparent 40%);"></div>
+                  <svg class="relative z-10 h-14 w-14 text-white/90 transition-opacity duration-300 group-hover/cover:opacity-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" /></svg>
+                  <!-- Play button (on hover) -->
+                  <span class="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover/cover:opacity-100 transition-opacity duration-300">
+                    <span class="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 shadow-xl group-hover/cover:scale-110 transition-transform duration-300">
+                      <svg class="h-6 w-6 text-blue-700 translate-x-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                    </span>
+                  </span>
+                  <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold text-navy-950 shadow-sm uppercase tracking-widest">
+                    {ep.category}
+                  </span>
+                  <span class="absolute bottom-3 right-3 rounded-md bg-navy-950/50 px-2 py-0.5 text-[11px] font-bold text-white backdrop-blur-sm">Ep {ep.episode} &middot; {ep.duration}</span>
+                </button>
+
+                <div class="p-7 flex flex-col flex-grow relative">
+                  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-200 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <h3 class="text-xl font-bold text-navy-950 mb-3 leading-snug line-clamp-2">
+                    <button type="button" class="podcast-trigger text-left hover:text-blue-700 transition-colors" data-embed-id={ep.spotifyEmbedId} data-title={ep.title}>
+                      {ep.title}
+                    </button>
+                  </h3>
+                  <p class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2">
+                    {ep.excerpt}
+                  </p>
+                  <div class="mt-auto flex items-center justify-between border-t border-slate-50 pt-5">
+                    <div class="flex items-center gap-3">
+                      <div class="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-navy-800 border border-white shadow-sm">
+                        {ep.guest.charAt(0)}
+                      </div>
+                      <div class="text-xs text-slate-500 font-medium">
+                        <span class="block text-navy-950 font-semibold">{ep.guest}</span>
+                        <span>{formatDate(ep.published_at)}</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <button type="button" class="podcast-trigger flex h-8 w-8 items-center justify-center rounded-full bg-slate-50 text-slate-500 hover:bg-blue-600/10 hover:text-blue-700 transition-colors" data-embed-id={ep.spotifyEmbedId} data-title={ep.title} aria-label={`Play episode: ${ep.title}`}>
+                        <svg class="h-4 w-4 translate-x-px" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                      </button>
+                      <a href={ep.spotifyUrl} target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify" class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-50 text-slate-500 hover:bg-[#1DB954]/10 hover:text-[#1DB954] transition-colors">
+                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.1 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.32-1.32 11.4-1.02 15.84 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.66-1.56.3z"/></svg>
+                      </a>
+                      <a href={ep.youtubeUrl} target="_blank" rel="noopener noreferrer" aria-label="Watch on YouTube" class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-50 text-slate-500 hover:bg-[#FF0000]/10 hover:text-[#FF0000] transition-colors">
+                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+
+  <!-- Podcast Player Modal (plays in-site via Spotify embed) -->
+  <div
+    id="podcast-modal"
+    class="fixed inset-0 z-[100] hidden items-center justify-center bg-navy-950/80 backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Podcast player"
+  >
+    <div class="relative w-full max-w-xl">
+      <button
+        id="podcast-modal-close"
+        type="button"
+        class="absolute -top-12 right-0 flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors"
+        aria-label="Close player"
+      >
+        Close
+        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+      <div class="overflow-hidden rounded-2xl bg-black shadow-2xl ring-1 ring-white/10">
+        <iframe
+          id="podcast-modal-iframe"
+          class="w-full"
+          style="border-radius:16px"
+          src=""
+          width="100%"
+          height="352"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          title="Spotify podcast player"
+        ></iframe>
+      </div>
+      <p id="podcast-modal-title" class="mt-4 text-center text-base font-semibold text-white"></p>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      const modal = document.getElementById('podcast-modal');
+      const iframe = document.getElementById('podcast-modal-iframe');
+      const titleEl = document.getElementById('podcast-modal-title');
+      const closeBtn = document.getElementById('podcast-modal-close');
+      if (!modal || !iframe) return;
+
+      function openModal(embedId, title) {
+        if (!embedId) return;
+        iframe.src = `https://open.spotify.com/embed/episode/${embedId}?utm_source=generator&theme=0`;
+        if (titleEl) titleEl.textContent = title || '';
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        requestAnimationFrame(() => modal.classList.remove('opacity-0'));
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.add('opacity-0');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          iframe.src = '';
+        }, 300);
+      }
+
+      document.querySelectorAll('.podcast-trigger').forEach((el) => {
+        el.addEventListener('click', () => {
+          openModal(el.getAttribute('data-embed-id'), el.getAttribute('data-title'));
+        });
+      });
+
+      closeBtn && closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+      });
+    })();
+  </script>
+</Layout>

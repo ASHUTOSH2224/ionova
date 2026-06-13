@@ -58,7 +58,7 @@ export function ExploreSection() {
         {
             title: "Implementing Structured Address Resolution",
             subtitle: "Implementation",
-            description: "Achieve full compliance in 10-16 weeks with zero legacy system overhaul required.",
+            description: "Achieve full compliance in 2-4 weeks with zero legacy system overhaul required.",
             href: "/address-intelligence/address-implementation",
             icon: Map,
         },

@@ -2,21 +2,21 @@ export function ImplementationSection() {
   const phases = [
     {
       phase: "Phase 1",
-      weeks: "Weeks 1–4",
+      weeks: "Week 1",
       title: "Analysis & Configuration",
       description:
         "Connect to existing infrastructure. Analyse address data quality. Configure parsing rules and confidence thresholds.",
     },
     {
       phase: "Phase 2",
-      weeks: "Weeks 5–10",
+      weeks: "Weeks 2–3",
       title: "Integration & Testing",
       description:
         "Pre-built connectors for MuleSoft, Volante, Finastra. SWIFT integration via Alliance Lite2 and Alliance Access.",
     },
     {
       phase: "Phase 3",
-      weeks: "Weeks 11–16",
+      weeks: "Week 4",
       title: "Production Deployment",
       description:
         "Circuit-breaker protection. 85–90% initial structuring, rising to 95%+ in the first quarter. Zero downtime risk.",

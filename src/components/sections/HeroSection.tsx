@@ -98,7 +98,7 @@ export function HeroSection() {
                 {[
                   { value: "98%+", label: "STP Rates" },
                   { value: "195", label: "Countries" },
-                  { value: "10–16", label: "Weeks to Production" },
+                  { value: "2–4", label: "Weeks to Production" },
                 ].map((metric) => (
                   <div
                     key={metric.label}

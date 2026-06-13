@@ -30,7 +30,7 @@ export function FAQSection() {
     {
       question: "How long does implementation take?",
       answer:
-        "Address intelligence deploys in 10–16 weeks via sidecar architecture alongside existing infrastructure. No core banking system replacement required. Pre-built connectors for MuleSoft, Volante, and Finastra.",
+        "Address intelligence deploys in 2–4 weeks via sidecar architecture alongside existing infrastructure. No core banking system replacement required. Pre-built connectors for MuleSoft, Volante, and Finastra.",
     },
     {
       question: "What ROI can institutions expect?",

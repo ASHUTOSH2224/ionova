@@ -47,7 +47,7 @@ export function DifferentiationSection() {
       postal: "6–18 months",
       llm: "Weeks (unreliable)",
       inHouse: "18–36 months",
-      ionova: "10–16 weeks",
+      ionova: "2–4 weeks",
     },
     {
       capability: "Determinism",

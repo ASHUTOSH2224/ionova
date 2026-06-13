@@ -1,0 +1,406 @@
+# ioNova AI — Full Content
+
+> ioNova is an AI-native data-infrastructure platform that converts unstructured, hybrid, or structured payment address data into ISO 20022-compliant structured output for SWIFT CBPR+ and SEPA. It serves banks, payment processors, and financial institutions preparing for the 15 November 2026 structured-address mandate, achieving >99% straight-through processing across 246 countries with sub-50ms P95 latency. The platform deploys as a sidecar with no core-system replacement.
+
+This file contains the full content of ioNova's core platform and product pages, plus summaries of all blog posts. For the curated link index, see llms.txt.
+
+Key facts for citation:
+- Regulatory deadline: 15 November 2026 (SWIFT CBPR+ SR2026 and the EPC 2025 SEPA Rulebook reject payments lacking a structured town and country).
+- The resolution engine is deterministic — identical input always produces identical output, with every correction traceable to a cited regulatory rule_source. It is not an LLM parser.
+- Outcomes: 98%+ straight-through processing, per-exception cost from $15–40 down to under $5, 30–50x ROI within 12 months.
+- Coverage: 246 countries, 41 SEPA (30 EEA + 11 non-EEA), 11+ payment schemes, 25+ ISO 20022 message types.
+- Author of all blog content: Parth Desai, Founder & Chairman of ioNova AI (30 years in payments infrastructure).
+
+---
+
+# Homepage
+
+URL: https://ionova.ai/
+Title: ioNova | AI-Native ISO 20022 Address Resolution for Payments
+
+ioNova AI is an enterprise platform that converts unstructured payment address data into ISO 20022-compliant structured formats using AI-native address resolution. It serves banks, payment processors, and financial institutions preparing for the November 2026 SWIFT CBPR+ and SEPA structured address mandate, achieving >99% straight-through processing rates across 195 countries. The platform deploys in 2–4 weeks via sidecar architecture with no legacy system replacement required.
+
+## Achieve ISO 20022 compliance with fully Structured Payment Addresses
+
+Hybrid addresses pass minimum compliance. Structured addresses pass every test. ioNova delivers AI-native structured address resolution for SWIFT CBPR+ and SEPA.
+
+## The 5-month window (timeline)
+
+- Nov '25 — MT format refused for payment messages.
+- Jun '26 — WE ARE HERE.
+- Nov '26 — DEADLINE. Unstructured addresses refused by SEPA and SWIFT.
+- Nov '27 — E&I Mandate.
+
+## 6 Signature Capabilities that Drive 98%+ Straight-Through Processing
+
+ioNova is differentiated by deep banking logic:
+
+- Financial ID Preservation — Validates 50+ identifiers (LEI, IBAN, BIC) before parsing begins. Ensures entity integrity before splitting data.
+- Geographic Disambiguation — Resolves 28 Paris locations using postal formats and street patterns. Distinguishes between Paris, TX and Paris, France with context.
+- Historical Name Resolution — Automates bidirectional mapping for cities like Bombay to Mumbai. Handles legacy city names and street changes automatically.
+- Data De-Duplication — Intelligently removes redundant elements. Cleanses repetitive information to ensure clean structured output.
+- Full Explainability — Provides field-by-field audit trails with specific rule citations. Every decision is cited with a specific rule for compliance audit.
+- Confidence Scoring — Threshold-based routing (0.95+ auto-process) to minimize manual review.
+
+## Why Postal Validation Tools, LLMs and generic vendors Fail for Payment Compliance
+
+| Capability | Generic Postal APIs | LLMs | In-House Build | ioNova |
+| --- | --- | --- | --- | --- |
+| Output format | Postal standard | Unstructured text | Custom XML | Native ISO 20022 XML |
+| Coverage | Major markets | Training-dependent | What you build | 195 countries, 50+ scripts |
+| Financial ID handling | Stripped / corrupted | Not understood | Manual | 50+ IDs preserved |
+| Sanctions screening impact | None | Unreliable | Manual tuning | ~30% false positive reduction |
+| Explainability | Minimal | None (black box) | What you build | Field-level rule citations |
+| STP improvement | Marginal | N/A | Variable | 40% → 98%+ |
+| Implementation | 6–18 months | Weeks (unreliable) | 18–36 months | 2–4 weeks |
+| Determinism | Deterministic | Non-deterministic | Deterministic | Deterministic with audit |
+
+## Implementation (sidecar)
+
+- Phase 1 · Week 1 — Analysis & Configuration. Connect to existing infrastructure. Analyse address data quality. Configure parsing rules and confidence thresholds.
+- Phase 2 · Weeks 2–3 — Integration & Testing. Pre-built connectors for MuleSoft, Volante, Finastra. SWIFT integration via Alliance Lite2 and Alliance Access.
+- Phase 3 · Week 4 — Production Deployment. Circuit-breaker protection. 85–90% initial structuring, rising to 95%+ in the first quarter. Zero downtime risk.
+
+## Homepage FAQ
+
+- Address intelligence parses, validates, enriches, and structures postal address data to meet ISO 20022 compliance, unlike postal validation which only confirms a physical location exists.
+- Structured addresses populate dedicated XML elements (StrtNm, BldgNb, TwnNm, PstCd, Ctry); hybrid combines some structured elements with free-text; regulators mandate structured as the target and hybrid as the minimum fallback.
+- Postal APIs and LLMs fail for payment compliance: postal APIs lack ISO 20022 XML output and financial-identifier handling; LLMs are non-deterministic, hallucinate, exceed sub-100ms latency budgets, and provide no audit trail.
+- Implementation takes 2–4 weeks via sidecar architecture with no core banking replacement.
+- Institutions processing 500,000+ cross-border payments annually typically achieve 30–50x ROI within 12 months; the Entity Intelligence Platform delivers 366%+ three-year ROI.
+- SWIFT enforcement begins November 2026; MT was refused for new messages in November 2025; the E&I Mandate in November 2027 tightens further.
+
+---
+
+# Address Intelligence Platform
+
+URL: https://ionova.ai/address-intelligence
+Title: ISO 20022 Address Intelligence Platform | ioNova AI
+
+The Missing Layer in Your Payment Infrastructure. Every cross-border payment carries an address, and most of them are wrong. Unstructured, inconsistent address data costs the global payments industry $8–12 billion annually. With ISO 20022 mandating structured addresses by November 2026, the question is whether you build to the floor or the ceiling.
+
+Headline metrics: $8–12B annual industry cost; >99% STP rate achieved; ~30% fewer false positives; 195 countries covered.
+
+## What Is Address Intelligence?
+
+Address intelligence is the capability to parse, validate, enrich, and structure postal address data within financial messaging systems to meet ISO 20022 compliance and operational quality standards. Unlike conventional address validation (which confirms whether a physical location exists for postal delivery), address intelligence operates at the intersection of regulatory compliance, financial crime prevention, and payment processing efficiency. It transforms unstructured address blocks into granular, semantically tagged components including <StrtNm>, <TwnNm>, <PstCd>, and <Ctry> — the regulatory format mandated by EPC, SWIFT, and CPMI/BIS.
+
+## The Four Pillars of Address Intelligence
+
+- Pillar 1 · The Regulatory Mandate — ISO 20022 Structured Address Requirements. Structured addresses are what regulators actually require; hybrid is the allowed minimum fallback, not the target.
+- Pillar 2 · The Business Case — Business Value Beyond Compliance. The $8–12 billion cost of poor address data is a structural drain; institutions that structure addresses achieve >99% STP and 30–50x ROI.
+- Pillar 3 · The Implementation Reality — One Integration. Full Compliance. Zero Legacy Overhaul. The sidecar architecture sits alongside existing infrastructure, connecting via API to MuleSoft, Volante, and Finastra, in 2–4 weeks.
+- Pillar 4 · The Competitive Clarity — Why Payment Addresses Require Purpose-Built Intelligence. Postal validation is not payment validation; generic tools and off-the-shelf LLMs fail for fundamentally different reasons.
+
+## Engine Architecture: Deterministic Core + Agentic Exception Handling
+
+ioNova's Address Resolution Engine operates as a 4-stage deterministic pipeline — Exact Match → Fuzzy Match → NLP/Heuristics → Enrichment — that resolves 98% of addresses with sub-50ms P95 latency and a full audit trail, with no LLM involvement and no non-deterministic risk. The remaining 2% of structurally ambiguous addresses are routed to the Agentic Workbench, an AI-powered exception handler with human-in-the-loop capability that resolves edge cases in under 2 seconds, producing >99% combined STP. The Autonomous Learning System (ALS) is a self-testing and self-training layer that continuously evaluates resolution quality and updates parsing rules without manual re-training; accuracy rises from 85–90% at deployment to 95%+ within the first quarter.
+
+## Who Benefits
+
+- Heads of Payments Operations — reduce manual exception handling by up to 95%, achieve >99% STP across cross-border corridors.
+- Chief Compliance Officers — meet the November 2026 structured-address mandate with full regulatory documentation and deterministic audit trails.
+- Chief Technology Officers — integrate without legacy system replacement, using standard API connectivity to existing middleware.
+- Financial Crime Teams — reduce sanctions screening false positives by ~30% through field-level address matching rather than string comparison.
+
+## Coverage roadmap
+
+195 countries and 50+ writing systems. Wave 1 (live, Feb 2026) covers the US, UK and EU and the five priority corridors (USD↔EUR, USD↔GBP, EUR↔GBP, USD↔JPY, EUR↔CHF). Wave 2 (March–June 2026) extends to 20 additional countries; Wave 3 (July–September 2026) completes coverage to 195 countries. Full script support (Cyrillic, Arabic, CJK, Devanagari, Thai, Hebrew) is on the roadmap for Q3 2026.
+
+---
+
+# ioNova ARS — Address Resolution Service (Platform Overview)
+
+URL: https://ionova.ai/ionova-ars
+Title: ioNova ARS — Address Resolution Service for ISO 20022 Payments
+
+ioNova ARS is a SaaS address-resolution platform that converts free-text, hybrid or structured payment addresses into ISO 20022-compliant structured output in a single API call, purpose-built for SWIFT CBPR+ and SEPA. It runs on one deterministic engine delivered as four components — the AI Engine, the Developer Portal, the Exceptions Workbench, and Channels & Integrations.
+
+Deadline context: SWIFT CBPR+ SR2026 and the EPC 2025 SEPA Rulebook reject cross-border and SEPA payments whose postal address lacks a structured town and country, from 15 November 2026. Rejection happens at the network boundary, and liability lands on the originating institution. More than 60% of cross-border payments still carry unstructured postal addresses.
+
+The ARS principle: resolve and fix, not validate and block. Submit any address and receive it back corrected, regulation-aware, and ready to transmit — a complete corrected ISO 20022 message with namespaces preserved — in under 50 milliseconds. No exception queue to staff, no XPath write-back logic to build.
+
+## Four feature components
+
+- ARS AI Engine — the deterministic core: 24 endpoints across 5 layers running a seven-step AutoCorrect pipeline at sub-50ms P95. Same input always produces the same output, every correction traceable to a cited regulatory rule.
+- Developer Portal — the front door for integrators: a five-minute Quick Start, full API reference for all 24 endpoints, authentication, the 30-code reason catalogue, a production-shaped sandbox, and a go-live checklist.
+- Exceptions Workbench — the no-code cockpit for operations, engineering and compliance: role-tuned dashboards, an exception queue with one-click resolution, an AI-assisted Agentic Workbench for ambiguous cases, and a full audit trail.
+- Channels & Integrations — six native channels (REST, MCP, IBM MQ, Kafka, SFTP, JDBC) plus pre-built connectors for MuleSoft, Volante, Finastra and SWIFT Alliance. Deploys as a sidecar beside existing infrastructure.
+
+## Onboarding (live in days)
+
+- Day 1 — Sign up & first correction: get API keys, open your sandbox, run your first correction.
+- Day 2 — Connect a channel: REST, IBM MQ or SFTP using a pre-built connector.
+- Day 3–5 — Validate & go live: validate outcomes in the Exceptions Workbench and switch a flow live.
+- Full enterprise rollout typically completes in 2–4 weeks, but the team is correcting addresses in the sandbox on day one.
+
+## Outcomes
+
+98%+ straight-through processing; per-exception cost under $5 (from $15–40); 30–50x ROI within 12 months; sub-50ms P95 full-pipeline latency. Coverage: 246 countries, 41 SEPA, 11+ payment schemes, 25+ ISO 20022 message types. Performance: sub-50ms P95, 1,000+ TPS sustained, 10B+ transactions/year capacity.
+
+## Who it's for
+
+Payments operations (raise STP, cut manual exception handling); compliance & financial crime (reduce sanctions false positives ~30% with field-level address data); engineering (integrate via API in days with no core replacement); treasury & corporates (fix beneficiary and supplier data at source before it reaches the bank).
+
+## ARS FAQ
+
+- ioNova ARS is a SaaS platform that converts unstructured or hybrid payment addresses into ISO 20022-compliant structured output in a single API call, for SWIFT CBPR+ and SEPA.
+- The core engine is deterministic — identical input always produces identical output, with every correction tied to a cited regulatory rule. An AI-assisted workbench handles only genuinely ambiguous cases, with human-in-the-loop review.
+- You can sign up, get keys and run corrections in the sandbox the same day, and connect a live channel within days; full enterprise production typically follows in 2–4 weeks.
+- ARS deploys as a sidecar alongside existing infrastructure and connects through standard channels and pre-built middleware connectors — no core replacement.
+- The deterministic engine resolves about 98% of addresses automatically; the remainder route to the Exceptions Workbench, lifting combined STP above 99% with a full deterministic audit trail.
+
+---
+
+# ARS AI Engine
+
+URL: https://ionova.ai/ionova-ars/engine
+Title: ARS AI Engine — Deterministic ISO 20022 Address Resolution
+
+The ARS AI Engine converts free-text, hybrid or structured payment addresses into ISO 20022-compliant output in a single call, running a deterministic seven-step pipeline across 24 endpoints at sub-50ms P95 latency. Every correction is reproducible and traceable to a cited regulatory clause — a guarantee LLM-based parsers cannot make.
+
+## The seven-step AutoCorrect pipeline
+
+1. Classify — detect whether the input is unstructured, hybrid or structured.
+2. Validate — check field presence, character limits and occurrence rules per output mode.
+3. Postal-verify — match against real postal databases across 246 countries with a 0.0–1.0 confidence score.
+4. Extract entities — pull BIC, LEI and IBAN out of misplaced address lines into their correct structured fields.
+5. Convert format — promote town and country into structured fields; remove duplications; convert unstructured → hybrid or fully structured.
+6. Apply scheme rules — the regulation-aware step: eight layers of rules applied automatically from three parameters (scheme, party role, execution datetime).
+7. Render — write corrected addresses back into the correct XPaths, preserve all namespaces, and return a complete, XSD-valid ISO 20022 message.
+
+No regulation to encode: you do not encode EU Regulation 2023/1113, EPC153-22, PMPG v1.11 or the CBPR+ XSD. The engine reads them on your behalf.
+
+## AutoCorrect vs PreCheck
+
+- AutoCorrect — the resolve-and-fix endpoint: submit a message, receive it corrected. One call solves the problem.
+- PreCheck — a sub-100ms structural validation for keystroke-level UI feedback, or as a cost-optimisation pre-filter before AutoCorrect.
+
+## Deterministic by design
+
+The same input always produces the same output, every time. Every decision is traceable through a rule_source field on each of 30 structured reason codes. In an audit, rule_source: EPC153-22 §4 points the examiner straight to the regulation — far more defensible than "unstructured address found." 30 reason codes across six families (FMT — Format, FLD — Field, REG — Regulatory, ENT — Entity, VRF — Verify, CNV — Convert). Four response statuses: VALIDATED, REPAIRED, PARTIALLY_REPAIRED, NOT_REPAIRED.
+
+## Output modes
+
+Four configurable, bidirectional modes — OUTBOUND to upgrade for the network, INBOUND to down-render for legacy sanctions or RTGS gateways, even mixed within a single call: COMPLIANCE (7×70), MT_LEGACY (2×35), CBPR_PLUS (3×35), EPC (2×70).
+
+## Specifications
+
+Latency < 50ms P95 for the full seven-step pipeline; throughput 1,000+ TPS sustained; capacity 10B+ transactions/year; batch up to 1,000 transaction sets or 100 messages per call. Coverage: 246 countries (incl. 41 SEPA: 30 EEA + 11 non-EEA), 11+ payment schemes (SCT, SCT Inst, SDD Core, SDD B2B, OCT Inst, CBPR+, CHAPS, T2, EURO1, Fedwire and more), 25+ ISO 20022 message types across pain, pacs and camt.
+
+## Engine FAQ
+
+- Yes, there is a single REST endpoint that accepts free-text, hybrid or structured input and returns corrected ISO 20022 output; MCP, IBM MQ, Kafka, SFTP and JDBC are also supported.
+- Latency is sub-50ms P95 for the full seven-step pipeline; the structural PreCheck path is sub-100ms.
+- The parser is deterministic — identical input always produces identical output, every correction tied to a cited rule_source — a requirement LLM parsers cannot meet.
+- The engine returns the whole corrected message: it writes corrections into the correct XPaths, preserves namespaces, leaves untouched elements intact, and returns a complete XSD-valid ISO 20022 message.
+
+---
+
+# ARS Developer Portal
+
+URL: https://ionova.ai/ionova-ars/developers
+Title: ioNova ARS Developer Portal — ISO 20022 Address Resolution API
+
+The ARS Developer Portal is the integrator's front door: a five-minute Quick Start, full reference for all 24 endpoints across five layers, authentication and security, the 30-code reason catalogue, and a production-shaped sandbox.
+
+## Quick Start (first call in five minutes)
+
+1. Sign up & generate an API key — per-tenant key, issued instantly.
+2. Point at the base URL — https://api.ionova.ai/v4.4
+3. POST a message — hit the AutoCorrect endpoint with a channelName.
+4. Read back the result — the corrected ISO 20022 message and its status.
+
+Example call: POST to https://api.ionova.ai/v4.4/convert-message-party-addresses with a Bearer token and a JSON body containing channelName (e.g. "SCT_OUT") and message_xml. Scheme, direction, format and corridor all come from the registered Channel Profile.
+
+## 24 endpoints across 5 layers
+
+- PreCheck — sub-100ms structural validation.
+- AutoCorrect — message-level, returns the complete corrected XML.
+- Batch — up to 1,000 sets or 100 messages per call.
+- Message-level — whole-message AutoCorrect with XPath write-back.
+- R-transactions — dedicated endpoints applying the EPC §8.3 pass-through exemption.
+
+## Auth & security
+
+Per-tenant API keys, RFC 9421 HTTP Message Signatures, and JWT, with strict per-tenant isolation. Data-sovereign deployments run on-premise, in a private VPC, or air-gapped; no PII need leave the institution.
+
+## Reason codes
+
+A 30-code catalogue; every non-compliant or repaired response carries structured reason codes, each mapped to the regulatory rule_source. Downstream systems route by code prefix without parsing free text. Portal content areas: Quick Start, API Reference, Authentication, Reason Codes & Status, Editions & Channels, Operate.
+
+## Sandbox & go-live
+
+A production-shaped sandbox lets you call real endpoints with sample data before writing client code; most pilots are calling sandbox endpoints by week 4. A numbered go-live checklist, signed off by security review, takes you from first call to production. v4.4 preserves the v4.0 issues[] array alongside the v4.2 reasons[] array — backwards-compatible, no breaking changes.
+
+## Developer FAQ
+
+- A first API call takes about five minutes via the Quick Start.
+- The API is authenticated with per-tenant API keys plus RFC 9421 HTTP Message Signatures and JWT, with strict per-tenant isolation.
+- There is a production-shaped sandbox with sample data; most pilots call it by week 4 and can validate with no client code via the Playground.
+- Upgrades will not break integrations: v4.4 is backwards-compatible, preserving the legacy issues[] array alongside the newer reasons[] array.
+
+---
+
+# ARS Exceptions Workbench
+
+URL: https://ionova.ai/ionova-ars/workbench
+Title: ARS Exceptions Workbench — No-Code Address Resolution
+
+The ARS Exceptions Workbench is the no-code web application where operations, engineering and compliance teams resolve the small share of addresses the engine cannot auto-correct. The deterministic engine clears ~98% automatically; the Workbench routes the rest through a fast, auditable queue, with an AI-assisted layer for genuinely ambiguous cases.
+
+## Two-tier model
+
+~98% deterministic (sub-50ms P95) + ~2% Agentic Workbench (<2s) = >99% combined straight-through, while preserving the deterministic audit trail regulators require.
+
+## Role-tuned dashboards (three lenses)
+
+- Operations — live oversight of throughput, STP rate, exceptions and SLA, with a 2-second-refresh processing stream and SLA-at-risk indicators.
+- Management — counterparty and currency quality analytics, blended cost per transaction, and SLA compliance by scheme.
+- Analyzer — deep STP and repair-rate trends, scheme breakdowns and repair-outcome attribution for continuous-improvement programmes.
+
+## Exception queue
+
+Verify / Processed tabs with rich filtering and global search; one-click resolution with the Accept → Verify → Review pipeline; field-by-field provenance (source status Matched/Derived, confidence scores, reason codes); SLA-at-risk indicators. Result: cost-per-exception drops from $15–40 toward under $5.
+
+## Agentic Workbench & ALS (for the ambiguous 2%)
+
+The Agentic Workbench proposes a structured resolution and surfaces its reasoning, with an optional human-in-the-loop step for sign-off, returning results in under two seconds and never bypassing the audit trail. The Autonomous Learning System continuously self-tests resolution quality and updates parsing rules with no manual re-training; accuracy rises from 85–90% to 95%+ within the first quarter.
+
+## Built-in tools
+
+Playground — a real-time no-code sandbox that accepts free-text, database records, ISO 20022 XML or SWIFT MT and returns a parsed result with four views (Fields, ISO XML, Database row, Explanation). File Uploads — drag-and-drop CSV/XLSX for bulk remediation with row-level evidence. Benchmark Arena — compare resolution outcomes across configurations before production.
+
+## Audit & retention
+
+Every processing event persists in the ARS database, keyed by request and file IDs, scoped per tenant with no cross-tenant visibility. File backups carry a 365-day retention default.
+
+## Workbench FAQ
+
+- No code is needed to resolve exceptions; the Workbench is a no-code web application with one-click actions.
+- The deterministic engine clears about 98% automatically; the remaining ~2% route to the Workbench, where the Agentic layer plus optional human review lifts the combined rate above 99%.
+- The Agentic Workbench applies AI reasoning only to the small ambiguous remainder, with human-in-the-loop review, and never replaces the deterministic, fully audited core.
+- There is a full audit trail: every decision logged with provenance and reason codes, scoped per tenant, with a 365-day retention default.
+
+---
+
+# ARS Channels & Integrations
+
+URL: https://ionova.ai/ionova-ars/integrations
+Title: ioNova ARS Channels & Integrations — Sidecar ISO 20022 Deployment
+
+ARS Channels & Integrations let you deploy address resolution as a sidecar beside your existing payment infrastructure — no core replacement — connecting through six native channels and pre-built connectors for MuleSoft, Volante, Finastra and SWIFT Alliance. Most teams connect a first channel within days.
+
+## The sidecar model
+
+ARS runs as a sidecar service alongside existing infrastructure, repairing messages in real time or running a one-time cleanup on legacy data. Correction belongs beside the rail, not inside the core — no system to rip out, no migration to schedule.
+
+## Six native channels
+
+| Channel | Pattern | Best for |
+| --- | --- | --- |
+| REST API | Synchronous request/response | Real-time decisions in a customer journey |
+| MCP | AI-agent / copilot interface | Agentic and copilot integrations |
+| IBM MQ | Enterprise message bus | Bank-internal, high-volume bus integration |
+| Apache Kafka | Streaming | Very-high-volume analytics pipelines |
+| SFTP | File exchange | Nightly batches with no UI |
+| JDBC / Database | Direct DB integration | DB-to-ARS pipelines on the system of record |
+
+Channels can be mixed freely — many customers run REST for real-time decisioning and SFTP for nightly batch on the same Channel Profiles, with no quality penalty.
+
+## Pre-built middleware connectors
+
+MuleSoft Anypoint, Volante VolPay, Finastra FusionFabric, and SWIFT Alliance. ARS integrates with SWIFT through Alliance Access and Alliance Lite2, bringing structured-address correction to an existing SWIFT estate.
+
+## Channel Profiles (config, not code)
+
+A named, reusable bundle of processing defaults — scheme, direction, output mode, corridor, repair preferences and regulatory flags — registered once and referenced by name in every call. Scheme upgrades such as SR2025 → SR2026 roll out centrally per channel without a code release; a single institution can run multiple profiles (SCT_OUT, CBPR_IN, FEDWIRE_OUT) side by side.
+
+## Five guarantees across every channel
+
+One core, one database (unified audit, lineage, observability); governance is mandatory (every request resolves against exactly one Channel Profile); enriched traceability (async channels carry a canonical key end to end); per-tenant isolation (file-system, logical and auth isolation); audit & retention (all events persist, keyed by request/file ID, 365-day backup default).
+
+## Timeline
+
+Week 1 analysis & configuration (connect a first channel and run corrections in days); weeks 2–3 integration & testing (with pre-built connectors); week 4 production deployment (full enterprise rollout).
+
+## Integrations FAQ
+
+- ARS does not replace the core banking or payment system; it deploys as a sidecar and connects through standard channels.
+- Pre-built connectors exist for MuleSoft Anypoint, Volante VolPay and Finastra FusionFabric, plus SWIFT Alliance Access and Alliance Lite2; REST, MCP, IBM MQ, Kafka, SFTP and JDBC cover the rest.
+- More than one channel can be used at once (e.g. REST for real-time and SFTP for nightly batch on the same Channel Profiles).
+- Scheme-rule changes are handled through Channel Profiles: upgrades such as SR2025 → SR2026 roll out per channel as configuration, with no code release.
+
+---
+
+# Entity Intelligence
+
+URL: https://ionova.ai/entity-intelligence — Entity resolution and intelligence platform for regulated enterprises. The Entity Intelligence Platform is cited as delivering 366%+ three-year ROI.
+URL: https://ionova.ai/entity-intelligence/cascade — Cascade Engine, the cascade resolution engine within Entity Intelligence.
+URL: https://ionova.ai/entity-intelligence/governance — Governance layer for the Entity Intelligence platform.
+
+(Full body content for the Entity Intelligence section was not captured in this pass; summaries are based on site navigation and homepage references.)
+
+---
+
+# Blog — Summaries
+
+All posts authored by Parth Desai, Founder & Chairman of ioNova AI. Listed newest first.
+
+## Cross-Border STP Rate: From 40% to 98% (What It Means)
+URL: https://ionova.ai/blog/from-40-to-98-stp-what-the-numbers-mean — Published 2026-05-30 (updated 2026-06-02) · 9 min read
+The industry-average straight-through processing rate for cross-border payments is 40%, meaning 60% of payments require manual intervention at $25–50 each — costing a mid-tier institution $7.5M–$15M annually. The root cause is architectural, not data-quality: free-text addresses cannot survive the structured XML requirements of SWIFT CBPR+ and SEPA. Three failure modes dominate — ambiguous addresses, format-conversion errors, and missing/malformed components. 98%+ STP is achievable via deterministic structured address resolution (financial-ID preservation, geographic disambiguation, structured XML field mapping, deterministic processing) applied before payments enter the correspondent chain. Case study: one European bank went from 42% to 98.3% STP in 14 weeks — exceptions down 97%, exception costs from $9M–$18M to under $525K, exception-handling staff from 45 to 12 FTE, sanctions false positives down 31%. ROI is 30–50x within 12 months for institutions processing 500K+ payments annually. November 2026 turns this from optimization into obligation.
+
+## ISO 20022 Structured Address (PstlAdr): 14 Elements & 6 Rules
+URL: https://ionova.ai/blog/iso-20022-pstladr-decoded — Published 2026-05-30 (updated 2026-05-31) · 15 min read
+A field-level reference. The ISO 20022 <PstlAdr> container holds 14 operationally-used structured elements (plus the free-text <AdrLine>); the native schema defines 17, but <AdrTp>, <CareOf> and <UnitNb> sit outside the November 2026 operational profile. Only two elements are mandatory under CBPR+ and HVPS+ from 15 November 2026: <TwnNm> and <Ctry>. There are three address modes: fully structured (richest), hybrid (the permanent compliant minimum, with no end-date per PMPG-040 §4), and fully unstructured (decommissioned 15 November 2026). Three failure patterns reject post-cutover: three+ <AdrLine> occurrences (the XSD permits [0..7] but BIS-021 §0.31 caps CBPR+/HVPS+ at [0..2]), town buried in <AdrLine> with <TwnNm> empty (the most common), and structured content duplicated inside <AdrLine>. Six validation rules every pipeline must enforce — and XSD-only validation catches none of rules 2–6 because they live at the usage-guideline layer. Validation has moved to point of entry (PMPG-050): non-compliant messages are rejected at the channel ingestion layer with no downstream repair.
+
+## Why 99% of Sanctions Screening Alerts Are False Positives
+URL: https://ionova.ai/blog/sanctions-false-positives — Published 2026-05-30 (updated 2026-05-31) · 11 min read
+95–99% of sanctions screening alerts are false positives — compliance teams spend most of their time clearing innocent payments, not catching bad actors. Most guides blame the matching algorithm; the larger neglected cause is upstream: dirty, unstructured address data matched against precisely structured sanctions-list entries. Legacy MT103 messages cram addresses into a 35-character free-text field; ISO 20022 splits them into parsed fields (StrtNm, BldgNb, TwnNm, Ctry, PstCd) the engine can match precisely. Validated structured addresses cut geographic false positives by 25–30% — for a mid-tier bank, $90K–$185K in monthly review costs eliminated with no algorithm change. The worked example: a bank processing 500K cross-border payments monthly at a 5% alert rate and 99% false-positive rate spends $370K–$620K per month proving innocence. It is not a cure-all (it doesn't fix name-matching or watchlist-ambiguity false positives), but it removes one large addressable category of noise. The November 2026 deadline forces the fix anyway.
+
+## Six Months Out: ISO 20022 Address Data Just Stopped Being a Bank Problem
+URL: https://ionova.ai/blog/six-months-out-iso-20022-data-quality — Published 2026-05-30 (updated 2026-05-31) · 14 min read
+Between December 2025 and May 2026 the PMPG published five documents (PMPG-020 through PMPG-060) that quietly redrew the November 2026 cutover. The headline shift: format compliance is no longer the constraint — data quality is. Validation moved to point of entry (PMPG-050, April), ending downstream repair; PMPG-060 (May) then showed structured fields can be fully populated and still be wrong. The new metric is inter-field consistency — whether TwnNm, PstCd and Ctry are geographically coherent. One Tier-2 bank had 92% TwnNm population but only 64% inter-field consistency, meaning roughly one in three structured payments was geographically incoherent despite passing format validation. The fix lives upstream: the town-postcode-country triple is set in the corporate's ERP, not the bank's payments engine. Banks can validate; only corporates can fix. Institutions running a shared bank-corporate data-quality dashboard by August 2026 will cut over cleanly in November; those still optimising format will not.
+
+## ISO 20022 Postal Address Fields (PstlAdr): TwnNm, Ctry, and AdrLine Reference
+URL: https://ionova.ai/blog/iso-20022-postal-address-fields-pstladr-twnnm-ctry-adrline — Published 2026-05-26 · 62 min read
+The long-form, field-by-field reference to every <PstlAdr> element. Covers the 14 operational structured elements (two mandatory: <TwnNm>, <Ctry>), the <AdrLine> [0..2] cap versus the native XSD's [0..7], the three permitted address modes treated as a hierarchy rather than three equal options, the four hybrid validation constraints almost universally violated in production, three operational changes from the 2026 PMPG corpus (the CUTOVER2026 keyword, the LEI clarification, the Agent <PstlAdr> "not desired" designation), and five diagnostic questions for architecture teams. The deepest single reference on the site.
+
+## The Compliance Dividend: How ISO 20022 Structured Addresses Transform Financial Crime Compliance
+URL: https://ionova.ai/blog/compliance-dividend-iso-20022-structured-addresses — Published 2026-05-06 · 17 min read
+From 15 November 2026 every cross-border payment must carry its address in structured ISO 20022 form, and this single upstream data change transforms four FATF compliance domains simultaneously without touching a single screening engine. Sanctions: 25–30% of false-positive alert volume becomes auto-clearable, saving Tier-1 banks $13M–$72M annually. AML: shell-company network mapping via address clustering becomes architecturally possible for the first time. KYC: address validation across 246 countries shifts the standard from document collection to substantive verification. Travel Rule: structured fields survive every correspondent hop intact, and audit logs gain field-level proof with timestamps. ioNova ARS sits between existing payment infrastructure and the screening engines, resolving addresses against postal-authority reference data across 246 countries as a sidecar (sub-20ms P95, no core replacement, 2–4 weeks to deploy).
+
+## Same Effort, Better Outcome: The Case for Structured Addresses by Default
+URL: https://ionova.ai/blog/iso-20022-structured-vs-hybrid-addresses — Published 2026-04 · 10 min read
+Structured and hybrid ISO 20022 addresses require identical implementation effort, yet defaulting to structured delivers 30–50x better outcomes. The argument for treating structured as the default target rather than doing the minimum to clear the hybrid bar.
+
+## ISO 20022: This Time, Let's Get Payments Data Right
+URL: https://ionova.ai/blog/iso-20022-this-time-lets-get-payments-data-right-2 — Published 2026-02-24 · 3 min read
+Originally published in The Paypers (Expert Views). For 30 years the payments industry has repeated the same pattern — migrate to new message formats, focus on technical compliance, defer data quality, then face a crisis. The ISO 20022 migration is the industry's best chance in thirty years to fix cross-border data quality. With coordinated mandates and production-proven technology, the opportunity extends far beyond compliance — the question is whether the industry seizes it or settles for "good enough" again.
+
+## The ISO 20022 Paradox: Why Message Migration Is the Easy Part
+URL: https://ionova.ai/blog/the-iso-20022-paradox-why-message-migration-is-the-easy-part — Published 2026-02 · 5 min read
+The payments industry declared victory on ISO 20022 adoption, but format compliance without data readiness is a pattern that has repeated for 30 years and always ends the same way. Perfect XML with broken data creates a false sense of progress.
+
+## Structured vs. Hybrid Addresses: Why It's Not Either/Or
+URL: https://ionova.ai/blog/structured-vs-hybrid-addresses-why-its-not-either-or — Published 2026-02 · 8 min read
+The industry frames hybrid versus structured as parallel options, but they are not — hybrid is a subset of structured. The post explains the mathematical relationship between the two formats and what it means for an ISO 20022 migration.
+
+## What Regulators Actually Require: EPC, SWIFT, and CPMI Decoded
+URL: https://ionova.ai/blog/what-regulators-actually-require-iso-20022-addresses — Published 2026-02 · 8 min read
+Structured addresses are mandated under ISO 20022; hybrid is the minimum fallback, not an equal alternative. The post sets out exactly what EPC 153-22, SWIFT CBPR+, and CPMI Requirement #11 require, with direct citations.
+
+## November 2026: The ISO 20022 Deadline That Changes Everything
+URL: https://ionova.ai/blog/november-2026-the-iso-20022-deadline — Published 2026-01 · 6 min read
+SWIFT stops accepting unstructured addresses and EPC schemes start rejecting from November 2026, and the implementation window is already shorter than most institutions realise. The complete timeline and what teams need to do now.
+
+---
+
+# Company & Legal
+
+- Company / About: https://ionova.ai/company
+- Request a Demo / Contact: https://ionova.ai/demo
+- Privacy Policy: https://ionova.ai/privacy-policy
+- Terms of Service: https://ionova.ai/terms-of-service
+- LinkedIn: https://www.linkedin.com/company/ionova-ai

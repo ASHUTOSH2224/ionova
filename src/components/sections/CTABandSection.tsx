@@ -114,7 +114,7 @@ export function CTABandSection() {
               }}
             >
               Purpose-built address intelligence. 195 countries. 98%+ STP. <br className="hidden sm:block" />
-              <span className="text-white/90 font-medium">10–16 weeks to production.</span>
+              <span className="text-white/90 font-medium">2–4 weeks to production.</span>
             </p>
           </div>
 
