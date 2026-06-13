@@ -221,10 +221,7 @@ function formatDate(dateStr: string) {
                       <svg class="h-6 w-6 text-blue-700 translate-x-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
                     </span>
                   </span>
-                  <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold text-navy-950 shadow-sm uppercase tracking-widest">
-                    {ep.category}
-                  </span>
-                  <span class="absolute bottom-3 right-3 rounded-md bg-navy-950/50 px-2 py-0.5 text-[11px] font-bold text-white backdrop-blur-sm">Ep {ep.episode} &middot; {ep.duration}</span>
+                  <span class="absolute bottom-3 right-3 rounded-md bg-white/95 px-2 py-0.5 text-[11px] font-bold text-navy-950 backdrop-blur-sm shadow-sm">Ep {ep.episode} &middot; {ep.duration}</span>
                 </button>
 
                 <div class="p-7 flex flex-col flex-grow relative">
@@ -234,9 +231,17 @@ function formatDate(dateStr: string) {
                       {ep.title}
                     </button>
                   </h3>
-                  <p class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2">
-                    {ep.excerpt}
-                  </p>
+                  <div class="mb-6">
+                    <p class="podcast-excerpt text-slate-500 text-sm leading-relaxed line-clamp-2">
+                      {ep.excerpt}
+                    </p>
+                    <button
+                      type="button"
+                      class="podcast-read-more mt-1 text-xs font-semibold text-blue-700 hover:text-blue-800 transition-colors"
+                    >
+                      Read more
+                    </button>
+                  </div>
                   <div class="mt-auto flex items-center justify-between border-t border-slate-50 pt-5">
                     <div class="flex items-center gap-3">
                       <div class="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-navy-800 border border-white shadow-sm">
@@ -336,6 +341,21 @@ function formatDate(dateStr: string) {
       document.querySelectorAll('.podcast-trigger').forEach((el) => {
         el.addEventListener('click', () => {
           openModal(el.getAttribute('data-embed-id'), el.getAttribute('data-title'));
+        });
+      });
+
+      // Read more / less toggle for episode excerpts
+      document.querySelectorAll('.podcast-read-more').forEach((btn) => {
+        const excerpt = btn.previousElementSibling;
+        if (!excerpt) return;
+        // Hide the button if the excerpt isn't actually truncated
+        if (excerpt.scrollHeight <= excerpt.clientHeight + 1) {
+          btn.style.display = 'none';
+          return;
+        }
+        btn.addEventListener('click', () => {
+          const collapsed = excerpt.classList.toggle('line-clamp-2');
+          btn.textContent = collapsed ? 'Read more' : 'Read less';
         });
       });
 
