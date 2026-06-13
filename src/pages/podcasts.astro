@@ -345,19 +345,29 @@ function formatDate(dateStr: string) {
       });
 
       // Read more / less toggle for episode excerpts
+      const readMoreEls = [];
       document.querySelectorAll('.podcast-read-more').forEach((btn) => {
         const excerpt = btn.previousElementSibling;
         if (!excerpt) return;
-        // Hide the button if the excerpt isn't actually truncated
-        if (excerpt.scrollHeight <= excerpt.clientHeight + 1) {
-          btn.style.display = 'none';
-          return;
-        }
+        readMoreEls.push({ btn, excerpt });
         btn.addEventListener('click', () => {
           const collapsed = excerpt.classList.toggle('line-clamp-2');
           btn.textContent = collapsed ? 'Read more' : 'Read less';
         });
       });
+
+      // Show the button only when the excerpt is actually clamped. Re-measure
+      // after fonts settle (window load) and on resize, but skip any excerpt
+      // the user has manually expanded.
+      function refreshReadMore() {
+        readMoreEls.forEach(({ btn, excerpt }) => {
+          if (!excerpt.classList.contains('line-clamp-2')) return; // expanded
+          btn.style.display = excerpt.scrollHeight > excerpt.clientHeight + 1 ? '' : 'none';
+        });
+      }
+      refreshReadMore();
+      window.addEventListener('load', refreshReadMore);
+      window.addEventListener('resize', refreshReadMore);
 
       closeBtn && closeBtn.addEventListener('click', closeModal);
       modal.addEventListener('click', (e) => {
