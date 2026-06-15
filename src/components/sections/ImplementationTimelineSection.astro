@@ -1,0 +1,185 @@
+---
+// Two-track implementation timeline — ported from ionova-homepage.html (#implementation).
+// Self-contained: defines its own design tokens scoped under .impl-timeline so it
+// doesn't depend on the global ds-v5 system.
+---
+
+<section class="impl-timeline" id="implementation-timeline">
+  <div class="itl-container">
+    <div class="itl-head">
+      <div class="itl-label">Implementation</div>
+      <h2 class="itl-title">From kickoff to validated go-live in <span class="accent">3–4 weeks.</span></h2>
+      <p class="itl-desc">Get started in two days, run two tracks in parallel, and converge on production well before the 15 November 2026 cutover. ioNova ARS is SaaS, so value starts on day one — your team resolves addresses in the sandbox while ioNova tunes the engine to your data in the background. No core replacement. No migration to schedule.</p>
+    </div>
+
+    <!-- Two-track Gantt -->
+    <div class="gantt">
+      <div class="gantt-scale"><span>Two parallel tracks</span><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span></div>
+      <div class="gantt-track">
+        <div class="gantt-name">Your team<small>Integration &amp; rollout</small></div>
+        <div class="gantt-bars"><div class="bar t1">Onboard → channels → sandbox testing → production validation<span class="shine"></span></div></div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-name">ioNova<small>Engine tuning</small></div>
+        <div class="gantt-bars"><div class="bar t2">Tune on ~10,000 representative addresses, in parallel<span class="shine"></span></div></div>
+      </div>
+      <div class="gantt-mile">
+        <div></div>
+        <div class="mile-line">
+          <div class="mile" style="left:5%"><div class="pin"></div><span>Day 2 · sandbox live</span></div>
+          <div class="mile" style="left:88%"><div class="pin gold"></div><span>Week 3–4 · production</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="itl-grid">
+      <div class="itl-card">
+        <h3>Your team — integration &amp; rollout</h3>
+        <ul class="ladder">
+          <li><span class="step">Step 1</span><span>Onboard &amp; get credentials — an OAuth bearer token plus an X-API-Key, with test keys for the sandbox.</span></li>
+          <li><span class="step">Step 2</span><span>Set up integrations &amp; register channels — scheme, direction, output mode and thresholds, configured once and reused by <b>channelName</b>.</span></li>
+          <li><span class="step">Step 3</span><span>Sandbox testing — production-shaped, exposing the same endpoints and schemas as live.</span></li>
+          <li><span class="step">Step 4</span><span>Production validation — channels and integrations exercised together.</span></li>
+        </ul>
+      </div>
+      <div class="itl-card">
+        <h3>ioNova — engine tuning, in parallel</h3>
+        <p class="itl-card-p">We tune the resolution engine on roughly <b>10,000 representative addresses</b> drawn from your portfolio. By the time you reach production validation, the engine is already calibrated to your corridors, formats and edge cases — which is what keeps the timeline short without cutting corners.</p>
+        <div class="callout">
+          <div class="cl-label">What "go-live" means</div>
+          <p>At cutover, you swap test keys for live keys — <b>no code change.</b> Code written against the sandbox runs unchanged against production; only the keys differ.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="itl-tiles">
+      <div class="tile"><div class="tv">2 days</div><div class="tl">to get started — sandbox live, first resolved address</div></div>
+      <div class="tile"><div class="tv">10,000</div><div class="tl">representative addresses ioNova tunes in parallel</div></div>
+      <div class="tile"><div class="tv">3–4 wks</div><div class="tl">to validated production go-live, end to end</div></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .impl-timeline {
+    --itl-navy-900: #111426;
+    --itl-blue-700: #243574;
+    --itl-teal-500: #43ADC1;
+    --itl-cyan-400: #5FCFD0;
+    --itl-bg: #F1F4F9;
+    --itl-surface-1: #FFFFFF;
+    --itl-surface-2: #E8EDF5;
+    --itl-border: #D0DAEB;
+    --itl-text-primary: #0E1935;
+    --itl-text-label: #466587;
+    --itl-text-muted: #8796A7;
+    --itl-radius-md: 10px;
+    --itl-radius-lg: 16px;
+    --itl-radius-full: 9999px;
+    --itl-font-display: 'Outfit', system-ui, sans-serif;
+    --itl-font-body: 'Figtree', system-ui, sans-serif;
+    --itl-font-mono: 'JetBrains Mono', monospace;
+    --itl-gradient-brand: linear-gradient(135deg, #5FCFD0, #43ADC1, #3C75B5, #243574);
+    --itl-gradient-shimmer: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.18) 50%, transparent 70%);
+    --itl-shadow-md: 0 4px 12px rgba(14,25,53,.07), 0 2px 4px rgba(14,25,53,.04), 0 0 0 1px rgba(14,25,53,.02);
+
+    background: var(--itl-bg);
+    padding: clamp(48px, 7vw, 96px) 24px;
+    font-family: var(--itl-font-body);
+    color: var(--itl-text-primary);
+  }
+  .impl-timeline .itl-container { max-width: 1080px; margin: 0 auto; }
+
+  .impl-timeline .itl-head { text-align: center; margin-bottom: 48px; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .impl-timeline .itl-label {
+    font-family: var(--itl-font-mono); font-size: 12px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--itl-teal-500); margin-bottom: 14px;
+  }
+  .impl-timeline .itl-title {
+    font-family: var(--itl-font-display); font-size: clamp(26px, 3.4vw, 40px);
+    font-weight: 700; letter-spacing: -.02em; line-height: 1.15; color: var(--itl-text-primary);
+  }
+  .impl-timeline .itl-title .accent {
+    background: var(--itl-gradient-brand); background-size: 200% auto;
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .impl-timeline .itl-desc {
+    font-size: 16px; line-height: 1.6; color: var(--itl-text-label); margin-top: 16px;
+  }
+
+  /* Gantt */
+  .impl-timeline .gantt {
+    background: var(--itl-surface-1); border: 1px solid var(--itl-border);
+    border-radius: var(--itl-radius-lg); padding: 28px; box-shadow: var(--itl-shadow-md); overflow: hidden;
+  }
+  .impl-timeline .gantt-scale {
+    display: grid; grid-template-columns: 130px repeat(4, 1fr);
+    font-family: var(--itl-font-mono); font-size: 11px; color: var(--itl-text-muted);
+    margin-bottom: 14px; border-bottom: 1px solid var(--itl-border); padding-bottom: 8px;
+  }
+  .impl-timeline .gantt-scale span:not(:first-child) { text-align: center; }
+  .impl-timeline .gantt-track { display: grid; grid-template-columns: 130px 1fr; align-items: center; margin-bottom: 14px; }
+  .impl-timeline .gantt-name { font-family: var(--itl-font-display); font-size: 13px; font-weight: 600; color: var(--itl-text-primary); }
+  .impl-timeline .gantt-name small { display: block; font-family: var(--itl-font-body); font-weight: 400; font-size: 11px; color: var(--itl-text-muted); letter-spacing: 0; }
+  .impl-timeline .gantt-bars { position: relative; height: 38px; }
+  .impl-timeline .bar {
+    position: absolute; height: 30px; top: 4px; border-radius: 8px; display: flex; align-items: center;
+    padding: 0 12px; font-size: 11px; font-weight: 600; color: #fff; font-family: var(--itl-font-display);
+    white-space: nowrap; overflow: hidden;
+  }
+  .impl-timeline .bar.t1 { background: linear-gradient(135deg, #43ADC1, #3C75B5); left: 0; width: 78%; box-shadow: 0 2px 10px rgba(67,173,193,.25); }
+  .impl-timeline .bar.t2 { background: linear-gradient(135deg, #5FCFD0, #43ADC1); left: 6%; width: 84%; box-shadow: 0 2px 10px rgba(95,207,208,.25); }
+  .impl-timeline .bar .shine {
+    position: absolute; inset: 0; background: var(--itl-gradient-shimmer);
+    background-size: 200% 100%; animation: itl-shimmer 4s ease-in-out infinite;
+  }
+  @keyframes itl-shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+  .impl-timeline .gantt-mile { display: grid; grid-template-columns: 130px 1fr; margin-top: 6px; }
+  .impl-timeline .mile-line { position: relative; height: 24px; }
+  .impl-timeline .mile { position: absolute; top: 0; transform: translateX(-50%); text-align: center; }
+  .impl-timeline .mile .pin { width: 13px; height: 13px; border-radius: 50%; background: var(--itl-surface-1); border: 3px solid var(--itl-teal-500); margin: 0 auto 4px; box-shadow: 0 0 0 4px rgba(67,173,193,.12); }
+  .impl-timeline .mile .pin.gold { border-color: #D4A84B; box-shadow: 0 0 0 4px rgba(212,168,75,.15); }
+  .impl-timeline .mile span { font-family: var(--itl-font-mono); font-size: 10px; font-weight: 600; color: var(--itl-text-label); white-space: nowrap; }
+
+  /* Detail cards */
+  .impl-timeline .itl-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px; margin-top: 48px;
+  }
+  .impl-timeline .itl-card {
+    background: var(--itl-surface-1); border: 1px solid var(--itl-border);
+    border-radius: var(--itl-radius-lg); padding: 28px;
+  }
+  .impl-timeline .itl-card h3 { font-family: var(--itl-font-display); font-size: 17px; font-weight: 600; margin-bottom: 16px; color: var(--itl-text-primary); }
+  .impl-timeline .itl-card-p { font-size: 14px; line-height: 1.65; color: var(--itl-text-label); margin-bottom: 24px; }
+  .impl-timeline .itl-card-p b { color: var(--itl-text-primary); }
+  .impl-timeline .ladder { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .impl-timeline .ladder li { display: grid; grid-template-columns: 64px 1fr; gap: 12px; align-items: start; font-size: 14px; line-height: 1.6; color: var(--itl-text-label); }
+  .impl-timeline .ladder .step {
+    font-family: var(--itl-font-mono); font-size: 11px; font-weight: 600; color: var(--itl-teal-500);
+    background: var(--itl-surface-2); border: 1px solid var(--itl-border); border-radius: 6px;
+    padding: 3px 8px; text-align: center; height: fit-content;
+  }
+  .impl-timeline .ladder b { color: var(--itl-text-primary); font-family: var(--itl-font-mono); }
+  .impl-timeline .callout { background: var(--itl-blue-700); border-radius: var(--itl-radius-md); padding: 18px 20px; color: #E8EEF8; }
+  .impl-timeline .cl-label { font-family: var(--itl-font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--itl-cyan-400); margin-bottom: 8px; }
+  .impl-timeline .callout p { font-size: 13.5px; line-height: 1.55; color: #C8D6E5; }
+  .impl-timeline .callout b { color: #fff; }
+
+  /* Stat tiles */
+  .impl-timeline .itl-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 48px; }
+  .impl-timeline .tile { background: var(--itl-surface-1); border: 1px solid var(--itl-border); border-radius: var(--itl-radius-lg); padding: 22px 24px; }
+  .impl-timeline .tile .tv {
+    font-family: var(--itl-font-display); font-size: 28px; font-weight: 700;
+    background: var(--itl-gradient-brand); -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .impl-timeline .tile .tl { font-size: 13px; color: var(--itl-text-muted); margin-top: 6px; line-height: 1.4; }
+
+  @media (max-width: 760px) {
+    .impl-timeline .gantt-scale, .impl-timeline .gantt-track, .impl-timeline .gantt-mile { grid-template-columns: 1fr; }
+    .impl-timeline .gantt-scale span:not(:first-child) { display: none; }
+    .impl-timeline .gantt-name { margin-bottom: 8px; }
+    .impl-timeline .itl-tiles { grid-template-columns: 1fr; }
+  }
+</style>

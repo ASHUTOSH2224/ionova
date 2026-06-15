@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { Link } from "@/lib/router-shim";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { ArsCard } from "@/components/sections/ArsCard";
+import "@/styles/ars-card.css";
 
 export function HeroSection() {
   const leftColumnRef = useRef<HTMLDivElement>(null);
@@ -44,7 +46,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-blue-900 to-navy-950 flex flex-col justify-center pt-32 pb-6 md:pt-24 lg:pt-28 md:pb-6">
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-900 to-navy-950 flex flex-col justify-center pt-32 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-blue-600/20 blur-[120px]" />
@@ -113,23 +115,15 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Image / Globe */}
+          {/* Right Visual / Animated ARS Engine Card */}
           <div className="absolute inset-x-0 top-[15%] lg:top-auto lg:inset-auto lg:static w-full lg:w-6/12 flex justify-center lg:justify-end opacity-30 lg:opacity-100 pointer-events-none lg:pointer-events-auto">
-            <div ref={rightImageRef} className="relative w-[300px] md:w-[400px] lg:w-full max-w-[600px] will-change-transform">
-              {/* Globe Glow Effect */}
+            <div ref={rightImageRef} className="relative w-[300px] md:w-[400px] lg:w-full max-w-[560px] mx-auto lg:mx-0 will-change-transform">
+              {/* Glow Effect */}
               <div className="absolute inset-0 bg-blue-500/30 blur-[60px] lg:blur-[100px] rounded-full scale-75 animate-pulse-slow"></div>
 
-              <img
-                src="/Logo/hero Image/hero.webp"
-                srcSet="/Logo/hero%20Image/hero-480w.webp 480w, /Logo/hero%20Image/hero-768w.webp 768w, /Logo/hero%20Image/hero.webp 1024w"
-                sizes="(max-width: 768px) 300px, (max-width: 1024px) 400px, 600px"
-                alt="ISO 20022 Compliance Platform"
-                width={1024}
-                height={1024}
-                loading="eager"
-                fetchPriority="high"
-                className="relative z-10 w-full h-auto drop-shadow-2xl"
-              />
+              <div className="relative z-10">
+                <ArsCard />
+              </div>
             </div>
           </div>
         </div>
