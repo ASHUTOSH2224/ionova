@@ -43,7 +43,7 @@ import '@/styles/ars-platform.css';
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "What is ioNova ARS?", "acceptedAnswer": { "@type": "Answer", "text": "ARS (Address Resolution Service) is a SaaS platform that converts unstructured or hybrid payment addresses into ISO 20022-compliant structured output in a single API call, purpose-built for SWIFT CBPR+ and SEPA." } },
+      { "@type": "Question", "name": "What is ioNova ARS?", "acceptedAnswer": { "@type": "Answer", "text": "ARS (Address Resolution Service) converts unstructured or hybrid payment addresses into ISO 20022-compliant structured output in a single API call, purpose-built for SWIFT CBPR+ and SEPA." } },
       { "@type": "Question", "name": "Is ARS deterministic or LLM-based?", "acceptedAnswer": { "@type": "Answer", "text": "The core engine is deterministic — identical input always produces identical output, with every correction tied to a cited regulatory rule. An AI-assisted workbench handles only the small share of genuinely ambiguous cases, with human-in-the-loop review." } },
       { "@type": "Question", "name": "How quickly can we start using ARS?", "acceptedAnswer": { "@type": "Answer", "text": "You can sign up, get keys and run corrections in the sandbox the same day, and connect a live channel within days. Full enterprise production typically follows in 2–4 weeks." } },
       { "@type": "Question", "name": "Do we have to replace our core systems?", "acceptedAnswer": { "@type": "Answer", "text": "No. ARS deploys as a sidecar alongside existing infrastructure and connects through standard channels and pre-built middleware connectors." } },
@@ -59,19 +59,19 @@ import '@/styles/ars-platform.css';
 
           <section class="hero">
             <div class="hero-inner">
-              <div class="hero-badge"><span class="pulse-dot"></span><span>SaaS · ISO 20022 · Live in days</span></div>
+              <div class="hero-badge"><span class="pulse-dot"></span><span>ISO 20022 Address Intelligence Platform</span></div>
               <h1>The <span class="accent">Address Resolution Service</span> for ISO 20022 payments</h1>
               <p>ioNova ARS converts free-text, hybrid or structured payment addresses into ISO 20022-compliant structured output in a single API call — purpose-built for SWIFT CBPR+ and SEPA. One deterministic engine, four components, working in days.</p>
               <div class="hero-cta">
-                <a class="btn btn-accent" href="/ionova-ars/developers">Start free <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a class="btn btn-accent" href="https://dev.ionova.ai" target="_blank" rel="noopener">Start free <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                 <a class="btn btn-outline" href="/demo">Book a demo</a>
               </div>
-              <span class="hero-note">SaaS · self-serve sandbox · deploys as a sidecar with no core replacement</span>
+              <span class="hero-note">Self-Serve · Deploys as a sidecar with no core replacement</span>
             </div>
           </section>
 
           <section class="section">
-            <div class="answer-block"><strong>ioNova ARS is a SaaS address-resolution platform that converts free-text, hybrid or structured payment addresses into ISO 20022-compliant structured output in a single API call.</strong> It runs on one deterministic engine delivered as four components — the AI Engine, the Developer Portal, the Exceptions Workbench, and Channels &amp; Integrations.</div>
+            <div class="answer-block"><strong>ioNova ARS converts free-text, hybrid or structured payment addresses into ISO 20022-compliant structured output in a single API call.</strong> One deterministic engine, four components — the AI Engine, the Developer Portal, the Exceptions Workbench, and Channels &amp; Integrations.</div>
 
             <div class="alert alert-red">
               <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
@@ -126,7 +126,7 @@ import '@/styles/ars-platform.css';
             <div class="section-header">
               <div class="section-label">Live in days</div>
               <h2 class="section-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>How onboarding works</h2>
-              <p class="section-desc">ARS is SaaS. You do not wait months to see value — your team is correcting addresses in the sandbox on day one.</p>
+              <p class="section-desc">You do not wait months to see value — your team is correcting addresses in the sandbox on day one.</p>
             </div>
             <div class="steps">
               <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Day 1 — Sign up &amp; first correction</h4><p>Get API keys, open your sandbox, run your first correction.</p></div></div>
@@ -172,7 +172,7 @@ import '@/styles/ars-platform.css';
           <section class="section">
             <div class="section-header"><div class="section-label">FAQ</div><h2 class="section-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Frequently asked questions</h2></div>
             <div class="faq-list">
-              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is ioNova ARS?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>ARS (Address Resolution Service) is a SaaS platform that converts unstructured or hybrid payment addresses into ISO 20022-compliant structured output in a single API call, purpose-built for SWIFT CBPR+ and SEPA.</p></div></div>
+              <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is ioNova ARS?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>ARS (Address Resolution Service) converts unstructured or hybrid payment addresses into ISO 20022-compliant structured output in a single API call, purpose-built for SWIFT CBPR+ and SEPA.</p></div></div>
               <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is ARS deterministic or LLM-based?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>The core engine is deterministic — identical input always produces identical output, with every correction tied to a cited regulatory rule. An AI-assisted workbench handles only the small share of genuinely ambiguous cases, with human-in-the-loop review.</p></div></div>
               <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How quickly can we start using ARS?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>You can sign up, get keys and run corrections in the sandbox the same day, and connect a live channel within days. Full enterprise production typically follows in 2–4 weeks.</p></div></div>
               <div class="faq"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do we have to replace our core systems?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>No. ARS deploys as a sidecar alongside existing infrastructure and connects through standard channels and pre-built middleware connectors.</p></div></div>
@@ -184,7 +184,7 @@ import '@/styles/ars-platform.css';
             <div class="cta-strip">
               <h3>Eliminate rejection risk before 15 November 2026</h3>
               <p>Sign up, get keys and run corrections in the sandbox today. Connect a live channel within days.</p>
-              <div class="hero-cta"><a class="btn btn-accent" href="/ionova-ars/developers">Start free <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="btn btn-outline" href="/demo" style="border-color:rgba(255,255,255,0.3);color:#fff">Book a demo</a></div>
+              <div class="hero-cta"><a class="btn btn-accent" href="https://dev.ionova.ai" target="_blank" rel="noopener">Start free <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="btn btn-outline" href="/demo" style="border-color:rgba(255,255,255,0.3);color:#fff">Book a demo</a></div>
             </div>
             <div class="related"><span class="rlabel">Explore</span><a href="/ionova-ars/engine">AI Engine</a><a href="/ionova-ars/developers">Developer Portal</a><a href="/ionova-ars/workbench">Exceptions Workbench</a><a href="/ionova-ars/integrations">Channels &amp; Integrations</a></div>
           </section>

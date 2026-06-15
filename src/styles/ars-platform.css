@@ -263,30 +263,33 @@
 
 /* STEPS — list centered as a block; each step's text reads left-aligned */
 .ars-platform .steps { display:flex; flex-direction:column; gap:var(--space-md); margin:var(--space-md) auto 0; max-width:820px }
-.ars-platform .step { display:flex; gap:var(--space-md); align-items:flex-start; background:var(--surface-1); border:1px solid var(--border); border-radius:var(--radius-lg); padding:var(--space-lg); transition:all .3s; text-align:left }
+.ars-platform .step { display:grid; grid-template-columns:34px 1fr; column-gap:var(--space-md); align-items:start; background:var(--surface-1); border:1px solid var(--border); border-radius:var(--radius-lg); padding:var(--space-lg); transition:all .3s; text-align:left }
 .ars-platform .step:hover { border-color:var(--border-strong); box-shadow:var(--shadow-sm); transform:translateX(2px) }
-.ars-platform .step-num { width:34px; height:34px; flex-shrink:0; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; font-size:15px; color:#fff; background:var(--gradient-brand); background-size:200% auto; animation:ars-gradient-x 5s ease-in-out infinite }
-.ars-platform .step-body h4 { font-family:var(--font-display); font-size:15px; font-weight:600; color:var(--text-primary); margin-bottom:3px }
-.ars-platform .step-body p { font-size:13.5px; color:var(--text-label); line-height:1.55 }
+.ars-platform .step-num { width:34px; height:34px; flex-shrink:0; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; font-size:15px; line-height:1; color:#fff; background:var(--gradient-brand); background-size:200% auto; animation:ars-gradient-x 5s ease-in-out infinite }
+.ars-platform .step-body { min-width:0 }
+.ars-platform .step-body h4 { font-family:var(--font-display); font-size:15px; font-weight:600; line-height:1.45; min-height:34px; display:flex; align-items:center; color:var(--text-primary); margin:0 0 4px }
+.ars-platform .step-body p { font-size:13.5px; color:var(--text-label); line-height:1.55; margin:0 }
 
 /* DECISION BOX — full-width container, text inside reads left-aligned */
-.ars-platform .decision-box { background:var(--decision-bg, var(--blue-700)); border-radius:var(--radius-lg); padding:var(--space-xl); color:#fff; position:relative; margin:var(--space-lg) 0 0; text-align:left }
-.ars-platform .decision-box::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--gradient-brand); background-size:200% 100%; border-radius:var(--radius-lg) var(--radius-lg) 0 0; animation:ars-gradient-x 4s ease-in-out infinite }
+.ars-platform .decision-box { background:var(--decision-bg, var(--blue-700)); border-radius:var(--radius-lg); padding:var(--space-xl); color:#fff; position:relative; overflow:hidden; margin:var(--space-lg) 0 0; text-align:left }
+.ars-platform .decision-box::before { content:''; position:absolute; top:0; left:16px; right:16px; height:2px; background:var(--gradient-brand); background-size:200% 100%; border-radius:0; animation:ars-gradient-x 4s ease-in-out infinite }
 [data-theme="dark"] .ars-platform .decision-box { border:1px solid var(--border-strong); box-shadow:0 0 50px rgba(95,207,208,.05) }
 .ars-platform .decision-label { font-family:var(--font-display); font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--cyan-400); margin-bottom:var(--space-sm) }
 .ars-platform .decision-body { font-size:15px; line-height:1.6; color:rgba(255,255,255,.9) }
 .ars-platform .decision-body strong { color:#fff }
 
 /* FAQ */
-.ars-platform .faq-list { display:block }
-.ars-platform .faq { border-bottom:1px solid var(--border) }
-.ars-platform .faq-q { width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:18px 0; display:flex; justify-content:space-between; align-items:center; gap:16px; font-family:var(--font-display); font-size:16px; font-weight:600; color:var(--text-primary); transition:color .2s }
-.ars-platform .faq-q:hover { color:var(--teal-500) }
-.ars-platform .faq-q .chev { width:20px; height:20px; flex-shrink:0; fill:none; stroke:var(--teal-500); stroke-width:2; stroke-linecap:round; transition:transform .3s }
+/* FAQ — card style matching the homepage FAQ section */
+.ars-platform .faq-list { display:flex; flex-direction:column; gap:12px; text-align:left; max-width:none }
+.ars-platform .faq { background:#fff; border:1px solid #D0DAEB; border-radius:var(--radius-lg); overflow:hidden; box-shadow:0 1px 3px rgba(14,25,53,.05); transition:box-shadow .3s }
+.ars-platform .faq.open { box-shadow:0 4px 12px rgba(14,25,53,.07),0 2px 4px rgba(14,25,53,.04) }
+.ars-platform .faq-q { width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:20px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px; font-family:var(--font-display); font-size:15px; font-weight:600; color:#0E1935; transition:background .2s }
+.ars-platform .faq-q:hover { background:#F9FAFC }
+.ars-platform .faq-q .chev { width:18px; height:18px; flex-shrink:0; fill:none; stroke:#8796A7; stroke-width:2; stroke-linecap:round; transition:transform .3s }
 .ars-platform .faq.open .faq-q .chev { transform:rotate(180deg) }
-.ars-platform .faq-a { max-height:0; overflow:hidden; transition:max-height .35s cubic-bezier(.4,0,.2,1), padding .35s cubic-bezier(.4,0,.2,1) }
-.ars-platform .faq.open .faq-a { max-height:500px; padding-bottom:18px }
-.ars-platform .faq-a p { font-size:14.5px; line-height:1.65; color:var(--text-label) }
+.ars-platform .faq-a { max-height:0; overflow:hidden; transition:max-height .3s cubic-bezier(.4,0,.2,1) }
+.ars-platform .faq.open .faq-a { max-height:500px }
+.ars-platform .faq-a p { padding:0 24px 20px; font-family:var(--font-body); font-size:14px; line-height:1.7; color:#466587; text-align:left }
 
 /* PLAYGROUND — centered block, content rows read left-aligned */
 .ars-platform .pg { background:var(--surface-1); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; margin:var(--space-md) auto 0; max-width:860px; text-align:left }

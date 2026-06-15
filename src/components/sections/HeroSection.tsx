@@ -29,16 +29,6 @@ export function HeroSection() {
           ease: "power3.out",
           delay: 0.5
         });
-
-        // Continuous floating animation for the image
-        gsap.to(rightImageRef.current, {
-          y: -20,
-          duration: 4,
-          ease: "sine.inOut",
-          yoyo: true,
-          repeat: -1,
-          delay: 2 // Start floating after entrance
-        });
       });
     });
 
@@ -116,8 +106,8 @@ export function HeroSection() {
           </div>
 
           {/* Right Visual / Animated ARS Engine Card */}
-          <div className="absolute inset-x-0 top-[15%] lg:top-auto lg:inset-auto lg:static w-full lg:w-6/12 flex justify-center lg:justify-end opacity-30 lg:opacity-100 pointer-events-none lg:pointer-events-auto">
-            <div ref={rightImageRef} className="relative w-[300px] md:w-[400px] lg:w-full max-w-[560px] mx-auto lg:mx-0 will-change-transform">
+          <div className="w-full lg:w-6/12 flex justify-center lg:justify-end">
+            <div ref={rightImageRef} className="relative w-full max-w-[400px] lg:max-w-[560px] mx-auto lg:mx-0 will-change-transform">
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-blue-500/30 blur-[60px] lg:blur-[100px] rounded-full scale-75 animate-pulse-slow"></div>
 

@@ -80,6 +80,17 @@
 @keyframes ac-scanSweep { 0% { top: -12%; opacity: 0; } 10% { opacity: .9; } 90% { opacity: .9; } 100% { top: 108%; opacity: 0; } }
 @keyframes ac-lineReveal { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
+/* Narrow viewports (e.g. iPhone SE ~375px): the fixed 520px height plus the
+   chip/output min-heights overflow once content wraps, clipping the footer and
+   dots behind overflow:hidden. Let the card grow with its content instead. */
+@media (max-width: 560px) {
+  .ars-card { height: auto; padding: 20px 18px 18px; }
+  .ars-chips { min-height: 0; }
+  .ars-out { min-height: 0; flex: 0 0 auto; }
+  .ars-foot { gap: 8px; }
+  .ars-badge { min-width: 0; padding: 7px 11px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ars-card, .ars-out.revealed .ln { animation: none; }
   .ars-out .ln { opacity: 1; }
