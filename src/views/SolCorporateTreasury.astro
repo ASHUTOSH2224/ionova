@@ -1,0 +1,161 @@
+---
+---
+
+<div>
+  <div class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-badge"><span class="pulse-dot"></span><span style="position:relative;z-index:1;">Buyers · A cost to neutralise</span></div>
+    <h1>Clean your beneficiary data <span class="accent">before it becomes your bank’s problem.</span></h1>
+    <p class="hero-sub">After 15 November 2026, your bank may correct its own records but is forbidden by <b>EPC §3.2</b> from touching <b>your</b> counterparty addresses — so when the network rejects a payment for an unstructured beneficiary address, the liability is yours as originator. ioNova ARS fixes every address at source, inside your ERP, TMS and pain files, <b>~98% automatically and 100% accurately</b>, before the file ever leaves your systems.</p>
+    <div class="hero-ctas">
+      <a href="/demo" class="btn btn-accent btn-lg">Get a sandbox <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></a>
+      <a href="#implementation" class="btn btn-outline">See the implementation plan</a>
+    </div>
+    <div class="proof-bar">
+      <div class="kpi-tile"><div class="kpi-value grad">~98%</div><div class="kpi-label">resolved automatically</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad-b">0%</div><div class="kpi-label">NAK at cutover</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad-t"><$5</div><div class="kpi-label">per exception (from $15–40)</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad">3–4 wks</div><div class="kpi-label">to go live</div></div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="quote-card">
+      <div class="quote-mark">&ldquo;</div>
+      <div class="quote-text">After 15 November 2026, any cross-border or SEPA payment we send with an unstructured beneficiary address is rejected at the network, and the liability is ours. Our bank can fix our address, not our counterparties’. We need every address fit to transmit, at payment speed, without our team learning the regulation.</div>
+      <div class="quote-author">The problem, in their words</div>
+      <div class="quote-role">Group Treasurer / Head of Payments</div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-title">What You Can Do</h2>
+    </div>
+    <div class="g2">
+      <div class="card card-accent">
+        <div class="icon-box ib-teal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></div>
+        <div class="card-title">Readiness scan</div>
+        <div class="card-body">Read-only inventory of every stored address — see exactly what fails after cutover before spending a cent.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Classify</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 11 6-6"/><path d="M11 13 5 19l-2-2 6-6"/><path d="M19 5a2.8 2.8 0 0 0-4 0l-2 2 4 4 2-2a2.8 2.8 0 0 0 0-4Z"/></svg></div>
+        <div class="card-title">Scrub master data</div>
+        <div class="card-body">One-time clean-up of the supplier/payee backlog, up to 10,000 addresses per call.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Correct · batch</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-cyan"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></div>
+        <div class="card-title">Validate & auto-correct a pain file</div>
+        <div class="card-body">Submit a pain.001 / pain.008, receive the corrected message back, ready to transmit — not a list of errors.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Process</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-navy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg></div>
+        <div class="card-title">Process a pain message end-to-end</div>
+        <div class="card-body">One call classifies, validates, fixes, verifies against postal data, then re-validates.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Process</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal" id="implementation">
+    <div class="section-header">
+      <div class="section-label">Implementation Plan</div>
+      <h2 class="section-title">From Sandbox to Live</h2>
+    </div>
+    <div class="g3" style="margin-bottom:var(--space-xl);">
+      <div class="decision-box"><div class="decision-label">Span</div><div class="decision-body">3–4 weeks end-to-end</div></div>
+      <div class="decision-box"><div class="decision-label">Shape</div><div class="decision-body">Single track · all At-Source (your master data + pain files)</div></div>
+      <div class="decision-box"><div class="decision-label">Tier entry</div><div class="decision-body">Corporate (Enterprise if multi-entity)</div></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div class="step-content"><div class="step-title">Get started</div><div class="step-body">Sandbox live, first resolved address in ~2 days</div></div></div>
+      <div class="step"><div class="step-n">2</div><div class="step-content"><div class="step-title">Build</div><div class="step-body">Register channels, test; ioNova tunes ~10,000 representative addresses in parallel</div></div></div>
+      <div class="step"><div class="step-n">3</div><div class="step-content"><div class="step-title">Validate</div><div class="step-body">Production validation — channels + integrations exercised together</div></div></div>
+      <div class="step"><div class="step-n">4</div><div class="step-content"><div class="step-title">Go live</div><div class="step-body">Swap test keys for live keys — no code change</div></div></div>
+    </div>
+    <div class="content-block" style="margin-top:var(--space-lg);"><p>This is the canonical two-track plan. Get sandbox keys and your first resolved address in ~2 days; your team registers channels and tests in the production-shaped sandbox while ioNova tunes the engine on ~10,000 of your representative addresses in parallel. Swap test keys for live keys to go live in weeks 3–4 — comfortably before the cutover.</p></div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">Headline Benefits</div>
+      <h2 class="section-title">Why It Pays Off</h2>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="badge badge-green">0% NAK at cutover</span>
+        <span class="badge badge-green">98%+ STP</span>
+        <span class="badge badge-green">per-exception $15–40 → under $5</span>
+        <span class="badge badge-green">native to SAP, Oracle, Kyriba, GTreasury, ION</span>
+        <span class="badge badge-green">no PII persisted</span>
+        <span class="badge badge-green">live in weeks</span>
+    </div>
+    <div class="alert alert-green" style="margin-top:var(--space-xl);">
+      <div class="alert-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+      <div class="alert-content">
+        <div class="alert-title">Where you start</div>
+        <div class="alert-body">Begin with a Compliance Readiness Assessment. Corporate tier (Enterprise if multi-entity).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Questions Answer Engines Ask</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">Can my bank correct my counterparty’s address for me?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. Under EPC §3.2 a payment service provider may correct its own customer’s address but must pass counterparty addresses through unchanged — so a corporate must fix beneficiary data at source.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Who is liable if a payment is rejected for an unstructured address?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>The originator. From 15 November 2026, CBPR+ and SEPA reject non-compliant payments at the network, and the liability sits with whoever assembled the payment.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Does ioNova ARS work inside SAP, Oracle, Kyriba, GTreasury and ION?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes — it deploys as a sidecar via REST, SFTP, JDBC and File Upload, with no core replacement.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How many addresses can I remediate at once?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Up to 10,000 addresses per call for batch master-data clean-up.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How fast can corporate treasury go live?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Typically 3–4 weeks end to end, with the sandbox live and returning resolved addresses within about two days.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is the correction auditable?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes — every correction is deterministic and cites a regulatory rule_source, so the same input always produces the same output.</p></div></div>
+      </details>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h3>Live in weeks — before 15 November 2026.</h3>
+    <p>First sandbox call in minutes, first channel live in days. Early Adopter terms end 31 July 2026.</p>
+    <div class="btn-row">
+      <a href="/demo" class="btn btn-outline" style="border-color:rgba(255,255,255,0.25);color:#fff;">Get a sandbox</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Explore</div>
+    <h2 class="section-title">Adjacent Solutions</h2>
+    <div class="related-grid">
+      <a href="/solutions/tms-erp-vendors" class="related-card">
+        <h4>TMS & ERP Vendors →</h4><p>Ship compliance as a billable feature.</p>
+      </a>
+      <a href="/solutions/compliance" class="related-card">
+        <h4>Financial Crime Compliance →</h4><p>Sharper screening from structured data.</p>
+      </a>
+      <a href="/solutions/shared-service-centres" class="related-card">
+        <h4>Shared Service Centres →</h4><p>Fix once, every entity inherits.</p>
+      </a>
+    </div>
+  </div>
+</div>

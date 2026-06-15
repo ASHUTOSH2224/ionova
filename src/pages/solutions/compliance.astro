@@ -1,0 +1,28 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import SolCompliance from '@/views/SolCompliance.astro';
+---
+
+<Layout
+  title="Structured Addresses for Sanctions, AML, KYC & Travel Rule — ioNova ARS"
+  description="Cut sanctions false positives 40–60% by screening structured, field-tagged addresses instead of free text. ioNova ARS is the upstream overlay your screening, AML and KYC stack already needs."
+  ogImage="/og-image.png"
+  ogImageAlt="Financial Crime Compliance — ioNova ARS Solution"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":"Structured Addresses for Sanctions, AML, KYC & Travel Rule — ioNova ARS","description":"Cut sanctions false positives 40–60% by screening structured, field-tagged addresses instead of free text. ioNova ARS is the upstream overlay your screening, AML and KYC stack already needs.","url":"https://ionova.ai/solutions/compliance","isPartOf":{"@id":"https://ionova.ai/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ionova.ai"},{"@type":"ListItem","position":2,"name":"Solutions","item":"https://ionova.ai/solutions"},{"@type":"ListItem","position":3,"name":"Financial Crime Compliance","item":"https://ionova.ai/solutions/compliance"}]}})} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Service","name":"ioNova ARS for Financial Crime Compliance","description":"Cut sanctions false positives 40–60% by screening structured, field-tagged addresses instead of free text. ioNova ARS is the upstream overlay your screening, AML and KYC stack already needs.","url":"https://ionova.ai/solutions/compliance","provider":{"@type":"Organization","name":"ioNova AI","url":"https://ionova.ai"},"serviceType":"ISO 20022 address resolution","areaServed":"Worldwide"})} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do structured addresses reduce sanctions false positives?","acceptedAnswer":{"@type":"Answer","text":"Yes — screening field-tagged addresses instead of free text lets field-appropriate rules cut false positives by 40–60%."}},{"@type":"Question","name":"Do I have to replace my screening engine?","acceptedAnswer":{"@type":"Answer","text":"No — ioNova ARS is an upstream overlay; the screening engine, transaction monitor and KYC platform stay the same, only the input data improves."}},{"@type":"Question","name":"How does it help shell-company detection?","acceptedAnswer":{"@type":"Answer","text":"Reconciling address spellings collapses many entity representations to one normalised address, making hidden links visible."}},{"@type":"Question","name":"Is each screening decision auditable?","acceptedAnswer":{"@type":"Answer","text":"Yes — every finding carries a rule_source citation a regulator can examine."}},{"@type":"Question","name":"Does it run at KYC onboarding?","acceptedAnswer":{"@type":"Answer","text":"Yes — addresses are validated against postal data at the point of capture, proactively."}},{"@type":"Question","name":"What does it cost per alert?","acceptedAnswer":{"@type":"Answer","text":"Investigation cost typically falls from $50–80 to roughly $5–10 per alert."}}]})} />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <SolCompliance />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

@@ -1,0 +1,28 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import SolTmsErpVendors from '@/views/SolTmsErpVendors.astro';
+---
+
+<Layout
+  title="ISO 20022 Compliance for TMS & ERP Vendors — Ship It as a Feature"
+  description="Embed ioNova ARS once and resell ISO 20022 address compliance — white-label or OEM, multi-entity by design, margin-positive from day one. Your clients can’t get this from their bank."
+  ogImage="/og-image.png"
+  ogImageAlt="TMS & ERP Vendors — ioNova ARS Solution"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":"ISO 20022 Compliance for TMS & ERP Vendors — Ship It as a Feature","description":"Embed ioNova ARS once and resell ISO 20022 address compliance — white-label or OEM, multi-entity by design, margin-positive from day one. Your clients can’t get this from their bank.","url":"https://ionova.ai/solutions/tms-erp-vendors","isPartOf":{"@id":"https://ionova.ai/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ionova.ai"},{"@type":"ListItem","position":2,"name":"Solutions","item":"https://ionova.ai/solutions"},{"@type":"ListItem","position":3,"name":"TMS & ERP Vendors","item":"https://ionova.ai/solutions/tms-erp-vendors"}]}})} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Service","name":"ioNova ARS for TMS & ERP Vendors","description":"Embed ioNova ARS once and resell ISO 20022 address compliance — white-label or OEM, multi-entity by design, margin-positive from day one. Your clients can’t get this from their bank.","url":"https://ionova.ai/solutions/tms-erp-vendors","provider":{"@type":"Organization","name":"ioNova AI","url":"https://ionova.ai"},"serviceType":"ISO 20022 address resolution","areaServed":"Worldwide"})} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can a TMS or ERP vendor resell ISO 20022 address compliance?","acceptedAnswer":{"@type":"Answer","text":"Yes. ioNova ARS offers a white-label / OEM Partner tier so vendors embed once and resell compliance as a billable feature."}},{"@type":"Question","name":"Why can’t the bank just fix our clients’ addresses?","acceptedAnswer":{"@type":"Answer","text":"EPC §3.2 forbids banks from altering counterparty addresses, which puts the fix at the point of payment assembly — your platform."}},{"@type":"Question","name":"How much engineering does the embed take?","acceptedAnswer":{"@type":"Answer","text":"A one-time sidecar integration over weeks via REST, MQ or Kafka with circuit-breaker fallback; after that, each client onboards in days as a Channel Profile."}},{"@type":"Question","name":"Does correction happen in real time inside our engine?","acceptedAnswer":{"@type":"Answer","text":"Yes — inline pain→pacs correction runs sub-50ms P95, preserving straight-through processing."}},{"@type":"Question","name":"What’s the margin model?","acceptedAnswer":{"@type":"Answer","text":"Margin equals your resold price minus a per-resolution unit cost that declines as volume rises."}},{"@type":"Question","name":"Is it multi-entity?","acceptedAnswer":{"@type":"Answer","text":"Yes — multi-entity is included in the Partner tier, so one integration serves your whole client base."}}]})} />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <SolTmsErpVendors />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

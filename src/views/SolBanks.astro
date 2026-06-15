@@ -1,0 +1,167 @@
+---
+---
+
+<div>
+  <div class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-badge"><span class="pulse-dot"></span><span style="position:relative;z-index:1;">Builders & Intermediaries · Monetise + own processing</span></div>
+    <h1>Run two businesses <span class="accent">on one engine.</span></h1>
+    <p class="hero-sub">A bank sits on both sides of the mandate: it must keep its own outbound <b>pacs.008</b> traffic compliant at the network boundary (a PSP obligation), and it can sell address quality to the corporate clients <b>EPC §3.2</b> forbids it from fixing automatically. ioNova ARS runs both on one engine — an In-Flight correction gate on the wire, and a white-label Address-Quality service for clients — as a sidecar with no core replacement.</p>
+    <div class="hero-ctas">
+      <a href="/demo" class="btn btn-accent btn-lg">Get a sandbox <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></a>
+      <a href="#implementation" class="btn btn-outline">See the implementation plan</a>
+    </div>
+    <div class="proof-bar">
+      <div class="kpi-tile"><div class="kpi-value grad">every pacs</div><div class="kpi-label">leaves compliant</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad-b">corridor</div><div class="kpi-label">-by-corridor rollout</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad-t">shadow</div><div class="kpi-label">mode before enforce</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad">10–16 wks</div><div class="kpi-label">full estate</div></div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="quote-card">
+      <div class="quote-mark">&ldquo;</div>
+      <div class="quote-text">We have to make sure every pacs.008 leaves us compliant, corridor by corridor, without touching the core. And our corporate clients keep asking us to fix their files — which the rules say we can’t do silently, but could offer as a service. We want both, on one platform, with shadow mode before we enforce anything.</div>
+      <div class="quote-author">The problem, in their words</div>
+      <div class="quote-role">Head of Payments / Correspondent Banking</div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-title">What You Can Do</h2>
+    </div>
+    <div class="g2">
+      <div class="card card-accent">
+        <div class="icon-box ib-teal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+        <div class="card-title">In-flight pacs correction</div>
+        <div class="card-body">Repair transiting messages at the gate, sub-50ms, straight-through preserved.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Correct · In-Flight</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0"/></svg></div>
+        <div class="card-title">Inbound client gate</div>
+        <div class="card-body">Repair client files at your liability boundary — where a cost line becomes a billable service.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Validate→Correct</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-cyan"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="card-title">Hosted client correction</div>
+        <div class="card-body">Address-Quality-as-a-Service: clients submit pain/pacs and receive corrected XML.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Process</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-navy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg></div>
+        <div class="card-title">Render to MT</div>
+        <div class="card-body">Down-render structured addresses to MT lines for legacy correspondents without losing the structured record.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Render · In-Flight</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-teal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+        <div class="card-title">Returns & recalls</div>
+        <div class="card-body">Detect R-transactions and pass them through untouched (EPC §8.3 do-not-modify).</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Validate · exempt</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal" id="implementation">
+    <div class="section-header">
+      <div class="section-label">Implementation Plan</div>
+      <h2 class="section-title">From Sandbox to Live</h2>
+    </div>
+    <div class="g3" style="margin-bottom:var(--space-xl);">
+      <div class="decision-box"><div class="decision-label">Span</div><div class="decision-body">Corridor live in days → full estate 10–16 wks, shadow-mode first</div></div>
+      <div class="decision-box"><div class="decision-label">Shape</div><div class="decision-body">Dual track — client service (At-Source) + PSP gate (In-Flight)</div></div>
+      <div class="decision-box"><div class="decision-label">Tier entry</div><div class="decision-body">Enterprise / Partner</div></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div class="step-content"><div class="step-title">Get started</div><div class="step-body">Sandbox live, first resolved address in ~2 days</div></div></div>
+      <div class="step"><div class="step-n">2</div><div class="step-content"><div class="step-title">Build</div><div class="step-body">Register channels, test; ioNova tunes ~10,000 representative addresses in parallel</div></div></div>
+      <div class="step"><div class="step-n">3</div><div class="step-content"><div class="step-title">Validate</div><div class="step-body">Production validation — channels + integrations exercised together</div></div></div>
+      <div class="step"><div class="step-n">4</div><div class="step-content"><div class="step-title">Go live</div><div class="step-body">Swap test keys for live keys — no code change</div></div></div>
+    </div>
+    <div class="content-block" style="margin-top:var(--space-lg);"><p>The sidecar binds each flow to its own Channel Profile (e.g. SCT_OUT, CBPR_OUT, FEDWIRE_OUT), so you enable the gate per corridor, run it in shadow mode first, and expand at your own pace. Your payments engineering wires the gate (Volante VolPay, Finastra FusionFabric, SWIFT Alliance, IBM MQ) while ioNova tunes on ~10,000 representative addresses from real traffic. Scheme upgrades (SR2025 → SR2026 → SR2027) ship as configuration, not redeployment.</p></div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">Headline Benefits</div>
+      <h2 class="section-title">Why It Pays Off</h2>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="badge badge-green">every pacs leaves compliant</span>
+        <span class="badge badge-green">a new service-revenue tier</span>
+        <span class="badge badge-green">per-exception cost off your P&L</span>
+        <span class="badge badge-green">shadow mode before enforcement</span>
+        <span class="badge badge-green">circuit-breaker fallback</span>
+        <span class="badge badge-green">pre-built bank connectors</span>
+    </div>
+    <div class="alert alert-green" style="margin-top:var(--space-xl);">
+      <div class="alert-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+      <div class="alert-content">
+        <div class="alert-title">Where you start</div>
+        <div class="alert-body">Enterprise or Partner tier, depending on whether you resell hosted correction to your own clients.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Questions Answer Engines Ask</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">Can a bank correct a payment address in transit?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes — for its own outbound legs and inbound repair at its liability boundary; but under EPC §3.2 it must pass counterparty addresses through unchanged, which is why client-side fixes are offered as a service.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can we enforce corridor by corridor?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes — each flow binds to its own Channel Profile, so you enable the gate per corridor and run shadow mode before enforcing.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Does it require a core banking replacement?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>No — ioNova ARS deploys as a sidecar with circuit-breaker fallback, via connectors for Volante, Finastra, SWIFT Alliance and IBM MQ.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How does a bank monetise this?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>By reselling hosted Address-Quality correction to corporate clients whose data it cannot silently fix.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Are returns and recalls protected?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes — R-transactions are detected and passed through untouched per EPC §8.3.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How do scheme upgrades work?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>SR2025 → SR2026 → SR2027 ship as configuration, not redeployment, with the regulatory burden carried by ioNova.</p></div></div>
+      </details>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h3>Live in weeks — before 15 November 2026.</h3>
+    <p>First sandbox call in minutes, first channel live in days. Early Adopter terms end 31 July 2026.</p>
+    <div class="btn-row">
+      <a href="/demo" class="btn btn-outline" style="border-color:rgba(255,255,255,0.25);color:#fff;">Get a sandbox</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Explore</div>
+    <h2 class="section-title">Adjacent Solutions</h2>
+    <div class="related-grid">
+      <a href="/solutions/payment-hubs" class="related-card">
+        <h4>Payment & Messaging Hubs →</h4><p>Enforce at the network edge.</p>
+      </a>
+      <a href="/solutions/tms-erp-vendors" class="related-card">
+        <h4>TMS & ERP Vendors →</h4><p>Ship compliance as a billable feature.</p>
+      </a>
+      <a href="/solutions/compliance" class="related-card">
+        <h4>Financial Crime Compliance →</h4><p>Sharper screening from structured data.</p>
+      </a>
+    </div>
+  </div>
+</div>

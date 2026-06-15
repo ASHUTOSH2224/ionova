@@ -1,0 +1,61 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import SolutionsOverview from '@/views/SolutionsOverview.astro';
+import { SOLUTIONS } from '@/data/solutions';
+
+const title = 'ioNova ARS Solutions — One Engine for the Structured-Address Mandate';
+const description =
+  'From 15 November 2026, payments carrying unstructured addresses are rejected at the network. ioNova ARS resolves every address to ISO 20022 structure — seven ways to deploy it, one per role.';
+const url = 'https://ionova.ai/solutions';
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+  url,
+  isPartOf: { '@id': 'https://ionova.ai/#website' },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ionova.ai' },
+      { '@type': 'ListItem', position: 2, name: 'Solutions', item: url },
+    ],
+  },
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'ioNova ARS Solutions',
+  itemListElement: SOLUTIONS.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: s.nav,
+    url: `https://ionova.ai/solutions/${s.slug}`,
+  })),
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage="/og-image.png"
+  ogImageAlt="ioNova ARS Solutions — ISO 20022 Address Resolution by Role"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(itemListSchema)} />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <SolutionsOverview />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

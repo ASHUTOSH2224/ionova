@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
-import { Menu, X, FileCheck, TrendingUp, Map, Cpu, CheckCircle, Users, BadgeCheck, Monitor, GitMerge, Shield, MapPin, DollarSign, Code, ChevronDown, LayoutGrid, Terminal, Plug, FileText, Video, Mic } from "lucide-react";
+import { Menu, X, FileCheck, Cpu, CheckCircle, BadgeCheck, Monitor, Shield, MapPin, DollarSign, Code, ChevronDown, LayoutGrid, Terminal, Plug, FileText, Video, Mic, Layers, Box, Route, Building2, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -14,45 +14,63 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
-const entityIntelligencePlatformItems = [
+const solutionsOverview = [
   {
-    label: "Platform Overview",
-    description: "NER, golden records, AI copilots & governance",
-    href: "/entity-intelligence",
-    icon: Users,
+    label: "Solutions Overview",
+    description: "One engine, seven ways to deploy it",
+    href: "/solutions",
+    icon: LayoutGrid,
   },
 ];
 
-const entityIntelligenceCapabilities = [
+const solutionsBuyers = [
   {
-    label: "Evidence-First AI",
-    description: "100% citation coverage, audit-defensible",
-    href: "/entity-intelligence/evidence",
+    label: "Corporate Treasury",
+    description: "Fix beneficiary data at source",
+    href: "/solutions/corporate-treasury",
     icon: BadgeCheck,
   },
   {
-    label: "Overlay-First Deployment",
-    description: "90-day value, zero data migration",
-    href: "/entity-intelligence/overlay",
-    icon: Monitor,
+    label: "Shared Service Centres",
+    description: "Fix once, every entity inherits",
+    href: "/solutions/shared-service-centres",
+    icon: Layers,
+  },
+];
+
+const solutionsBuilders = [
+  {
+    label: "TMS & ERP Vendors",
+    description: "Ship compliance as a billable feature",
+    href: "/solutions/tms-erp-vendors",
+    icon: Box,
   },
   {
-    label: "Progressive Autonomy",
-    description: "Explain \u2192 Recommend \u2192 Prepare \u2192 Execute",
-    href: "/entity-intelligence/autonomy",
-    icon: TrendingUp,
+    label: "Banks & PSPs",
+    description: "Two businesses, one engine",
+    href: "/solutions/banks",
+    icon: Building2,
   },
   {
-    label: "Cascade Intelligence",
-    description: "Multi-stage resolution, 90%+ cost reduction",
-    href: "/entity-intelligence/cascade",
-    icon: GitMerge,
+    label: "Payment & Messaging Hubs",
+    description: "Enforce at the network edge",
+    href: "/solutions/payment-hubs",
+    icon: Route,
   },
   {
-    label: "Governance-by-Design",
-    description: "SR 11-7, EU AI Act ready, audit-grade",
-    href: "/entity-intelligence/governance",
-    icon: Shield,
+    label: "API Providers (VOP / CoP)",
+    description: "One API, sub-100ms address verdict",
+    href: "/solutions/vop-cop-providers",
+    icon: CheckCircle,
+  },
+];
+
+const solutionsBeneficiary = [
+  {
+    label: "Financial Crime Compliance",
+    description: "Sharper screening from structured data",
+    href: "/solutions/compliance",
+    icon: ShieldCheck,
   },
 ];
 
@@ -188,7 +206,7 @@ export function Navbar() {
     // For plain paths like /address-intelligence, only match if no hash is present
     return currentPath === targetPath && !location.hash;
   };
-  const isEntityIntelligenceActive = location.pathname.startsWith("/entity-intelligence");
+  const isSolutionsActive = location.pathname.startsWith("/solutions");
   const isAddressIntelligenceActive = location.pathname.startsWith(
     "/address-intelligence"
   );
@@ -386,16 +404,16 @@ export function Navbar() {
                 <NavigationMenuTrigger
                   className={cn(
                     "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium text-base",
-                    isEntityIntelligenceActive && "text-blue-600 font-semibold bg-blue-50/50"
+                    isSolutionsActive && "text-blue-600 font-semibold bg-blue-50/50"
                   )}
                 >
-                  Entity Intelligence
+                  Solutions
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[280px] bg-white rounded-xl shadow-xl border border-border/50 p-3">
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Entity Intelligence Platform</p>
+                  <div className="w-[320px] bg-white rounded-xl shadow-xl border border-border/50 p-3">
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Overview</p>
                     <ul className="grid gap-0.5">
-                      {entityIntelligencePlatformItems.map((item) => (
+                      {solutionsOverview.map((item) => (
                         <li key={item.href}>
                           <NavigationMenuLink asChild>
                             <Link
@@ -421,9 +439,65 @@ export function Navbar() {
                       ))}
                     </ul>
                     <div className="border-t border-border/50 my-2" />
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Capabilities</p>
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Buyers</p>
                     <ul className="grid gap-0.5">
-                      {entityIntelligenceCapabilities.map((item) => (
+                      {solutionsBuyers.map((item) => (
+                        <li key={item.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={item.href}
+                              className={cn(
+                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
+                                isActive(item.href) && "bg-blue-50"
+                              )}
+                            >
+                              <span className={cn(
+                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
+                                isActive(item.href) && "bg-blue-100 text-blue-600"
+                              )}>
+                                <item.icon className="h-3.5 w-3.5" />
+                              </span>
+                              <span className={cn(
+                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
+                                isActive(item.href) && "text-blue-700 font-semibold"
+                              )}>{item.label}</span>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="border-t border-border/50 my-2" />
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Builders &amp; Intermediaries</p>
+                    <ul className="grid gap-0.5">
+                      {solutionsBuilders.map((item) => (
+                        <li key={item.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={item.href}
+                              className={cn(
+                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
+                                isActive(item.href) && "bg-blue-50"
+                              )}
+                            >
+                              <span className={cn(
+                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
+                                isActive(item.href) && "bg-blue-100 text-blue-600"
+                              )}>
+                                <item.icon className="h-3.5 w-3.5" />
+                              </span>
+                              <span className={cn(
+                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
+                                isActive(item.href) && "text-blue-700 font-semibold"
+                              )}>{item.label}</span>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="border-t border-border/50 my-2" />
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Beneficiary</p>
+                    <ul className="grid gap-0.5">
+                      {solutionsBeneficiary.map((item) => (
                         <li key={item.href}>
                           <NavigationMenuLink asChild>
                             <Link
@@ -629,16 +703,16 @@ export function Navbar() {
 
           <div className="space-y-2">
             <button
-              onClick={() => toggleMobileSection('entity')}
+              onClick={() => toggleMobileSection('solutions')}
               className="flex w-full items-center justify-between text-base font-medium text-navy-900"
             >
-              Entity Intelligence
-              <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileSections['entity'] ? "rotate-180" : "")} />
+              Solutions
+              <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileSections['solutions'] ? "rotate-180" : "")} />
             </button>
-            {openMobileSections['entity'] && (
+            {openMobileSections['solutions'] && (
               <div className="pl-4 space-y-1 border-l-2 border-primary/10 ml-1 animate-in slide-in-from-top-2 fade-in duration-200">
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-1 pb-0.5">Platform</p>
-                {entityIntelligencePlatformItems.map((item) => (
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-1 pb-0.5">Overview</p>
+                {solutionsOverview.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
@@ -650,8 +724,34 @@ export function Navbar() {
                     {item.label}
                   </Link>
                 ))}
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Capabilities</p>
-                {entityIntelligenceCapabilities.map((item) => (
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Buyers</p>
+                {solutionsBuyers.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    data-astro-prefetch="tap"
+                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Builders &amp; Intermediaries</p>
+                {solutionsBuilders.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    data-astro-prefetch="tap"
+                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Beneficiary</p>
+                {solutionsBeneficiary.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}

@@ -1,0 +1,119 @@
+---
+import { SOLUTIONS, icon } from '@/data/solutions';
+---
+
+<div>
+  <div class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-badge"><span class="pulse-dot"></span><span style="position:relative;z-index:1;">Network NAK from 15 Nov 2026 — SWIFT CBPR+ SR2026 + EPC SEPA Rulebook</span></div>
+    <h1>One Engine for the <span class="accent">Structured-Address Mandate</span><br />Seven Ways to Deploy It</h1>
+    <p class="hero-sub">From 15 November 2026, payments carrying unstructured addresses are rejected at the network — and <b>EPC §3.2</b> stops banks fixing counterparty data for you. ioNova ARS resolves every address to ISO 20022 structure, <b>~98% automatically, 100% accurately, in &lt;50ms</b>. Pick the placement that matches your role.</p>
+    <div class="hero-ctas">
+      <a href="/demo" class="btn btn-accent btn-lg">Get a sandbox <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></a>
+      <a href="/solutions/corporate-treasury" class="btn btn-outline">I’m a corporate treasurer</a>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">Solutions by Role</div>
+      <h2 class="section-title">Pick the Placement That Matches You</h2>
+      <p class="section-desc">One deterministic engine, seven deployment shapes — for buyers fixing data at source, builders monetising compliance, and beneficiaries sharpening screening.</p>
+    </div>
+    <div class="sol-persona-grid">
+      {SOLUTIONS.map((s) => (
+        <a href={`/solutions/${s.slug}`} class="sol-persona">
+          <div class="sol-persona__group">{s.group}{s.newp ? ' · net-new' : ''}</div>
+          <h3 class="sol-persona__title">{s.nav}</h3>
+          <div class="sol-persona__frame">{s.frame}</div>
+          <p class="sol-persona__desc">{s.navDesc}.</p>
+          <div class="sol-persona__go">Open solution <span set:html={icon('arrow', 14)} /></div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h3>Postal valid ≠ payment valid.</h3>
+    <p>An address can be deliverable by post and still NAK at the payment network. ioNova ARS is the difference — deterministic, auditable, and live before the deadline.</p>
+    <div class="btn-row">
+      <a href="/solutions/banks" class="btn btn-outline" style="border-color:rgba(255,255,255,0.25);color:#fff;">See how banks deploy it</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Persona cards — ported from the ionova-ars-solutions prototype, using ds-v5 tokens. */
+  .sol-persona-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+    margin-top: var(--space-xl);
+  }
+  .sol-persona {
+    display: block;
+    text-align: left;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: all .35s var(--ease-out-expo);
+  }
+  .sol-persona::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-brand);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s var(--ease, ease);
+  }
+  .sol-persona:hover {
+    transform: translateY(var(--hover-lift, -6px));
+    box-shadow: var(--shadow-lifted);
+    border-color: var(--border-strong);
+  }
+  .sol-persona:hover::before { transform: scaleX(1); }
+  .sol-persona__group {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .sol-persona__title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 700;
+    margin: 10px 0 6px;
+    letter-spacing: -.01em;
+    color: var(--text-primary);
+  }
+  .sol-persona__frame {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--teal-500);
+    margin-bottom: 10px;
+  }
+  .sol-persona__desc {
+    font-size: 13.5px;
+    color: var(--text-label);
+    line-height: 1.5;
+  }
+  .sol-persona__go {
+    margin-top: 14px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal-500);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sol-persona__go :global(svg) { width: 14px; height: 14px; }
+</style>

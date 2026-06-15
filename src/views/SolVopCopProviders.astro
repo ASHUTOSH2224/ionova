@@ -1,0 +1,153 @@
+---
+---
+
+<div>
+  <div class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-badge"><span class="pulse-dot"></span><span style="position:relative;z-index:1;">Builders & Intermediaries · Monetise — narrow</span></div>
+    <h1>Add an address-quality verdict <span class="accent">to every payee check.</span><span class="badge badge-accent" style="margin-left:10px;vertical-align:middle;">Net-new</span></h1>
+    <p class="hero-sub">A <b>Verification of Payee</b> (EU) or <b>Confirmation of Payee</b> (UK) provider verifies one payee at a time — so ioNova ARS adds a single, high-margin signal: an address-quality verdict returned alongside your name/account match. It’s the narrowest fit of any audience — one API group, pre-check only, <b>sub-100ms</b> — and the smallest integration surface, because you never handle a payment message.</p>
+    <div class="hero-ctas">
+      <a href="/demo" class="btn btn-accent btn-lg">Get a sandbox <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></a>
+      <a href="#implementation" class="btn btn-outline">See the implementation plan</a>
+    </div>
+    <div class="proof-bar">
+      <div class="kpi-tile"><div class="kpi-value grad">sub-100ms</div><div class="kpi-label">address verdict</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad-b">1</div><div class="kpi-label">API group (EP-01–07)</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad-t">days</div><div class="kpi-label">to integrate</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad">0</div><div class="kpi-label">message handling</div></div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="quote-card">
+      <div class="quote-mark">&ldquo;</div>
+      <div class="quote-text">Our CoP/VOP response is a name-and-account match. We want one more differentiating signal — is the payee’s address structurally sound? — without taking on payment-message handling or a heavy integration.</div>
+      <div class="quote-author">The problem, in their words</div>
+      <div class="quote-role">Product Lead, Confirmation of Payee API</div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-title">What You Can Do</h2>
+    </div>
+    <div class="g2">
+      <div class="card card-accent">
+        <div class="icon-box ib-teal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="card-title">Validate an address on a form</div>
+        <div class="card-body">Structural address check, sub-100ms, as the payee is entered.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Validate</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <div class="card-title">Classify & normalise a payee</div>
+        <div class="card-body">Detect the format and normalise the address ahead of the name/account match.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Classify→Correct</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-cyan"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+        <div class="card-title">Verify inside a CoP/VOP check</div>
+        <div class="card-body">Return an address-quality verdict alongside your match result.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Validate</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal" id="implementation">
+    <div class="section-header">
+      <div class="section-label">Implementation Plan</div>
+      <h2 class="section-title">From Sandbox to Live</h2>
+    </div>
+    <div class="g3" style="margin-bottom:var(--space-xl);">
+      <div class="decision-box"><div class="decision-label">Span</div><div class="decision-body">Fastest of all — integrate in days, inside the corporate window</div></div>
+      <div class="decision-box"><div class="decision-label">Shape</div><div class="decision-body">Narrowest — one API group, pre-check only, single REST integration</div></div>
+      <div class="decision-box"><div class="decision-label">Tier entry</div><div class="decision-body">Business / Corporate</div></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div class="step-content"><div class="step-title">Get started</div><div class="step-body">Sandbox live, first resolved address in ~2 days</div></div></div>
+      <div class="step"><div class="step-n">2</div><div class="step-content"><div class="step-title">Build</div><div class="step-body">Register channels, test; ioNova tunes ~10,000 representative addresses in parallel</div></div></div>
+      <div class="step"><div class="step-n">3</div><div class="step-content"><div class="step-title">Validate</div><div class="step-body">Production validation — channels + integrations exercised together</div></div></div>
+      <div class="step"><div class="step-n">4</div><div class="step-content"><div class="step-title">Go live</div><div class="step-body">Swap test keys for live keys — no code change</div></div></div>
+    </div>
+    <div class="content-block" style="margin-top:var(--space-lg);"><p>This is the smallest surface ioNova ships — the Party Address API (EP-01–07) only, no message handling to build or maintain. A single REST integration into your CoP/VOP response path gets you live well inside the corporate window, often in days. Sandbox keys and first resolved address in ~2 days; ioNova calibrates on representative payee addresses in parallel.</p></div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">Headline Benefits</div>
+      <h2 class="section-title">Why It Pays Off</h2>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="badge badge-green">a differentiating signal in your CoP/VOP product</span>
+        <span class="badge badge-green">sub-100ms</span>
+        <span class="badge badge-green">the smallest integration surface of any audience</span>
+        <span class="badge badge-green">no message handling to build or maintain</span>
+    </div>
+    <div class="alert alert-green" style="margin-top:var(--space-xl);">
+      <div class="alert-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+      <div class="alert-content">
+        <div class="alert-title">Where you start</div>
+        <div class="alert-body">Business or Corporate tier — data-scope only.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Questions Answer Engines Ask</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">Can I add an address check to a Confirmation of Payee or Verification of Payee response?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes — ioNova ARS returns a sub-100ms address-quality verdict alongside your name/account match.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How big is the integration?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>The smallest of any audience — one API group (Party Address, EP-01–07), pre-check only, no payment-message handling.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How fast is the check?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Sub-100ms via the structural PreCheck path.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Do I have to process payment messages?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>No — VOP/CoP providers use address-level endpoints only and never touch a pain or pacs message.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Which tier fits?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Business or Corporate tier (data-scope only).</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How quickly can we go live?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Typically days — a single REST integration into your existing response path.</p></div></div>
+      </details>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h3>Live in weeks — before 15 November 2026.</h3>
+    <p>First sandbox call in minutes, first channel live in days. Early Adopter terms end 31 July 2026.</p>
+    <div class="btn-row">
+      <a href="/demo" class="btn btn-outline" style="border-color:rgba(255,255,255,0.25);color:#fff;">Get a sandbox</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Explore</div>
+    <h2 class="section-title">Adjacent Solutions</h2>
+    <div class="related-grid">
+      <a href="/solutions/compliance" class="related-card">
+        <h4>Financial Crime Compliance →</h4><p>Sharper screening from structured data.</p>
+      </a>
+      <a href="/solutions/corporate-treasury" class="related-card">
+        <h4>Corporate Treasury →</h4><p>Fix beneficiary data at source.</p>
+      </a>
+      <a href="/solutions/banks" class="related-card">
+        <h4>Banks & PSPs →</h4><p>Two businesses, one engine.</p>
+      </a>
+    </div>
+  </div>
+</div>

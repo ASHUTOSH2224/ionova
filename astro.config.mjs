@@ -60,6 +60,16 @@ export default defineConfig({
         return { ...item, changefreq: 'monthly', priority: 0.7 };
       }
 
+      // Solutions hub — top-tier (0.9)
+      if (url === 'https://ionova.ai/solutions') {
+        return { ...item, changefreq: 'monthly', priority: 0.9 };
+      }
+
+      // Solutions sub-pages — priority 0.8
+      if (url.includes('/solutions/')) {
+        return { ...item, changefreq: 'monthly', priority: 0.8 };
+      }
+
       // Blog posts — evergreen content, lower crawl frequency
       if (url.includes('/blog/')) {
         return { ...item, changefreq: 'monthly', priority: 0.7 };

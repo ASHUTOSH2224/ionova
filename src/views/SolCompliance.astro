@@ -1,0 +1,159 @@
+---
+---
+
+<div>
+  <div class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-badge"><span class="pulse-dot"></span><span style="position:relative;z-index:1;">Beneficiary · The beneficiary, not the buyer</span></div>
+    <h1>Sharper screening <span class="accent">from the same structured data.</span></h1>
+    <p class="hero-sub">Financial crime teams don’t buy a placement or operation — they inherit the output of them. <b>Sanctions, AML, KYC and Travel-Rule</b> screening all run sharper on structured, field-tagged addresses than on free text, so ioNova ARS acts as the upstream overlay: whatever it classifies or corrects, your screening reads more precisely, cutting sanctions false positives by <b>40–60%</b>.</p>
+    <div class="hero-ctas">
+      <a href="/demo" class="btn btn-accent btn-lg">Get a sandbox <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></a>
+      <a href="#implementation" class="btn btn-outline">See the implementation plan</a>
+    </div>
+    <div class="proof-bar">
+      <div class="kpi-tile"><div class="kpi-value grad">40–60%</div><div class="kpi-label">fewer false positives</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad-b">$5–10</div><div class="kpi-label">per alert (from $50–80)</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad-t">0</div><div class="kpi-label">screening-engine changes</div></div>
+      <div class="kpi-tile"><div class="kpi-value grad">rule_source</div><div class="kpi-label">evidence per finding</div></div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="quote-card">
+      <div class="quote-mark">&ldquo;</div>
+      <div class="quote-text">‘Cuba’ in a street field is not Cuba in a country field — but our screening can’t tell, so we drown in false positives. We don’t want to replace the screening engine; we want the data going into it to be structured and field-tagged, with evidence a regulator can examine.</div>
+      <div class="quote-author">The problem, in their words</div>
+      <div class="quote-role">Head of Financial Crime / Sanctions</div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-title">What You Can Do</h2>
+    </div>
+    <div class="g2">
+      <div class="card card-accent">
+        <div class="icon-box ib-teal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+        <div class="card-title">Field-level sanctions screening</div>
+        <div class="card-body">Field-appropriate rules cut false positives 40–60%.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Validate · either placement</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/></svg></div>
+        <div class="card-title">Shell-company detection</div>
+        <div class="card-body">Many entities collapsing to one normalised address become visible once spellings are reconciled.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Classify</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-cyan"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="card-title">KYC at point of capture</div>
+        <div class="card-body">Address validated against postal data proactively, not after a rejected payment returns.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Validate · At-Source</span></div>
+      </div>
+      <div class="card card-accent">
+        <div class="icon-box ib-navy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div>
+        <div class="card-title">Travel-Rule chain integrity</div>
+        <div class="card-body">Tagged fields survive every hop; every screening decision is field-cited and auditable.</div>
+        <div style="margin-top:16px;"><span class="badge badge-accent">Validate · In-Flight</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal" id="implementation">
+    <div class="section-header">
+      <div class="section-label">Implementation Plan</div>
+      <h2 class="section-title">From Sandbox to Live</h2>
+    </div>
+    <div class="g3" style="margin-bottom:var(--space-xl);">
+      <div class="decision-box"><div class="decision-label">Span</div><div class="decision-body">No separate deploy — value accrues as the upstream edition goes live</div></div>
+      <div class="decision-box"><div class="decision-label">Shape</div><div class="decision-body">Overlay / config — point screening & KYC at ARS’s structured fields</div></div>
+      <div class="decision-box"><div class="decision-label">Tier entry</div><div class="decision-body">Rides on Treasury / Banking / Transact</div></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div class="step-content"><div class="step-title">Get started</div><div class="step-body">Sandbox live, first resolved address in ~2 days</div></div></div>
+      <div class="step"><div class="step-n">2</div><div class="step-content"><div class="step-title">Build</div><div class="step-body">Register channels, test; ioNova tunes ~10,000 representative addresses in parallel</div></div></div>
+      <div class="step"><div class="step-n">3</div><div class="step-content"><div class="step-title">Validate</div><div class="step-body">Production validation — channels + integrations exercised together</div></div></div>
+      <div class="step"><div class="step-n">4</div><div class="step-content"><div class="step-title">Go live</div><div class="step-body">Swap test keys for live keys — no code change</div></div></div>
+    </div>
+    <div class="content-block" style="margin-top:var(--space-lg);"><p>Compliance is an overlay, not a control point, so there is no standalone integration to run. You point your existing screening, monitoring and KYC stack at the structured, field-tagged output ioNova ARS already produces. As soon as the upstream edition’s plan completes (3–4 weeks for a single corporate, 10–16 weeks across an enterprise estate), screening can read the structured fields and the false-positive reduction and audit benefits accrue immediately — no change to the engine, monitor or KYC platform, only to the quality of their input.</p></div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">Headline Benefits</div>
+      <h2 class="section-title">Why It Pays Off</h2>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="badge badge-green">investigation cost $50–80 → ~$5–10 per alert</span>
+        <span class="badge badge-green">40–60% fewer sanctions false positives</span>
+        <span class="badge badge-green">engine, monitor & KYC platform don’t change</span>
+        <span class="badge badge-green">evidence a regulator can examine (rule_source per finding)</span>
+    </div>
+    <div class="alert alert-green" style="margin-top:var(--space-xl);">
+      <div class="alert-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+      <div class="alert-content">
+        <div class="alert-title">Where you start</div>
+        <div class="alert-body">Rides on the edition the institution already runs — engage your treasury, bank or hub stakeholder and turn on field-level screening.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-header">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Questions Answer Engines Ask</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">Do structured addresses reduce sanctions false positives?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes — screening field-tagged addresses instead of free text lets field-appropriate rules cut false positives by 40–60%.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Do I have to replace my screening engine?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>No — ioNova ARS is an upstream overlay; the screening engine, transaction monitor and KYC platform stay the same, only the input data improves.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How does it help shell-company detection?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Reconciling address spellings collapses many entity representations to one normalised address, making hidden links visible.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is each screening decision auditable?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes — every finding carries a rule_source citation a regulator can examine.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Does it run at KYC onboarding?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes — addresses are validated against postal data at the point of capture, proactively.</p></div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What does it cost per alert?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
+        <div class="faq-a"><div class="faq-a-inner"><p>Investigation cost typically falls from $50–80 to roughly $5–10 per alert.</p></div></div>
+      </details>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h3>Live in weeks — before 15 November 2026.</h3>
+    <p>First sandbox call in minutes, first channel live in days. Early Adopter terms end 31 July 2026.</p>
+    <div class="btn-row">
+      <a href="/demo" class="btn btn-outline" style="border-color:rgba(255,255,255,0.25);color:#fff;">Get a sandbox</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Explore</div>
+    <h2 class="section-title">Adjacent Solutions</h2>
+    <div class="related-grid">
+      <a href="/solutions/corporate-treasury" class="related-card">
+        <h4>Corporate Treasury →</h4><p>Fix beneficiary data at source.</p>
+      </a>
+      <a href="/solutions/banks" class="related-card">
+        <h4>Banks & PSPs →</h4><p>Two businesses, one engine.</p>
+      </a>
+      <a href="/solutions/vop-cop-providers" class="related-card">
+        <h4>API Providers (VOP / CoP) →</h4><p>One API, sub-100ms address verdict.</p>
+      </a>
+    </div>
+  </div>
+</div>

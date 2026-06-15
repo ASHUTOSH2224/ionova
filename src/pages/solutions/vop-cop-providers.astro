@@ -1,0 +1,28 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import SolVopCopProviders from '@/views/SolVopCopProviders.astro';
+---
+
+<Layout
+  title="Address Quality for VOP / CoP Providers — One API, Sub-100ms"
+  description="Add an address-quality verdict to every Verification of Payee / Confirmation of Payee check. One API group, pre-check only, sub-100ms — the smallest integration of any audience. A high-margin upsell."
+  ogImage="/og-image.png"
+  ogImageAlt="API Providers (VOP / CoP) — ioNova ARS Solution"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":"Address Quality for VOP / CoP Providers — One API, Sub-100ms","description":"Add an address-quality verdict to every Verification of Payee / Confirmation of Payee check. One API group, pre-check only, sub-100ms — the smallest integration of any audience. A high-margin upsell.","url":"https://ionova.ai/solutions/vop-cop-providers","isPartOf":{"@id":"https://ionova.ai/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ionova.ai"},{"@type":"ListItem","position":2,"name":"Solutions","item":"https://ionova.ai/solutions"},{"@type":"ListItem","position":3,"name":"API Providers (VOP / CoP)","item":"https://ionova.ai/solutions/vop-cop-providers"}]}})} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Service","name":"ioNova ARS for API Providers (VOP / CoP)","description":"Add an address-quality verdict to every Verification of Payee / Confirmation of Payee check. One API group, pre-check only, sub-100ms — the smallest integration of any audience. A high-margin upsell.","url":"https://ionova.ai/solutions/vop-cop-providers","provider":{"@type":"Organization","name":"ioNova AI","url":"https://ionova.ai"},"serviceType":"ISO 20022 address resolution","areaServed":"Worldwide"})} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I add an address check to a Confirmation of Payee or Verification of Payee response?","acceptedAnswer":{"@type":"Answer","text":"Yes — ioNova ARS returns a sub-100ms address-quality verdict alongside your name/account match."}},{"@type":"Question","name":"How big is the integration?","acceptedAnswer":{"@type":"Answer","text":"The smallest of any audience — one API group (Party Address, EP-01–07), pre-check only, no payment-message handling."}},{"@type":"Question","name":"How fast is the check?","acceptedAnswer":{"@type":"Answer","text":"Sub-100ms via the structural PreCheck path."}},{"@type":"Question","name":"Do I have to process payment messages?","acceptedAnswer":{"@type":"Answer","text":"No — VOP/CoP providers use address-level endpoints only and never touch a pain or pacs message."}},{"@type":"Question","name":"Which tier fits?","acceptedAnswer":{"@type":"Answer","text":"Business or Corporate tier (data-scope only)."}},{"@type":"Question","name":"How quickly can we go live?","acceptedAnswer":{"@type":"Answer","text":"Typically days — a single REST integration into your existing response path."}}]})} />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="ds-v5">
+        <div class="container">
+          <SolVopCopProviders />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>
