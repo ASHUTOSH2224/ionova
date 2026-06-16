@@ -12,17 +12,21 @@
       <p class="impl-tl__sub">Get started in 2 days. Two tracks run in parallel — your integrations and channels, and ioNova’s engine tuning — converging on a validated production go-live.</p>
     </div>
 
-    <!-- Timeline visual (week scale, two-lane Gantt, legend and stat callouts) -->
+    <!-- Timeline visual (week scale, two-lane Gantt, legend and stat callouts).
+         Mobile gets a vertically-stacked variant; desktop the horizontal Gantt. -->
     <div class="impl-tl__figure">
-      <img
-        class="impl-tl__img"
-        src="/Images/ImplementationTimeline.png"
-        alt="ioNova ARS implementation timeline: kickoff to validated production go-live in 3–4 weeks. Your team integrates and rolls out across four weeks — onboard and get credentials, set up integrations and channels, sandbox testing, and production validation — while ioNova tunes the engine on 10,000 representative addresses in parallel. Milestones: sandbox live on day 2, go-live in weeks 3–4. Outcomes: 2 days to get started, 10,000 representative addresses tuned, 3–4 weeks to validated production."
-        width="2010"
-        height="924"
-        loading="lazy"
-        decoding="async"
-      />
+      <picture>
+        <source media="(max-width:640px)" srcset="/Images/ImplementationTimelinemobile.png" width="1086" height="1448" />
+        <img
+          class="impl-tl__img"
+          src="/Images/ImplementationTimeline.png"
+          alt="ioNova ARS implementation timeline: kickoff to validated production go-live in 3–4 weeks. Your team integrates and rolls out across four weeks — onboard and get credentials, set up integrations and channels, sandbox testing, and production validation — while ioNova tunes the engine on 10,000 representative addresses in parallel. Milestones: sandbox live on day 2, go-live in weeks 3–4. Outcomes: 2 days to get started, 10,000 representative addresses tuned, 3–4 weeks to validated production."
+          width="2010"
+          height="924"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
     </div>
 
     <!-- Footer note -->
