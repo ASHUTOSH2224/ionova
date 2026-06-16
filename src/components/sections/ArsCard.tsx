@@ -15,21 +15,21 @@ type Scenario = {
 const SCENARIOS: Scenario[] = [
   {
     city: "London",
-    chips: [{ t: "10 finsbury sq", raw: true }, { t: "london" }, { t: "gb" }, { t: "EC2A 1AF" }],
+    chips: [{ t: "10 finsbury sq london gb EC2A 1AF", raw: true }],
     out: [["StrtNm", "Finsbury Square"], ["BldgNb", "10"], ["PstCd", "EC2A 1AF"], ["TwnNm", "London"], ["Ctry", "GB"]],
     rule: "BS7666 · PMPG v1.11",
     ms: 39,
   },
   {
     city: "Paris",
-    chips: [{ t: "25 rue du louvre", raw: true }, { t: "paris" }, { t: "fr" }, { t: "75001" }],
+    chips: [{ t: "25 rue du louvre paris fr 75001", raw: true }],
     out: [["StrtNm", "Rue du Louvre"], ["BldgNb", "25"], ["PstCd", "75001"], ["TwnNm", "Paris"], ["Ctry", "FR"]],
     rule: "EPC153-22 §3.2 · PMPG v1.11",
     ms: 42,
   },
   {
     city: "Mumbai",
-    chips: [{ t: "apollo bunder, bombay", raw: true }, { t: "bombay" }, { t: "in" }, { t: "400001" }],
+    chips: [{ t: "apollo bunder, bombay in 400001", raw: true }],
     out: [["StrtNm", "Apollo Bunder"], ["TwnNm", "Mumbai"], ["CtrySubDvsn", "MH"], ["PstCd", "400001"], ["Ctry", "IN"]],
     rule: "ISO 3166-2:IN · PMPG v1.11",
     ms: 37,
