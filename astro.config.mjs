@@ -71,10 +71,10 @@ export default defineConfig({
       }
 
       // Press room index + individual releases
-      if (url === 'https://ionova.ai/pressmenu') {
+      if (url === 'https://ionova.ai/press') {
         return { ...item, changefreq: 'weekly', priority: 0.8 };
       }
-      if (url.includes('/pressmenu/')) {
+      if (url.includes('/press/')) {
         return { ...item, changefreq: 'monthly', priority: 0.8 };
       }
 
