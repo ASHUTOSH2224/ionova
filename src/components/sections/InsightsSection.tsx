@@ -2,24 +2,24 @@ export function InsightsSection() {
   const articles = [
     {
       badge: "Blog",
-      title: "November 2026: The Deadline That Won't Move",
+      title: "The $8–12 Billion Address Problem in Global Payments",
       description:
-        "What SWIFT CBPR+ and SEPA enforcement actually means for your payment operations — and why the 9-month implementation window starts now.",
-      href: "/blogs",
+        "Address-related payment exceptions cost the industry $8–12 billion annually in operational drag that institutions rarely track as a single number.",
+      href: "/blog/payment-exception-costs-address-data",
     },
     {
       badge: "Blog",
-      title: "Why LLMs Fail at Payment Address Parsing",
+      title: "November 2026: The ISO 20022 Deadline That Changes Everything",
       description:
-        "Non-deterministic output, hallucination risk, and zero audit trail. Why general-purpose AI models are unsuitable for regulated payment compliance.",
-      href: "/blogs",
+        "Financial institutions face an ~9-month timeline to achieve mandatory structured address compliance, requiring immediate implementation rather than delayed action.",
+      href: "/blog/november-2026-the-iso-20022-deadline",
     },
     {
       badge: "Blog",
-      title: "The $8–12 Billion Problem: Address Data Quality Economics",
+      title: "What Regulators Actually Require: EPC, SWIFT, and CPMI Decoded",
       description:
-        "How poor address data drives $25–50 per-exception costs, suppresses STP rates, and inflates sanctions false positives across the industry.",
-      href: "/blogs",
+        "Structured addressing is mandatory under ISO 20022 regulations, not optional — with hybrid format only as a constrained transitional fallback.",
+      href: "/blog/what-regulators-actually-require-iso-20022-addresses",
     },
   ];
 
