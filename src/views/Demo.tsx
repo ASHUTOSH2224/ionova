@@ -121,7 +121,7 @@ const DemoContent = () => {
                       <Clock className="h-5 w-5 text-cyan-400" />
                     </div>
                     <div>
-                      <p className="font-semibold text-navy-950">15-Week Implementation</p>
+                      <p className="font-semibold text-navy-950">2&#8211;4 Week Implementation</p>
                       <p className="text-sm text-text-muted">Faster than in-house solutions</p>
                     </div>
                   </div>
