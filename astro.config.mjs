@@ -70,6 +70,11 @@ export default defineConfig({
         return { ...item, changefreq: 'monthly', priority: 0.8 };
       }
 
+      // News / press releases — high-value, time-sensitive content
+      if (url.includes('/news/')) {
+        return { ...item, changefreq: 'monthly', priority: 0.8 };
+      }
+
       // Blog posts — evergreen content, lower crawl frequency
       if (url.includes('/blog/')) {
         return { ...item, changefreq: 'monthly', priority: 0.7 };
