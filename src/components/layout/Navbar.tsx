@@ -165,6 +165,12 @@ const resourcesItems = [
     href: "/podcasts",
     icon: Mic,
   },
+  {
+    label: "Press Room",
+    description: "News, press releases & media coverage",
+    href: "/pressmenu",
+    icon: FileText,
+  },
 ];
 
 export function Navbar() {
@@ -211,7 +217,7 @@ export function Navbar() {
     "/address-intelligence"
   );
   const isArsPlatformActive = location.pathname.startsWith("/ionova-ars");
-  const isResourcesActive = location.pathname === "/blogs" || location.pathname === "/videos" || location.pathname === "/podcasts" || location.hash.startsWith("#whitepaper") || location.hash.startsWith("#checklist");
+  const isResourcesActive = location.pathname === "/blogs" || location.pathname === "/videos" || location.pathname === "/podcasts" || location.pathname.startsWith("/pressmenu") || location.hash.startsWith("#whitepaper") || location.hash.startsWith("#checklist");
   const isCompanyActive = location.pathname === "/company";
   // Attach navbar purely based on scroll position for all pages
   const isAttached = isScrolled;

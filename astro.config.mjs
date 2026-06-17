@@ -70,8 +70,11 @@ export default defineConfig({
         return { ...item, changefreq: 'monthly', priority: 0.8 };
       }
 
-      // News / press releases — high-value, time-sensitive content
-      if (url.includes('/news/')) {
+      // Press room index + individual releases
+      if (url === 'https://ionova.ai/pressmenu') {
+        return { ...item, changefreq: 'weekly', priority: 0.8 };
+      }
+      if (url.includes('/pressmenu/')) {
         return { ...item, changefreq: 'monthly', priority: 0.8 };
       }
 
