@@ -14,25 +14,59 @@ type Scenario = {
 
 const SCENARIOS: Scenario[] = [
   {
-    city: "London",
-    chips: [{ t: "10 finsbury sq london gb EC2A 1AF", raw: true }],
-    out: [["StrtNm", "Finsbury Square"], ["BldgNb", "10"], ["PstCd", "EC2A 1AF"], ["TwnNm", "London"], ["Ctry", "GB"]],
-    rule: "BS7666 · PMPG v1.11",
-    ms: 39,
+    city: "Shenzhen",
+    chips: [
+      { t: "Leo Martin", raw: false },
+      { t: "No. 33 Haitian 2nd Road Nanshan Level 15", raw: true },
+      { t: "near Shenzhen Bay Shenzhen 518054", raw: true },
+    ],
+    out: [["Nm", "Leo Martin"], ["Flr", "Level 15"], ["BldgNm", "near Shenzhen Bay"], ["BldgNb", "No. 33"], ["StrtNm", "Haitian 2nd Road"], ["DstrctNm", "Nanshan"], ["TwnNm", "Shenzhen"], ["PstCd", "518054"], ["Ctry", "CN"]],
+    rule: "GB/T 7408 · PMPG v1.11",
+    ms: 44,
   },
   {
-    city: "Paris",
-    chips: [{ t: "25 rue du louvre paris fr 75001", raw: true }],
-    out: [["StrtNm", "Rue du Louvre"], ["BldgNb", "25"], ["PstCd", "75001"], ["TwnNm", "Paris"], ["Ctry", "FR"]],
-    rule: "EPC153-22 §3.2 · PMPG v1.11",
-    ms: 42,
+    city: "Athens",
+    chips: [
+      { t: "Aegean Airlines", raw: false },
+      { t: "Floor 80, Agios Eleftherios", raw: true },
+      { t: "Athens 111 43", raw: true },
+    ],
+    out: [["Nm", "Aegean Airlines"], ["Flr", "Floor 80"], ["TwnLctnNm", "Agios Eleftherios"], ["TwnNm", "Athens"], ["PstCd", "111 43"], ["Ctry", "GR"]],
+    rule: "ELOT 743 · PMPG v1.11",
+    ms: 38,
   },
   {
-    city: "Mumbai",
-    chips: [{ t: "apollo bunder, bombay in 400001", raw: true }],
-    out: [["StrtNm", "Apollo Bunder"], ["TwnNm", "Mumbai"], ["CtrySubDvsn", "MH"], ["PstCd", "400001"], ["Ctry", "IN"]],
+    city: "Milan",
+    chips: [
+      { t: "Generali Infrastructure", raw: false },
+      { t: "Suite 412, Palazzo Lombardia", raw: true },
+      { t: "Via Melchiorre Gioia 37 Milano Italia", raw: true },
+    ],
+    out: [["Nm", "Generali Infrastructure"], ["Room", "Suite 412"], ["BldgNm", "Palazzo Lombardia"], ["BldgNb", "37"], ["StrtNm", "Via Melchiorre Gioia"], ["TwnNm", "Milano"], ["Ctry", "IT"]],
+    rule: "UNI EN 13601 · PMPG v1.11",
+    ms: 41,
+  },
+  {
+    city: "Ahmedabad",
+    chips: [
+      { t: "LAZARUS BUSINESS PARK 1 PRIVATE LIMITED", raw: false },
+      { t: "PLOT NO. 98 P NARANPURA, SANAD", raw: true },
+      { t: "CHHARODI AHMEDABAD 382210 IN-GJ", raw: true },
+    ],
+    out: [["BldgNm", "PLOT NO. 98 P"], ["TwnLctnNm", "NARANPURA SANAD CHHARODI"], ["TwnNm", "AHMEDABAD"], ["CtrySubDvsn", "IN-GJ"], ["PstCd", "382210"], ["Ctry", "IN"]],
     rule: "ISO 3166-2:IN · PMPG v1.11",
-    ms: 37,
+    ms: 47,
+  },
+  {
+    city: "Uppsala",
+    chips: [
+      { t: "WAHLQUIST INTERIOR AKTIEBOLAG", raw: false },
+      { t: "DRAGARBRUNNSGATAN 50C", raw: true },
+      { t: "UPPSALA 753 20", raw: true },
+    ],
+    out: [["Nm", "WAHLQUIST INTERIOR AKTIEBOLAG"], ["BldgNb", "50C"], ["StrtNm", "DRAGARBRUNNSGATAN"], ["TwnNm", "UPPSALA"], ["PstCd", "753 20"], ["Ctry", "SE"]],
+    rule: "SS 613510 · PMPG v1.11",
+    ms: 36,
   },
 ];
 
