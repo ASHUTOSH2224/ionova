@@ -15,7 +15,7 @@ type Scenario = {
 const SCENARIOS: Scenario[] = [
   {
     city: "Shenzhen",
-    chips: [{ t: "No. 33 Haitian 2nd Road Nanshan Level 15 / near Shenzhen Bay Shenzhen 518054", raw: true }],
+    chips: [{ t: "No. 33 Haitian 2nd Road Nanshan / Level 15 near Shenzhen Bay / Shenzhen 518054", raw: true }],
     out: [["Flr", "Level 15"], ["BldgNm", "near Shenzhen Bay"], ["BldgNb", "No. 33"], ["StrtNm", "Haitian 2nd Road"], ["DstrctNm", "Nanshan"], ["TwnNm", "Shenzhen"], ["PstCd", "518054"], ["Ctry", "CN"]],
     rule: "GB/T 7408 · PMPG v1.11",
     ms: 44,
@@ -29,21 +29,21 @@ const SCENARIOS: Scenario[] = [
   },
   {
     city: "Milan",
-    chips: [{ t: "Suite 412, Palazzo Lombardia / Via Melchiorre Gioia 37 Milano Italia", raw: true }],
+    chips: [{ t: "Suite 412 Palazzo Lombardia / Via Melchiorre Gioia 37 / Milano, Italia", raw: true }],
     out: [["Room", "Suite 412"], ["BldgNm", "Palazzo Lombardia"], ["BldgNb", "37"], ["StrtNm", "Via Melchiorre Gioia"], ["TwnNm", "Milano"], ["Ctry", "IT"]],
     rule: "UNI EN 13601 · PMPG v1.11",
     ms: 41,
   },
   {
     city: "Ahmedabad",
-    chips: [{ t: "PLOT NO. 98 P NARANPURA, SANAD / CHHARODI AHMEDABAD 382210 IN-GJ", raw: true }],
+    chips: [{ t: "PLOT NO. 98 P NARANPURA, SANAD, / CHHARODI AHMEDABAD, 382210, IN-GJ", raw: true }],
     out: [["BldgNm", "PLOT NO. 98 P"], ["TwnLctnNm", "NARANPURA SANAD CHHARODI"], ["TwnNm", "AHMEDABAD"], ["CtrySubDvsn", "IN-GJ"], ["PstCd", "382210"], ["Ctry", "IN"]],
     rule: "ISO 3166-2:IN · PMPG v1.11",
     ms: 47,
   },
   {
     city: "Uppsala",
-    chips: [{ t: "DRAGARBRUNNSGATAN 50C / UPPSALA 753 20", raw: true }],
+    chips: [{ t: "DRAGARBRUNNSGATAN 50C, UPPSALA, 753 20", raw: true }],
     out: [["BldgNb", "50C"], ["StrtNm", "DRAGARBRUNNSGATAN"], ["TwnNm", "UPPSALA"], ["PstCd", "753 20"], ["Ctry", "SE"]],
     rule: "SS 613510 · PMPG v1.11",
     ms: 36,
