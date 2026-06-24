@@ -24,7 +24,7 @@ const solutionsOverview = [
 ];
 
 const solutionsBuyers = [
-u  {
+  {
     label: "For Corporates",
     description: "Stop payment rejections before Nov 2026",
     href: "/solutions/for-corporates",
