@@ -179,14 +179,16 @@ import Footer from '@/components/layout/Footer.astro';
     .fc-faq-a { padding: 0 22px 16px; font-size: 14px; line-height: 1.7; color: var(--text-label); }
 
     /* CTA */
-    .fc-cta { background: linear-gradient(135deg,#1A1E35,#243574,#2B4E86); position: relative; overflow: hidden; padding: 72px 0; text-align: center; }
-    .fc-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 600px 400px at 70% 50%,rgba(95,207,208,.12) 0%,transparent 60%); pointer-events: none; }
-    .fc-cta-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-    .fc-cta h2 { font-family: var(--font-display) !important; font-size: clamp(24px,3vw,38px) !important; font-weight: 800 !important; letter-spacing: -1.2px; line-height: 1.15 !important; color: #E2E8F4; max-width: 700px; margin: 0 auto 12px; }
-    .fc-cta h2 .accent { background: linear-gradient(135deg,#6ED9DA,#5EA1DC,#8ECDF2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .fc-cta-sub { font-size: 15px; color: #8A9DBD; max-width: 560px; margin: 0 auto 28px; line-height: 1.6; }
-    .fc-cta-timer { display: flex; gap: 10px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
-    .fc-cta-unit { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius-lg); padding: 14px 18px; min-width: 76px; text-align: center; }
+    .fc-cta { background: var(--surface-2,#F3F4F6); position: relative; overflow: hidden; padding: 72px 0; display: flex; justify-content: center; align-items: center; }
+    .fc-cta-card { background: linear-gradient(135deg,#0E1935 0%,#1A1E35 40%,#243574 100%); border-radius: 1.5rem; border: 1px solid rgba(255,255,255,.1); box-shadow: 0 25px 50px -12px rgba(0,0,0,.5); position: relative; overflow: hidden; width: 95%; max-width: 1200px; }
+    .fc-cta-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,rgba(255,255,255,.05),transparent); pointer-events: none; }
+    .fc-cta-inner { position: relative; z-index: 1; padding: 56px 48px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .fc-cta h2 { font-family: var(--font-display) !important; font-size: clamp(24px,3vw,38px) !important; font-weight: 700 !important; letter-spacing: -0.8px; line-height: 1.2 !important; color: #E2E8F4; max-width: 700px; margin: 0 auto 16px; }
+    .fc-cta h2 .accent { background: linear-gradient(135deg,#60A5FA,#3B82F6,#2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .fc-cta-sub { font-size: 16px; color: rgba(255,255,255,.7); max-width: 600px; margin: 0 auto 28px; line-height: 1.65; }
+    .fc-cta-days { display: inline-flex; align-items: baseline; gap: 8px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 12px 24px; margin-bottom: 28px; backdrop-filter: blur(10px); }
+    .fc-cta-days-num { font-family: var(--font-display); font-size: 32px; font-weight: 700; line-height: 1; background: linear-gradient(180deg,#fff 0%,#94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .fc-cta-days-lbl { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #94A3B8; }
   </style>
 
   <div class="flex min-h-screen flex-col">
@@ -397,18 +399,19 @@ import Footer from '@/components/layout/Footer.astro';
 
       <!-- CTA -->
       <section class="fc-cta">
-        <div class="fc-cta-inner">
-          <h2>Keep every payment flowing. <span class="accent">Through the November 2026 cut-over.</span></h2>
-          <p class="fc-cta-sub">ioNova structures your counterparty data once, for every bank and channel. 195 countries, 50+ scripts. Live in 2–4 weeks.</p>
-          <div class="fc-cta-timer">
-            <div class="fc-cta-unit"><div class="fc-unit-num" id="fc-cta-days">—</div><div class="fc-unit-lbl">Days</div></div>
-            <div class="fc-cta-unit"><div class="fc-unit-num" id="fc-cta-hours">00</div><div class="fc-unit-lbl">Hours</div></div>
-            <div class="fc-cta-unit"><div class="fc-unit-num" id="fc-cta-mins">00</div><div class="fc-unit-lbl">Minutes</div></div>
+        <div class="fc-cta-card">
+          <div class="fc-cta-inner">
+            <h2>Keep every payment flowing.<br><span class="accent">Through the November 2026 cut-over.</span></h2>
+            <p class="fc-cta-sub">ioNova structures your counterparty data once, for every bank and channel. 195 countries, 50+ scripts. Live in 2–4 weeks.</p>
+            <div class="fc-cta-days">
+              <span class="fc-cta-days-num" id="fc-cta-days">—</span>
+              <span class="fc-cta-days-lbl">Days Left</span>
+            </div>
+            <a href="/demo" class="fc-btn">
+              Book a Treasury Readiness Demo
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
           </div>
-          <a href="/demo" class="fc-btn">
-            Book a Treasury Readiness Demo
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
         </div>
       </section>
 
@@ -432,9 +435,7 @@ import Footer from '@/components/layout/Footer.astro';
     if (el('fc-cd-hours')) el('fc-cd-hours')!.textContent = p(hrs);
     if (el('fc-cd-mins'))  el('fc-cd-mins')!.textContent  = p(mins);
     if (el('fc-cd-secs'))  el('fc-cd-secs')!.textContent  = p(secs);
-    if (el('fc-cta-days')) el('fc-cta-days')!.textContent = String(days).padStart(3, '0');
-    if (el('fc-cta-hours'))el('fc-cta-hours')!.textContent= p(hrs);
-    if (el('fc-cta-mins')) el('fc-cta-mins')!.textContent = p(mins);
+    if (el('fc-cta-days')) el('fc-cta-days')!.textContent = String(days);
   }
   fcTick();
   setInterval(fcTick, 1000);
