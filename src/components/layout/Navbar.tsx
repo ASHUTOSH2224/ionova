@@ -24,10 +24,10 @@ const solutionsOverview = [
 ];
 
 const solutionsBuyers = [
-  {
+u  {
     label: "For Corporates",
     description: "Stop payment rejections before Nov 2026",
-    href: "/for-corporates",
+    href: "/solutions/for-corporates",
     icon: BadgeCheck,
   },
   {
@@ -48,7 +48,7 @@ const solutionsBuilders = [
   {
     label: "For Banks",
     description: "Hit >99% STP before the Nov 2026 deadline",
-    href: "/for-banks",
+    href: "/solutions/for-banks",
     icon: Building2,
   },
   {
