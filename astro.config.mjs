@@ -70,6 +70,15 @@ export default defineConfig({
         return { ...item, changefreq: 'monthly', priority: 0.8 };
       }
 
+      // Newsletter index
+      if (url === 'https://ionova.ai/news') {
+        return { ...item, changefreq: 'weekly', priority: 0.8 };
+      }
+      // Newsletter issue sub-pages + legacy /newsletter/* path
+      if (url.includes('/news/') || url.includes('/newsletter/')) {
+        return { ...item, changefreq: 'monthly', priority: 0.7 };
+      }
+
       // Press room index + individual releases
       if (url === 'https://ionova.ai/press') {
         return { ...item, changefreq: 'weekly', priority: 0.8 };

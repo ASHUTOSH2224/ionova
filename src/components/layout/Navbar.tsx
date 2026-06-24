@@ -25,6 +25,12 @@ const solutionsOverview = [
 
 const solutionsBuyers = [
   {
+    label: "For Corporates",
+    description: "Stop payment rejections before Nov 2026",
+    href: "/for-corporates",
+    icon: BadgeCheck,
+  },
+  {
     label: "Corporate Treasury",
     description: "Fix beneficiary data at source",
     href: "/solutions/corporate-treasury",
@@ -39,6 +45,12 @@ const solutionsBuyers = [
 ];
 
 const solutionsBuilders = [
+  {
+    label: "For Banks",
+    description: "Hit >99% STP before the Nov 2026 deadline",
+    href: "/for-banks",
+    icon: Building2,
+  },
   {
     label: "TMS & ERP Vendors",
     description: "Ship compliance as a billable feature",
@@ -166,6 +178,12 @@ const resourcesItems = [
     icon: Mic,
   },
   {
+    label: "Newsletter",
+    description: "Resolved! — ISO 20022 insights & analysis",
+    href: "/news",
+    icon: FileText,
+  },
+  {
     label: "Press Room",
     description: "News, press releases & media coverage",
     href: "/press",
@@ -217,7 +235,13 @@ export function Navbar() {
     "/address-intelligence"
   );
   const isArsPlatformActive = location.pathname.startsWith("/ionova-ars");
-  const isResourcesActive = location.pathname === "/blogs" || location.pathname === "/videos" || location.pathname === "/podcasts" || location.pathname.startsWith("/press") || location.hash.startsWith("#whitepaper") || location.hash.startsWith("#checklist");
+  // Derived from resourcesItems so new entries are automatically covered.
+  // Also covers sub-paths (/press/*, /news/*, /newsletter/*) and legacy hash anchors.
+  const isResourcesActive =
+    resourcesItems.some(item => location.pathname === item.href || location.pathname.startsWith(item.href + '/')) ||
+    location.pathname.startsWith("/newsletter/") ||
+    location.hash.startsWith("#whitepaper") ||
+    location.hash.startsWith("#checklist");
   const isCompanyActive = location.pathname === "/company";
   // Attach navbar purely based on scroll position for all pages
   const isAttached = isScrolled;
