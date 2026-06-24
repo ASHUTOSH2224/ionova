@@ -180,7 +180,7 @@ const resourcesItems = [
   {
     label: "Newsletter",
     description: "Resolved! — ISO 20022 insights & analysis",
-    href: "/news",
+    href: "/newsletter",
     icon: FileText,
   },
   {

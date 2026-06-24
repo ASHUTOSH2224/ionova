@@ -71,11 +71,11 @@ export default defineConfig({
       }
 
       // Newsletter index
-      if (url === 'https://ionova.ai/news') {
+      if (url === 'https://ionova.ai/newsletter') {
         return { ...item, changefreq: 'weekly', priority: 0.8 };
       }
-      // Newsletter issue sub-pages + legacy /newsletter/* path
-      if (url.includes('/news/') || url.includes('/newsletter/')) {
+      // Newsletter issue sub-pages
+      if (url.includes('/newsletter/')) {
         return { ...item, changefreq: 'monthly', priority: 0.7 };
       }
 
