@@ -1,0 +1,445 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+---
+
+<Layout
+  title="ISO 20022 Structured Addresses for Banks | Hit >99% STP Before November 2026 | ioNova"
+  description="From 14 November 2026, CBPR+ rejects cross-border payments with unstructured addresses. ioNova resolves legacy debtor and creditor data into ISO 20022 structured addresses across 195 countries and 50+ scripts — cut NAKs, reduce sanctions false positives ~30%, hit >99% STP. Sidecar live in 2–4 weeks."
+  ogImage="/og-image.png"
+  ogImageAlt="ioNova AI — ISO 20022 Structured Addresses for Banks"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ISO 20022 Structured Addresses for Banks | ioNova",
+    "description": "Hit >99% STP before the 14 November 2026 CBPR+ cut-over. Deterministic ISO 20022 address resolution across 195 countries. Sidecar deployment in 2–4 weeks.",
+    "url": "https://ionova.ai/address-intelligence/for-banks",
+    "isPartOf": { "@id": "https://ionova.ai/#website" },
+    "breadcrumb": { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai" },
+      { "@type": "ListItem", "position": 2, "name": "For Banks", "item": "https://ionova.ai/address-intelligence/for-banks" }
+    ]}
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What does the November 2026 ISO 20022 mandate require banks to do?", "acceptedAnswer": { "@type": "Answer", "text": "From 14 November 2026, banks must provide Town and Country in structured ISO 20022 fields, at minimum, for all parties and agents in CBPR+ cross-border payment messages. Fully unstructured addresses are no longer accepted — only fully structured or hybrid. In practice, banks must be able to capture, validate, and structure debtor and creditor address data across every channel and branch before the cut-over." } },
+      { "@type": "Question", "name": "How does ioNova help banks reach >99% straight-through processing?", "acceptedAnswer": { "@type": "Answer", "text": "Straight-through processing fails when address data is ambiguous or free-text, dropping payments into manual repair. ioNova resolves debtor and creditor addresses into discrete ISO 20022 elements deterministically, so messages pass network and correspondent validation on the first attempt. Removing the primary source of exceptions moves banks from the cross-border industry baseline of roughly 40% toward >99% STP, saving $25–50 for every exception avoided." } },
+      { "@type": "Question", "name": "Do we have to replace our core banking system?", "acceptedAnswer": { "@type": "Answer", "text": "No. ioNova runs as a sidecar service alongside your existing infrastructure over a standard API — no changes to your core banking platform, payment engine, or legacy systems. Pre-built connectors exist for MuleSoft, Volante, and Finastra, and a circuit-breaker routes payments through your current flow if the service is ever unavailable, so no payment is delayed or held." } },
+      { "@type": "Question", "name": "How does structured address data reduce sanctions screening false positives?", "acceptedAnswer": { "@type": "Answer", "text": "Unstructured addresses force string-level matching, so coincidental hits such as 'Cuba Street, Wellington' trigger alerts that compliance teams clear by hand. Structured addresses let screening operate field by field — matching country and town independently of street names — which removes a large share of the noise. ioNova customers see roughly 30% fewer screening false positives, freeing analysts for genuine FATF Recommendation 16 risk." } },
+      { "@type": "Question", "name": "Is ioNova deterministic and auditable enough for a regulated bank?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ioNova is rule-driven and deterministic: the same input always produces the same structured output, with a full audit trail for every resolution. Unlike LLM-based parsing, there is no hallucination risk and no black-box behaviour, and latency stays within payment-grade limits. Outputs are explainable to regulators and reproducible under examination." } }
+    ]
+  })} />
+
+  <style>
+    /* ── for-banks page · DS v5 light · prefix: fb- ── */
+
+    /* ── Neutralise .ds-v5 revert overrides ── */
+    .fb-hero *, .fb-cd *, .fb-section *, .fb-cta *, .fb-ars * { box-sizing: border-box; }
+    .fb-hero p, .fb-cd p, .fb-section p, .fb-cta p, .fb-ars p,
+    .fb-callout p, .fb-table-wrap p { margin: 0; }
+    .fb-hero h1, .fb-hero h2, .fb-hero h3,
+    .fb-cd h2, .fb-cd h3, .fb-cd h4,
+    .fb-section h2, .fb-section h3, .fb-section h4,
+    .fb-cta h2, .fb-ars h2 { margin: 0; }
+    /* (intentionally empty — overrides are on the specific selectors above) */
+    .fb-plist { padding: 0; }
+    .fb-plist li { list-style: none; }
+    @keyframes fb-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(1.9)} }
+    @keyframes fb-fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fb-gx { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+    @keyframes fb-scan { 0%{transform:translateX(-100%)} 100%{transform:translateX(200%)} }
+    @keyframes fb-glow { 0%,100%{opacity:.6} 50%{opacity:1} }
+    @keyframes fb-cdpulse { 0%,100%{text-shadow:0 0 20px rgba(220,53,69,.3)} 50%{text-shadow:0 0 40px rgba(220,53,69,.6)} }
+
+    .fb-w { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+    /* Hero */
+    .fb-hero { padding: 140px 0 72px; position: relative; overflow: hidden; background: var(--bg); }
+    .fb-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 900px; height: 900px; background: radial-gradient(circle, rgba(95,207,208,.12) 0%, rgba(67,173,193,.06) 30%, transparent 60%); pointer-events: none; }
+    .fb-hero::after  { content: ''; position: absolute; bottom: -100px; left: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(94,161,220,.08) 0%, transparent 55%); pointer-events: none; }
+    .fb-hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+    @media (max-width: 980px) { .fb-hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    .fb-eyebrow { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--teal-500); margin-bottom: 22px; }
+    .fb-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #DC3545; animation: fb-pulse 2s ease-in-out infinite; flex-shrink: 0; }
+    .fb-h1 { font-family: var(--font-display) !important; font-size: clamp(32px, 4.5vw, 52px) !important; font-weight: 800 !important; letter-spacing: -1.5px; line-height: 1.12 !important; color: var(--text-primary); margin-bottom: 20px; }
+    .fb-h1 .accent { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 200% auto; animation: fb-gx 6s ease-in-out infinite; display: block; }
+    .fb-sub { font-size: clamp(15px, 1.5vw, 17px); line-height: 1.65; color: var(--text-label); max-width: 620px; margin-bottom: 32px; }
+    .fb-btn { font-family: var(--font-display); font-weight: 600; font-size: 15px; padding: 14px 30px; border-radius: var(--radius-full); border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; background: var(--gradient-brand); background-size: 200% auto; color: #fff; box-shadow: 0 2px 12px rgba(67,173,193,.3); animation: fb-gx 4s ease-in-out infinite; transition: transform .3s, box-shadow .3s; }
+    .fb-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(67,173,193,.35); }
+    .fb-stats { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 34px; }
+    .fb-stat .v { font-family: var(--font-display); font-size: 26px; font-weight: 800; letter-spacing: -1px; line-height: 1; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 200% auto; animation: fb-gx 6s ease-in-out infinite; }
+    .fb-stat .v.urgent { background: linear-gradient(135deg,#DC3545,#ff7a6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: fb-cdpulse 3s ease-in-out infinite; }
+    .fb-stat .l { font-size: 11px; color: var(--text-muted); margin-top: 5px; font-weight: 500; max-width: 140px; line-height: 1.35; }
+    .fb-trust { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 22px; }
+    .fb-trust .lbl { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+    .fb-pill { font-family: var(--font-display); font-size: 12px; font-weight: 600; color: var(--text-label); background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-full); padding: 5px 14px; }
+
+    /* ARS card */
+    .fb-ars { background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 22px; box-shadow: var(--shadow-xl); position: relative; overflow: hidden; }
+    .fb-ars::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-brand); background-size: 200% 100%; animation: fb-gx 5s ease-in-out infinite; }
+    .fb-ars-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .fb-ars-title { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 9px; }
+    .fb-ars-title .spark { width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(135deg,rgba(95,207,208,.18),rgba(67,173,193,.08)); border: 1px solid rgba(67,173,193,.25); display: flex; align-items: center; justify-content: center; color: var(--teal-500); }
+    .fb-resolved { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: #065F46; background: #ECFDF5; border: 1px solid #6EE7B7; border-radius: var(--radius-full); padding: 3px 10px; display: inline-flex; align-items: center; gap: 6px; }
+    .fb-resolved .led { width: 6px; height: 6px; border-radius: 50%; background: #10B981; box-shadow: 0 0 8px #10B981; animation: fb-glow 2.4s ease-in-out infinite; }
+    .fb-block { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 13px 15px; }
+    .fb-block-lbl { font-family: var(--font-mono); font-size: 9.5px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 7px; }
+    .fb-raw { font-family: var(--font-mono); font-size: 12px; line-height: 1.55; color: var(--text-label); word-break: break-word; }
+    .fb-flow { display: flex; align-items: center; justify-content: center; gap: 9px; margin: 11px 0; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--teal-500); }
+    .fb-flow .pipe { flex: 1; height: 1px; background: linear-gradient(90deg,transparent,var(--teal-500),transparent); position: relative; overflow: hidden; }
+    .fb-flow .pipe::after { content: ''; position: absolute; top: 0; left: 0; width: 30%; height: 100%; background: linear-gradient(90deg,transparent,var(--cyan-400),transparent); animation: fb-scan 2.4s ease-in-out infinite; }
+    .fb-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 9px; }
+    .fb-pstl { background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 7px 10px; opacity: 0; animation: fb-fadeUp .5s ease-out forwards; }
+    .fb-pstl.full { grid-column: 1 / -1; }
+    .fb-pstl-tag { font-family: var(--font-mono); font-size: 9.5px; font-weight: 600; color: var(--blue-500); }
+    .fb-pstl-val { font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; color: var(--text-primary); margin-top: 1px; }
+    .fb-ars-foot { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; padding-top: 13px; border-top: 1px solid var(--border); }
+    .fb-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--teal-500); background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-full); padding: 3px 10px; }
+
+    /* Sections */
+    .fb-section { padding: 88px 0; border-top: 1px solid var(--border); }
+    .fb-lbl { font-family: var(--font-display); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal-500); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .fb-lbl::before { content: ''; width: 3px; height: 16px; background: var(--gradient-brand); border-radius: 2px; }
+    .fb-lbl.center { justify-content: center; }
+    .fb-h2 { font-family: var(--font-display) !important; font-size: clamp(24px, 3vw, 36px) !important; font-weight: 700 !important; letter-spacing: -1px; line-height: 1.15 !important; color: var(--text-primary); max-width: 700px; }
+    .fb-desc { font-size: 15px; color: var(--text-label); margin-top: 12px; max-width: 580px; line-height: 1.65; }
+    /* center header utility applied to non-hero sections */
+    .fb-section-center .fb-lbl { justify-content: center; }
+    .fb-section-center .fb-h2 { text-align: center; max-width: none; }
+    .fb-section-center .fb-desc { text-align: center; margin-left: auto; margin-right: auto; }
+
+    /* Countdown */
+    .fb-cd { background: var(--surface-1); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 88px 0; }
+    .fb-cd-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: start; }
+    @media (max-width: 840px) { .fb-cd-grid { grid-template-columns: 1fr; gap: 32px; } }
+    .fb-timer { display: flex; gap: 12px; margin: 28px 0; flex-wrap: wrap; }
+    .fb-unit { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 14px 18px; min-width: 76px; text-align: center; }
+    .fb-unit-num { font-family: var(--font-display); font-size: 30px; font-weight: 800; letter-spacing: -1px; background: linear-gradient(135deg,#DC3545,#ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .fb-unit-lbl { font-family: var(--font-display); font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-top: 2px; }
+    .fb-tl { display: flex; flex-direction: column; position: relative; }
+    .fb-tl::before { content: ''; position: absolute; left: 15px; top: 20px; bottom: 20px; width: 2px; background: var(--border); }
+    .fb-tl-item { display: flex; gap: 18px; padding: 14px 0; }
+    .fb-tl-dot { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border); background: var(--surface-1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 13px; z-index: 1; }
+    .fb-tl-dot.complete { border-color: #10B981; background: #ECFDF5; }
+    .fb-tl-dot.now     { border-color: #DC3545; background: #FEF2F2; box-shadow: 0 0 12px rgba(220,53,69,.2); }
+    .fb-tl-dot.upcoming{ border-color: #F59E0B; }
+    .fb-tl-dot.future  { border-color: var(--border-strong); }
+    .fb-tl-date { font-family: var(--font-mono); font-size: 11px !important; color: var(--teal-500); font-weight: 600; margin-bottom: 3px; }
+    .fb-tl-h4   { font-family: var(--font-display) !important; font-size: 13px !important; font-weight: 700 !important; color: var(--text-primary); margin-bottom: 1px; }
+    .fb-tl-p    { font-size: 12px; color: var(--text-muted); line-height: 1.4; margin: 0; }
+    .fb-cd-text { font-size: 15px; line-height: 1.7; color: var(--text-label); }
+
+    /* Pressure cards */
+    .fb-pgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 30px; }
+    @media (max-width: 900px) { .fb-pgrid { grid-template-columns: 1fr; } }
+    .fb-pcard { background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 26px 24px; position: relative; overflow: hidden; display: flex; flex-direction: column; transition: all .35s; }
+    .fb-pcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg,#F59E0B,#DC3545); opacity: 0; transition: opacity .3s; }
+    .fb-pcard:hover::before { opacity: 1; }
+    .fb-pcard:hover { border-color: var(--border-strong); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .fb-pnum { font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #B45309; margin-bottom: 12px; }
+    .fb-pcard h3 { font-family: var(--font-display) !important; font-size: 17px !important; font-weight: 700 !important; letter-spacing: -.4px; color: var(--text-primary); margin-bottom: 8px; }
+    .fb-plead { font-size: 13.5px; line-height: 1.6; color: var(--text-label); margin-bottom: 14px; }
+    .fb-plist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+    .fb-plist li { font-size: 12.5px; line-height: 1.55; color: var(--text-label); padding-left: 18px; position: relative; }
+    .fb-plist li::before { content: ''; position: absolute; left: 0; top: 8px; width: 9px; height: 1.5px; background: var(--teal-500); border-radius: 1px; }
+
+    /* Callout */
+    .fb-callout { display: flex; gap: 14px; background: #FFFBEB; border: 1px solid #FDE68A; border-left: 3px solid #F59E0B; border-radius: var(--radius-lg); padding: 18px 22px; margin-top: 28px; }
+    .fb-callout-icon { flex-shrink: 0; width: 34px; height: 34px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; background: rgba(245,158,11,.12); border: 1px solid #FCD34D; color: #B45309; }
+    .fb-callout-lbl { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #B45309; margin-bottom: 4px; }
+    .fb-callout p { font-size: 13.5px; line-height: 1.65; color: var(--text-label); }
+    .fb-callout p strong { color: var(--text-primary); font-weight: 600; }
+
+    /* Table */
+    .fb-table-wrap { overflow-x: auto; margin-top: 28px; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+    .fb-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .fb-table th { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .3px; padding: 14px 16px; text-align: left; background: var(--surface-2); border-bottom: 2px solid var(--border); color: var(--text-primary); white-space: nowrap; }
+    .fb-table th:last-child { background: linear-gradient(135deg,rgba(95,207,208,.08),rgba(67,173,193,.04)); color: var(--teal-500); }
+    .fb-table td { padding: 11px 16px; border-bottom: 1px solid var(--surface-3); color: var(--text-label); vertical-align: top; }
+    .fb-table tr:last-child td { border-bottom: none; }
+    .fb-table td:first-child { font-weight: 600; color: var(--text-primary); font-size: 12px; }
+    .fb-table td.sq { color: var(--text-muted); }
+    .fb-table td.sq::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #F59E0B; margin-right: 8px; vertical-align: middle; opacity: .7; }
+    .fb-table td.win { color: var(--teal-500); font-weight: 600; }
+    .fb-table td.win::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #10B981; margin-right: 8px; vertical-align: middle; }
+
+    /* FAQ */
+    .fb-faq { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; max-width: 820px; margin-left: auto; margin-right: auto; }
+    .fb-faq-item { background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: border-color .3s; }
+    .fb-faq-item:hover { border-color: var(--border-strong); }
+    .fb-faq-q { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text-primary); padding: 16px 22px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; user-select: none; list-style: none; }
+    .fb-faq-q::marker, .fb-faq-q::-webkit-details-marker { display: none; }
+    .fb-faq-q svg { flex-shrink: 0; color: var(--text-muted); transition: transform .3s; }
+    details[open] .fb-faq-q svg { transform: rotate(180deg); }
+    .fb-faq-a { padding: 0 22px 16px; font-size: 14px; line-height: 1.7; color: var(--text-label); }
+
+    /* CTA */
+    .fb-cta { background: var(--surface-2,#F3F4F6); position: relative; overflow: hidden; padding: 72px 0; display: flex; justify-content: center; align-items: center; }
+    .fb-cta-card { background: linear-gradient(135deg,#0E1935 0%,#1A1E35 40%,#243574 100%); border-radius: 1.5rem; border: 1px solid rgba(255,255,255,.1); box-shadow: 0 25px 50px -12px rgba(0,0,0,.5); position: relative; overflow: hidden; width: 95%; max-width: 1200px; }
+    .fb-cta-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,rgba(255,255,255,.05),transparent); pointer-events: none; }
+    .fb-cta-inner { position: relative; z-index: 1; padding: 56px 48px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .fb-cta h2 { font-family: var(--font-display) !important; font-size: clamp(24px,3vw,38px) !important; font-weight: 700 !important; letter-spacing: -0.8px; line-height: 1.2 !important; color: #E2E8F4; max-width: 700px; margin: 0 auto 16px; }
+    .fb-cta h2 .accent { background: linear-gradient(135deg,#60A5FA,#3B82F6,#2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .fb-cta-sub { font-size: 16px; color: rgba(255,255,255,.7); max-width: 600px; margin: 0 auto 28px; line-height: 1.65; }
+    .fb-cta-days { display: inline-flex; align-items: baseline; gap: 8px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 12px 24px; margin-bottom: 28px; backdrop-filter: blur(10px); }
+    .fb-cta-days-num { font-family: var(--font-display); font-size: 32px; font-weight: 700; line-height: 1; background: linear-gradient(180deg,#fff 0%,#94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .fb-cta-days-lbl { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #94A3B8; }
+  </style>
+
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="ds-v5 flex-1">
+
+      <!-- Hero -->
+      <section class="fb-hero">
+        <div class="fb-w">
+          <div class="fb-hero-grid">
+            <div>
+              <div class="fb-eyebrow"><span class="dot"></span>ISO 20022 · For Banks</div>
+              <h1 class="fb-h1">
+                ISO 20022 structured addresses for banks —
+                <span class="accent">hit &gt;99% STP before the November 2026 deadline</span>
+              </h1>
+              <p class="fb-sub">From 14 November 2026, CBPR+ rejects cross-border payments with unstructured addresses. ioNova resolves your legacy debtor and creditor data into full ISO 20022 structured addresses — deterministically, across 195 countries and 50+ scripts — so you cut NAKs, reduce screening false positives, and protect straight-through processing.</p>
+              <a href="/demo" class="fb-btn">
+                See how banks deploy ioNova
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <div class="fb-stats">
+                <div class="fb-stat"><div class="v urgent" id="fb-days">—</div><div class="l">Days until the 14 Nov 2026 cut-over</div></div>
+                <div class="fb-stat"><div class="v">&gt;99%</div><div class="l">Straight-through processing rate</div></div>
+                <div class="fb-stat"><div class="v">~30%</div><div class="l">Fewer sanctions false positives</div></div>
+                <div class="fb-stat"><div class="v">195</div><div class="l">Countries &amp; 50+ scripts</div></div>
+              </div>
+              <div class="fb-trust">
+                <span class="lbl">Drops in beside</span>
+                <span class="fb-pill">MuleSoft</span>
+                <span class="fb-pill">Volante</span>
+                <span class="fb-pill">Finastra</span>
+              </div>
+            </div>
+
+            <div class="fb-ars">
+              <div class="fb-ars-head">
+                <div class="fb-ars-title">
+                  <span class="spark">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
+                  </span>
+                  Cross-border payment · debtor address
+                </div>
+                <span class="fb-resolved"><span class="led"></span>Resolved</span>
+              </div>
+              <div class="fb-block">
+                <div class="fb-block-lbl">Inbound — free text &lt;AdrLine&gt;</div>
+                <div class="fb-raw">ACME LOGISTICS LTD<br>12 KINGSWAY HOUSE, FL 3, HOLBORN<br>LONDON WC2B 6UN, UNITED KINGDOM</div>
+              </div>
+              <div class="fb-flow"><span class="pipe"></span>ARS resolve<span class="pipe"></span></div>
+              <div class="fb-block" style="border-color:var(--teal-500);">
+                <div class="fb-block-lbl" style="color:var(--teal-500);">ISO 20022 &lt;PstlAdr&gt; — structured</div>
+                <div class="fb-fields">
+                  <div class="fb-pstl" style="animation-delay:.15s"><div class="fb-pstl-tag">&lt;StrtNm&gt;</div><div class="fb-pstl-val">Kingsway</div></div>
+                  <div class="fb-pstl" style="animation-delay:.24s"><div class="fb-pstl-tag">&lt;BldgNb&gt;</div><div class="fb-pstl-val">12</div></div>
+                  <div class="fb-pstl" style="animation-delay:.33s"><div class="fb-pstl-tag">&lt;BldgNm&gt;</div><div class="fb-pstl-val">Kingsway House</div></div>
+                  <div class="fb-pstl" style="animation-delay:.42s"><div class="fb-pstl-tag">&lt;Flr&gt;</div><div class="fb-pstl-val">3</div></div>
+                  <div class="fb-pstl" style="animation-delay:.51s"><div class="fb-pstl-tag">&lt;TwnNm&gt;</div><div class="fb-pstl-val">London</div></div>
+                  <div class="fb-pstl" style="animation-delay:.60s"><div class="fb-pstl-tag">&lt;PstCd&gt;</div><div class="fb-pstl-val">WC2B 6UN</div></div>
+                  <div class="fb-pstl" style="animation-delay:.69s"><div class="fb-pstl-tag">&lt;CtrySubDvsn&gt;</div><div class="fb-pstl-val">Greater London</div></div>
+                  <div class="fb-pstl" style="animation-delay:.78s"><div class="fb-pstl-tag">&lt;Ctry&gt;</div><div class="fb-pstl-val">GB</div></div>
+                </div>
+              </div>
+              <div class="fb-ars-foot">
+                <span class="fb-tag">pacs.008 CBPR+</span>
+                <span class="fb-tag">BIC / LEI preserved</span>
+                <span class="fb-tag">Deterministic</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Countdown -->
+      <section class="fb-cd">
+        <div class="fb-w">
+          <div class="fb-cd-grid">
+            <div>
+              <div class="fb-lbl center">Urgency</div>
+              <h2 class="fb-h2" style="max-width:none;text-align:center;">The runway to CBPR+ structured-address enforcement</h2>
+              <div class="fb-timer">
+                <div class="fb-unit"><div class="fb-unit-num" id="fb-cd-days">—</div><div class="fb-unit-lbl">Days</div></div>
+                <div class="fb-unit"><div class="fb-unit-num" id="fb-cd-hours">00</div><div class="fb-unit-lbl">Hours</div></div>
+                <div class="fb-unit"><div class="fb-unit-num" id="fb-cd-mins">00</div><div class="fb-unit-lbl">Minutes</div></div>
+                <div class="fb-unit"><div class="fb-unit-num" id="fb-cd-secs">00</div><div class="fb-unit-lbl">Seconds</div></div>
+              </div>
+              <p class="fb-cd-text">From 14 November 2026, SWIFT's CBPR+ Standards Release removes unstructured postal addresses. Roughly 65% of payment messages still carry them, and recent industry research finds 44% of banks are not yet on track. The institutions that industrialise remediation now avoid the rejection cliff.</p>
+            </div>
+            <div class="fb-tl">
+              <div class="fb-tl-item"><div class="fb-tl-dot complete">✓</div><div><div class="fb-tl-date">22 Nov 2025</div><div class="fb-tl-h4">End of MT/MX coexistence</div><div class="fb-tl-p">ISO 20022 becomes the sole standard for CBPR+ cross-border payments.</div></div></div>
+              <div class="fb-tl-item"><div class="fb-tl-dot now"></div><div><div class="fb-tl-date">Now</div><div class="fb-tl-h4">The implementation window</div><div class="fb-tl-p">Time to capture, validate and structure address data across every channel.</div></div></div>
+              <div class="fb-tl-item"><div class="fb-tl-dot upcoming"></div><div><div class="fb-tl-date">14 Nov 2026</div><div class="fb-tl-h4">Unstructured addresses removed</div><div class="fb-tl-p">CBPR+ requires Town and Country in structured fields, at minimum, for all parties.</div></div></div>
+              <div class="fb-tl-item"><div class="fb-tl-dot future"></div><div><div class="fb-tl-date">Nov 2027</div><div class="fb-tl-h4">E&amp;I and Stop-and-Recall</div><div class="fb-tl-p">Exceptions, investigations and cancellation flows tighten further.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Three Pressures -->
+      <section class="fb-section">
+        <div class="fb-w">
+          <div class="fb-lbl center">The Mandate Bites</div>
+          <h2 class="fb-h2" style="max-width:none;text-align:center;">Three pressures every bank faces — before 14 November 2026</h2>
+          <p class="fb-desc" style="max-width:640px;margin-left:auto;margin-right:auto;text-align:center;">The address mandate isn't only a formatting change. It hits your data, your screening, and your delivery timeline at once. Here's where each one bites.</p>
+          <div class="fb-pgrid">
+            <div class="fb-pcard">
+              <div class="fb-pnum">Pressure 01</div>
+              <h3>Legacy data won't pass</h3>
+              <p class="fb-plead">Most debtor and creditor records are free text — and roughly 65% of messages still are.</p>
+              <ul class="fb-plist">
+                <li>Decades of address data sit in unstructured fields across core and channel systems.</li>
+                <li>From 14 November 2026, CBPR+ NAKs cross-border messages with unstructured addresses.</li>
+                <li>Town and Country must be captured in structured fields for every party and agent.</li>
+                <li>Remediating at origin, across every channel and branch, is the hard part.</li>
+              </ul>
+            </div>
+            <div class="fb-pcard">
+              <div class="fb-pnum">Pressure 02</div>
+              <h3>Screening eats your STP</h3>
+              <p class="fb-plead">Poor address data drives false positives and manual repair that crush throughput.</p>
+              <ul class="fb-plist">
+                <li>Unstructured addresses force fuzzy matching and inflate sanctions false hits.</li>
+                <li>Every manual investigation is an exception that breaks straight-through processing.</li>
+                <li>Structured data enables precise filtering and FATF Recommendation 16 monitoring.</li>
+                <li>ioNova customers see roughly 30% fewer screening false positives.</li>
+              </ul>
+            </div>
+            <div class="fb-pcard">
+              <div class="fb-pnum">Pressure 03</div>
+              <h3>The runway is gone</h3>
+              <p class="fb-plead">Building 195-country, 50+ script resolution in-house takes 18–36 months you don't have.</p>
+              <ul class="fb-plist">
+                <li>Sub-100ms latency at production scale is a hard engineering problem on its own.</li>
+                <li>Rules, edge cases, and regulatory changes need a standing team to maintain.</li>
+                <li>SWIFT has stated it will not build a contingency for institutions that miss the cut-over.</li>
+                <li>ioNova deploys as a sidecar in 2–4 weeks — no core banking replacement.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Callout -->
+      <section style="padding: 0 0 60px;">
+        <div class="fb-w">
+          <div class="fb-callout">
+            <div class="fb-callout-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+            </div>
+            <div>
+              <div class="fb-callout-lbl">Verified · the deadline is 14 November 2026</div>
+              <p>SWIFT's CBPR+ Standards Release removes unstructured postal addresses on <strong>14 November 2026</strong> — confirmed by SWIFT and major correspondents including J.P. Morgan. From that date, Town and Country are required in structured fields, at minimum, for all parties and agents. Sources that cite a vague 'late 2026' or '15 November' date are imprecise; <strong>14 November 2026</strong> is the operative cut-over.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparison -->
+      <section class="fb-section fb-section-center">
+        <div class="fb-w">
+          <div class="fb-lbl">Before &amp; After</div>
+          <h2 class="fb-h2">Your payments operation, before and after ioNova</h2>
+          <p class="fb-desc">What changes for a bank's cross-border payment flow when legacy address data becomes ISO 20022 structured addresses.</p>
+          <div class="fb-table-wrap">
+            <table class="fb-table">
+              <thead><tr><th>For your payments operation</th><th>Status quo</th><th>With ioNova ARS</th></tr></thead>
+              <tbody>
+                <tr><td>Address data</td><td class="sq">Legacy free text across channels</td><td class="win">Full ISO 20022 structured addresses</td></tr>
+                <tr><td>CBPR+ readiness (14 Nov 2026)</td><td class="sq">At risk of NAKs</td><td class="win">Compliant before the deadline</td></tr>
+                <tr><td>Coverage</td><td class="sq">Skewed to Latin-script markets</td><td class="win">195 countries, 50+ scripts</td></tr>
+                <tr><td>Sanctions screening</td><td class="sq">High false positives</td><td class="win">~30% fewer false positives</td></tr>
+                <tr><td>Straight-through processing</td><td class="sq">Eroded by manual repair</td><td class="win">Targets &gt;99% STP</td></tr>
+                <tr><td>Financial identifiers</td><td class="sq">Stripped or corrupted</td><td class="win">50+ preserved (LEI, BIC, IBAN)</td></tr>
+                <tr><td>Time to production</td><td class="sq">18–36 months in-house</td><td class="win">Sidecar live in 2–4 weeks</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="fb-section" style="text-align:center;">
+        <div class="fb-w">
+          <div class="fb-lbl center">FAQ</div>
+          <h2 class="fb-h2" style="margin-left:auto;margin-right:auto;">What financial institutions ask about ISO 20022 and address intelligence</h2>
+          <div class="fb-faq">
+            <details class="fb-faq-item">
+              <summary class="fb-faq-q">What does the November 2026 ISO 20022 mandate require banks to do?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+              <div class="fb-faq-a">From 14 November 2026, banks must provide Town and Country in structured ISO 20022 fields, at minimum, for all parties and agents in CBPR+ cross-border payment messages. Fully unstructured addresses are no longer accepted — only fully structured or hybrid. In practice, banks must be able to capture, validate, and structure debtor and creditor address data across every channel and branch before the cut-over.</div>
+            </details>
+            <details class="fb-faq-item">
+              <summary class="fb-faq-q">How does ioNova help banks reach &gt;99% straight-through processing?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+              <div class="fb-faq-a">Straight-through processing fails when address data is ambiguous or free-text, dropping payments into manual repair. ioNova resolves debtor and creditor addresses into discrete ISO 20022 elements deterministically, so messages pass network and correspondent validation on the first attempt. Removing the primary source of exceptions moves banks from the cross-border industry baseline of roughly 40% toward &gt;99% STP, saving $25–50 for every exception avoided.</div>
+            </details>
+            <details class="fb-faq-item">
+              <summary class="fb-faq-q">Do we have to replace our core banking system?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+              <div class="fb-faq-a">No. ioNova runs as a sidecar service alongside your existing infrastructure over a standard API — no changes to your core banking platform, payment engine, or legacy systems. Pre-built connectors exist for MuleSoft, Volante, and Finastra, and a circuit-breaker routes payments through your current flow if the service is ever unavailable, so no payment is delayed or held.</div>
+            </details>
+            <details class="fb-faq-item">
+              <summary class="fb-faq-q">How does structured address data reduce sanctions screening false positives?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+              <div class="fb-faq-a">Unstructured addresses force string-level matching, so coincidental hits such as 'Cuba Street, Wellington' trigger alerts that compliance teams clear by hand. Structured addresses let screening operate field by field — matching country and town independently of street names — which removes a large share of the noise. ioNova customers see roughly 30% fewer screening false positives, freeing analysts for genuine FATF Recommendation 16 risk.</div>
+            </details>
+            <details class="fb-faq-item">
+              <summary class="fb-faq-q">Is ioNova deterministic and auditable enough for a regulated bank?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+              <div class="fb-faq-a">Yes. ioNova is rule-driven and deterministic: the same input always produces the same structured output, with a full audit trail for every resolution. Unlike LLM-based parsing, there is no hallucination risk and no black-box behaviour, and latency stays within payment-grade limits. Outputs are explainable to regulators and reproducible under examination.</div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="fb-cta">
+        <div class="fb-cta-card">
+          <div class="fb-cta-inner">
+            <h2>Be CBPR+ ready before November 2026.<br><span class="accent">Without replacing your core.</span></h2>
+            <p class="fb-cta-sub">ioNova drops in as a sidecar with connectors for MuleSoft, Volante, and Finastra. 195 countries. &gt;99% STP. Live in 2–4 weeks.</p>
+            <div class="fb-cta-days">
+              <span class="fb-cta-days-num" id="fb-cta-days">—</span>
+              <span class="fb-cta-days-lbl">Days Left</span>
+            </div>
+            <a href="/demo" class="fb-btn">
+              Book a Bank Readiness Demo
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <Footer />
+  </div>
+</Layout>
+
+<script>
+  function fbTick() {
+    const d = new Date('2026-11-14T00:00:00Z').getTime() - Date.now();
+    if (d <= 0) return;
+    const days = Math.floor(d / 864e5);
+    const hrs  = Math.floor(d % 864e5 / 36e5);
+    const mins = Math.floor(d % 36e5 / 6e4);
+    const secs = Math.floor(d % 6e4 / 1e3);
+    const p = (n: number) => String(n).padStart(2, '0');
+    const el = (id: string) => document.getElementById(id) as HTMLElement | null;
+    el('fb-days')    ?.setAttribute('textContent', '');
+    if (el('fb-days'))     el('fb-days')!.textContent     = '~' + days;
+    if (el('fb-cd-days'))  el('fb-cd-days')!.textContent  = String(days).padStart(3, '0');
+    if (el('fb-cd-hours')) el('fb-cd-hours')!.textContent = p(hrs);
+    if (el('fb-cd-mins'))  el('fb-cd-mins')!.textContent  = p(mins);
+    if (el('fb-cd-secs'))  el('fb-cd-secs')!.textContent  = p(secs);
+    if (el('fb-cta-days')) el('fb-cta-days')!.textContent = String(days);
+  }
+  fbTick();
+  setInterval(fbTick, 1000);
+</script>

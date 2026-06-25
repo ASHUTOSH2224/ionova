@@ -122,6 +122,21 @@ const addressIntelligencePillars = [
   },
 ];
 
+const addressIntelligenceSolutions = [
+  {
+    label: "For Banks",
+    description: "Hit >99% STP before the Nov 2026 deadline",
+    href: "/address-intelligence/for-banks",
+    icon: Building2,
+  },
+  {
+    label: "For Corporates",
+    description: "Stop payment rejections before Nov 2026",
+    href: "/address-intelligence/for-corporates",
+    icon: BadgeCheck,
+  },
+];
+
 const arsPlatformOverview = [
   {
     label: "Platform Overview",
@@ -322,6 +337,34 @@ export function Navbar() {
                     <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Four Pillars</p>
                     <ul className="grid gap-0.5">
                       {addressIntelligencePillars.map((item) => (
+                        <li key={item.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={item.href}
+                              className={cn(
+                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
+                                isActive(item.href) && "bg-blue-50"
+                              )}
+                            >
+                              <span className={cn(
+                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
+                                isActive(item.href) && "bg-blue-100 text-blue-600"
+                              )}>
+                                <item.icon className="h-3.5 w-3.5" />
+                              </span>
+                              <span className={cn(
+                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
+                                isActive(item.href) && "text-blue-700 font-semibold"
+                              )}>{item.label}</span>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="border-t border-border/50 my-2" />
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Solutions</p>
+                    <ul className="grid gap-0.5">
+                      {addressIntelligenceSolutions.map((item) => (
                         <li key={item.href}>
                           <NavigationMenuLink asChild>
                             <Link
@@ -676,6 +719,19 @@ export function Navbar() {
                 ))}
                 <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Four Pillars</p>
                 {addressIntelligencePillars.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    data-astro-prefetch="tap"
+                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Solutions</p>
+                {addressIntelligenceSolutions.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
