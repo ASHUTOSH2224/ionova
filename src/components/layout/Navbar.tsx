@@ -350,7 +350,7 @@ export function Navbar() {
                       ))}
                     </ul>
                     <div className="border-t border-border/50 my-2" />
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Solutions</p>
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Who We Serve</p>
                     <ul className="grid gap-0.5">
                       {addressIntelligenceSolutions.map((item) => (
                         <li key={item.href}>
@@ -718,7 +718,7 @@ export function Navbar() {
                     {item.label}
                   </Link>
                 ))}
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Solutions</p>
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Who We Serve</p>
                 {addressIntelligenceSolutions.map((item) => (
                   <Link
                     key={item.href}
