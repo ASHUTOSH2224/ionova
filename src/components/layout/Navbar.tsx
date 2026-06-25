@@ -25,12 +25,6 @@ const solutionsOverview = [
 
 const solutionsBuyers = [
   {
-    label: "For Corporates",
-    description: "Stop payment rejections before Nov 2026",
-    href: "/solutions/for-corporates",
-    icon: BadgeCheck,
-  },
-  {
     label: "Corporate Treasury",
     description: "Fix beneficiary data at source",
     href: "/solutions/corporate-treasury",
@@ -45,12 +39,6 @@ const solutionsBuyers = [
 ];
 
 const solutionsBuilders = [
-  {
-    label: "For Banks",
-    description: "Hit >99% STP before the Nov 2026 deadline",
-    href: "/solutions/for-banks",
-    icon: Building2,
-  },
   {
     label: "TMS & ERP Vendors",
     description: "Ship compliance as a billable feature",
