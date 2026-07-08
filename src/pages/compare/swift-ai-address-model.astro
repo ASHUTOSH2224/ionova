@@ -322,7 +322,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 32px;background:var(--s
       </div>
       <div class="card card-accent profile ours">
         <h3>ioNova ARS</h3>
-        <div class="sub">Deterministic rule engine &middot; 247-country postal reference data</div>
+        <div class="sub">Deterministic rule engine &middot; 246-country postal reference data</div>
         <p class="desc">A production compliance engine &mdash; and a full application &mdash; that resolves, corrects and returns compliant ISO 20022 XML in a single API call.</p>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>All 14 PostalAddress24 fields + corrected XML + 30 structured reason codes citing EPC, PMPG, EU Reg 2023/1113, CBPR+.</li>
@@ -347,7 +347,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 32px;background:var(--s
       <table>
         <thead><tr><th>Dimension</th><th>SWIFT AI Parser</th><th class="win">ioNova ARS</th></tr></thead>
         <tbody>
-          <tr><td>Architecture</td><td>CRF + Transformer + fuzzy matching (GeoNames)</td><td class="win">Deterministic rule engine + 247-country postal DB</td></tr>
+          <tr><td>Architecture</td><td>CRF + Transformer + fuzzy matching (GeoNames)</td><td class="win">Deterministic rule engine + 246-country postal DB</td></tr>
           <tr><td>Output scope</td><td>2 / 14 fields (Town + Country), CSV / JSON</td><td class="win">14 / 14 fields + corrected ISO 20022 XML, 4 rendering modes</td></tr>
           <tr><td>Published accuracy</td><td>69.6&ndash;80.6% combined (Gauntlet); 51.8&ndash;59.5% (Wikipedia set)</td><td class="win">98%+ STP target at payment speed</td></tr>
           <tr><td>Security &amp; operations</td><td>None &mdash; no auth, RBAC, encryption, health checks or SLA</td><td class="win">JWT + API-key dual auth, RFC 9421, RBAC, SLA, health endpoints</td></tr>
@@ -492,7 +492,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 32px;background:var(--s
       <p>The Parser&rsquo;s zero and low scores are architectural consequences of solving the two-field minimum. Scores out of 5, from the March 2026 analysis.</p>
     </div>
     <div class="feature-grid reveal">
-      <div class="card"><h3><span class="crit-chip">SIG-2 &middot; 0/5</span> Geographic disambiguation</h3><p>No disambiguation layer beyond fuzzy GeoNames matching. ioNova resolves ambiguous place names against 247-country reference data with population and context weighting.</p></div>
+      <div class="card"><h3><span class="crit-chip">SIG-2 &middot; 0/5</span> Geographic disambiguation</h3><p>No disambiguation layer beyond fuzzy GeoNames matching. ioNova resolves ambiguous place names against 246-country reference data with population and context weighting.</p></div>
       <div class="card"><h3><span class="crit-chip">OUTPUT &middot; 2/14</span> Twelve fields never emitted</h3><p>Street, building, postcode and nine more fields stay internal. ioNova resolves all 14 PostalAddress24 elements and enforces per-scheme field-length limits in the corrected XML.</p></div>
       <div class="card"><h3><span class="crit-chip">ENT-5 &middot; 1/5</span> No security layer</h3><p>No authentication, no RBAC, no encryption, no health checks, no SLA &mdash; every control a bank needs must be built around it. ioNova ships JWT + API-key auth, RFC 9421 signing and RBAC.</p></div>
       <div class="card"><h3><span class="crit-chip">PAY-3 &middot; 0/5</span> No payment-chain awareness</h3><p>Each address string is processed independently &mdash; no ordering / beneficiary / intermediary roles. ioNova parses multi-party chains with per-leg output modes.</p></div>
@@ -595,7 +595,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 32px;background:var(--s
   <div class="wrap">
     <div class="final-inner reveal">
       <h2>Start free with SWIFT&rsquo;s model.<br><span style="background:linear-gradient(135deg,#6ED9DA,#5EA1DC,#8ECDF2);-webkit-background-clip:text;background-clip:text;color:transparent">Finish compliant with ioNova.</span></h2>
-      <p>All 14 structured fields. 247-country verification. 98%+ STP target. Exceptions Workbench, live dashboards, Developer Portal. Start in days &mdash; live in 2&ndash;4 weeks.</p>
+      <p>All 14 structured fields. 246-country verification. 98%+ STP target. Exceptions Workbench, live dashboards, Developer Portal. Start in days &mdash; live in 2&ndash;4 weeks.</p>
       <a class="btn btn-accent btn-lg" href="#">See structured resolution in action
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
