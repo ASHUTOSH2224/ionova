@@ -1,0 +1,95 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer.astro";
+import type { ComparePage } from "@/data/comparePages";
+import { getCompareCanonicalOverride } from "@/data/comparePages";
+
+interface Props {
+  page: ComparePage;
+}
+
+const { page } = Astro.props;
+---
+
+<Layout
+  title={page.title}
+  description={page.description}
+  keywords={page.keywords}
+  ogImage="/og-image.png"
+  ogImageAlt={page.title}
+  canonicalOverride={getCompareCanonicalOverride(page.slug)}
+>
+  <Fragment slot="head" set:html={page.headHtml} />
+  <div class="flex min-h-screen flex-col bg-[#F1F4F9]">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="compare-shell" data-compare-page set:html={page.contentHtml} />
+    </main>
+    <Footer />
+  </div>
+  <script is:inline>
+    (() => {
+      const initComparePages = () => {
+        document.querySelectorAll("[data-compare-page]").forEach((root) => {
+          if (root.dataset.compareInitialized === "true") return;
+          root.dataset.compareInitialized = "true";
+
+          root.querySelectorAll(".faq-q").forEach((question) => {
+            question.addEventListener("click", () => {
+              const item = question.closest(".faq-item");
+              if (!item) return;
+
+              const wasOpen = item.classList.contains("open");
+              root.querySelectorAll(".faq-item").forEach((candidate) => {
+                candidate.classList.remove("open");
+                const answer = candidate.querySelector(".faq-a");
+                if (answer) answer.style.maxHeight = null;
+              });
+
+              if (!wasOpen) {
+                item.classList.add("open");
+                const answer = item.querySelector(".faq-a");
+                if (answer) answer.style.maxHeight = `${answer.scrollHeight}px`;
+              }
+            });
+          });
+
+          const firstAnswer = root.querySelector(".faq-item.open .faq-a");
+          if (firstAnswer) firstAnswer.style.maxHeight = `${firstAnswer.scrollHeight}px`;
+
+          const reveal = (element) => {
+            element.classList.add("visible");
+            element
+              .querySelectorAll(".duo .track i, .score-bar i, .ttv-bar i")
+              .forEach((bar) => {
+                if (bar.dataset.w) bar.style.width = `${bar.dataset.w}%`;
+              });
+          };
+
+          const revealItems = root.querySelectorAll(".reveal");
+          if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (!entry.isIntersecting) return;
+                  reveal(entry.target);
+                  observer.unobserve(entry.target);
+                });
+              },
+              { threshold: 0.12 },
+            );
+
+            revealItems.forEach((element) => observer.observe(element));
+          } else {
+            revealItems.forEach(reveal);
+          }
+        });
+      };
+
+      initComparePages();
+      document.addEventListener("astro:page-load", initComparePages);
+    })();
+  </script>
+</Layout>
+

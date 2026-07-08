@@ -1,4 +1,6 @@
 ---
+import { compareFooterLinks } from "@/data/compareLinks";
+
 const footerLinks = {
   platform: {
     title: "PLATFORM",
@@ -34,13 +36,17 @@ const footerLinks = {
       // { label: "ROI Calculator", href: "/roi-calculator" },
     ],
   },
+  compare: {
+    title: "COMPARE",
+    links: compareFooterLinks,
+  },
 };
 ---
 
 <footer class="border-t border-[#D0DAEB] bg-[#F4F7FB]">
   <div class="mx-auto max-w-[1200px] px-6 pt-10 pb-6 md:px-8 md:pt-12 md:pb-8">
     <!-- Main Footer Grid -->
-    <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr]">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr]">
       <!-- Brand Column -->
       <div class="max-w-[300px]">
         <a href="/" class="flex items-center gap-3 mb-5">
