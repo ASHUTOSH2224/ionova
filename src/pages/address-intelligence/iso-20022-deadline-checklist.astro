@@ -1,9 +1,60 @@
 ---
-import AddressGuideStaticPage from "@/components/address-intelligence/AddressGuideStaticPage.astro";
-import { buildAddressGuidePageFromHtml } from "@/data/addressGuidePages";
-import sourceHtml from "../../../iso-20022-deadline-checklist-v5.html?raw";
-
-const page = buildAddressGuidePageFromHtml("iso-20022-deadline-checklist", sourceHtml);
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import AddressDeadlineChecklist from '@/views/AddressDeadlineChecklist.astro';
+import '@/styles/ars-platform.css';
 ---
 
-<AddressGuideStaticPage page={page} />
+<Layout
+  title="ISO 20022 Deadline Checklist — 14 November 2026 | ioNova"
+  description="Eight steps to prepare for the 14 November 2026 ISO 20022 structured address deadline, including scope, key dates, hybrid versus structured policy, and examiner-ready evidence."
+  keywords="ISO 20022 deadline checklist, 14 November 2026, structured address deadline, CBPR+, SEPA, SWIFT SR2026, ISO 20022 compliance"
+  ogImage="/og-image.png"
+  ogImageAlt="ISO 20022 Deadline Checklist — 14 November 2026"
+  ogType="article"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["WebPage", "Article"],
+        "@id": "https://ionova.ai/address-intelligence/iso-20022-deadline-checklist#webpage",
+        "url": "https://ionova.ai/address-intelligence/iso-20022-deadline-checklist",
+        "name": "ISO 20022 Deadline Checklist — 14 November 2026 | ioNova",
+        "headline": "ISO 20022 Deadline Checklist",
+        "description": "Eight steps to prepare for the 14 November 2026 ISO 20022 structured address deadline.",
+        "isPartOf": { "@id": "https://ionova.ai/#website" },
+        "author": { "@id": "https://ionova.ai/#org" },
+        "publisher": { "@id": "https://ionova.ai/#org" },
+        "datePublished": "2026-07-05",
+        "dateModified": "2026-07-05"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ionova.ai/address-intelligence/iso-20022-deadline-checklist#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai/" },
+          { "@type": "ListItem", "position": 2, "name": "Address Intelligence", "item": "https://ionova.ai/address-intelligence/" },
+          { "@type": "ListItem", "position": 3, "name": "ISO 20022 Deadline Checklist", "item": "https://ionova.ai/address-intelligence/iso-20022-deadline-checklist" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://ionova.ai/address-intelligence/iso-20022-deadline-checklist#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "When is the ISO 20022 structured address deadline?", "acceptedAnswer": { "@type": "Answer", "text": "From 14 November 2026, SWIFT CBPR+ stops accepting fully unstructured postal addresses; SEPA and other market infrastructures are aligned to the same window." } },
+          { "@type": "Question", "name": "Is a hybrid address enough?", "acceptedAnswer": { "@type": "Answer", "text": "Hybrid remains accepted, but fully structured addresses are the stronger target where an institution controls the data because they improve STP, screening precision, and audit evidence." } },
+          { "@type": "Question", "name": "Can a late project still make the deadline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, with a purpose-built engine. ioNova ARS typically goes live in 2-4 weeks including parallel run." } }
+        ]
+      }
+    ]
+  })} />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <AddressDeadlineChecklist />
+    </main>
+    <Footer />
+  </div>
+</Layout>

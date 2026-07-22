@@ -1,0 +1,158 @@
+---
+---
+
+<div class="ars-platform">
+  <div class="ars-container">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-badge"><span class="pulse-dot"></span><span>ISO 20022 · Address formats · November 2026</span></div>
+        <h1>Hybrid addresses in ISO 20022, <span class="accent">explained</span></h1>
+        <p>A hybrid address keeps <strong>Town Name</strong> and <strong>Country</strong> in structured ISO 20022 elements while allowing up to two 70-character address lines for the remaining details. It is one of the two formats SWIFT CBPR+ and SEPA continue to accept once fully unstructured addresses are retired.</p>
+        <div class="hero-cta">
+          <a class="btn btn-accent" href="/address-intelligence/iso-20022-deadline-checklist">Read the Deadline Checklist</a>
+          <a class="btn btn-outline" href="/address-intelligence">Back to Address Intelligence</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:var(--space-lg)">
+      <div class="kpi-grid">
+        <div class="kpi-tile"><div class="kpi-value">2 x 70</div><div class="kpi-label">AddressLine characters permitted</div></div>
+        <div class="kpi-tile"><div class="kpi-value cyan">TwnNm + Ctry</div><div class="kpi-label">Structured minimum required</div></div>
+        <div class="kpi-tile"><div class="kpi-value teal">Nov 2025</div><div class="kpi-label">Hybrid introduced on major rails</div></div>
+        <div class="kpi-tile"><div class="kpi-value">Nov 2026</div><div class="kpi-label">Fully unstructured retired</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">The Three Formats</div>
+        <h2 class="section-title">Unstructured, Hybrid, Fully Structured</h2>
+        <p class="section-desc">Every ISO 20022 postal address takes one of these shapes. From the November 2026 standards release, only hybrid and fully structured remain valid.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="badge badge-red">Retired</span>
+          <div class="card-title" style="margin-top:var(--space-md)">Fully Unstructured</div>
+          <p class="card-body">The whole address is carried in free-text <code>AdrLine</code> elements. This is the legacy MT habit carried into MX, and it creates the highest repair, screening, and rejection risk.</p>
+          <div class="code-block" style="margin-top:var(--space-md)"><pre>&lt;AdrLine&gt;Hauptstr. 17, 3rd Fl.&lt;/AdrLine&gt;
+&lt;AdrLine&gt;10115 Berlin Germany&lt;/AdrLine&gt;</pre></div>
+        </div>
+        <div class="card card-accent">
+          <span class="badge badge-amber">Accepted Bridge</span>
+          <div class="card-title" style="margin-top:var(--space-md)">Hybrid</div>
+          <p class="card-body">Town and country move to structured fields. Up to two address lines may carry the remaining details, but structured content must not be duplicated inside those lines.</p>
+          <div class="code-block" style="margin-top:var(--space-md)"><pre>&lt;TwnNm&gt;Berlin&lt;/TwnNm&gt;
+&lt;Ctry&gt;DE&lt;/Ctry&gt;
+&lt;AdrLine&gt;Hauptstr. 17, 3rd Fl., 10115&lt;/AdrLine&gt;</pre></div>
+        </div>
+        <div class="card">
+          <span class="badge badge-green">Target State</span>
+          <div class="card-title" style="margin-top:var(--space-md)">Fully Structured</div>
+          <p class="card-body">Every address component gets its own ISO 20022 element and no address line is used. This is the cleanest format for STP, sanctions screening, and audit evidence.</p>
+          <div class="code-block" style="margin-top:var(--space-md)"><pre>&lt;StrtNm&gt;Hauptstrasse&lt;/StrtNm&gt;
+&lt;BldgNb&gt;17&lt;/BldgNb&gt;
+&lt;PstCd&gt;10115&lt;/PstCd&gt;
+&lt;TwnNm&gt;Berlin&lt;/TwnNm&gt;
+&lt;Ctry&gt;DE&lt;/Ctry&gt;</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">Side By Side</div>
+        <h2 class="section-title">Format Comparison</h2>
+      </div>
+      <div class="table-wrap">
+        <table class="token-table">
+          <thead>
+            <tr><th>Dimension</th><th>Fully Unstructured</th><th>Hybrid</th><th>Fully Structured</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Accepted after November 2026</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+            <tr><td>AddressLine permitted</td><td>Legacy free text</td><td>Up to 2 x 70 characters</td><td>None</td></tr>
+            <tr><td>Structured minimum</td><td>None</td><td>Town Name + Country</td><td>Every populated component</td></tr>
+            <tr><td>Duplication rule</td><td>N/A</td><td>Structured content must not repeat in AddressLine</td><td>N/A</td></tr>
+            <tr><td>STP potential</td><td>Lowest</td><td>Medium</td><td>Highest</td></tr>
+            <tr><td>Best use</td><td>Remediate before cutover</td><td>Transition traffic and incomplete counterparty data</td><td>Every flow you control</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">Timeline</div>
+        <h2 class="section-title">How The Rules Tighten</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4>5 October 2025</h4><p>SEPA introduces hybrid addresses with structured town and country plus limited address lines.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4>22 November 2025</h4><p>CBPR+ and HVPS+ follow. Banks may send structured, hybrid, or unstructured during the transition year.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h4>14 November 2026</h4><p>Fully unstructured addresses are retired. Only fully structured or hybrid remain valid.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Value-Date Rule</h4><p>Future-dated instructions with a value date on or after cutover need compliant address data before they reach the network.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">Decision Guide</div>
+        <h2 class="section-title">Hybrid Or Fully Structured?</h2>
+        <p class="section-desc">Hybrid is acceptable, but it is a bridge. The practical target for controlled data is fully structured output with the ability to render hybrid when a scheme or counterparty requires it.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Use Hybrid When...</div>
+          <ul class="flist">
+            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span>Source data cannot yet be resolved to every structured component with confidence.</span></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span>A counterparty or corridor still supplies incomplete details.</span></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span>You need guaranteed acceptance while remediation continues.</span></li>
+          </ul>
+        </div>
+        <div class="card card-accent">
+          <div class="card-title">Target Fully Structured When...</div>
+          <ul class="flist">
+            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span>You control onboarding, master data, or payment assembly.</span></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span>Sanctions-screening precision and lower false positives matter.</span></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span>You need field-level audit evidence for an examiner.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="answer-block">
+        <strong>ioNova ARS resolves the full structured address first, then renders the shape each scheme requires.</strong> Fully structured, hybrid-compatible 3 x 35 CBPR+ output, and 2 x 70 EPC rendering all come from the same deterministic resolution.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Hybrid Address Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq open">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is a hybrid address in ISO 20022?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><p>A hybrid address carries Town Name and Country in dedicated structured elements while allowing up to two 70-character AddressLine elements for the remaining details.</p></div>
+        </div>
+        <div class="faq">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can structured data be repeated inside AddressLine?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><p>No. PMPG guidance requires non-duplication: content carried in structured elements must not appear again inside AddressLine. ioNova ARS enforces this automatically.</p></div>
+        </div>
+        <div class="faq">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is hybrid accepted after November 2026?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><p>Yes. Hybrid remains accepted after the cutover. Fully unstructured addresses are the format being retired.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="cta-strip">
+        <h3>Emit the exact shape every scheme requires.</h3>
+        <p>Fully structured or hybrid, per scheme and per counterparty, resolved and rule-cited in one call.</p>
+        <div class="hero-cta">
+          <a class="btn btn-accent" href="/demo">Request a Demo</a>
+          <a class="btn btn-outline" href="/compare">Compare Alternatives</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

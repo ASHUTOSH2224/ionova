@@ -1,9 +1,60 @@
 ---
-import AddressGuideStaticPage from "@/components/address-intelligence/AddressGuideStaticPage.astro";
-import { buildAddressGuidePageFromHtml } from "@/data/addressGuidePages";
-import sourceHtml from "../../../iso-20022-hybrid-addresses-explained-v5.html?raw";
-
-const page = buildAddressGuidePageFromHtml("iso-20022-hybrid-addresses-explained", sourceHtml);
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import AddressHybridAddressesExplained from '@/views/AddressHybridAddressesExplained.astro';
+import '@/styles/ars-platform.css';
 ---
 
-<AddressGuideStaticPage page={page} />
+<Layout
+  title="Hybrid Addresses in ISO 20022, Explained | ioNova"
+  description="What a hybrid ISO 20022 address is, the minimum Town Name and Country requirements, PMPG non-duplication, and when to use hybrid versus fully structured addresses before November 2026."
+  keywords="hybrid addresses, ISO 20022 hybrid address, structured addresses, AddressLine, PostalAddress, CBPR+, SEPA, PMPG non-duplication"
+  ogImage="/og-image.png"
+  ogImageAlt="Hybrid Addresses in ISO 20022, Explained"
+  ogType="article"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["WebPage", "Article"],
+        "@id": "https://ionova.ai/address-intelligence/iso-20022-hybrid-addresses-explained#webpage",
+        "url": "https://ionova.ai/address-intelligence/iso-20022-hybrid-addresses-explained",
+        "name": "Hybrid Addresses in ISO 20022, Explained | ioNova",
+        "headline": "Hybrid Addresses, Explained",
+        "description": "What a hybrid ISO 20022 address is, the minimum Town Name and Country requirements, PMPG non-duplication, and when to use hybrid versus fully structured addresses before November 2026.",
+        "isPartOf": { "@id": "https://ionova.ai/#website" },
+        "author": { "@id": "https://ionova.ai/#org" },
+        "publisher": { "@id": "https://ionova.ai/#org" },
+        "datePublished": "2026-07-05",
+        "dateModified": "2026-07-05"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ionova.ai/address-intelligence/iso-20022-hybrid-addresses-explained#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ionova.ai/" },
+          { "@type": "ListItem", "position": 2, "name": "Address Intelligence", "item": "https://ionova.ai/address-intelligence/" },
+          { "@type": "ListItem", "position": 3, "name": "Hybrid Addresses, Explained", "item": "https://ionova.ai/address-intelligence/iso-20022-hybrid-addresses-explained" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://ionova.ai/address-intelligence/iso-20022-hybrid-addresses-explained#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is a hybrid address in ISO 20022?", "acceptedAnswer": { "@type": "Answer", "text": "A hybrid address carries Town Name and Country in dedicated structured ISO 20022 elements while allowing up to two 70-character AddressLine elements for the remaining details." } },
+          { "@type": "Question", "name": "Is a hybrid address accepted after November 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. From the November 2026 standards release, fully structured and hybrid addresses remain accepted; fully unstructured addresses are retired." } },
+          { "@type": "Question", "name": "What is the difference between hybrid and fully structured?", "acceptedAnswer": { "@type": "Answer", "text": "A fully structured address places every component in its own ISO 20022 element and cannot contain AddressLine. A hybrid address structures only the mandatory minimum and may keep remaining details in AddressLine." } }
+        ]
+      }
+    ]
+  })} />
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <AddressHybridAddressesExplained />
+    </main>
+    <Footer />
+  </div>
+</Layout>
