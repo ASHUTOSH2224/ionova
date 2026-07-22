@@ -137,7 +137,7 @@ const BlogsContent = () => {
                                 {mergedFeatured.map((post, index) => (
                                     <CarouselItem key={`featured-${post.slug}-${index}`} className="md:basis-1/1 lg:basis-1/1 pl-4">
                                         <div className="p-1">
-                                            <Card className="border border-slate-100 overflow-hidden bg-white shadow-[0_4px_20px_rgba(14,25,53,0.06)] hover:shadow-[0_20px_60px_rgba(14,25,53,0.12)] transition-all duration-500 rounded-3xl group h-full">
+                                            <Card className="border border-slate-100 overflow-hidden bg-white shadow-[0_4px_20px_rgba(14,25,53,0.06)] hover:shadow-[0_20px_60px_rgba(14,25,53,0.12)] transition-all duration-500 rounded-[6px] group h-full">
                                                 <CardContent className="p-0">
                                                     <div className="grid md:grid-cols-12 gap-0 h-full">
                                                         {/* Image Section */}
@@ -149,11 +149,11 @@ const BlogsContent = () => {
                                                                     alt={post.title}
                                                                     width={800}
                                                                     height={500}
-                                                                    className="relative z-10 w-full h-full object-cover rounded-2xl"
+                                                                    className="relative z-10 w-full h-full object-cover rounded-[6px]"
                                                                 />
                                                             ) : (
                                                                 <div className="relative z-10 transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700 ease-out">
-                                                                    <div className="bg-white p-6 rounded-2xl shadow-lg shadow-blue-900/5 ring-1 ring-black/5">
+                                                                    <div className="bg-white p-6 rounded-[6px] shadow-lg shadow-blue-900/5 ring-1 ring-black/5">
                                                                         <FileText className="h-16 w-16 text-blue-600" />
                                                                     </div>
                                                                 </div>
@@ -240,7 +240,7 @@ const BlogsContent = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {mergedAll.slice(0, visibleCount).map((post, index) => (
                                 <Link to={`/blog/${post.slug}`} key={`grid-${post.slug}-${index}`} className="group h-full block">
-                                    <article className="h-full bg-white rounded-2xl overflow-hidden shadow-[0_2px_8px_rgba(14,25,53,0.04)] hover:shadow-[0_20px_40px_rgba(14,25,53,0.12)] transition-all duration-300 hover:-translate-y-1 border border-slate-100 flex flex-col">
+                                    <article className="h-full bg-white rounded-[6px] overflow-hidden shadow-[0_2px_8px_rgba(14,25,53,0.04)] hover:shadow-[0_20px_40px_rgba(14,25,53,0.12)] transition-all duration-300 hover:-translate-y-1 border border-slate-100 flex flex-col">
                                         {/* Card Image Area */}
                                         <div className="h-56 bg-gradient-to-br from-slate-50 to-blue-50/50 relative overflow-hidden group-hover:from-blue-50 group-hover:to-indigo-50/50 transition-colors duration-500">
                                             {post.featureImage ? (
@@ -254,7 +254,7 @@ const BlogsContent = () => {
                                                 />
                                             ) : (
                                                 <div className="absolute inset-0 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 ease-out">
-                                                    <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-sm">
+                                                    <div className="bg-white/80 backdrop-blur-sm p-4 rounded-[6px] shadow-sm">
                                                         {post.icon ? (
                                                             <post.icon className="h-10 w-10 text-blue-600/80" />
                                                         ) : (

@@ -104,7 +104,7 @@ const addressIntelligencePillars = [
   },
   {
     label: "Why Purpose-Built",
-    description: "Pillar 4 \u2014 Postal \u2260 payment validation. 195 countries",
+    description: "Pillar 4 \u2014 Postal \u2260 payment validation. 246 countries",
     href: "/address-intelligence/purpose-built-address-solution",
     icon: Shield,
   },
@@ -113,7 +113,7 @@ const addressIntelligencePillars = [
 const addressIntelligenceSolutions = [
   {
     label: "For Banks",
-    description: "Hit >99% STP before the Nov 2026 deadline",
+    description: "Hit 98% STP before the Nov 2026 deadline",
     href: "/address-intelligence/for-banks",
     icon: Building2,
   },
@@ -293,7 +293,7 @@ export function Navbar() {
                   Address Intelligence
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[280px] bg-white rounded-xl shadow-xl border border-border/50 p-3">
+                  <div className="w-[280px] bg-white rounded-[6px] shadow-xl border border-border/50 p-3">
                     <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Address Intelligence</p>
                     <ul className="grid gap-0.5">
                       {addressIntelligenceOverview.map((item) => (
@@ -396,7 +396,7 @@ export function Navbar() {
                   ARS Platform
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[300px] bg-white rounded-xl shadow-xl border border-border/50 p-3">
+                  <div className="w-[300px] bg-white rounded-[6px] shadow-xl border border-border/50 p-3">
                     <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">ARS Platform</p>
                     <ul className="grid gap-0.5">
                       {arsPlatformOverview.map((item) => (
@@ -471,7 +471,7 @@ export function Navbar() {
                   Solutions
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[320px] bg-white rounded-xl shadow-xl border border-border/50 p-3">
+                  <div className="w-[320px] bg-white rounded-[6px] shadow-xl border border-border/50 p-3">
                     <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Overview</p>
                     <ul className="grid gap-0.5">
                       {solutionsOverview.map((item) => (
@@ -602,7 +602,7 @@ export function Navbar() {
                   Resources
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[280px] bg-white rounded-xl shadow-xl border border-border/50 p-3">
+                  <div className="w-[280px] bg-white rounded-[6px] shadow-xl border border-border/50 p-3">
                     <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Resources</p>
                     <ul className="grid gap-0.5">
                       {resourcesItems.map((item) => (
@@ -673,7 +673,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto absolute top-full left-4 right-4 mt-2 rounded-2xl border border-border/50 bg-white/95 shadow-2xl backdrop-blur-xl p-6 min-[1100px]:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200 max-h-[80vh] overflow-y-auto">
+        <div className="pointer-events-auto absolute top-full left-4 right-4 mt-2 rounded-[6px] border border-border/50 bg-white/95 shadow-2xl backdrop-blur-xl p-6 min-[1100px]:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200 max-h-[80vh] overflow-y-auto">
           <Link
             to="/"
             data-astro-prefetch="tap"

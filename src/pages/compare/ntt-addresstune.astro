@@ -11,7 +11,7 @@ const sourceHtml = String.raw`<!DOCTYPE html>
 <meta name="description" content="NTT DATA Luweave's Addresstune converts unstructured addresses with generative AI for the ISO 20022 migration. ioNova ARS is the deterministic structured address engine for the whole November 2026 compliance lifecycle.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Figtree:ital,wght@0,300..700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <meta name="robots" content="index, follow">
 <meta name="keywords" content="NTT Addresstune, NTT DATA Luweave, STRUCTURIZ, ISO 20022 address conversion, structured addresses, hybrid addresses, ISO 20022 deadline, ISO 20022 compliance, November 2026">
 <meta name="author" content="ioNova">
@@ -29,7 +29,7 @@ const sourceHtml = String.raw`<!DOCTYPE html>
 <style>
 /* ============ ioNova Design System v5 — base ============ */
 :root{
-  --font-display:'Outfit',system-ui,-apple-system,sans-serif;
+  --font-display:'Figtree',system-ui,-apple-system,sans-serif;
   --font-body:'Figtree',system-ui,-apple-system,sans-serif;
   --font-mono:'JetBrains Mono','Fira Code',monospace;
   --navy-950:#0E1935;--navy-900:#111426;--navy-800:#1A1E35;
@@ -37,7 +37,7 @@ const sourceHtml = String.raw`<!DOCTYPE html>
   --sky-200:#8ECDF2;--teal-500:#43ADC1;--cyan-400:#5FCFD0;
   --space-xs:4px;--space-sm:8px;--space-md:16px;--space-lg:24px;
   --space-xl:32px;--space-2xl:48px;--space-3xl:64px;--space-4xl:96px;
-  --radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;
+  --radius-sm:6px;--radius-md:6px;--radius-lg:6px;--radius-xl:6px;--radius-full:9999px;
   --ease:cubic-bezier(0.4,0,0.2,1);--ease-out-expo:cubic-bezier(0.16,1,0.3,1);--dur:0.45s;
   --gradient-brand:linear-gradient(135deg,#5FCFD0,#43ADC1,#3C75B5,#243574);
   --gradient-soft:linear-gradient(135deg,#8ECDF2,#5EA1DC,#3C75B5);
@@ -78,6 +78,7 @@ html[data-theme="dark"]{
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);font-size:15px;line-height:1.6;background:var(--bg);color:var(--text-primary);-webkit-font-smoothing:antialiased;transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
 h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-primary)}
+h1,h2{font-style:italic}
 a{color:var(--blue-400);text-decoration:none}
 ::selection{background:rgba(94,161,220,.25)}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
@@ -551,7 +552,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 32px;background:var(--s
     <p class="foot-note">Source: ioNova 25-criterion competitive analysis, May 2026 (v2). Addresstune&trade;&rsquo;s penalties come from the SIG-1 and SIG-4 hard zeros plus the sub-2 ENT-2 determinism score, taking the risk-adjusted score to 0.35. This is not a product that failed at its mission &mdash; it is a product whose mission is deliberately narrower than the full framework measures. ioNova&rsquo;s 4/5 ratings were documentation gaps at analysis time; the Exceptions Workbench and live dashboards in the current application release address the ENT-4 and monitoring notes.</p>
     <div class="alert alert-amber">
       <div class="alert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg></div>
-      <div><div class="alert-title">The lifecycle math</div><div class="alert-body">ARS&rsquo;s higher visible licence is offset by the 98%+ STP target, ~30% sanctions false-positive reduction, near-zero manual exceptions, and skipping the replace-and-reintegrate project &mdash; against an industry manual-exception cost of ~$8&ndash;12B a year on 30&ndash;40% of legacy traffic.</div></div>
+      <div><div class="alert-title">The lifecycle math</div><div class="alert-body">ARS&rsquo;s higher visible licence is offset by the 98% STP target, ~30% sanctions false-positive reduction, near-zero manual exceptions, and skipping the replace-and-reintegrate project &mdash; against an industry manual-exception cost of ~$8&ndash;12B a year on 30&ndash;40% of legacy traffic.</div></div>
     </div>
   </div>
 </section>

@@ -12,7 +12,7 @@ export function DifferentiationSection() {
       postal: "Major markets",
       llm: "Training-dependent",
       inHouse: "What you build",
-      ionova: "195 countries, 50+ scripts",
+      ionova: "246 countries, 50+ scripts",
     },
     {
       capability: "Financial ID handling",
@@ -40,7 +40,7 @@ export function DifferentiationSection() {
       postal: "Marginal",
       llm: "N/A",
       inHouse: "Variable",
-      ionova: "40% → 98%+",
+      ionova: "40% → 98%",
     },
     {
       capability: "Implementation",
@@ -69,7 +69,7 @@ export function DifferentiationSection() {
         </div>
 
         {/* Table */}
-        <div className="overflow-x-auto rounded-2xl border border-[#D0DAEB]">
+        <div className="overflow-x-auto rounded-[6px] border border-[#D0DAEB]">
           <table className="w-full border-collapse" style={{ fontSize: "15px" }}>
             <thead>
               <tr>
@@ -82,7 +82,7 @@ export function DifferentiationSection() {
                         : "bg-[#EFF2F7]"
                         }`}
                       style={{
-                        fontFamily: "'Outfit', system-ui, sans-serif",
+                        fontFamily: "'Figtree', system-ui, sans-serif",
                         fontWeight: 700,
                         fontSize: "14px",
                         letterSpacing: "0.3px",

@@ -1,0 +1,9 @@
+---
+import AddressGuideStaticPage from "@/components/address-intelligence/AddressGuideStaticPage.astro";
+import { buildAddressGuidePageFromHtml } from "@/data/addressGuidePages";
+import sourceHtml from "../../../iso-20022-hybrid-addresses-explained-v5.html?raw";
+
+const page = buildAddressGuidePageFromHtml("iso-20022-hybrid-addresses-explained", sourceHtml);
+---
+
+<AddressGuideStaticPage page={page} />

@@ -45,7 +45,7 @@ import { CTABandSection } from '@/components/sections/CTABandSection';
           "name": "What is address intelligence and how is it different from address validation?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Address intelligence parses, validates, enriches, and structures postal address data to meet ISO 20022 compliance. Unlike postal validation — which confirms a physical location exists — address intelligence resolves against regulatory standards, sanctions screening precision, and payment routing across 195 countries simultaneously."
+            "text": "Address intelligence parses, validates, enriches, and structures postal address data to meet ISO 20022 compliance. Unlike postal validation — which confirms a physical location exists — address intelligence resolves against regulatory standards, sanctions screening precision, and payment routing across 246 countries simultaneously."
           }
         },
         {
@@ -61,7 +61,7 @@ import { CTABandSection } from '@/components/sections/CTABandSection';
           "name": "Why can't postal APIs or LLMs handle payment compliance?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Postal APIs lack ISO 20022 XML output, can't handle financial identifiers, and cover primarily Latin-script markets. LLMs fail due to non-deterministic output, hallucination risk, latency exceeding sub-100ms requirements, and no regulatory audit trail."
+            "text": "Postal APIs lack ISO 20022 XML output, can't handle financial identifiers, and cover primarily Latin-script markets. LLMs fail due to non-deterministic output, hallucination risk, latency exceeding sub-50ms P95 requirements, and no regulatory audit trail."
           }
         },
         {
@@ -121,7 +121,7 @@ import { CTABandSection } from '@/components/sections/CTABandSection';
 		<Navbar client:idle />
 		<main class="flex-1">
 			<!-- Canonical definition paragraph — server-rendered for LLM/AI crawler extraction; visually hidden since HeroSection renders styled content -->
-			<p class="sr-only">ioNova AI is an enterprise platform that converts unstructured payment address data into ISO 20022-compliant structured formats using AI-native address resolution. It serves banks, payment processors, and financial institutions preparing for the November 2026 SWIFT CBPR+ and SEPA structured address mandate, achieving >99% straight-through processing rates across 195 countries. The platform deploys in 2–4 weeks via sidecar architecture with no legacy system replacement required.</p>
+			<p class="sr-only">ioNova AI is an enterprise platform that converts unstructured payment address data into ISO 20022-compliant structured formats using AI-native address resolution. It serves banks, payment processors, and financial institutions preparing for the November 2026 SWIFT CBPR+ and SEPA structured address mandate, achieving 98% straight-through processing rates across 246 countries. The platform deploys in 2–4 weeks via sidecar architecture with no legacy system replacement required.</p>
 			<HeroSection client:visible />
 			<LogosSection client:idle />
 			<ChallengeSection client:visible />

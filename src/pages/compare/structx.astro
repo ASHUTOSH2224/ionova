@@ -11,7 +11,7 @@ const sourceHtml = String.raw`<!DOCTYPE html>
 <meta name="description" content="StructX is an LLM-based ISO 20022 address structurer on IntellectAI's Purple Fabric platform. ioNova ARS is the deterministic structured address compliance engine for the November 2026 deadline. Honest comparison.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Figtree:ital,wght@0,300..700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <meta name="robots" content="index, follow">
 <meta name="keywords" content="Purple Fabric StructX, IntellectAI, LLM address structuring, ISO 20022 structured addresses, ISO 20022 compliance, ISO 20022 deadline, November 2026, ioNova ARS">
 <meta name="author" content="ioNova">
@@ -29,7 +29,7 @@ const sourceHtml = String.raw`<!DOCTYPE html>
 <style>
 /* ============ ioNova Design System v5 — base ============ */
 :root{
-  --font-display:'Outfit',system-ui,-apple-system,sans-serif;
+  --font-display:'Figtree',system-ui,-apple-system,sans-serif;
   --font-body:'Figtree',system-ui,-apple-system,sans-serif;
   --font-mono:'JetBrains Mono','Fira Code',monospace;
   --navy-950:#0E1935;--navy-900:#111426;--navy-800:#1A1E35;
@@ -37,7 +37,7 @@ const sourceHtml = String.raw`<!DOCTYPE html>
   --sky-200:#8ECDF2;--teal-500:#43ADC1;--cyan-400:#5FCFD0;
   --space-xs:4px;--space-sm:8px;--space-md:16px;--space-lg:24px;
   --space-xl:32px;--space-2xl:48px;--space-3xl:64px;--space-4xl:96px;
-  --radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;
+  --radius-sm:6px;--radius-md:6px;--radius-lg:6px;--radius-xl:6px;--radius-full:9999px;
   --ease:cubic-bezier(0.4,0,0.2,1);--ease-out-expo:cubic-bezier(0.16,1,0.3,1);--dur:0.45s;
   --gradient-brand:linear-gradient(135deg,#5FCFD0,#43ADC1,#3C75B5,#243574);
   --gradient-soft:linear-gradient(135deg,#8ECDF2,#5EA1DC,#3C75B5);
@@ -78,6 +78,7 @@ html[data-theme="dark"]{
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);font-size:15px;line-height:1.6;background:var(--bg);color:var(--text-primary);-webkit-font-smoothing:antialiased;transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
 h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-primary)}
+h1,h2{font-style:italic}
 a{color:var(--blue-400);text-decoration:none}
 ::selection{background:rgba(94,161,220,.25)}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
@@ -498,7 +499,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 32px;background:var(--s
       <div class="card"><h3><span class="crit-chip">ENT-2 &middot; 1/5</span> Determinism</h3><p>The LLM core is non-deterministic by architecture &mdash; the make-or-break gap for reconciliation and replay. ioNova returns bit-identical output for identical input on versioned, rule-cited logic.</p></div>
       <div class="card"><h3><span class="crit-chip">PAY-3 &middot; 0/5</span> Correspondent banking</h3><p>No multi-party or party-role awareness. ioNova distinguishes ordering, beneficiary, intermediary and ultimate parties with role-aware rules.</p></div>
       <div class="card"><h3><span class="crit-chip">SIG-5 &middot; 1/5</span> Explainability</h3><p>No per-field rule citations &mdash; a structural consequence of the LLM core. ioNova&rsquo;s 30 reason codes cite EPC, PMPG, EU Reg 2023/1113 and CBPR+ by provision.</p></div>
-      <div class="card"><h3><span class="crit-chip">ENT-9 &middot; 1/5</span> Latency</h3><p>LLM inference typically runs 100ms&ndash;2s against sub-100ms real-time payment budgets, with no mitigation documented. ioNova&rsquo;s median is sub-50ms.</p></div>
+      <div class="card"><h3><span class="crit-chip">ENT-9 &middot; 1/5</span> Latency</h3><p>LLM inference typically runs 100ms&ndash;2s against sub-50ms P95 real-time payment budgets, with no mitigation documented. ioNova&rsquo;s median is sub-50ms.</p></div>
       <div class="card"><h3><span class="crit-chip">ENT-3 &middot; 2/5</span> Hallucination risk</h3><p>RAG grounding and postal-DB validation mitigate but cannot eliminate hallucination &mdash; and no hallucination rate is published for the structuring task.</p></div>
     </div>
   </div>

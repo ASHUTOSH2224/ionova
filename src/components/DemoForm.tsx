@@ -72,7 +72,7 @@ const DemoFormContent = () => {
   };
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-6 shadow-xl lg:p-8">
+    <div className="rounded-[6px] border border-border bg-card p-6 shadow-xl lg:p-8">
       <div className="mb-6 flex items-center gap-3">
         <Building2 className="h-6 w-6 text-blue-500" />
         <h2 className="text-xl font-semibold text-navy-950">Schedule Your Demo</h2>

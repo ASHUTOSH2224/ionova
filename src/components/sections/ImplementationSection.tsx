@@ -41,7 +41,7 @@ export function ImplementationSection() {
           {phases.map((phase) => (
             <div
               key={phase.phase}
-              className="rounded-2xl border border-[#D0DAEB] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="rounded-[6px] border border-[#D0DAEB] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               style={{
                 boxShadow: "0 1px 3px rgba(14,25,53,0.05), 0 1px 2px rgba(14,25,53,0.03)",
               }}
@@ -64,7 +64,7 @@ export function ImplementationSection() {
               {/* Phase Title */}
               <p
                 style={{
-                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontFamily: "'Figtree', system-ui, sans-serif",
                   fontWeight: 700,
                   fontSize: "17px",
                   color: "#0E1935",

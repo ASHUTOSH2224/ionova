@@ -31,13 +31,13 @@ export function CTABandSection() {
         cardRef.current,
         {
           width: "80%",
-          borderRadius: "2rem",
+          borderRadius: "6px",
           y: 50,
           opacity: 0.8,
         },
         {
           width: "95%",
-          borderRadius: "1.5rem",
+          borderRadius: "6px",
           y: 0,
           opacity: 1,
           duration: 1,
@@ -70,6 +70,7 @@ export function CTABandSection() {
           background: "linear-gradient(135deg, #0E1935 0%, #1A1E35 40%, #243574 100%)",
           boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
           border: "1px solid rgba(255, 255, 255, 0.1)",
+          borderRadius: "6px",
         }}
       >
         {/* Shine effect overlay */}
@@ -82,10 +83,11 @@ export function CTABandSection() {
             <h2
               className="mb-4"
               style={{
-                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontFamily: "'Figtree', system-ui, sans-serif",
+                fontStyle: "italic",
                 fontWeight: 700,
                 fontSize: "38.4px",
-                letterSpacing: "-0.8px",
+                letterSpacing: "0",
                 lineHeight: 1.2,
                 color: "#E2E8F4",
               }}
@@ -113,7 +115,7 @@ export function CTABandSection() {
                 margin: "0 auto",
               }}
             >
-              Purpose-built address intelligence. 195 countries. 98%+ STP. <br className="hidden sm:block" />
+              Purpose-built address intelligence. 246 countries. 98% STP. <br className="hidden sm:block" />
               <span className="text-white/90 font-medium">2–4 weeks to production.</span>
             </p>
           </div>
@@ -121,7 +123,7 @@ export function CTABandSection() {
           {/* Compact Countdown */}
           <div className="mb-8">
             <div
-              className="inline-flex items-baseline gap-2 rounded-xl border border-white/10 px-6 py-3"
+              className="inline-flex items-baseline gap-2 rounded-[6px] border border-white/10 px-6 py-3"
               style={{
                 background: "rgba(255,255,255,0.03)",
                 backdropFilter: "blur(10px)",
@@ -129,7 +131,7 @@ export function CTABandSection() {
             >
               <span
                 style={{
-                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontFamily: "'Figtree', system-ui, sans-serif",
                   fontWeight: 700,
                   fontSize: "32px",
                   color: "#fff",
@@ -143,7 +145,7 @@ export function CTABandSection() {
               </span>
               <span
                 className="text-xs font-bold tracking-widest text-slate-400"
-                style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
+                style={{ fontFamily: "'Figtree', system-ui, sans-serif" }}
               >
                 DAYS LEFT
               </span>
@@ -157,7 +159,7 @@ export function CTABandSection() {
               className="group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
               style={{
                 background: "linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%)",
-                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontFamily: "'Figtree', system-ui, sans-serif",
                 fontWeight: 600,
                 fontSize: "14px",
                 minWidth: "200px",
@@ -181,7 +183,7 @@ export function CTABandSection() {
               href="/roi-calculator"
               className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 transition-all duration-300 hover:bg-white/5 hover:border-white/30"
               style={{
-                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontFamily: "'Figtree', system-ui, sans-serif",
                 fontWeight: 600,
                 fontSize: "14px",
                 color: "#E2E8F4",

@@ -228,7 +228,7 @@ export function ChallengeSection() {
                       // Custom minimal layout for "We Are Here" to remove card background
                       event.minimalLayout
                         ? "bg-transparent shadow-none border-none flex flex-col items-start md:items-center pt-2"
-                        : "bg-white shadow-xl hover:shadow-2xl rounded-xl p-5 border-l-4 border-t-0 md:border-l-0 md:border-t-4",
+                        : "bg-white shadow-xl hover:shadow-2xl rounded-[6px] p-5 border-l-4 border-t-0 md:border-l-0 md:border-t-4",
 
                       !event.minimalLayout && event.borderColor,
                       !event.minimalLayout && event.highlight ? "ring-4 ring-blue-100 scale-105 z-10" : ""

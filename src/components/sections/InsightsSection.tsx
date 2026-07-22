@@ -42,7 +42,7 @@ export function InsightsSection() {
             <a
               key={article.title}
               href={article.href}
-              className="group flex flex-col rounded-2xl border border-[#D0DAEB] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="group flex flex-col rounded-[6px] border border-[#D0DAEB] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               style={{
                 textDecoration: "none",
                 boxShadow: "0 1px 3px rgba(14,25,53,0.05), 0 1px 2px rgba(14,25,53,0.03)",
@@ -52,7 +52,7 @@ export function InsightsSection() {
               <span
                 className="mb-4 inline-block w-fit rounded-full border border-[#D0DAEB] px-3 py-1"
                 style={{
-                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontFamily: "'Figtree', system-ui, sans-serif",
                   fontWeight: 600,
                   fontSize: "11px",
                   letterSpacing: "0.5px",
@@ -65,7 +65,7 @@ export function InsightsSection() {
               {/* Title */}
               <h3
                 style={{
-                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontFamily: "'Figtree', system-ui, sans-serif",
                   fontWeight: 700,
                   fontSize: "17px",
                   lineHeight: 1.35,
@@ -122,7 +122,7 @@ export function InsightsSection() {
             href="/blogs"
             className="inline-flex items-center gap-2 rounded-full border border-[#D0DAEB] px-7 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#B8CCE2] hover:shadow-md"
             style={{
-              fontFamily: "'Outfit', system-ui, sans-serif",
+              fontFamily: "'Figtree', system-ui, sans-serif",
               fontWeight: 600,
               fontSize: "13px",
               color: "#0E1935",

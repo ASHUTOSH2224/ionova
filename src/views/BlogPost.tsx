@@ -126,7 +126,7 @@ const BlogPostContent = ({ post: propPost }: { post?: MockPost }) => {
                 width={896}
                 height={504}
                 loading="lazy"
-                className="w-full rounded-2xl shadow-xl"
+                className="w-full rounded-[6px] shadow-xl"
               />
             </div>
           </div>

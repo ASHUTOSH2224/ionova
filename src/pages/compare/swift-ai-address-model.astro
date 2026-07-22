@@ -11,7 +11,7 @@ const sourceHtml = String.raw`<!DOCTYPE html>
 <meta name="description" content="SWIFT's free AI parser extracts 2 of 14 ISO 20022 structured address fields and retires by 2027. ioNova ARS resolves all 14 for the November 2026 deadline — scores, hybrid address handling, and an honest verdict.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Figtree:ital,wght@0,300..700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <meta name="robots" content="index, follow">
 <meta name="keywords" content="SWIFT AI address structuring model, SWIFT address parser, ISO 20022 structured addresses, hybrid address fields, town country extraction, ISO 20022 deadline, November 2026, CBPR+, ioNova ARS">
 <meta name="author" content="ioNova">
@@ -29,7 +29,7 @@ const sourceHtml = String.raw`<!DOCTYPE html>
 <style>
 /* ============ ioNova Design System v5 — base ============ */
 :root{
-  --font-display:'Outfit',system-ui,-apple-system,sans-serif;
+  --font-display:'Figtree',system-ui,-apple-system,sans-serif;
   --font-body:'Figtree',system-ui,-apple-system,sans-serif;
   --font-mono:'JetBrains Mono','Fira Code',monospace;
   --navy-950:#0E1935;--navy-900:#111426;--navy-800:#1A1E35;
@@ -37,7 +37,7 @@ const sourceHtml = String.raw`<!DOCTYPE html>
   --sky-200:#8ECDF2;--teal-500:#43ADC1;--cyan-400:#5FCFD0;
   --space-xs:4px;--space-sm:8px;--space-md:16px;--space-lg:24px;
   --space-xl:32px;--space-2xl:48px;--space-3xl:64px;--space-4xl:96px;
-  --radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;
+  --radius-sm:6px;--radius-md:6px;--radius-lg:6px;--radius-xl:6px;--radius-full:9999px;
   --ease:cubic-bezier(0.4,0,0.2,1);--ease-out-expo:cubic-bezier(0.16,1,0.3,1);--dur:0.45s;
   --gradient-brand:linear-gradient(135deg,#5FCFD0,#43ADC1,#3C75B5,#243574);
   --gradient-soft:linear-gradient(135deg,#8ECDF2,#5EA1DC,#3C75B5);
@@ -78,6 +78,7 @@ html[data-theme="dark"]{
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);font-size:15px;line-height:1.6;background:var(--bg);color:var(--text-primary);-webkit-font-smoothing:antialiased;transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
 h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-primary)}
+h1,h2{font-style:italic}
 a{color:var(--blue-400);text-decoration:none}
 ::selection{background:rgba(94,161,220,.25)}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
@@ -349,7 +350,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 32px;background:var(--s
         <tbody>
           <tr><td>Architecture</td><td>CRF + Transformer + fuzzy matching (GeoNames)</td><td class="win">Deterministic rule engine + 246-country postal DB</td></tr>
           <tr><td>Output scope</td><td>2 / 14 fields (Town + Country), CSV / JSON</td><td class="win">14 / 14 fields + corrected ISO 20022 XML, 4 rendering modes</td></tr>
-          <tr><td>Published accuracy</td><td>69.6&ndash;80.6% combined (Gauntlet); 51.8&ndash;59.5% (Wikipedia set)</td><td class="win">98%+ STP target at payment speed</td></tr>
+          <tr><td>Published accuracy</td><td>69.6&ndash;80.6% combined (Gauntlet); 51.8&ndash;59.5% (Wikipedia set)</td><td class="win">98% STP target at payment speed</td></tr>
           <tr><td>Security &amp; operations</td><td>None &mdash; no auth, RBAC, encryption, health checks or SLA</td><td class="win">JWT + API-key dual auth, RFC 9421, RBAC, SLA, health endpoints</td></tr>
           <tr><td>Operational tooling <span class="badge badge-accent">New</span></td><td>None &mdash; build your own review queue and monitoring</td><td class="win">Exceptions Workbench + live dashboards, built in</td></tr>
           <tr><td>Onboarding <span class="badge badge-accent">New</span></td><td>DIY Python 3.12+ setup; 3&ndash;6 months to production-wrap</td><td class="win">Developer Portal sandbox in days; live in 2&ndash;4 weeks</td></tr>
@@ -595,7 +596,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 32px;background:var(--s
   <div class="wrap">
     <div class="final-inner reveal">
       <h2>Start free with SWIFT&rsquo;s model.<br><span style="background:linear-gradient(135deg,#6ED9DA,#5EA1DC,#8ECDF2);-webkit-background-clip:text;background-clip:text;color:transparent">Finish compliant with ioNova.</span></h2>
-      <p>All 14 structured fields. 246-country verification. 98%+ STP target. Exceptions Workbench, live dashboards, Developer Portal. Start in days &mdash; live in 2&ndash;4 weeks.</p>
+      <p>All 14 structured fields. 246-country verification. 98% STP target. Exceptions Workbench, live dashboards, Developer Portal. Start in days &mdash; live in 2&ndash;4 weeks.</p>
       <a class="btn btn-accent btn-lg" href="#">See structured resolution in action
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>

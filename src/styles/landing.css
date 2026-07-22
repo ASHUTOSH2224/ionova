@@ -20,7 +20,7 @@
   --landing-surface-raised: #EFF2F7;
   --landing-text-body: #466587;
   --landing-text-primary: #0E1935;
-  --landing-font-display: 'Outfit', system-ui, sans-serif;
+  --landing-font-display: 'Figtree', system-ui, sans-serif;
   --landing-font-body: 'Figtree', system-ui, sans-serif;
   --landing-font-mono: 'JetBrains Mono', monospace;
   --landing-teal: #43ADC1;
@@ -101,6 +101,7 @@
 
 .landing-section-title {
   font-family: var(--landing-font-display);
+  font-style: italic;
   font-size: 38.4px;
   font-weight: 700;
   letter-spacing: -0.8px;
@@ -144,6 +145,8 @@
 
 /* ─── Hero ─── */
 .hero-page-heading {
+  font-family: var(--landing-font-display);
+  font-style: italic;
   font-size: 32px;
   line-height: 1.2;
 }
@@ -252,7 +255,7 @@
 .landing-challenge-card {
   background: white;
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  border-radius: 0.75rem;
+  border-radius: 6px;
   padding: 1.25rem;
   border-top: 4px solid;
   transition: box-shadow 0.3s, transform 0.3s;
@@ -298,7 +301,7 @@
 .landing-pillar-card {
   position: relative;
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: 6px;
   border: 1px solid hsl(var(--border));
   background: hsl(var(--card));
   padding: 1.5rem;
@@ -334,13 +337,13 @@
   background: white;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25), 0 0 0 1px rgb(0 0 0 / 0.05);
-  border-radius: 1.5rem;
+  border-radius: 6px;
   transition: width 0.5s, border-radius 0.5s, box-shadow 0.3s;
 }
 
 .landing-explore-item {
   background: #EFF2F7;
-  border-radius: 0.75rem;
+  border-radius: 6px;
   border: 1px solid transparent;
   padding: 2rem;
   transition: background 0.3s, box-shadow 0.3s, border-color 0.3s, transform 0.3s;
@@ -383,7 +386,7 @@
   border-collapse: collapse;
   font-size: 15px;
   border: 1px solid var(--landing-border);
-  border-radius: 1rem;
+  border-radius: 6px;
   overflow: hidden;
 }
 
@@ -443,7 +446,7 @@
 }
 
 .landing-impl-phase {
-  border-radius: 1rem;
+  border-radius: 6px;
   border: 1px solid var(--landing-border);
   background: white;
   padding: 1.75rem;
@@ -493,7 +496,7 @@
 .landing-insights-card {
   display: flex;
   flex-direction: column;
-  border-radius: 1rem;
+  border-radius: 6px;
   border: 1px solid var(--landing-border);
   background: white;
   padding: 1.75rem;
@@ -547,7 +550,7 @@
 
 .landing-faq-item {
   overflow: hidden;
-  border-radius: 0.75rem;
+  border-radius: 6px;
   border: 1px solid var(--landing-border);
   background: white;
   transition: box-shadow 0.3s;
@@ -597,7 +600,7 @@
 .landing-cta-band__card {
   position: relative;
   overflow: hidden;
-  border-radius: 1.5rem;
+  border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: linear-gradient(135deg, #0E1935 0%, #1A1E35 40%, #243574 100%);
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
@@ -605,6 +608,7 @@
 
 .landing-cta-band__title {
   font-family: var(--landing-font-display);
+  font-style: italic;
   font-weight: 700;
   font-size: 38.4px;
   line-height: 1.2;

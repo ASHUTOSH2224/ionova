@@ -154,7 +154,7 @@ function thumb(id: string) {
               Featured Video
             </span>
           </div>
-          <div class="border border-slate-100 overflow-hidden bg-white shadow-[0_4px_20px_rgba(14,25,53,0.06)] hover:shadow-[0_20px_60px_rgba(14,25,53,0.12)] transition-all duration-500 rounded-3xl">
+          <div class="border border-slate-100 overflow-hidden bg-white shadow-[0_4px_20px_rgba(14,25,53,0.06)] hover:shadow-[0_20px_60px_rgba(14,25,53,0.12)] transition-all duration-500 rounded-[6px]">
             <div class="grid md:grid-cols-12 gap-0">
               <!-- Thumbnail / Play -->
               <button
@@ -228,7 +228,7 @@ function thumb(id: string) {
                 data-video-title={video.title}
                 aria-label={`Play video: ${video.title}`}
               >
-                <article class="h-full bg-white rounded-2xl overflow-hidden shadow-[0_2px_8px_rgba(14,25,53,0.04)] hover:shadow-[0_20px_40px_rgba(14,25,53,0.12)] transition-all duration-300 hover:-translate-y-1 border border-slate-100 flex flex-col">
+                <article class="h-full bg-white rounded-[6px] overflow-hidden shadow-[0_2px_8px_rgba(14,25,53,0.04)] hover:shadow-[0_20px_40px_rgba(14,25,53,0.12)] transition-all duration-300 hover:-translate-y-1 border border-slate-100 flex flex-col">
                   <!-- Thumbnail -->
                   <div class="h-56 bg-navy-950 relative overflow-hidden">
                     <img
@@ -308,7 +308,7 @@ function thumb(id: string) {
         Close
         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
       </button>
-      <div class="aspect-video w-full overflow-hidden rounded-2xl bg-black shadow-2xl ring-1 ring-white/10">
+      <div class="aspect-video w-full overflow-hidden rounded-[6px] bg-black shadow-2xl ring-1 ring-white/10">
         <iframe
           id="video-modal-iframe"
           class="h-full w-full"

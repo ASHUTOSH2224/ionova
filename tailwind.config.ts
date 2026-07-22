@@ -19,7 +19,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Figtree", "Inter", "system-ui", "sans-serif"],
-        heading: ["Outfit", "Inter", "system-ui", "sans-serif"],
+        heading: ["Figtree", "Inter", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
       colors: {

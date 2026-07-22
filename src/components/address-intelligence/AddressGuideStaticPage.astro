@@ -1,0 +1,89 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer.astro";
+import type { AddressGuidePage } from "@/data/addressGuidePages";
+import { getAddressGuideCanonicalOverride } from "@/data/addressGuidePages";
+
+interface Props {
+  page: AddressGuidePage;
+}
+
+const { page } = Astro.props;
+---
+
+<Layout
+  title={page.title}
+  description={page.description}
+  keywords={page.keywords}
+  ogImage="/og-image.png"
+  ogImageAlt={page.title}
+  canonicalOverride={getAddressGuideCanonicalOverride(page.slug)}
+>
+  <Fragment slot="head" set:html={page.headHtml} />
+  <div class="flex min-h-screen flex-col bg-[#F1F4F9]">
+    <Navbar client:idle />
+    <main class="flex-1">
+      <div class="address-guide-shell" data-address-guide-page set:html={page.contentHtml} />
+    </main>
+    <Footer />
+  </div>
+  <script is:inline>
+    (() => {
+      const initAddressGuidePages = () => {
+        document.querySelectorAll("[data-address-guide-page]").forEach((root) => {
+          if (root.dataset.addressGuideInitialized === "true") return;
+          root.dataset.addressGuideInitialized = "true";
+
+          root.querySelectorAll(".faq-q").forEach((question) => {
+            question.addEventListener("click", () => {
+              const item = question.closest(".faq-item");
+              if (!item) return;
+
+              const wasOpen = item.classList.contains("open");
+              root.querySelectorAll(".faq-item").forEach((candidate) => {
+                candidate.classList.remove("open");
+                const answer = candidate.querySelector(".faq-a");
+                if (answer) answer.style.maxHeight = null;
+              });
+
+              if (!wasOpen) {
+                item.classList.add("open");
+                const answer = item.querySelector(".faq-a");
+                if (answer) answer.style.maxHeight = `${answer.scrollHeight}px`;
+              }
+            });
+          });
+
+          const firstAnswer = root.querySelector(".faq-item.open .faq-a");
+          if (firstAnswer) firstAnswer.style.maxHeight = `${firstAnswer.scrollHeight}px`;
+
+          const reveal = (element) => {
+            element.classList.add("visible");
+          };
+
+          const revealItems = root.querySelectorAll(".reveal");
+          if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (!entry.isIntersecting) return;
+                  reveal(entry.target);
+                  observer.unobserve(entry.target);
+                });
+              },
+              { threshold: 0.12 },
+            );
+
+            revealItems.forEach((element) => observer.observe(element));
+          } else {
+            revealItems.forEach(reveal);
+          }
+        });
+      };
+
+      initAddressGuidePages();
+      document.addEventListener("astro:page-load", initAddressGuidePages);
+    })();
+  </script>
+</Layout>

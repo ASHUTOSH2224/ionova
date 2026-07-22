@@ -5,8 +5,8 @@ import Footer from '@/components/layout/Footer.astro';
 ---
 
 <Layout
-  title="ISO 20022 Structured Addresses for Banks | Hit >99% STP Before November 2026 | ioNova"
-  description="From 14 November 2026, CBPR+ rejects cross-border payments with unstructured addresses. ioNova resolves legacy debtor and creditor data into ISO 20022 structured addresses across 195 countries and 50+ scripts — cut NAKs, reduce sanctions false positives ~30%, hit >99% STP. Sidecar live in 2–4 weeks."
+  title="ISO 20022 Structured Addresses for Banks | Hit 98% STP Before November 2026 | ioNova"
+  description="From 14 November 2026, CBPR+ rejects cross-border payments with unstructured addresses. ioNova resolves legacy debtor and creditor data into ISO 20022 structured addresses across 246 countries and 50+ scripts — cut NAKs, reduce sanctions false positives ~30%, hit 98% STP. Sidecar live in 2–4 weeks."
   ogImage="/og-image.png"
   ogImageAlt="ioNova AI — ISO 20022 Structured Addresses for Banks"
 >
@@ -14,7 +14,7 @@ import Footer from '@/components/layout/Footer.astro';
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "ISO 20022 Structured Addresses for Banks | ioNova",
-    "description": "Hit >99% STP before the 14 November 2026 CBPR+ cut-over. Deterministic ISO 20022 address resolution across 195 countries. Sidecar deployment in 2–4 weeks.",
+    "description": "Hit 98% STP before the 14 November 2026 CBPR+ cut-over. Deterministic ISO 20022 address resolution across 246 countries. Sidecar deployment in 2–4 weeks.",
     "url": "https://ionova.ai/address-intelligence/for-banks",
     "isPartOf": { "@id": "https://ionova.ai/#website" },
     "breadcrumb": { "@type": "BreadcrumbList", "itemListElement": [
@@ -27,7 +27,7 @@ import Footer from '@/components/layout/Footer.astro';
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "What does the November 2026 ISO 20022 mandate require banks to do?", "acceptedAnswer": { "@type": "Answer", "text": "From 14 November 2026, banks must provide Town and Country in structured ISO 20022 fields, at minimum, for all parties and agents in CBPR+ cross-border payment messages. Fully unstructured addresses are no longer accepted — only fully structured or hybrid. In practice, banks must be able to capture, validate, and structure debtor and creditor address data across every channel and branch before the cut-over." } },
-      { "@type": "Question", "name": "How does ioNova help banks reach >99% straight-through processing?", "acceptedAnswer": { "@type": "Answer", "text": "Straight-through processing fails when address data is ambiguous or free-text, dropping payments into manual repair. ioNova resolves debtor and creditor addresses into discrete ISO 20022 elements deterministically, so messages pass network and correspondent validation on the first attempt. Removing the primary source of exceptions moves banks from the cross-border industry baseline of roughly 40% toward >99% STP, saving $25–50 for every exception avoided." } },
+      { "@type": "Question", "name": "How does ioNova help banks reach 98% straight-through processing?", "acceptedAnswer": { "@type": "Answer", "text": "Straight-through processing fails when address data is ambiguous or free-text, dropping payments into manual repair. ioNova resolves debtor and creditor addresses into discrete ISO 20022 elements deterministically, so messages pass network and correspondent validation on the first attempt. Removing the primary source of exceptions moves banks from the cross-border industry baseline of roughly 40% toward 98% STP, saving $25–50 for every exception avoided." } },
       { "@type": "Question", "name": "Do we have to replace our core banking system?", "acceptedAnswer": { "@type": "Answer", "text": "No. ioNova runs as a sidecar service alongside your existing infrastructure over a standard API — no changes to your core banking platform, payment engine, or legacy systems. Pre-built connectors exist for MuleSoft, Volante, and Finastra, and a circuit-breaker routes payments through your current flow if the service is ever unavailable, so no payment is delayed or held." } },
       { "@type": "Question", "name": "How does structured address data reduce sanctions screening false positives?", "acceptedAnswer": { "@type": "Answer", "text": "Unstructured addresses force string-level matching, so coincidental hits such as 'Cuba Street, Wellington' trigger alerts that compliance teams clear by hand. Structured addresses let screening operate field by field — matching country and town independently of street names — which removes a large share of the noise. ioNova customers see roughly 30% fewer screening false positives, freeing analysts for genuine FATF Recommendation 16 risk." } },
       { "@type": "Question", "name": "Is ioNova deterministic and auditable enough for a regulated bank?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ioNova is rule-driven and deterministic: the same input always produces the same structured output, with a full audit trail for every resolution. Unlike LLM-based parsing, there is no hallucination risk and no black-box behaviour, and latency stays within payment-grade limits. Outputs are explainable to regulators and reproducible under examination." } }
@@ -69,6 +69,7 @@ import Footer from '@/components/layout/Footer.astro';
     .fb-h1 { font-family: var(--font-display) !important; font-size: clamp(32px, 4.5vw, 52px) !important; font-weight: 800 !important; letter-spacing: -1.5px; line-height: 1.12 !important; color: var(--text-primary); margin-bottom: 20px; }
     .fb-h1 .accent { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 200% auto; animation: fb-gx 6s ease-in-out infinite; display: block; }
     .fb-sub { font-size: clamp(15px, 1.5vw, 17px); line-height: 1.65; color: var(--text-label); max-width: 620px; margin-bottom: 32px; }
+    .fb-positioning { font-family: var(--font-display); font-size: 13.5px; font-weight: 700; line-height: 1.5; color: var(--teal-500); max-width: 620px; margin: -14px 0 28px; }
     .fb-btn { font-family: var(--font-display); font-weight: 600; font-size: 15px; padding: 14px 30px; border-radius: var(--radius-full); border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; background: var(--gradient-brand); background-size: 200% auto; color: #fff; box-shadow: 0 2px 12px rgba(67,173,193,.3); animation: fb-gx 4s ease-in-out infinite; transition: transform .3s, box-shadow .3s; }
     .fb-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(67,173,193,.35); }
     .fb-stats { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 34px; }
@@ -186,7 +187,7 @@ import Footer from '@/components/layout/Footer.astro';
     .fb-cta h2 { font-family: var(--font-display) !important; font-size: clamp(24px,3vw,38px) !important; font-weight: 700 !important; letter-spacing: -0.8px; line-height: 1.2 !important; color: #E2E8F4; max-width: 700px; margin: 0 auto 16px; }
     .fb-cta h2 .accent { background: linear-gradient(135deg,#60A5FA,#3B82F6,#2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .fb-cta-sub { font-size: 16px; color: rgba(255,255,255,.7); max-width: 600px; margin: 0 auto 28px; line-height: 1.65; }
-    .fb-cta-days { display: inline-flex; align-items: baseline; gap: 8px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 12px 24px; margin-bottom: 28px; backdrop-filter: blur(10px); }
+    .fb-cta-days { display: inline-flex; align-items: baseline; gap: 8px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.1); border-radius: 6px; padding: 12px 24px; margin-bottom: 28px; backdrop-filter: blur(10px); }
     .fb-cta-days-num { font-family: var(--font-display); font-size: 32px; font-weight: 700; line-height: 1; background: linear-gradient(180deg,#fff 0%,#94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .fb-cta-days-lbl { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #94A3B8; }
   </style>
@@ -203,18 +204,19 @@ import Footer from '@/components/layout/Footer.astro';
               <div class="fb-eyebrow"><span class="dot"></span>ISO 20022 · For Banks</div>
               <h1 class="fb-h1">
                 ISO 20022 structured addresses for banks —
-                <span class="accent">hit &gt;99% STP before the November 2026 deadline</span>
+                <span class="accent">hit 98% STP before the November 2026 deadline</span>
               </h1>
-              <p class="fb-sub">From 14 November 2026, CBPR+ rejects cross-border payments with unstructured addresses. ioNova resolves your legacy debtor and creditor data into full ISO 20022 structured addresses — deterministically, across 195 countries and 50+ scripts — so you cut NAKs, reduce screening false positives, and protect straight-through processing.</p>
+              <p class="fb-sub">From 14 November 2026, CBPR+ rejects cross-border payments with unstructured addresses. ioNova resolves your legacy debtor and creditor data into full ISO 20022 structured addresses — deterministically, across 246 countries and 50+ scripts — so you cut NAKs, reduce screening false positives, and protect straight-through processing.</p>
+              <p class="fb-positioning">AI-native coverage / rules-engine determinism / 30+ years of payments compliance experience.</p>
               <a href="/demo" class="fb-btn">
                 See how banks deploy ioNova
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
               <div class="fb-stats">
                 <div class="fb-stat"><div class="v urgent" id="fb-days">—</div><div class="l">Days until the 14 Nov 2026 cut-over</div></div>
-                <div class="fb-stat"><div class="v">&gt;99%</div><div class="l">Straight-through processing rate</div></div>
+                <div class="fb-stat"><div class="v">98%</div><div class="l">Straight-through processing rate</div></div>
                 <div class="fb-stat"><div class="v">~30%</div><div class="l">Fewer sanctions false positives</div></div>
-                <div class="fb-stat"><div class="v">195</div><div class="l">Countries &amp; 50+ scripts</div></div>
+                <div class="fb-stat"><div class="v">246</div><div class="l">Countries &amp; 50+ scripts</div></div>
               </div>
               <div class="fb-trust">
                 <span class="lbl">Drops in beside</span>
@@ -319,9 +321,9 @@ import Footer from '@/components/layout/Footer.astro';
             <div class="fb-pcard">
               <div class="fb-pnum">Pressure 03</div>
               <h3>The runway is gone</h3>
-              <p class="fb-plead">Building 195-country, 50+ script resolution in-house takes 18–36 months you don't have.</p>
+              <p class="fb-plead">Building 246-country, 50+ script resolution in-house takes 18–36 months you don't have.</p>
               <ul class="fb-plist">
-                <li>Sub-100ms latency at production scale is a hard engineering problem on its own.</li>
+                <li>Sub-50ms P95 latency at production scale is a hard engineering problem on its own.</li>
                 <li>Rules, edge cases, and regulatory changes need a standing team to maintain.</li>
                 <li>SWIFT has stated it will not build a contingency for institutions that miss the cut-over.</li>
                 <li>ioNova deploys as a sidecar in 2–4 weeks — no core banking replacement.</li>
@@ -358,9 +360,9 @@ import Footer from '@/components/layout/Footer.astro';
               <tbody>
                 <tr><td>Address data</td><td class="sq">Legacy free text across channels</td><td class="win">Full ISO 20022 structured addresses</td></tr>
                 <tr><td>CBPR+ readiness (14 Nov 2026)</td><td class="sq">At risk of NAKs</td><td class="win">Compliant before the deadline</td></tr>
-                <tr><td>Coverage</td><td class="sq">Skewed to Latin-script markets</td><td class="win">195 countries, 50+ scripts</td></tr>
+                <tr><td>Coverage</td><td class="sq">Skewed to Latin-script markets</td><td class="win">246 countries, 50+ scripts</td></tr>
                 <tr><td>Sanctions screening</td><td class="sq">High false positives</td><td class="win">~30% fewer false positives</td></tr>
-                <tr><td>Straight-through processing</td><td class="sq">Eroded by manual repair</td><td class="win">Targets &gt;99% STP</td></tr>
+                <tr><td>Straight-through processing</td><td class="sq">Eroded by manual repair</td><td class="win">Targets 98% STP</td></tr>
                 <tr><td>Financial identifiers</td><td class="sq">Stripped or corrupted</td><td class="win">50+ preserved (LEI, BIC, IBAN)</td></tr>
                 <tr><td>Time to production</td><td class="sq">18–36 months in-house</td><td class="win">Sidecar live in 2–4 weeks</td></tr>
               </tbody>
@@ -380,8 +382,8 @@ import Footer from '@/components/layout/Footer.astro';
               <div class="fb-faq-a">From 14 November 2026, banks must provide Town and Country in structured ISO 20022 fields, at minimum, for all parties and agents in CBPR+ cross-border payment messages. Fully unstructured addresses are no longer accepted — only fully structured or hybrid. In practice, banks must be able to capture, validate, and structure debtor and creditor address data across every channel and branch before the cut-over.</div>
             </details>
             <details class="fb-faq-item">
-              <summary class="fb-faq-q">How does ioNova help banks reach &gt;99% straight-through processing?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
-              <div class="fb-faq-a">Straight-through processing fails when address data is ambiguous or free-text, dropping payments into manual repair. ioNova resolves debtor and creditor addresses into discrete ISO 20022 elements deterministically, so messages pass network and correspondent validation on the first attempt. Removing the primary source of exceptions moves banks from the cross-border industry baseline of roughly 40% toward &gt;99% STP, saving $25–50 for every exception avoided.</div>
+              <summary class="fb-faq-q">How does ioNova help banks reach 98% straight-through processing?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+              <div class="fb-faq-a">Straight-through processing fails when address data is ambiguous or free-text, dropping payments into manual repair. ioNova resolves debtor and creditor addresses into discrete ISO 20022 elements deterministically, so messages pass network and correspondent validation on the first attempt. Removing the primary source of exceptions moves banks from the cross-border industry baseline of roughly 40% toward 98% STP, saving $25–50 for every exception avoided.</div>
             </details>
             <details class="fb-faq-item">
               <summary class="fb-faq-q">Do we have to replace our core banking system?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
@@ -404,7 +406,7 @@ import Footer from '@/components/layout/Footer.astro';
         <div class="fb-cta-card">
           <div class="fb-cta-inner">
             <h2>Be CBPR+ ready before November 2026.<br><span class="accent">Without replacing your core.</span></h2>
-            <p class="fb-cta-sub">ioNova drops in as a sidecar with connectors for MuleSoft, Volante, and Finastra. 195 countries. &gt;99% STP. Live in 2–4 weeks.</p>
+            <p class="fb-cta-sub">ioNova drops in as a sidecar with connectors for MuleSoft, Volante, and Finastra. 246 countries. 98% STP. Live in 2–4 weeks.</p>
             <div class="fb-cta-days">
               <span class="fb-cta-days-num" id="fb-cta-days">—</span>
               <span class="fb-cta-days-lbl">Days Left</span>

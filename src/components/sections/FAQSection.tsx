@@ -14,7 +14,7 @@ export function FAQSection() {
       question:
         "What is address intelligence and how is it different from address validation?",
       answer:
-        "Address intelligence parses, validates, enriches, and structures postal address data to meet ISO 20022 compliance. Unlike postal validation — which confirms a physical location exists — address intelligence resolves against regulatory standards, sanctions screening precision, and payment routing across 195 countries simultaneously.",
+        "Address intelligence parses, validates, enriches, and structures postal address data to meet ISO 20022 compliance. Unlike postal validation — which confirms a physical location exists — address intelligence resolves against regulatory standards, sanctions screening precision, and payment routing across 246 countries simultaneously.",
     },
     {
       question:
@@ -25,7 +25,7 @@ export function FAQSection() {
     {
       question: "Why can't postal APIs or LLMs handle payment compliance?",
       answer:
-        "Postal APIs lack ISO 20022 XML output, can't handle financial identifiers, and cover primarily Latin-script markets. LLMs fail due to non-deterministic output, hallucination risk, latency exceeding sub-100ms requirements, and no regulatory audit trail.",
+        "Postal APIs lack ISO 20022 XML output, can't handle financial identifiers, and cover primarily Latin-script markets. LLMs fail due to non-deterministic output, hallucination risk, latency exceeding sub-50ms P95 requirements, and no regulatory audit trail.",
     },
     {
       question: "How long does implementation take?",
@@ -62,7 +62,7 @@ export function FAQSection() {
             return (
               <div
                 key={index}
-                className="overflow-hidden rounded-xl border border-[#D0DAEB] bg-white transition-all duration-300"
+                className="overflow-hidden rounded-[6px] border border-[#D0DAEB] bg-white transition-all duration-300"
                 style={{
                   boxShadow: isOpen
                     ? "0 4px 12px rgba(14,25,53,0.07), 0 2px 4px rgba(14,25,53,0.04)"
@@ -75,7 +75,7 @@ export function FAQSection() {
                 >
                   <span
                     style={{
-                      fontFamily: "'Outfit', system-ui, sans-serif",
+                      fontFamily: "'Figtree', system-ui, sans-serif",
                       fontWeight: 600,
                       fontSize: "15px",
                       color: "#0E1935",

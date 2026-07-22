@@ -60,7 +60,7 @@
   --alert-green-soft: #ECFDF5;
   --alert-green-border: #A7F3D0;
   --alert-green-text: #065F46;
-  --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-display: 'Figtree', system-ui, -apple-system, sans-serif;
   --font-body: 'Figtree', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --space-xs: 4px;
@@ -72,9 +72,9 @@
   --space-3xl: 64px;
   --space-4xl: 96px;
   --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-md: 6px;
+  --radius-lg: 6px;
+  --radius-xl: 6px;
   --radius-full: 9999px;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -120,7 +120,7 @@
 .ars-platform .hero-badge::after { content:''; position:absolute; inset:0; background:linear-gradient(110deg, transparent 25%, rgba(95,207,208,.06) 37%, rgba(142,205,242,.08) 50%, rgba(95,207,208,.06) 63%, transparent 75%); background-size:200% 100%; animation:ars-shimmer 3s ease-in-out infinite }
 .ars-platform .hero-badge .pulse-dot { width:6px; height:6px; background:var(--cyan-400); border-radius:50%; animation:ars-pulse 2s ease-in-out infinite; position:relative; z-index:1 }
 .ars-platform .hero-badge span:last-child { position:relative; z-index:1 }
-.ars-platform .hero h1 { font-family:var(--font-display); font-size:clamp(34px,5vw,54px); font-weight:800; line-height:1.08; letter-spacing:-2px; color:var(--text-primary); max-width:900px; margin-left:auto; margin-right:auto; margin-bottom:var(--space-lg); animation:ars-fadeSlideUp .6s ease-out .1s both }
+.ars-platform .hero h1 { font-family:var(--font-display); font-style:italic; font-size:clamp(34px,5vw,54px); font-weight:800; line-height:1.08; letter-spacing:-2px; color:var(--text-primary); max-width:900px; margin-left:auto; margin-right:auto; margin-bottom:var(--space-lg); animation:ars-fadeSlideUp .6s ease-out .1s both }
 .ars-platform .hero h1 .accent { background:var(--gradient-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; background-size:200% auto; animation:ars-gradient-x 6s ease-in-out infinite }
 .ars-platform .hero p { font-size:17px; line-height:1.7; color:var(--text-label); max-width:660px; margin-left:auto; margin-right:auto; animation:ars-fadeSlideUp .6s ease-out .2s both }
 .ars-platform .hero-cta { display:flex; gap:var(--space-md); flex-wrap:wrap; justify-content:center; margin-top:var(--space-xl); animation:ars-fadeSlideUp .6s ease-out .3s both }
@@ -131,7 +131,7 @@
 .ars-platform .section + .section { border-top:1px solid var(--border) }
 .ars-platform .section-header { margin-bottom:var(--space-2xl); text-align:center }
 .ars-platform .section-label { font-family:var(--font-display); font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--teal-500); margin-bottom:var(--space-sm) }
-.ars-platform .section-title { font-family:var(--font-display); font-size:clamp(22px,2.5vw,30px); font-weight:700; letter-spacing:-.8px; line-height:1.2; color:var(--text-primary); display:flex; align-items:center; justify-content:center; gap:12px; max-width:800px; margin-left:auto; margin-right:auto }
+.ars-platform .section-title { font-family:var(--font-display); font-style:italic; font-size:clamp(22px,2.5vw,30px); font-weight:700; letter-spacing:-.8px; line-height:1.2; color:var(--text-primary); display:flex; align-items:center; justify-content:center; gap:12px; max-width:800px; margin-left:auto; margin-right:auto }
 .ars-platform .section-title svg { width:28px; height:28px; stroke-width:1.5; fill:none; stroke:var(--teal-500); flex-shrink:0 }
 [data-theme="dark"] .ars-platform .section-title svg { stroke:var(--cyan-400) }
 .ars-platform .section-desc { font-size:16px; color:var(--text-label); margin-top:var(--space-md); max-width:640px; margin-left:auto; margin-right:auto; line-height:1.65 }
@@ -331,7 +331,7 @@
 .ars-platform .cta-strip::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--gradient-brand); background-size:200% 100%; animation:ars-gradient-x 4s ease-in-out infinite }
 .ars-platform .cta-strip::after { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle, rgba(95,207,208,.12), transparent 60%); pointer-events:none; animation:ars-float 18s ease-in-out infinite }
 [data-theme="dark"] .ars-platform .cta-strip { border:1px solid var(--border-strong) }
-.ars-platform .cta-strip h3 { font-family:var(--font-display); font-size:clamp(22px,3vw,30px); font-weight:700; color:#fff; letter-spacing:-.8px; margin-bottom:10px; position:relative }
+.ars-platform .cta-strip h3 { font-family:var(--font-display); font-style:italic; font-size:clamp(22px,3vw,30px); font-weight:700; color:#fff; letter-spacing:-.8px; margin-bottom:10px; position:relative }
 .ars-platform .cta-strip p { color:rgba(255,255,255,.78); max-width:540px; margin:0 auto var(--space-lg); position:relative; font-size:15px }
 .ars-platform .cta-strip .hero-cta { justify-content:center; margin-top:0; position:relative }
 

@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer.astro';
 
 <Layout
   title="ISO 20022 Structured Addresses for Corporates | Stop Payment Rejections Before November 2026 | ioNova"
-  description="From 14 November 2026, banks need structured Town and Country at payment initiation or your cross-border payments can be rejected. ioNova resolves free-text supplier addresses in your ERP into ISO 20022 structured addresses across 195 countries and 50+ scripts. Live in 2–4 weeks."
+  description="From 14 November 2026, banks need structured Town and Country at payment initiation or your cross-border payments can be rejected. ioNova resolves free-text supplier addresses in your ERP into ISO 20022 structured addresses across 246 countries and 50+ scripts. Live in 2–4 weeks."
   ogImage="/og-image.png"
   ogImageAlt="ioNova AI — ISO 20022 Structured Addresses for Corporates"
 >
@@ -29,7 +29,7 @@ import Footer from '@/components/layout/Footer.astro';
       { "@type": "Question", "name": "What does the November 2026 ISO 20022 mandate require corporates to do?", "acceptedAnswer": { "@type": "Answer", "text": "Corporates must source address information on their creditors through their own channels, store it in their ERP or treasury application, and provide it to the bank at payment initiation with at minimum structured Town and Country. From 14 November 2026 this applies regardless of channel — MT101 SCORE, pain.001 SCORE+, or a bank's proprietary channel." } },
       { "@type": "Question", "name": "Will my cross-border payments be rejected if addresses aren't structured?", "acceptedAnswer": { "@type": "Answer", "text": "After 14 November 2026, payment instructions that reach the bank without at least structured Town and Country can be rejected, held, or returned under CBPR+ rules. A returned payment means a late settlement, supplier friction, and manual rework." } },
       { "@type": "Question", "name": "How does ioNova fit into our ERP or treasury workflow?", "acceptedAnswer": { "@type": "Answer", "text": "ioNova runs as a service over a standard API and integrates with your ERP or treasury system without replacing it. It resolves free-text counterparty addresses into structured ISO 20022 elements — in batch for your existing master data, and in real time as new payees are onboarded. Typical API integration is 2–4 weeks." } },
-      { "@type": "Question", "name": "We pay suppliers in many countries and scripts — can ioNova handle that?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ioNova resolves addresses across 195 countries and 50+ writing systems, including non-Latin scripts and markets where conventions differ — landmark-based addresses, missing postcodes, and local sub-divisions." } },
+      { "@type": "Question", "name": "We pay suppliers in many countries and scripts — can ioNova handle that?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ioNova resolves addresses across 246 countries and 50+ writing systems, including non-Latin scripts and markets where conventions differ — landmark-based addresses, missing postcodes, and local sub-divisions." } },
       { "@type": "Question", "name": "Should we wait for our banks to handle this for us?", "acceptedAnswer": { "@type": "Answer", "text": "No. The mandate makes the originator responsible for supplying structured Town and Country at initiation — banks can reject non-compliant instructions, but they cannot invent address data you have not provided." } }
     ]
   })} />
@@ -73,6 +73,7 @@ import Footer from '@/components/layout/Footer.astro';
     .fc-h1 { font-family: var(--font-display) !important; font-size: clamp(32px,4.5vw,52px) !important; font-weight: 800 !important; letter-spacing: -1.5px; line-height: 1.12 !important; color: var(--text-primary); margin-bottom: 20px; }
     .fc-h1 .accent { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 200% auto; animation: fc-gx 6s ease-in-out infinite; display: block; }
     .fc-sub { font-size: clamp(15px,1.5vw,17px); line-height: 1.65; color: var(--text-label); max-width: 620px; margin-bottom: 32px; }
+    .fc-positioning { font-family: var(--font-display); font-size: 13.5px; font-weight: 700; line-height: 1.5; color: var(--teal-500); max-width: 620px; margin: -14px 0 28px; }
     .fc-btn { font-family: var(--font-display); font-weight: 600; font-size: 15px; padding: 14px 30px; border-radius: var(--radius-full); border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; background: var(--gradient-brand); background-size: 200% auto; color: #fff; box-shadow: 0 2px 12px rgba(67,173,193,.3); animation: fc-gx 4s ease-in-out infinite; transition: transform .3s,box-shadow .3s; }
     .fc-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(67,173,193,.35); }
     .fc-stats { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 34px; }
@@ -186,7 +187,7 @@ import Footer from '@/components/layout/Footer.astro';
     .fc-cta h2 { font-family: var(--font-display) !important; font-size: clamp(24px,3vw,38px) !important; font-weight: 700 !important; letter-spacing: -0.8px; line-height: 1.2 !important; color: #E2E8F4; max-width: 700px; margin: 0 auto 16px; }
     .fc-cta h2 .accent { background: linear-gradient(135deg,#60A5FA,#3B82F6,#2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .fc-cta-sub { font-size: 16px; color: rgba(255,255,255,.7); max-width: 600px; margin: 0 auto 28px; line-height: 1.65; }
-    .fc-cta-days { display: inline-flex; align-items: baseline; gap: 8px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 12px 24px; margin-bottom: 28px; backdrop-filter: blur(10px); }
+    .fc-cta-days { display: inline-flex; align-items: baseline; gap: 8px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.1); border-radius: 6px; padding: 12px 24px; margin-bottom: 28px; backdrop-filter: blur(10px); }
     .fc-cta-days-num { font-family: var(--font-display); font-size: 32px; font-weight: 700; line-height: 1; background: linear-gradient(180deg,#fff 0%,#94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .fc-cta-days-lbl { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #94A3B8; }
   </style>
@@ -205,7 +206,8 @@ import Footer from '@/components/layout/Footer.astro';
                 ISO 20022 structured addresses for corporates —
                 <span class="accent">stop payment rejections before November 2026</span>
               </h1>
-              <p class="fc-sub">From 14 November 2026, your banks need at least structured Town and Country at payment initiation, or your cross-border payments can be rejected. ioNova resolves the free-text supplier and counterparty addresses in your ERP into full ISO 20022 structured addresses — across 195 countries and 50+ scripts — so payments clear the first time, on every channel.</p>
+              <p class="fc-sub">From 14 November 2026, your banks need at least structured Town and Country at payment initiation, or your cross-border payments can be rejected. ioNova resolves the free-text supplier and counterparty addresses in your ERP into full ISO 20022 structured addresses — across 246 countries and 50+ scripts — so payments clear the first time, on every channel.</p>
+              <p class="fc-positioning">AI-native coverage / rules-engine determinism / 30+ years of payments compliance experience.</p>
               <a href="/demo" class="fc-btn">
                 See how corporates deploy ioNova
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -213,7 +215,7 @@ import Footer from '@/components/layout/Footer.astro';
               <div class="fc-stats">
                 <div class="fc-stat"><div class="v urgent" id="fc-days">—</div><div class="l">Days until the 14 Nov 2026 cut-over</div></div>
                 <div class="fc-stat"><div class="v">1st</div><div class="l">Payments clear on first submission</div></div>
-                <div class="fc-stat"><div class="v">195</div><div class="l">Countries &amp; 50+ scripts</div></div>
+                <div class="fc-stat"><div class="v">246</div><div class="l">Countries &amp; 50+ scripts</div></div>
                 <div class="fc-stat"><div class="v">2–4 wk</div><div class="l">API integration to production</div></div>
               </div>
               <div class="fc-trust">
@@ -357,7 +359,7 @@ import Footer from '@/components/layout/Footer.astro';
               <tbody>
                 <tr><td>Counterparty address data</td><td class="sq">Free text in ERP / treasury</td><td class="win">Structured ISO 20022 at the source</td></tr>
                 <tr><td>Payment acceptance (14 Nov 2026)</td><td class="sq">Rejection / hold risk</td><td class="win">Passes CBPR+ at initiation</td></tr>
-                <tr><td>Country &amp; script coverage</td><td class="sq">Gaps in non-Latin markets</td><td class="win">195 countries, 50+ scripts</td></tr>
+                <tr><td>Country &amp; script coverage</td><td class="sq">Gaps in non-Latin markets</td><td class="win">246 countries, 50+ scripts</td></tr>
                 <tr><td>Multi-bank channels</td><td class="sq">Remediate per bank</td><td class="win">Standardize once, feed everywhere</td></tr>
                 <tr><td>Settlement reliability</td><td class="sq">Returns and late payments</td><td class="win">Fewer exceptions, on-time settlement</td></tr>
                 <tr><td>Time to production</td><td class="sq">Manual project per system</td><td class="win">API integration in 2–4 weeks</td></tr>
@@ -387,7 +389,7 @@ import Footer from '@/components/layout/Footer.astro';
             </details>
             <details class="fc-faq-item">
               <summary class="fc-faq-q">We pay suppliers in many countries and scripts — can ioNova handle that?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
-              <div class="fc-faq-a">Yes. ioNova resolves addresses across 195 countries and 50+ writing systems, including non-Latin scripts and markets where conventions differ — landmark-based addresses, missing postcodes, and local sub-divisions. It maps each component to the correct ISO 20022 field rather than forcing a one-size template.</div>
+              <div class="fc-faq-a">Yes. ioNova resolves addresses across 246 countries and 50+ writing systems, including non-Latin scripts and markets where conventions differ — landmark-based addresses, missing postcodes, and local sub-divisions. It maps each component to the correct ISO 20022 field rather than forcing a one-size template.</div>
             </details>
             <details class="fc-faq-item">
               <summary class="fc-faq-q">Should we wait for our banks to handle this for us?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
@@ -402,7 +404,7 @@ import Footer from '@/components/layout/Footer.astro';
         <div class="fc-cta-card">
           <div class="fc-cta-inner">
             <h2>Keep every payment flowing.<br><span class="accent">Through the November 2026 cut-over.</span></h2>
-            <p class="fc-cta-sub">ioNova structures your counterparty data once, for every bank and channel. 195 countries, 50+ scripts. Live in 2–4 weeks.</p>
+            <p class="fc-cta-sub">ioNova structures your counterparty data once, for every bank and channel. 246 countries, 50+ scripts. Live in 2–4 weeks.</p>
             <div class="fc-cta-days">
               <span class="fc-cta-days-num" id="fc-cta-days">—</span>
               <span class="fc-cta-days-lbl">Days Left</span>

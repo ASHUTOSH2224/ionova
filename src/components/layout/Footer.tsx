@@ -69,7 +69,7 @@ export function Footer() {
                 className="h-10 w-10 object-contain"
               />
               <span className="text-xl font-bold text-[#0E1935] tracking-tight whitespace-nowrap"
-                style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}
+                style={{ fontFamily: "'Figtree', system-ui, sans-serif" }}
               >
                 ioNova AI
               </span>
@@ -92,7 +92,7 @@ export function Footer() {
             <div key={section.title}>
               <h4
                 style={{
-                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontFamily: "'Figtree', system-ui, sans-serif",
                   fontWeight: 600,
                   fontSize: "13px",
                   letterSpacing: "1.5px",

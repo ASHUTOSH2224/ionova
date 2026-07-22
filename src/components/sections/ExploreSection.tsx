@@ -107,7 +107,7 @@ export function ExploreSection() {
                         {exploreCards.map((card) => (
                             <div
                                 key={card.title}
-                                className="group relative flex flex-col bg-[#EFF2F7] h-full rounded-xl border border-transparent p-8 transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-blue-100/50 hover:-translate-y-1"
+                                className="group relative flex flex-col bg-[#EFF2F7] h-full rounded-[6px] border border-transparent p-8 transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-blue-100/50 hover:-translate-y-1"
                             >
                                 {/* Icon */}
                                 <div className="mb-6">

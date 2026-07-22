@@ -75,7 +75,7 @@
   --alert-green-soft: #ECFDF5;
   --alert-green-border: #A7F3D0;
   --alert-green-text: #065F46;
-  --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-display: 'Figtree', system-ui, -apple-system, sans-serif;
   --font-body: 'Figtree', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --space-xs: 4px;
@@ -87,9 +87,9 @@
   --space-3xl: 64px;
   --space-4xl: 96px;
   --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-md: 6px;
+  --radius-lg: 6px;
+  --radius-xl: 6px;
   --radius-full: 9999px;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -623,6 +623,7 @@
 
 .ds-v5 .hero h1 {
   font-family: var(--font-display);
+  font-style: italic;
   font-size: 48.4px;
   font-weight: 800;
   letter-spacing: -1.5px;
@@ -651,6 +652,17 @@
   margin-right: auto;
   margin-top: var(--space-lg);
   animation: fadeSlideUp .6s ease-out .2s both
+}
+
+.ds-v5 .hero-positioning {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--teal-500);
+  max-width: 760px;
+  margin: var(--space-sm) auto 0;
+  animation: fadeSlideUp .6s ease-out .25s both
 }
 
 .ds-v5 .hero-sub strong {
@@ -837,6 +849,7 @@
 
 .ds-v5 .section-title {
   font-family: var(--font-display);
+  font-style: italic;
   font-size: 38.4px;
   font-weight: 700;
   letter-spacing: -0.8px;

@@ -5,7 +5,7 @@
   <div class="hero">
     <div class="hero-badge"><span class="pulse-dot"></span><span style="position:relative;z-index:1;">Pillar 4 · Competitive Clarity</span></div>
     <h1>Postal Validation <span class="accent">&#x2260; Payment Validation</span></h1>
-    <p class="hero-sub">Generic address tools solve a fundamentally different problem. Postal validation asks "can a letter be delivered here?" Payment compliance asks "does this address identify a legal entity across 195 countries and 50+ writing systems?"</p>
+    <p class="hero-sub">Generic address tools solve a fundamentally different problem. Postal validation asks "can a letter be delivered here?" Payment compliance asks "does this address identify a legal entity across 246 countries and 50+ writing systems?"</p>
     <div class="btn-row">
       <a href="#comparison" class="btn btn-accent">See the Difference <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></a>
       <!-- <a href="/roi-calculator" class="btn btn-outline">Calculate Your ROI</a> -->
@@ -38,7 +38,7 @@
       </div>
       <div class="feature-item">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg></div>
-        <div class="feature-text"><h4>Real-Time Processing</h4><p>Sub-100ms resolution, consistent results for identical inputs, graceful degradation under peak load.</p></div>
+        <div class="feature-text"><h4>Real-Time Processing</h4><p>Sub-50ms P95 resolution, consistent results for identical inputs, graceful degradation under peak load.</p></div>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@
         <div class="feature-icon" style="background:linear-gradient(135deg,rgba(220,53,69,0.1),rgba(220,53,69,0.05));border:1px solid rgba(220,53,69,0.2);color:var(--alert-red);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="15" y1="9" x2="9" y2="15" /><line x1="9" y1="9" x2="15" y2="15" /></svg>
         </div>
-        <div class="feature-text"><h4>Latency Incompatibility</h4><p>1–5 seconds per request. Payment processing requires sub-100ms. An order-of-magnitude gap.</p></div>
+        <div class="feature-text"><h4>Latency Incompatibility</h4><p>1–5 seconds per request. Payment processing requires sub-50ms P95. An order-of-magnitude gap.</p></div>
       </div>
       <div class="feature-item">
         <div class="feature-icon" style="background:linear-gradient(135deg,rgba(220,53,69,0.1),rgba(220,53,69,0.05));border:1px solid rgba(220,53,69,0.2);color:var(--alert-red);">
@@ -87,11 +87,11 @@
           <tr><td>ISO 20022 output</td><td>Not supported</td><td>Inconsistent</td><td>Native XML elements</td></tr>
           <tr><td>Financial ID handling</td><td>Not supported</td><td>Unreliable</td><td>Automatic (LEI, IBAN, BIC)</td></tr>
           <tr><td>Disambiguation</td><td>Postal-code-based</td><td>Probabilistic</td><td>Payment-context-aware</td></tr>
-          <tr><td>Processing latency</td><td>200–500ms</td><td>1,000–5,000ms</td><td>Sub-100ms</td></tr>
+          <tr><td>Processing latency</td><td>200–500ms</td><td>1,000–5,000ms</td><td>Sub-50ms P95</td></tr>
           <tr><td>Deterministic output</td><td>Yes</td><td>No</td><td>Yes</td></tr>
           <tr><td>Audit trail</td><td>Basic valid/invalid</td><td>None</td><td>Full provenance chain</td></tr>
           <tr><td>Hallucination risk</td><td>Zero</td><td>Significant</td><td>Zero</td></tr>
-          <tr><td>Script coverage</td><td>Major Latin markets</td><td>Training-dependent</td><td>195 countries, 50+ scripts</td></tr>
+          <tr><td>Script coverage</td><td>Major Latin markets</td><td>Training-dependent</td><td>246 countries, 50+ scripts</td></tr>
           <tr><td>Track record</td><td>Postal domain</td><td>Experimental</td><td>30+ years, 10B+ transactions</td></tr>
         </tbody>
       </table>
@@ -104,7 +104,7 @@
     <div class="feature-grid" style="grid-template-columns:repeat(3,1fr);">
       <div class="card">
         <div style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Build In-House</div>
-        <p style="font-size:13px;color:var(--text-label);line-height:1.6;">18–36 months to production. 195-country parsing rules. Maintenance exceeds build cost in 2–3 years. Feasible only for the largest institutions.</p>
+        <p style="font-size:13px;color:var(--text-label);line-height:1.6;">18–36 months to production. 246-country parsing rules. Maintenance exceeds build cost in 2–3 years. Feasible only for the largest institutions.</p>
       </div>
       <div class="card">
         <div style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Retrofit Postal Tools</div>
@@ -112,7 +112,7 @@
       </div>
       <div class="card card-accent">
         <div style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--teal-500);margin-bottom:8px;">Buy Purpose-Built &#x2713;</div>
-        <p style="font-size:13px;color:var(--text-label);line-height:1.6;">2–4 weeks. ISO 20022 native. 195 countries from day one. Lowest total cost of ownership and lowest compliance risk.</p>
+        <p style="font-size:13px;color:var(--text-label);line-height:1.6;">2–4 weeks. ISO 20022 native. 246 countries from day one. Lowest total cost of ownership and lowest compliance risk.</p>
       </div>
     </div>
   </div>
@@ -127,7 +127,7 @@
       </details>
       <details class="faq-item">
         <summary class="faq-q">Why are LLMs unsuitable for payment address parsing and sanctions compliance?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
-        <div class="faq-a"><div class="faq-a-inner"><p>Large language models fail at payment address parsing for four critical reasons. First, they produce non-deterministic output: the same input may yield different results across invocations, making sanctions screening results unreliable and audit trails meaningless. Second, they hallucinate—inventing postal codes, fabricating building numbers, or selecting wrong cities, which constitutes a regulatory failure in payments. Third, they operate at 1–5 seconds per request, an order of magnitude slower than the sub-100ms required for payment processing. Fourth, they are black boxes with no explainability—regulators require institutions to demonstrate exactly why an address was parsed a particular way.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Large language models fail at payment address parsing for four critical reasons. First, they produce non-deterministic output: the same input may yield different results across invocations, making sanctions screening results unreliable and audit trails meaningless. Second, they hallucinate—inventing postal codes, fabricating building numbers, or selecting wrong cities, which constitutes a regulatory failure in payments. Third, they operate at 1–5 seconds per request, an order of magnitude slower than the sub-50ms P95 required for payment processing. Fourth, they are black boxes with no explainability—regulators require institutions to demonstrate exactly why an address was parsed a particular way.</p></div></div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">What is geographic disambiguation in payment address resolution?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
@@ -135,7 +135,7 @@
       </details>
       <details class="faq-item">
         <summary class="faq-q">How does purpose-built address intelligence differ from generic address validation APIs?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
-        <div class="faq-a"><div class="faq-a-inner"><p>Generic address validation APIs produce standardised postal output; purpose-built intelligence produces native ISO 20022 structured XML elements. Generic tools do not support financial identifier handling (LEI, IBAN, BIC); purpose-built systems automatically recognise and route these to correct fields. Generic tools cover major markets; purpose-built covers 195 countries and 50+ writing systems. Generic provides basic valid/invalid results; purpose-built delivers full deterministic provenance chains. Generic achieves marginal STP improvement; purpose-built transforms STP from ~40% to >99%. The implementation timeline for generic retrofitting is 6–18 months; purpose-built deploys in 2–4 weeks.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Generic address validation APIs produce standardised postal output; purpose-built intelligence produces native ISO 20022 structured XML elements. Generic tools do not support financial identifier handling (LEI, IBAN, BIC); purpose-built systems automatically recognise and route these to correct fields. Generic tools cover major markets; purpose-built covers 246 countries and 50+ writing systems. Generic provides basic valid/invalid results; purpose-built delivers full deterministic provenance chains. Generic achieves marginal STP improvement; purpose-built transforms STP from ~40% to 98%. The implementation timeline for generic retrofitting is 6–18 months; purpose-built deploys in 2–4 weeks.</p></div></div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">What is deterministic address resolution and why does it matter for payments?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
@@ -143,7 +143,7 @@
       </details>
       <details class="faq-item">
         <summary class="faq-q">Should financial institutions build, buy, or retrofit address intelligence?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></summary>
-        <div class="faq-a"><div class="faq-a-inner"><p>Building in-house requires 18–36 months to production, development of 195-country parsing rules, and ongoing maintenance that exceeds initial build cost within 2–3 years—feasible only for the very largest global institutions. Retrofitting postal tools creates a fragile integration chain that fails precisely where postal and payment requirements intersect, which is where compliance risk is highest. Buying a purpose-built solution delivers ISO 20022 native compliance in 2–4 weeks, covers 195 countries from day one, and offers the lowest total cost of ownership and compliance risk profile. For institutions facing the November 2026 deadline, buy is the only option with a realistic timeline.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Building in-house requires 18–36 months to production, development of 246-country parsing rules, and ongoing maintenance that exceeds initial build cost within 2–3 years—feasible only for the very largest global institutions. Retrofitting postal tools creates a fragile integration chain that fails precisely where postal and payment requirements intersect, which is where compliance risk is highest. Buying a purpose-built solution delivers ISO 20022 native compliance in 2–4 weeks, covers 246 countries from day one, and offers the lowest total cost of ownership and compliance risk profile. For institutions facing the November 2026 deadline, buy is the only option with a realistic timeline.</p></div></div>
       </details>
     </div>
   </div>

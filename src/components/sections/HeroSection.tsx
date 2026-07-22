@@ -50,15 +50,20 @@ export function HeroSection() {
             <div ref={leftColumnRef} className="text-center lg:text-left w-full relative z-20">
               {/* Headline */}
               <h1 className="hero-page-heading mb-6 font-extrabold tracking-tight text-white">
-                <span className="block mb-2">Achieve ISO 20022 compliance with </span>
+                <span className="block mb-2">Achieve ISO 20022</span>
+                <span className="block mb-2">compliance with</span>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-sky-200 to-white drop-shadow-sm block">
-                  fully Structured Payment Addresses
+                  Structured Addresses
                 </span>
               </h1>
 
               {/* Subtitle */}
               <p className="block max-w-xl mx-auto lg:mx-0 text-lg leading-relaxed text-blue-100/90 md:text-xl font-medium tracking-normal mb-8">
-                Hybrid addresses pass minimum compliance. Structured addresses pass every test. ioNova delivers AI-native structured address resolution for SWIFT CBPR+ and SEPA
+                Hybrid addresses pass minimum compliance. Structured addresses pass every test. ioNova delivers AI-native structured and hybrid address resolution for SWIFT CBPR+ and SEPA
+              </p>
+
+              <p className="mb-8 max-w-xl mx-auto lg:mx-0 text-sm md:text-base font-semibold text-sky-200/90">
+                AI-native coverage / rules-engine determinism / 30+ years of payments compliance experience.
               </p>
 
               {/* CTAs */}
@@ -88,13 +93,13 @@ export function HeroSection() {
               {/* Metric boxes */}
               {/*<div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                 {[
-                  { value: "98%+", label: "STP Rates" },
-                  { value: "195", label: "Countries" },
+                  { value: "98%", label: "STP Rates" },
+                  { value: "246", label: "Countries" },
                   { value: "2–4", label: "Weeks to Production" },
                 ].map((metric) => (
                   <div
                     key={metric.label}
-                    className="flex flex-col items-center justify-center rounded-xl border border-white/15 bg-white/5 backdrop-blur-md px-6 py-3 min-w-[120px]"
+                    className="flex flex-col items-center justify-center rounded-[6px] border border-white/15 bg-white/5 backdrop-blur-md px-6 py-3 min-w-[120px]"
                   >
                     <span className="text-2xl font-extrabold text-white">{metric.value}</span>
                     <span className="text-xs font-medium text-blue-200/80 uppercase tracking-wider mt-1">{metric.label}</span>
