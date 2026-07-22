@@ -44,7 +44,7 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto px-4 md:px-8 xl:pl-16 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 translate-y-10 md:translate-y-12 lg:translate-y-14">
           {/* Content Area */}
           <div className="w-full lg:w-6/12 flex flex-col items-center lg:items-start justify-center">
             <div ref={leftColumnRef} className="text-center lg:text-left w-full relative z-20">

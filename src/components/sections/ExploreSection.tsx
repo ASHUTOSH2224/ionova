@@ -16,13 +16,13 @@ export function ExploreSection() {
                 cardRef.current,
                 {
                     scaleX: 80 / 95,
-                    borderRadius: "2rem",
+                    borderRadius: "6px",
                     y: 50,
                     opacity: 0.8,
                 },
                 {
                     scaleX: 1,
-                    borderRadius: "2.5rem",
+                    borderRadius: "6px",
                     y: 0,
                     opacity: 1,
                     duration: 1,
@@ -80,7 +80,7 @@ export function ExploreSection() {
             <div className="w-[95%] mx-auto">
                 <div
                     ref={cardRef}
-                    className="relative z-10 mx-auto bg-white overflow-hidden py-16 lg:py-24 shadow-2xl ring-1 ring-black/5 will-change-transform origin-center"
+                    className="relative z-10 mx-auto bg-white overflow-hidden py-16 lg:py-24 shadow-2xl ring-1 ring-black/5 will-change-transform origin-center rounded-[6px]"
                 >
                 {/* Subtle geometric background pattern */}
                 <div className="absolute inset-0 opacity-[0.4] pointer-events-none">
