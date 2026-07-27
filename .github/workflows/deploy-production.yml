@@ -25,11 +25,43 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify build environment
+        run: |
+          missing=0
+          for name in \
+            PUBLIC_GHOST_API_URL \
+            PUBLIC_GHOST_CONTENT_API_KEY \
+            PUBLIC_KIT_API_KEY \
+            PUBLIC_KIT_FORM_ID \
+            PUBLIC_KIT_DEMO_TAG_ID \
+            PUBLIC_KIT_WHITEPAPER_FORM_ID \
+            PUBLIC_KIT_WHITEPAPER_TAG_ID
+          do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name is not set for this workflow run."
+              missing=1
+            fi
+          done
+          exit "$missing"
+        env:
+          PUBLIC_GHOST_API_URL: ${{ secrets.PUBLIC_GHOST_API_URL }}
+          PUBLIC_GHOST_CONTENT_API_KEY: ${{ secrets.PUBLIC_GHOST_CONTENT_API_KEY }}
+          PUBLIC_KIT_API_KEY: ${{ secrets.PUBLIC_KIT_API_KEY }}
+          PUBLIC_KIT_FORM_ID: ${{ secrets.PUBLIC_KIT_FORM_ID }}
+          PUBLIC_KIT_DEMO_TAG_ID: ${{ secrets.PUBLIC_KIT_DEMO_TAG_ID }}
+          PUBLIC_KIT_WHITEPAPER_FORM_ID: ${{ secrets.PUBLIC_KIT_WHITEPAPER_FORM_ID }}
+          PUBLIC_KIT_WHITEPAPER_TAG_ID: ${{ secrets.PUBLIC_KIT_WHITEPAPER_TAG_ID }}
+
       - name: Build site
         run: npm run build
         env:
           PUBLIC_GHOST_API_URL: ${{ secrets.PUBLIC_GHOST_API_URL }}
           PUBLIC_GHOST_CONTENT_API_KEY: ${{ secrets.PUBLIC_GHOST_CONTENT_API_KEY }}
+          PUBLIC_KIT_API_KEY: ${{ secrets.PUBLIC_KIT_API_KEY }}
+          PUBLIC_KIT_FORM_ID: ${{ secrets.PUBLIC_KIT_FORM_ID }}
+          PUBLIC_KIT_DEMO_TAG_ID: ${{ secrets.PUBLIC_KIT_DEMO_TAG_ID }}
+          PUBLIC_KIT_WHITEPAPER_FORM_ID: ${{ secrets.PUBLIC_KIT_WHITEPAPER_FORM_ID }}
+          PUBLIC_KIT_WHITEPAPER_TAG_ID: ${{ secrets.PUBLIC_KIT_WHITEPAPER_TAG_ID }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
