@@ -45,6 +45,27 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
 			gtag('js', new Date());
 			gtag('config', 'G-W3JZK96K3G');
 		</script>
+        <script is:inline>
+            !function(key) {
+                if (window.reb2b) return;
+                window.reb2b = { loaded: true };
+                var s = document.createElement("script");
+                var url = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";
+                s.async = true;
+                if (window.trustedTypes && window.trustedTypes.createPolicy) {
+                    var policy = window.trustedTypes.createPolicy("reb2b", {
+                        createScriptURL: function(value) {
+                            if (value.indexOf("https://ddwl4m2hdecbv.cloudfront.net/b/") === 0) return value;
+                            throw new TypeError("Unexpected RB2B script URL");
+                        }
+                    });
+                    s.src = policy.createScriptURL(url);
+                } else {
+                    s.src = url;
+                }
+                document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);
+            }("1N5W0HJ23JO5");
+        </script>
 
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
