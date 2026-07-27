@@ -10,8 +10,7 @@ export async function getStaticPaths() {
   // Fail the build if Ghost is configured but returned 0 posts — prevents silently
   // deploying a site with no blog routes when the CMS was unreachable at build time.
   const ghostUrl = import.meta.env.VITE_GHOST_API_URL || import.meta.env.PUBLIC_GHOST_API_URL;
-  const skipGhostBuild = import.meta.env.PUBLIC_SKIP_GHOST_BUILD === 'true';
-  if (!skipGhostBuild && ghostUrl && ghostPosts.length === 0) {
+  if (ghostUrl && ghostPosts.length === 0) {
     throw new Error(
       '[Build] Ghost returned 0 posts. Ensure Ghost is reachable at build time, ' +
       'or unset VITE_GHOST_API_URL / PUBLIC_GHOST_API_URL to skip blog generation.'

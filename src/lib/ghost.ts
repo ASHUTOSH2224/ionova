@@ -6,11 +6,6 @@ let _api: any = null;
 function getApi() {
   if (_api) return _api;
 
-  if (import.meta.env.PUBLIC_SKIP_GHOST_BUILD === 'true') {
-    console.warn('[Ghost] PUBLIC_SKIP_GHOST_BUILD=true – Ghost integration disabled.');
-    return null;
-  }
-
   // Support both VITE_ and PUBLIC_ prefixes (Astro uses PUBLIC_ natively, but also supports VITE_ via Vite)
   const url = import.meta.env.VITE_GHOST_API_URL
     || import.meta.env.PUBLIC_GHOST_API_URL
