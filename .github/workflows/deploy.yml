@@ -33,8 +33,6 @@ jobs:
         run: |
           missing=0
           for name in \
-            PUBLIC_GHOST_API_URL \
-            PUBLIC_GHOST_CONTENT_API_KEY \
             PUBLIC_KIT_API_KEY \
             PUBLIC_KIT_FORM_ID \
             PUBLIC_KIT_DEMO_TAG_ID \
@@ -46,6 +44,11 @@ jobs:
               missing=1
             fi
           done
+          if { [ -n "$PUBLIC_GHOST_API_URL" ] && [ -z "$PUBLIC_GHOST_CONTENT_API_KEY" ]; } || \
+             { [ -z "$PUBLIC_GHOST_API_URL" ] && [ -n "$PUBLIC_GHOST_CONTENT_API_KEY" ]; }; then
+            echo "::error::Set both PUBLIC_GHOST_API_URL and PUBLIC_GHOST_CONTENT_API_KEY, or unset both to skip Ghost blog generation."
+            missing=1
+          fi
           exit "$missing"
         env:
           PUBLIC_GHOST_API_URL: ${{ secrets.PUBLIC_GHOST_API_URL }}
@@ -55,6 +58,24 @@ jobs:
           PUBLIC_KIT_DEMO_TAG_ID: ${{ secrets.PUBLIC_KIT_DEMO_TAG_ID }}
           PUBLIC_KIT_WHITEPAPER_FORM_ID: ${{ secrets.PUBLIC_KIT_WHITEPAPER_FORM_ID }}
           PUBLIC_KIT_WHITEPAPER_TAG_ID: ${{ secrets.PUBLIC_KIT_WHITEPAPER_TAG_ID }}
+
+      - name: Verify Ghost content API
+        run: |
+          if [ -z "$PUBLIC_GHOST_API_URL" ] && [ -z "$PUBLIC_GHOST_CONTENT_API_KEY" ]; then
+            echo "Ghost blog generation disabled for this build."
+            exit 0
+          fi
+
+          status=$(curl -sS -o /tmp/ghost-check.json -w "%{http_code}" \
+            "${PUBLIC_GHOST_API_URL%/}/ghost/api/content/posts/?key=${PUBLIC_GHOST_CONTENT_API_KEY}&limit=1")
+
+          if [ "$status" != "200" ]; then
+            echo "::error::Ghost Content API returned HTTP $status. Check PUBLIC_GHOST_API_URL / PUBLIC_GHOST_CONTENT_API_KEY and the Ghost site status, or unset both secrets to skip blog generation."
+            exit 1
+          fi
+        env:
+          PUBLIC_GHOST_API_URL: ${{ secrets.PUBLIC_GHOST_API_URL }}
+          PUBLIC_GHOST_CONTENT_API_KEY: ${{ secrets.PUBLIC_GHOST_CONTENT_API_KEY }}
 
       - name: Build site
         run: npm run build
