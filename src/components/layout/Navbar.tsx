@@ -386,6 +386,12 @@ export function Navbar() {
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
+              <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <NavigationMenu>
+            <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
@@ -455,6 +461,12 @@ export function Navbar() {
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
+              <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <NavigationMenu>
+            <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
@@ -580,6 +592,12 @@ export function Navbar() {
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
+              <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <NavigationMenu>
+            <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
