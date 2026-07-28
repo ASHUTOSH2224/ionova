@@ -1,0 +1,24 @@
+---
+import ReferencePage from '@/components/ReferencePage.astro';
+import { glossaryTermPageMap, glossaryTermPages } from '@/data/referencePages';
+
+const contentByFile = import.meta.glob('../../generated/reference-pages/glossary/*.astro', {
+  eager: true,
+});
+
+export function getStaticPaths() {
+  return glossaryTermPages.map((page) => ({
+    params: { slug: page.slug },
+  }));
+}
+
+const slug = Astro.params.slug ?? '';
+const page = glossaryTermPageMap[slug];
+const Content = (contentByFile[`../../generated/reference-pages/glossary/${slug}.astro`] as { default: any })?.default;
+
+if (!page || !Content) {
+  throw new Error(`Missing generated glossary page for "${slug}"`);
+}
+---
+
+<ReferencePage page={page} Content={Content} />

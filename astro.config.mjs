@@ -8,6 +8,10 @@ export default defineConfig({
   site: 'https://ionova.ai',
   trailingSlash: 'never',
   output: 'static',
+  redirects: {
+    '/solutions/for-banks': '/address-intelligence/for-banks',
+    '/solutions/for-corporates': '/address-intelligence/for-corporates',
+  },
   build: {
     inlineStylesheets: 'always',
   },
@@ -76,6 +80,14 @@ export default defineConfig({
       }
       // Newsletter issue sub-pages
       if (url.includes('/newsletter/')) {
+        return { ...item, changefreq: 'monthly', priority: 0.7 };
+      }
+
+      // Glossary index + cited term pages
+      if (url === 'https://ionova.ai/glossary') {
+        return { ...item, changefreq: 'monthly', priority: 0.8 };
+      }
+      if (url.includes('/glossary/')) {
         return { ...item, changefreq: 'monthly', priority: 0.7 };
       }
 

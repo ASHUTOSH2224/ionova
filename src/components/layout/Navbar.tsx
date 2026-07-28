@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
-import { Menu, X, FileCheck, Cpu, CheckCircle, BadgeCheck, Monitor, Shield, MapPin, DollarSign, Code, ChevronDown, LayoutGrid, Terminal, Plug, FileText, Video, Mic, Layers, Box, Route, Building2, ShieldCheck } from "lucide-react";
+import { Menu, X, FileCheck, Cpu, CheckCircle, BadgeCheck, Monitor, Shield, MapPin, DollarSign, Code, ChevronDown, LayoutGrid, Terminal, Plug, FileText, Video, Mic, Layers, Box, Route, Building2, ShieldCheck, BookOpenText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -185,6 +185,12 @@ const resourcesItems = [
     description: "Resolved! — ISO 20022 insights & analysis",
     href: "/newsletter",
     icon: FileText,
+  },
+  {
+    label: "Glossary",
+    description: "ISO 20022 address terms, cited and defined",
+    href: "/glossary",
+    icon: BookOpenText,
   },
   {
     label: "Press Room",
@@ -380,12 +386,6 @@ export function Navbar() {
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          <NavigationMenu>
-            <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
@@ -455,12 +455,6 @@ export function Navbar() {
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          <NavigationMenu>
-            <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
@@ -586,12 +580,6 @@ export function Navbar() {
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          <NavigationMenu>
-            <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
