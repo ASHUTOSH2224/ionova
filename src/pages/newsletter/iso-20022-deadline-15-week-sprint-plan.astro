@@ -1,0 +1,381 @@
+---
+// Newsletter page - renders pure HTML content
+const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Resolved &middot; Issue #8 &middot; Done with ISO 20022? Not quite.</title>
+<style type="text/css">
+  .preheader { display:none !important; visibility:hidden; opacity:0; color:transparent; height:0; width:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; max-height:0; max-width:0; }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#F5F5F5;">
+
+<!-- PREHEADER -->
+<div class="preheader">The message format was the easy half &mdash; and 62% of payment messages still fail on 15 November.</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F5F5F5; margin:0; padding:0;">
+  <tr>
+    <td align="center" style="padding:0;">
+
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px; background-color:#FFFFFF; font-family:Calibri, Arial, Helvetica, sans-serif;">
+
+        <!-- ============ BANNER ============ -->
+        <tr>
+          <td align="center" style="background-color:#0D1E42; padding:0; font-size:0; line-height:0;">
+            <img src="https://res.cloudinary.com/fxgegrr4/image/upload/v1785309435/Copy_of_Email_Newsletter_3_nmjdbb.png"
+                 width="600"
+                 height="250"
+                 alt="Resolved &middot; Done with ISO 20022? Not quite. &middot; by ioNova AI"
+                 border="0"
+                 style="display:block;width:100%;max-width:600px;height:auto;">
+          </td>
+        </tr>
+
+        <!-- ============ SECTION 1 &mdash; THE LEAD ============ -->
+        <tr>
+          <td style="padding:32px 36px; border-bottom:1px solid #E8E8E8;">
+
+            <h1 style="margin:0 0 20px 0; font-size:24px; font-weight:900; color:#232F3E; letter-spacing:-0.3px; line-height:1.3; font-family:Calibri, Arial, Helvetica, sans-serif;">62% of Payment Messages Will Fail on 15 November &mdash; Here&rsquo;s the Sprint Plan That Beats It</h1>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">Last November, the payments industry closed out one of the biggest migrations in its history. The programme shut down, the congratulations went around, and everyone quietly assumed the hard part was behind them.</p>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">I&rsquo;ve watched that scene repeat for more than three decades. So when institutions tell me they&rsquo;re &ldquo;done with ISO 20022,&rdquo; I have to give them an uncomfortable answer: <strong>the message format was the easy half.</strong></p>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">The ISO 20022 deadline that matters now is <strong>14 November 2026</strong> &mdash; the last date unstructured addresses are accepted. The new structured-address standards take effect from <strong>15 November 2026</strong>. From that date, payments carrying unstructured addresses aren&rsquo;t warned or delayed for repair. They are <strong>rejected at the network boundary.</strong></p>
+
+            <p style="margin:0 0 24px 0; font-size:16px; line-height:1.7; color:#232F3E;">In the next few minutes, I&rsquo;ll show you why &ldquo;we&rsquo;re done&rdquo; is the most expensive sentence in payments right now &mdash; and the 2&ndash;4-week sprint plan that fits the roughly fifteen weeks remaining.</p>
+
+            <!-- DARK STAT CALLOUT -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#232F3E; border-radius:4px;">
+              <tr>
+                <td style="padding:20px 24px;">
+                  <p style="margin:0 0 10px 0; font-size:17px; line-height:1.6; color:#FFFFFF; font-weight:700; font-style:italic;">Around 62% of payment messages still carry unstructured addresses &mdash; months from rejection at the network boundary.</p>
+                  <p style="margin:0; font-size:13px; line-height:1.5; color:#5FCFD0; font-style:italic;">&mdash; SWIFT figure, July 2026</p>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <!-- ============ SECTION 2 &mdash; FORMAT-READY IS NOT DATA-READY ============ -->
+        <tr>
+          <td style="padding:32px 36px; border-bottom:1px solid #E8E8E8;">
+
+            <h2 style="margin:0 0 18px 0; font-size:22px; font-weight:900; color:#232F3E; letter-spacing:-0.3px; line-height:1.3; font-family:Calibri, Arial, Helvetica, sans-serif;">Format-Ready Is Not Data-Ready</h2>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">November 2025 ended MT/MX coexistence &mdash; a migration of message <em>formats</em>. But the new SWIFT CBPR+ and SEPA requirements judge what&rsquo;s <em>inside</em> the message: the postal addresses of the parties to a payment.</p>
+
+            <p style="margin:0 0 26px 0; font-size:16px; line-height:1.7; color:#232F3E;">This is why ISO 20022 compliance is about to stop being a messaging project and become a data project.</p>
+
+            <h3 style="margin:0 0 16px 0; font-size:17px; font-weight:700; color:#232F3E; line-height:1.4; font-family:Calibri, Arial, Helvetica, sans-serif;">What the structured address requirements actually say</h3>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">Strip away the acronyms and there are three permitted shapes for an address in a payment message &mdash; reducing to two on the effective date:</p>
+
+            <!-- THREE SHAPES &mdash; STACKED, FULL WIDTH -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px 0;">
+              <tr>
+                <td style="background-color:#F4F6F8; border:1px solid #D6E0ED; border-radius:4px; padding:16px 20px;">
+                  <p style="margin:0; font-size:15px; line-height:1.65; color:#232F3E;"><strong>1. Fully unstructured</strong> &mdash; everything crammed into free-text address lines. This is what&rsquo;s being retired. From 15 November, it&rsquo;s the shape that gets rejected.</p>
+                </td>
+              </tr>
+              <tr><td style="height:10px; line-height:10px; font-size:0;">&nbsp;</td></tr>
+              <tr>
+                <td style="background-color:#FFFBF2; border:1px solid #F5DEB3; border-radius:4px; padding:16px 20px;">
+                  <p style="margin:0; font-size:15px; line-height:1.65; color:#232F3E;"><strong>2. Hybrid</strong> &mdash; the compliance floor: Town and Country in their own structured fields, at most two 70-character lines for the remainder, and no duplication of structured content in those lines.</p>
+                </td>
+              </tr>
+              <tr><td style="height:10px; line-height:10px; font-size:0;">&nbsp;</td></tr>
+              <tr>
+                <td style="background-color:#F1F8F2; border:1px solid #C8E6C9; border-radius:4px; padding:16px 20px;">
+                  <p style="margin:0; font-size:15px; line-height:1.65; color:#232F3E;"><strong>3. Fully structured</strong> &mdash; every component in its own field, across the fourteen elements of the PostalAddress24 model. Harder to reach &mdash; and where the operational dividends live.</p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- FIGURE 1 -->
+            <img src="https://res.cloudinary.com/fxgegrr4/image/upload/v1785309502/baf5a13f-dd05-4db8-8b43-ba0776a9d4c4_evqltg.png"
+                 width="528"
+                 alt="One address shown in three shapes: fully unstructured, hybrid, and fully structured."
+                 border="0"
+                 style="display:block;width:100%;max-width:528px;height:auto;border-radius:4px;margin:0 0 10px 0;">
+            <p style="margin:0 0 24px 0; font-size:14px; line-height:1.6; color:#466587; font-style:italic; text-align:center;">One address, three shapes &mdash; only the structured forms survive the effective date.</p>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">Why this is real work: a free-text address a human reads effortlessly &mdash; <em>&ldquo;Frankfurterstr 87, 4th floor, 60311 Frankfurt&rdquo;</em> &mdash; maps onto six different structured fields. That mapping is exactly the work this mandate creates, across every address you hold &mdash; including years of legacy MT103 free-text stock.</p>
+
+            <p style="margin:0 0 26px 0; font-size:16px; line-height:1.7; color:#232F3E;">Hybrid is the floor that avoids rejection. Fully structured is where the dividends are &mdash; higher straight-through rates, and roughly 30% fewer false positives when sanctions screening runs on field-level data instead of free text. <strong>Decide which target applies per scheme and flow before a sprint starts, not during it.</strong></p>
+
+            <h3 style="margin:0 0 16px 0; font-size:17px; font-weight:700; color:#232F3E; line-height:1.4; font-family:Calibri, Arial, Helvetica, sans-serif;">Two precision points that shrink your scope</h3>
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 26px 0;">
+              <tr>
+                <td valign="top" style="padding:0 0 12px 0; font-size:16px; line-height:1.7; color:#232F3E;">
+                  &bull;&nbsp;&nbsp;<strong>Agents (banks) are different.</strong> For bank-to-bank identification, BIC-only remains the ideal option. If an address is specified, it has to be in a structured format. The weight of the mandate falls on <em>party</em> addresses &mdash; debtors, creditors and their equivalents.
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" style="padding:0; font-size:16px; line-height:1.7; color:#232F3E;">
+                  &bull;&nbsp;&nbsp;<strong>The rule reaches backwards.</strong> A payment submitted in October with a value date on or after 15 November is already in scope. In practice, compliance arrives weeks before the date itself.
+                </td>
+              </tr>
+            </table>
+
+            <h3 style="margin:0 0 16px 0; font-size:17px; font-weight:700; color:#232F3E; line-height:1.4; font-family:Calibri, Arial, Helvetica, sans-serif;">Where planning goes wrong</h3>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">Institutions hear &ldquo;data project&rdquo; and reach for the eighteen-month-programme playbook. With fifteen weeks left, that reflex is the schedule risk.</p>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">And averages lie. Headline readiness numbers routinely hide the intersection &mdash; one scheme, one message format, one corridor &mdash; where most of the exposure actually sits. That is the subject of the next issue.</p>
+
+            <p style="margin:0 0 26px 0; font-size:16px; line-height:1.7; color:#232F3E;">The cost of inaction is convex. If a validated address costs 1&times; to process, an auto-repaired one costs about 3&times;, a partially repaired one about 12&times; &mdash; and an unrepaired one <strong>74&times;</strong>. Industry-wide, address exception handling runs an estimated $8&ndash;12 billion a year.</p>
+
+            <!-- FIGURE 2 -->
+            <img src="https://res.cloudinary.com/fxgegrr4/image/upload/v1785309501/29c45996-963a-41b2-b0e1-1a1f9dae9bd8_pzxdl5.png"
+                 width="528"
+                 alt="The repair-state cost curve across validated, auto-repaired, partially repaired and unrepaired addresses."
+                 border="0"
+                 style="display:block;width:100%;max-width:528px;height:auto;border-radius:4px;margin:0 0 10px 0;">
+            <p style="margin:0; font-size:14px; line-height:1.6; color:#466587; font-style:italic; text-align:center;">The repair-state cost curve &mdash; and the case that stops being a cost and becomes a rejection.</p>
+
+          </td>
+        </tr>
+
+        <!-- ============ SECTION 3 &mdash; THE SPRINT PLAN, USE CASE BY USE CASE ============ -->
+        <tr>
+          <td style="padding:32px 36px; border-bottom:1px solid #E8E8E8;">
+
+            <h2 style="margin:0 0 18px 0; font-size:22px; font-weight:900; color:#232F3E; letter-spacing:-0.3px; line-height:1.3; font-family:Calibri, Arial, Helvetica, sans-serif;">The Sprint Plan, Use Case by Use Case</h2>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">This transition is not one monolithic programme. It is a set of separable use cases &mdash; each independently deployable on a published 2&ndash;4-week arc: start in two days, run two tracks in parallel (your team wires channels while the engine is tuned on 10,000 of your own addresses), validate in production in week three, go live in weeks three to four.</p>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">Two details make that arc startable rather than aspirational. Sandbox and UAT traffic is never metered &mdash; evaluation is free and unmetered, so nothing has to clear procurement before you begin. And when a channel is proven, <strong>going live is a key swap, not a code change.</strong></p>
+
+            <p style="margin:0 0 20px 0; font-size:16px; line-height:1.7; color:#232F3E;">Three consequences follow, and they are the strategic heart of this issue:</p>
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 26px 0;">
+              <tr>
+                <td valign="top" style="padding:0 0 12px 0; font-size:16px; line-height:1.7; color:#232F3E;">
+                  <strong>1.</strong>&nbsp;&nbsp;<strong>You don&rsquo;t need one big decision &mdash; you need a first sprint.</strong> Pick the single worst use case your baseline flags and put it through the arc. Second sprints routinely run faster than firsts.
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" style="padding:0 0 12px 0; font-size:16px; line-height:1.7; color:#232F3E;">
+                  <strong>2.</strong>&nbsp;&nbsp;<strong>Three or four full sprints fit before the standards take effect.</strong> More if you overlap them &mdash; and they overlap naturally, because a batch sprint and an in-flight sprint don&rsquo;t compete for the same people.
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" style="padding:0; font-size:16px; line-height:1.7; color:#232F3E;">
+                  <strong>3.</strong>&nbsp;&nbsp;<strong>The build alternatives are no longer alternatives.</strong> An in-house address engine is an 18&ndash;36-month project; adapting a postal-verification tool runs 26&ndash;40 weeks &mdash; and postal validation is not payment validation in any case. At this point, sidecar-deployed address resolution &mdash; running beside your payment infrastructure, no core replacement &mdash; is the honest shortlist.
+                </td>
+              </tr>
+            </table>
+
+            <!-- FIGURE 3 -->
+            <img src="https://res.cloudinary.com/fxgegrr4/image/upload/v1785309503/81efb5b7-7e9f-4f70-bf23-6eda60cbb4db_uldsxo.png"
+                 width="528"
+                 alt="Overlapping sprint bars, every one ending before the standards take effect."
+                 border="0"
+                 style="display:block;width:100%;max-width:528px;height:auto;border-radius:4px;margin:0 0 10px 0;">
+            <p style="margin:0 0 26px 0; font-size:14px; line-height:1.6; color:#466587; font-style:italic; text-align:center;">Sprints overlap because they occupy different teams &mdash; every bar ends before the standards take effect.</p>
+
+            <h3 style="margin:0 0 16px 0; font-size:17px; font-weight:700; color:#232F3E; line-height:1.4; font-family:Calibri, Arial, Helvetica, sans-serif;">Which sprint is yours?</h3>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;"><strong>Banks and PSPs</strong> &mdash; usually boundary correction on the corridor your baseline flags: pacs.008/009 corrected in flight, at the perimeter, before screening and release. The legacy MT103 stock runs behind it in batch, its free text parsed and re-expressed as structured party blocks.</p>
+
+            <p style="margin:0 0 26px 0; font-size:16px; line-height:1.7; color:#232F3E;"><strong>Corporate treasury</strong> &mdash; almost always the vendor master: correct it once and every future payment is born clean. Payment files at source come next, so pain.001 is fixed before your bank&rsquo;s quality scorecard sees it &mdash; then payroll and pension runs, where one rejected batch is a missed payday.</p>
+
+            <h3 style="margin:0 0 16px 0; font-size:17px; font-weight:700; color:#232F3E; line-height:1.4; font-family:Calibri, Arial, Helvetica, sans-serif;">The two questions that decide your November</h3>
+
+            <p style="margin:0 0 20px 0; font-size:16px; line-height:1.7; color:#232F3E;">Whatever platform you evaluate, two properties decide whether the 2&ndash;4-week arc holds:</p>
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 26px 0;">
+              <tr>
+                <td valign="top" style="padding:0 0 14px 0; font-size:16px; line-height:1.7; color:#232F3E;">
+                  &bull;&nbsp;&nbsp;<strong>Does it work at both levels?</strong> At message level, a whole pain.001 or pacs.008 goes in and comes back with only the address blocks changed &mdash; no field mapping, no schema project. At address level, the stock &mdash; vendor masters, KYC stores, the MT103 backlog &mdash; moves in batches to 10,000 per call.
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" style="padding:0; font-size:16px; line-height:1.7; color:#232F3E;">
+                  &bull;&nbsp;&nbsp;<strong>Does it open the door you already run?</strong> Real-time rails for payments in flight; files or direct database access for data at rest; a no-code browser workspace for analysts on single addresses; MCP for your AI agents. <strong>The fastest integration is the rail you already run</strong> &mdash; every missing door is a workaround your team must build.
+                </td>
+              </tr>
+            </table>
+
+            <p style="margin:0 0 26px 0; font-size:16px; line-height:1.7; color:#232F3E;">The nuance most compliance plans miss: the door does not decide the level. Apart from the browser studio, <strong>every door carries both</strong> &mdash; so you choose the door by infrastructure and the level by use case, and the tuning your first sprint earns is already there when the second begins.</p>
+
+            <!-- FIGURE 4 -->
+            <img src="https://res.cloudinary.com/fxgegrr4/image/upload/v1785299670/LN8_-_diagram4_engine_doors_mlsykp.png"
+                 width="528"
+                 alt="The integration map showing eight doors into one engine, at both message and address level."
+                 border="0"
+                 style="display:block;width:100%;max-width:528px;height:auto;border-radius:4px;margin:0 0 10px 0;">
+            <p style="margin:0 0 26px 0; font-size:14px; line-height:1.6; color:#466587; font-style:italic; text-align:center;">The integration map &mdash; choose the door by infrastructure, the level by use case. One engine behind every door.</p>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">That versatility is what makes the sprint arithmetic work: API and queue sprints occupy engineering, SFTP and JDBC occupy ops, uploads and Address Studio need nobody technical. Three tracks, three teams &mdash; a single-door tool collapses all of it into one backlog. One condition makes it trustworthy rather than fragmentary: one engine behind every door, so the same rules and the same audit trail apply whichever way an address arrives.</p>
+
+            <p style="margin:0; font-size:16px; line-height:1.7; color:#232F3E;">And there&rsquo;s a ladder in those doors for anyone who &ldquo;can&rsquo;t start anything this quarter&rdquo;: upload a file today, schedule the folder next week, wire the queue when engineering has a window. Each rung is production-real. <em>The institution that drags-and-drops its worst vendor master this afternoon has started its first sprint &mdash; whether or not anyone called it that.</em></p>
+
+          </td>
+        </tr>
+
+        <!-- ============ SECTION 4 &mdash; THE VERSION THAT PASSES NOVEMBER AND FAILS IN MARCH ============ -->
+        <tr>
+          <td style="padding:32px 36px; border-bottom:1px solid #E8E8E8;">
+
+            <h2 style="margin:0 0 18px 0; font-size:22px; font-weight:900; color:#232F3E; letter-spacing:-0.3px; line-height:1.3; font-family:Calibri, Arial, Helvetica, sans-serif;">The Version That Passes November and Fails in March</h2>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">There is a version of this transition that clears the deadline and comes apart three months later: addresses corrected, payments flowing, and no defensible account of why any given correction was made when an auditor or a correspondent&rsquo;s compliance desk asks. Address resolution for payments is a regulated-data activity &mdash; <strong>the evidence layer is half the product.</strong></p>
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">Three properties make sprint output defensible. Every correction should cite one of 30 rule-cited reason codes drawn from the texts the rules actually live in &mdash; EPC 153-22, PMPG, EU Regulation 2023/1113, CBPR+ &mdash; with per-field confidence alongside. Every decision should replay bit-identically on demand, which is what an examiner actually tests. And the ~2% needing a human should carry maker-checker records on the same trail &mdash; size that desk from your baseline, not from hope, because 2% of a million-message month is still twenty thousand cases.</p>
+
+            <p style="margin:0 0 24px 0; font-size:16px; line-height:1.7; color:#232F3E;">Run sprints this way and attestation stops being a phase at the end; <em>it&rsquo;s an artifact each sprint leaves behind.</em></p>
+
+            <!-- BRANDED BLOCK -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px 0;">
+              <tr>
+                <td style="border-left:3px solid #43ADC1; background-color:#F5F9FF; border-top:1px solid #D0DAEB; border-right:1px solid #D0DAEB; border-bottom:1px solid #D0DAEB; border-radius:4px; padding:16px 20px;">
+                  <p style="margin:0; font-size:16px; line-height:1.7; color:#232F3E;">This is the standard <strong>ioNova ARS</strong> was built to meet: eight ways in &mdash; API, IBM MQ, Kafka, SFTP, File Upload, Database (JDBC), MCP and Address Studio &mdash; with one deterministic engine behind all of them, at both levels, across 246 countries &mdash; preserving 50+ financial identifier types, so the BIC embedded in an address line survives, ring-fenced, instead of being dropped. Every correction cites a regulatory rule, every decision replays bit-identically, and because the engine is deterministic, <em>your data is never passed on to LLMs</em>. Your sprints integrate on the rails you already run.</p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- PULL QUOTE -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="border-left:3px solid #43ADC1; background-color:#F5F9FF; border-top:1px solid #D0DAEB; border-right:1px solid #D0DAEB; border-bottom:1px solid #D0DAEB; border-radius:4px; padding:16px 20px;">
+                  <p style="margin:0; font-size:15px; line-height:1.7; color:#466587; font-style:italic; font-weight:700;">&ldquo;You don&rsquo;t have to be finished with everything by 14 November. You have to have run the right sprints. Each one is 2&ndash;4 weeks, and the first can start this week.&rdquo;</p>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <!-- ============ SECTION 5 &mdash; YOUR FIRST STEP THIS WEEK ============ -->
+        <tr>
+          <td style="padding:32px 36px; border-bottom:1px solid #E8E8E8;">
+
+            <h2 style="margin:0 0 18px 0; font-size:22px; font-weight:900; color:#232F3E; letter-spacing:-0.3px; line-height:1.3; font-family:Calibri, Arial, Helvetica, sans-serif;">Your First Step This Week</h2>
+
+            <p style="margin:0 0 20px 0; font-size:16px; line-height:1.7; color:#232F3E;">If you only do three things before Friday:</p>
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 26px 0;">
+              <tr>
+                <td valign="top" style="padding:0 0 12px 0; font-size:16px; line-height:1.7; color:#232F3E;">
+                  <strong>1.</strong>&nbsp;&nbsp;Baseline your real traffic &mdash; a 10,000-message sample against the actual structure rules, not a questionnaire. And it isn&rsquo;t a detour: the folder you drop your sample into is the folder you&rsquo;ll use in production, and the same 10,000 addresses tune the engine while your team wires channels.
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" style="padding:0 0 12px 0; font-size:16px; line-height:1.7; color:#232F3E;">
+                  <strong>2.</strong>&nbsp;&nbsp;Pick the worst intersection as sprint one &mdash; steepest compliance uplift per integration hour.
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" style="padding:0; font-size:16px; line-height:1.7; color:#232F3E;">
+                  <strong>3.</strong>&nbsp;&nbsp;Get its channel correcting in shadow mode, so &ldquo;proven&rdquo; is a number on a dashboard before cutover.
+                </td>
+              </tr>
+            </table>
+
+            <!-- CTA BLOCK -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="border-left:3px solid #43ADC1; background-color:#F5F9FF; border-top:1px solid #D0DAEB; border-right:1px solid #D0DAEB; border-bottom:1px solid #D0DAEB; border-radius:4px; padding:16px 20px;">
+
+                  <p style="margin:0 0 16px 0; font-size:16px; line-height:1.7; color:#232F3E;">&#128203; <strong>Get your provisional ISO 20022 readiness score in five minutes</strong> &mdash; <a href="https://newsletter.ionova.ai/readiness-assessment?utm_source=newsletter" style="color:#0972D3; text-decoration:none; font-weight:700;">take the self-serve scorecard &rarr;</a></p>
+
+                  <p style="margin:0; font-size:16px; line-height:1.7; color:#232F3E;">&#128197; <a href="https://calendly.com/pdesai-acesw/discovery-call" style="color:#0972D3; text-decoration:none; font-weight:700;">Book ioNova&rsquo;s complimentary STP Readiness Report</a> ($5,000 value, for qualifying institutions booked before 31 August): a 10,000-message sample of your own traffic through the production ARS engine on EU-resident infrastructure, a 90-minute working session, and your scored report in five working days &mdash; with your first sprint chosen before the month is out.</p>
+
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <!-- ============ FROM OUR BLOG ============ -->
+        <tr>
+          <td style="padding:32px 36px; border-bottom:1px solid #E8E8E8;">
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background-color:#F8F8F8; border:1px solid #E8E8E8; border-radius:4px; padding:20px 24px;">
+
+                  <p style="margin:0 0 10px 0; font-size:17px; font-weight:700; line-height:1.45;"><a href="https://www.ionova.ai/blog/iso-20022-deadline-2026-action-plan?utm_source=newsletter" style="color:#232F3E; text-decoration:none;">The ISO 20022 deadline that&rsquo;s still ahead &mdash; and the 2&ndash;4-week path that meets it, use case by use case</a></p>
+
+                  <p style="margin:0 0 14px 0; font-size:15px; line-height:1.65; color:#466587;">The long-form version of this issue: what the address requirements actually say, a worked before/after in both compliant shapes, and the sprint arithmetic laid out use case by use case &mdash; for banks and PSPs on one side, corporate treasury on the other.</p>
+
+                  <p style="margin:0;"><a href="https://www.ionova.ai/blog/iso-20022-deadline-2026-action-plan?utm_source=newsletter" style="color:#0972D3; text-decoration:none; font-weight:700;">Read the full article &rarr;</a></p>
+
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <!-- ============ SECTION 6 &mdash; QUICK ANSWERS / NEXT ISSUE ============ -->
+        <tr>
+          <td style="padding:32px 36px; border-bottom:1px solid #E8E8E8;">
+
+            <h3 style="margin:0 0 18px 0; font-size:17px; font-weight:700; color:#232F3E; line-height:1.4; font-family:Calibri, Arial, Helvetica, sans-serif;">Quick answers</h3>
+
+            <p style="margin:0 0 16px 0; font-size:16px; line-height:1.7; color:#232F3E;"><strong>When is the ISO 20022 deadline?</strong> 14 November 2026 is the last date unstructured addresses are accepted; the structured-address rule takes effect from 15 November 2026. Everything must be complete before then.</p>
+
+            <p style="margin:0 0 16px 0; font-size:16px; line-height:1.7; color:#232F3E;"><strong>Do we have to remap our files or change our schemas?</strong> No. At message level a whole pain.001 or pacs.008 goes in and comes back with only the party address blocks converted &mdash; no extraction, no reassembly, no field-mapping project.</p>
+
+            <p style="margin:0 0 28px 0; font-size:16px; line-height:1.7; color:#232F3E;"><strong>How long does ISO 20022 compliance take?</strong> Use case by use case, 2&ndash;4 weeks each on a published arc &mdash; three or four full sprints still fit before the effective date.</p>
+
+            <h3 style="margin:0 0 16px 0; font-size:17px; font-weight:700; color:#232F3E; line-height:1.4; font-family:Calibri, Arial, Helvetica, sans-serif;">Next issue</h3>
+
+            <p style="margin:0; font-size:16px; line-height:1.7; color:#232F3E;">Week zero in practice: how a 10,000-message sample picks your first sprint &mdash; and why the averages in your readiness dashboard are lying to you.</p>
+
+          </td>
+        </tr>
+
+        <!-- ============ SIGN-OFF ============ -->
+        <tr>
+          <td style="padding:32px 36px;">
+
+            <p style="margin:0 0 18px 0; font-size:16px; line-height:1.7; color:#232F3E;">To your AI success,</p>
+
+            <p style="margin:0 0 4px 0; font-size:16px; line-height:1.6; color:#232F3E; font-weight:700;">Parth Desai</p>
+
+            <p style="margin:0 0 24px 0; font-size:14px; line-height:1.6; color:#466587;">Founder &middot; 30+ Years Enterprise AI in Payments &amp; Financial Services &middot; Leads ioNova&rsquo;s ISO 20022 address-resolution work</p>
+
+            <p style="margin:0 0 14px 0; font-size:15px; line-height:1.7; color:#466587; font-style:italic;">P.S. Know a payments or treasury leader who thinks ISO 20022 finished in November 2025? Forward them this issue &mdash; it&rsquo;s the conversation that saves their Q4.</p>
+
+            <p style="margin:0; font-size:15px; line-height:1.7; color:#466587; font-style:italic;">P.P.S. The sentence &ldquo;it&rsquo;s not too late&rdquo; changes every month. Today it&rsquo;s true. In September it needs an asterisk.</p>
+
+          </td>
+        </tr>
+
+        <!-- ============ FOOTER ============ -->
+        <tr>
+          <td align="center" style="background-color:#F8F8F8; padding:24px 36px;">
+
+            <p style="margin:0 0 8px 0; font-size:16px; font-weight:700; color:#232F3E;">Resolved!</p>
+
+            <p style="margin:0 0 14px 0; font-size:10px; line-height:1.6; color:#AAAAAA;">ioNova AI &middot; 600 1st Ave, Ste 330 PMB 92768, Seattle, WA 98104-2246</p>
+
+            <p style="margin:0 0 6px 0; font-size:11px; line-height:1.6; color:#AAAAAA;">You&rsquo;re receiving this because you subscribed to Resolved.</p>
+
+            <p style="margin:0; font-size:11px; line-height:1.6; color:#AAAAAA;"><a href="https://ionova.ai/newsletter/iso-20022-deadline-15-week-sprint-plan?utm_source=newsletter" style="color:#0972D3; text-decoration:none; font-weight:700;">View in browser</a></p>
+
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
+`;
+---
+
+<Fragment set:html={htmlContent} />
