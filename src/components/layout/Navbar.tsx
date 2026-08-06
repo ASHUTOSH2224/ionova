@@ -193,6 +193,12 @@ const resourcesItems = [
     icon: BookOpenText,
   },
   {
+    label: "Readiness Assessment",
+    description: "Book a scored ISO 20022 traffic assessment",
+    href: "/readiness-assessment",
+    icon: FileCheck,
+  },
+  {
     label: "Press Room",
     description: "News, press releases & media coverage",
     href: "/press",

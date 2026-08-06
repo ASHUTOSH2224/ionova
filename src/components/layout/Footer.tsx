@@ -6,6 +6,7 @@ export function Footer() {
       title: "PLATFORM",
       links: [
         { label: "Address Intelligence", href: "/address-intelligence" },
+        { label: "Pricing", href: "/pricing" },
         { label: "Entity Intelligence", href: "/entity-intelligence" },
         { label: "Cascade Engine", href: "/entity-intelligence/cascade" },
         { label: "Governance", href: "/entity-intelligence/governance" },
@@ -14,11 +15,11 @@ export function Footer() {
     resources: {
       title: "RESOURCES",
       links: [
-        { label: "All Content", href: "/blogs" },
         { label: "Blogs", href: "/blogs" },
-        // { label: "Podcasts", href: "/blogs#podcasts" },
-        // { label: "Videos", href: "/blogs#videos" },
-        // { label: "Newsletters", href: "/blogs#newsletters" },
+        { label: "Videos", href: "/videos" },
+        { label: "Podcasts", href: "/podcasts" },
+        { label: "Glossary", href: "/glossary" },
+        { label: "Readiness Assessment", href: "/readiness-assessment" },
       ],
     },
     solutions: {

@@ -1,0 +1,747 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+import ReadinessAssessmentForm from '@/components/ReadinessAssessmentForm';
+---
+
+<Layout
+  title="ISO 20022 STP Readiness Assessment | ioNova AI"
+  description="Get your ISO 20022 STP Readiness Index, scored on a 10,000-message sample of your own traffic, with a full report in five working days and a 90-minute results consultation."
+  keywords="ISO 20022 STP readiness, STP readiness assessment, ISO 20022 readiness, straight-through processing, ISO 20022 deadline, payment exceptions, sanctions false positives"
+  ogImage="/og-image.png"
+  ogImageAlt="ioNova ISO 20022 STP Readiness Assessment"
+  canonicalOverride="https://ionova.ai/readiness-assessment"
+>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://ionova.ai/readiness-assessment#webpage",
+          "url": "https://ionova.ai/readiness-assessment",
+          "name": "ISO 20022 STP Readiness Assessment",
+          "description": "A facilitated ISO 20022 STP readiness assessment scored on a 10,000-message sample of real payment traffic.",
+          "isPartOf": { "@id": "https://ionova.ai/#website" },
+          "dateModified": "2026-08-06"
+        },
+        {
+          "@type": "Service",
+          "@id": "https://ionova.ai/readiness-assessment#service",
+          "serviceType": "ISO 20022 STP Readiness Assessment",
+          "provider": { "@id": "https://ionova.ai/#organization" },
+          "areaServed": "Global",
+          "description": "Scores an institution's ISO 20022 straight-through-processing readiness across six dimensions from a 10,000-message sample, with a report delivered within five working days."
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://ionova.ai/readiness-assessment#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What exactly is the STP Readiness Index?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A 0-100 score summarizing how ready your payment data is to clear straight-through under ISO 20022, built from Red, Amber and Green scores across six weighted dimensions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What do we need to provide?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A representative sample, typically 10,000 messages or address records from the flows you care most about."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens after we book?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A short kickoff agrees your sample and scope. ioNova ARS then scores the sample, and your report lands within five working days with a 90-minute consultation."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+
+  <div class="flex min-h-screen flex-col bg-surface-2">
+    <Navbar client:idle />
+    <main class="readiness-page flex-1">
+      <section class="readiness-hero">
+        <div class="readiness-wrap readiness-hero-grid">
+          <div>
+            <p class="readiness-eyebrow">ISO 20022 STP Readiness Assessment</p>
+            <h1>Know your ISO 20022 <span>STP readiness number</span></h1>
+            <p class="readiness-lede">
+              You migrated the message. Did you fix the data inside it? Get your STP Readiness Index,
+              scored on a 10,000-message sample of your own traffic, with a full report in five working days
+              and a 90-minute consultation to analyze your results.
+            </p>
+            <div class="readiness-actions">
+              <a class="readiness-btn readiness-btn-primary" href="#book">Book your assessment</a>
+              <a class="readiness-btn readiness-btn-secondary" href="/tools/structured-address-readiness-scorecard">
+                Get your instant score
+              </a>
+            </div>
+            <p class="readiness-offer">
+              Complimentary ($5,000 value) for qualifying institutions booked before 31 August.
+            </p>
+            <div class="readiness-trust">
+              <span>No obligation</span>
+              <span>Scored on real traffic</span>
+              <span>Report in 5 working days</span>
+              <span>90-minute consultation</span>
+            </div>
+          </div>
+
+          <div class="readiness-report" aria-label="Example readiness report preview">
+            <div class="readiness-report-head">
+              <p>STP Readiness Index</p>
+              <strong>63<span>/100</span></strong>
+              <em>Overall Amber</em>
+            </div>
+            <div class="readiness-report-body">
+              <div><span>Data at rest</span><b class="risk-red">Red</b></div>
+              <div><span>Data in motion</span><b class="risk-green">Green</b></div>
+              <div><span>Exceptions capacity</span><b class="risk-amber">Amber</b></div>
+              <div><span>Screening quality</span><b class="risk-red">Red</b></div>
+              <div><span>Auditability and replay</span><b class="risk-amber">Amber</b></div>
+              <div><span>Per-corridor posture</span><b class="risk-green">Green</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="readiness-band">
+        <div class="readiness-wrap readiness-stats">
+          <div>
+            <strong>65%</strong>
+            <span>of payment messages still carry unstructured addresses.</span>
+          </div>
+          <div>
+            <strong>~40%</strong>
+            <span>baseline cross-border STP rate the industry starts from.</span>
+          </div>
+          <div>
+            <strong>$8-12B</strong>
+            <span>annual address-related payment exception cost.</span>
+          </div>
+          <div>
+            <strong>~30%</strong>
+            <span>of sanctions false positives are driven by poor address data.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="readiness-section" id="report">
+        <div class="readiness-wrap">
+          <div class="readiness-section-head">
+            <p class="readiness-eyebrow">The Deliverable</p>
+            <h2>The ISO 20022 STP <span>Readiness Report.</span></h2>
+            <p>A personalized diagnostic you keep, whatever you decide next.</p>
+          </div>
+          <div class="readiness-feature-grid">
+            <article>
+              <h3>Traffic-scored index</h3>
+              <p>Your overall STP Readiness Index and maturity level are scored from the data you actually process.</p>
+            </article>
+            <article>
+              <h3>Six-dimension evidence</h3>
+              <p>Red, Amber and Green scores across backlog, live flow, exceptions, screening, auditability and corridor exposure.</p>
+            </article>
+            <article>
+              <h3>First sprint selection</h3>
+              <p>A corridor heat map and dated remediation plan help choose the highest-impact sprint first.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="readiness-section readiness-surface" id="dimensions">
+        <div class="readiness-wrap">
+          <div class="readiness-section-head">
+            <p class="readiness-eyebrow">How You Are Scored</p>
+            <h2>Six dimensions that decide your <span>STP number.</span></h2>
+          </div>
+          <div class="readiness-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Dimension</th>
+                  <th>The question it answers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>01</td><td>Data at rest</td><td>Is your legacy address backlog structured with identifiers preserved?</td></tr>
+                <tr><td>02</td><td>Data in motion</td><td>Do you resolve addresses inline before screening, or after the damage is done?</td></tr>
+                <tr><td>03</td><td>Exceptions capacity</td><td>Can you handle the small remainder that needs human review without manual queues taking over?</td></tr>
+                <tr><td>04</td><td>Screening quality</td><td>How much of your false-positive load is simply bad address data?</td></tr>
+                <tr><td>05</td><td>Auditability and replay</td><td>Can you show why an address changed and reproduce the same decision later?</td></tr>
+                <tr><td>06</td><td>Per-corridor posture</td><td>Do you know your worst corridors, or only your average?</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="readiness-section" id="how">
+        <div class="readiness-wrap">
+          <div class="readiness-section-head">
+            <p class="readiness-eyebrow">How It Works</p>
+            <h2>From "we think we are ready" to a number, <span>in three steps.</span></h2>
+          </div>
+          <div class="readiness-steps">
+            <article>
+              <b>1</b>
+              <h3>Scope the sample</h3>
+              <p>We agree the flows, formats and handling for a representative 10,000-message sample.</p>
+            </article>
+            <article>
+              <b>2</b>
+              <h3>Run the assessment</h3>
+              <p>ioNova ARS scores the sample across all six dimensions, with each score backed by evidence.</p>
+            </article>
+            <article>
+              <b>3</b>
+              <h3>Review the report</h3>
+              <p>Your full report lands within five working days, followed by a 90-minute results consultation.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="readiness-section readiness-surface" id="book">
+        <div class="readiness-wrap readiness-book-grid">
+          <div>
+            <p class="readiness-eyebrow">Book Your Assessment</p>
+            <h2>Find out <span>your number.</span></h2>
+            <p class="readiness-book-copy">
+              Your full report in five working days, plus a 90-minute consultation to analyze your results.
+              The assessment is complimentary for qualifying institutions booked before 31 August.
+            </p>
+            <ul class="readiness-points">
+              <li>A scored report on a 10,000-message sample of your real traffic.</li>
+              <li>Your worst corridors mapped with a dated remediation plan.</li>
+              <li>Your first sprint chosen before the month is out.</li>
+            </ul>
+          </div>
+          <ReadinessAssessmentForm client:load />
+        </div>
+      </section>
+
+      <section class="readiness-section" id="faq">
+        <div class="readiness-wrap">
+          <div class="readiness-section-head">
+            <p class="readiness-eyebrow">FAQ</p>
+            <h2>What teams ask <span>before booking.</span></h2>
+          </div>
+          <div class="readiness-faq">
+            <details open>
+              <summary>What exactly is the STP Readiness Index?</summary>
+              <p>A 0-100 score summarizing how ready your payment data is to clear straight-through under ISO 20022.</p>
+            </details>
+            <details>
+              <summary>What do we need to provide?</summary>
+              <p>A representative sample, typically 10,000 messages or address records from the flows you care most about.</p>
+            </details>
+            <details>
+              <summary>What happens after we book?</summary>
+              <p>A kickoff agrees the scope. ioNova ARS scores the sample, then your report lands within five working days.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+
+  <style>
+    .readiness-page {
+      --navy: hsl(var(--navy-950));
+      --navy-900: hsl(var(--navy-900));
+      --muted: hsl(var(--text-muted));
+      --label: hsl(var(--text-label));
+      --border: hsl(var(--border));
+      --border-strong: hsl(var(--border-strong));
+      --surface: hsl(var(--surface-1));
+      --surface-2: hsl(var(--surface-2));
+      --surface-3: hsl(var(--surface-3));
+      --teal: hsl(var(--teal-500));
+      --cyan: hsl(var(--cyan-400));
+      --blue: hsl(var(--blue-500));
+      --blue-400: hsl(var(--blue-400));
+      --blue-600: hsl(var(--blue-600));
+      --brand-gradient: var(--gradient-primary);
+      --hero-gradient: var(--gradient-hero);
+      color: var(--navy);
+      font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      overflow: hidden;
+    }
+
+    .readiness-wrap {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .readiness-page h1,
+    .readiness-page h2,
+    .readiness-page h3 {
+      margin: 0;
+      font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+      font-style: italic;
+      letter-spacing: 0;
+      color: var(--navy);
+    }
+
+    .readiness-page h1 {
+      max-width: 650px;
+      font-size: clamp(38px, 4.3vw, 54px);
+      font-weight: 800;
+      line-height: 1.08;
+    }
+
+    .readiness-page h2 {
+      font-size: clamp(24px, 2.8vw, 34px);
+      font-weight: 800;
+      line-height: 1.14;
+    }
+
+    .readiness-page h1 span,
+    .readiness-page h2 span {
+      background-image: var(--brand-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .readiness-hero {
+      padding: 118px 0 68px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.16)),
+        linear-gradient(135deg, var(--surface-2), #FFFFFF 76%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .readiness-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(340px, 420px);
+      gap: 56px;
+      align-items: center;
+    }
+
+    .readiness-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .readiness-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    .readiness-lede {
+      max-width: 640px;
+      margin: 22px 0 0;
+      color: var(--label);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .readiness-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .readiness-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .readiness-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .readiness-btn-primary {
+      background-image: var(--brand-gradient);
+      color: #fff;
+      box-shadow: var(--shadow-md);
+    }
+
+    .readiness-btn-secondary {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.82);
+      color: var(--navy);
+    }
+
+    .readiness-btn-primary:hover {
+      box-shadow: var(--shadow-glow);
+    }
+
+    .readiness-btn-secondary:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .readiness-offer {
+      display: inline-flex;
+      margin: 22px 0 0;
+      padding: 8px 14px;
+      border: 1px solid #FDE68A;
+      border-radius: 999px;
+      background: #FFFBEB;
+      color: #92400E;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+
+    .readiness-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .readiness-trust span::before,
+    .readiness-points li::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      vertical-align: middle;
+    }
+
+    .readiness-report,
+    .readiness-feature-grid article,
+    .readiness-steps article,
+    .readiness-faq details {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+
+    .readiness-feature-grid article:hover,
+    .readiness-steps article:hover,
+    .readiness-faq details:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .readiness-report {
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .readiness-report-head {
+      padding: 24px;
+      background: var(--hero-gradient);
+      color: #fff;
+    }
+
+    .readiness-report-head p,
+    .readiness-report-head em {
+      display: block;
+      margin: 0;
+      color: #B8CCE2;
+      font-style: normal;
+    }
+
+    .readiness-report-head strong {
+      display: block;
+      margin: 8px 0;
+      color: #fff;
+      font-size: 54px;
+      line-height: 1;
+    }
+
+    .readiness-report-head strong span {
+      font-size: 22px;
+      color: #B8CCE2;
+    }
+
+    .readiness-report-body div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--label);
+      font-size: 14px;
+    }
+
+    .readiness-report-body b {
+      min-width: 70px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-align: center;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .risk-red { background: #FEF2F2; color: #991B1B; }
+    .risk-amber { background: #FFFBEB; color: #92400E; }
+    .risk-green { background: #ECFDF5; color: #065F46; }
+
+    .readiness-band,
+    .readiness-surface {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .readiness-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      padding: 30px 0;
+    }
+
+    .readiness-stats div {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+
+    .readiness-stats div:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-2px);
+    }
+
+    .readiness-stats strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--blue);
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .readiness-stats span {
+      color: var(--label);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .readiness-section {
+      padding: 64px 0;
+    }
+
+    .readiness-section-head {
+      max-width: 720px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .readiness-section-head > p:last-child,
+    .readiness-book-copy {
+      margin: 16px 0 0;
+      color: var(--label);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .readiness-feature-grid,
+    .readiness-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .readiness-feature-grid article,
+    .readiness-steps article {
+      padding: 24px;
+    }
+
+    .readiness-feature-grid h3,
+    .readiness-steps h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .readiness-feature-grid p,
+    .readiness-steps p {
+      margin: 0;
+      color: var(--label);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .readiness-steps b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      color: #fff;
+    }
+
+    .readiness-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .readiness-table-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    .readiness-table-wrap th,
+    .readiness-table-wrap td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .readiness-table-wrap th {
+      background: var(--surface-2);
+      color: var(--navy);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .readiness-table-wrap td {
+      color: var(--label);
+    }
+
+    .readiness-table-wrap td:first-child,
+    .readiness-table-wrap td:nth-child(2) {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .readiness-table-wrap tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .readiness-book-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(380px, 1.1fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .readiness-points {
+      display: grid;
+      gap: 14px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--label);
+      line-height: 1.65;
+    }
+
+    .readiness-faq {
+      display: grid;
+      gap: 14px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .readiness-faq details {
+      padding: 22px 24px;
+    }
+
+    .readiness-faq summary {
+      cursor: pointer;
+      color: var(--navy);
+      font-weight: 800;
+      font-style: italic;
+    }
+
+    .readiness-faq p {
+      margin: 12px 0 0;
+      color: var(--label);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 960px) {
+      .readiness-hero-grid,
+      .readiness-book-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .readiness-stats,
+      .readiness-feature-grid,
+      .readiness-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .readiness-wrap {
+        width: min(100% - 32px, 1120px);
+      }
+
+      .readiness-hero {
+        padding-top: 112px;
+      }
+
+      .readiness-page h1 {
+        font-size: 38px;
+      }
+
+      .readiness-actions,
+      .readiness-btn,
+      .readiness-offer {
+        width: 100%;
+      }
+
+      .readiness-stats,
+      .readiness-feature-grid,
+      .readiness-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>

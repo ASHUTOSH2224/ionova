@@ -1,0 +1,16 @@
+name = "ionova-scorecard-capture"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+account_id = "51995bfb66211d9b3e02557fc82feb53"
+
+# Replace database_id after running:
+# npx wrangler d1 create ionova_scorecard
+[[d1_databases]]
+binding = "DB"
+database_name = "ionova_scorecard"
+database_id = "e5e77fba-5ec8-46c9-982f-217778ea7b85"
+
+# Secrets (set via `npx wrangler secret put <NAME>`):
+# - KIT_API_KEY: Kit v4 API key
+# - KIT_FORM_ID: 9771422
+# - KIT_INSTITUTION_FIELD_KEY: optional override, defaults to company_name
