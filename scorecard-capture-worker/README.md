@@ -66,7 +66,7 @@ npx wrangler deploy
 
 Expected Worker URL:
 
-`https://ionova-scorecard-capture.ionova-relay.workers.dev/scorecard`
+`https://ionova-scorecard-capture.rough-night-bf2a.workers.dev/scorecard`
 
 If a custom domain is added later, update `SCORECARD_CAPTURE_ENDPOINT` in `src/pages/tools/structured-address-readiness-scorecard.astro`.
 
