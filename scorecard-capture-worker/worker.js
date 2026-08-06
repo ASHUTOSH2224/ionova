@@ -6,6 +6,7 @@ const ALLOWED_ORIGINS = new Set([
 
 const MAX_BODY_BYTES = 128 * 1024;
 const SCORECARD_URL = "https://ionova.ai/tools/structured-address-readiness-scorecard";
+const WORKER_VERSION = "kit-v3-2026-08-06";
 
 export default {
   async fetch(request, env) {
@@ -17,6 +18,10 @@ export default {
     }
 
     const url = new URL(request.url);
+    if (url.pathname === "/health") {
+      return json({ ok: true, version: WORKER_VERSION }, 200, cors);
+    }
+
     if (url.pathname !== "/scorecard") {
       return json({ ok: false, error: "not_found" }, 404, cors);
     }
@@ -218,28 +223,12 @@ async function syncKit(payload, env) {
   }
 
   const lead = payload.lead;
-  const subscriber = {
-    email_address: lead.email,
+  const formUrl = `https://api.convertkit.com/v3/forms/${encodeURIComponent(env.KIT_FORM_ID)}/subscribe`;
+  const form = await kitFetch(formUrl, {
+    api_key: env.KIT_API_KEY,
+    email: lead.email,
     first_name: lead.name,
-  };
-  const customFields = kitCustomFields(lead, env);
-  if (customFields) {
-    subscriber.fields = customFields;
-  }
-
-  const create = await kitFetch("https://api.kit.com/v4/subscribers", env, subscriber);
-  if (!create.ok) {
-    return { status: "subscriber_error", error: create.error };
-  }
-
-  const subscriberId = create.data?.subscriber?.id;
-  if (!subscriberId) {
-    return { status: "subscriber_error", error: "Kit response did not include subscriber.id" };
-  }
-
-  const formUrl = `https://api.kit.com/v4/forms/${encodeURIComponent(env.KIT_FORM_ID)}/subscribers/${encodeURIComponent(subscriberId)}`;
-  const form = await kitFetch(formUrl, env, {
-    referrer: payload.pageUrl || SCORECARD_URL,
+    fields: kitCustomFields(lead, env),
   });
 
   if (!form.ok) {
@@ -262,13 +251,12 @@ function kitCustomFields(lead, env) {
   };
 }
 
-async function kitFetch(url, env, body) {
+async function kitFetch(url, body) {
   try {
     const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Kit-Api-Key": env.KIT_API_KEY,
       },
       body: JSON.stringify(body),
     });

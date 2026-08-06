@@ -12,8 +12,7 @@ CloudFront static page -> Cloudflare Worker -> Cloudflare D1 -> Kit
 ```
 
 It stores the full response payload in Cloudflare D1 and sends the lead
-name/email to the configured Kit form server-side, keeping the Kit API key out
-of browser JavaScript.
+name/email to the configured Kit form server-side.
 
 The existing `.env` Kit variables are public frontend variables. Use Worker
 secrets for this capture endpoint.
@@ -52,11 +51,10 @@ the numeric `form_id` for `KIT_FORM_ID`. The verified scorecard form ID is:
 9771422
 ```
 
-`KIT_API_KEY` must be a valid Kit API key for the same account/workspace as the
-form, and it must be set as a Cloudflare Worker secret, not exposed from browser
-JavaScript. The scorecard Kit embed stores Institution in the `company_name`
-custom field, so the Worker defaults `KIT_INSTITUTION_FIELD_KEY` to
-`company_name`; only set that secret if the Kit custom-field key changes later.
+`KIT_API_KEY` should be the same Kit v3 API key used by the existing website
+forms. The scorecard Kit embed stores Institution in the `company_name` custom
+field, so the Worker defaults `KIT_INSTITUTION_FIELD_KEY` to `company_name`;
+only set that secret if the Kit custom-field key changes later.
 
 Deploy:
 
