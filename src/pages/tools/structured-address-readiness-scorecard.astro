@@ -762,6 +762,8 @@ const BAND_RGB = { L1:[239,68,68], L2:[245,158,11], L3:[16,185,129], L4:[60,117,
 const BAND_CSS = { L1:'var(--alert-red)', L2:'var(--alert-amber)', L3:'var(--alert-green)', L4:'var(--blue-500)' };
 const SCORECARD_CAPTURE_ENDPOINT = window.IONOVA_SCORECARD_ENDPOINT || 'https://ionova-scorecard-capture.rough-night-bf2a.workers.dev/scorecard';
 const SCORECARD_CAPTURE_TIMEOUT_MS = 4500;
+const SCORECARD_LOGO_SRC = '/large-without-bg.png';
+const SCORECARD_LOGO_RATIO = 154 / 746;
 const MAX = DIMS.length * 9;
 
 /* ================= STATE ================= */
@@ -799,6 +801,25 @@ function toast(msg){
 }
 function todayStr(){
   return new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+}
+let scorecardLogoDataUrl = null;
+async function getScorecardLogoDataUrl(){
+  if (scorecardLogoDataUrl) return scorecardLogoDataUrl;
+  try {
+    const response = await fetch(SCORECARD_LOGO_SRC, { cache: 'force-cache' });
+    if (!response.ok) throw new Error('Logo request failed with HTTP ' + response.status);
+    const blob = await response.blob();
+    scorecardLogoDataUrl = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(reader.error);
+      reader.readAsDataURL(blob);
+    });
+    return scorecardLogoDataUrl;
+  } catch (error) {
+    console.warn('Scorecard logo load failed; using embedded fallback', error);
+    return LOGO_WORDMARK;
+  }
 }
 
 /* ================= BUILD QUESTION SCREENS (one per card) ================= */
@@ -1163,12 +1184,13 @@ const PDF = {
   BORDER:[208,218,235], LIGHT:[240,244,249], WHITE:[255,255,255]
 };
 
-function buildPDF(){
+async function buildPDF(){
   if (!(window.jspdf && window.jspdf.jsPDF)){
     toast('PDF library unavailable — using the browser print dialog');
     window.print(); return;
   }
   const { jsPDF } = window.jspdf;
+  const logoData = await getScorecardLogoDataUrl();
   const doc = new jsPDF({ unit:'mm', format:'a4' });
   const { M, W, H } = PDF;
   const RIGHT = W - M;
@@ -1180,8 +1202,8 @@ function buildPDF(){
   function header(){
     page++;
     // logo — right-hand top corner
-    const lw = 34, lh = lw * (134/520);
-    try { doc.addImage(LOGO_WORDMARK, 'PNG', RIGHT - lw, 12, lw, lh); } catch(e){}
+    const lw = 38, lh = lw * SCORECARD_LOGO_RATIO;
+    try { doc.addImage(logoData, 'PNG', RIGHT - lw, 12.3, lw, lh); } catch(e){}
     font('bold', 7.4); setC(PDF.TEAL);
     doc.text('ISO 20022 STRUCTURED-ADDRESS READINESS', M, 16);
     font('bold', 15); setC(PDF.NAVY);
