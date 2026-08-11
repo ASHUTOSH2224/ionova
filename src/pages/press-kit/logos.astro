@@ -1,0 +1,238 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer.astro';
+
+interface LogoAsset {
+  name: string;
+  description: string;
+  href: string;
+  background: 'light' | 'dark' | 'checkered';
+  variant: 'wordmark' | 'icon' | 'full';
+}
+
+const wordmarkAssets: LogoAsset[] = [
+  {
+    name: 'Wordmark — transparent (dark text)',
+    description: 'Primary horizontal wordmark for light backgrounds.',
+    href: '/press-kit/logos/wordmark-large-transparent.png',
+    background: 'light',
+    variant: 'wordmark',
+  },
+  {
+    name: 'Wordmark — white',
+    description: 'Horizontal wordmark for dark backgrounds and photography.',
+    href: '/press-kit/logos/wordmark-large-white.png',
+    background: 'dark',
+    variant: 'wordmark',
+  },
+  {
+    name: 'Wordmark — with background',
+    description: 'Full wordmark on brand dark background.',
+    href: '/press-kit/logos/wordmark-large-with-bg.png',
+    background: 'dark',
+    variant: 'wordmark',
+  },
+  {
+    name: 'Full logo — enhanced',
+    description: 'High-resolution enhanced wordmark variant.',
+    href: '/press-kit/logos/ionova-logo-enhanced.png',
+    background: 'dark',
+    variant: 'full',
+  },
+];
+
+const iconAssets: LogoAsset[] = [
+  {
+    name: 'Icon — transparent',
+    description: 'Square icon mark for favicons, avatars, and app tiles.',
+    href: '/press-kit/logos/icon-small-transparent.png',
+    background: 'checkered',
+    variant: 'icon',
+  },
+  {
+    name: 'Icon — white',
+    description: 'White icon mark for dark UI surfaces.',
+    href: '/press-kit/logos/icon-small-white.png',
+    background: 'dark',
+    variant: 'icon',
+  },
+  {
+    name: 'Icon — with background',
+    description: 'Square icon on brand dark background.',
+    href: '/press-kit/logos/icon-small-with-bg.png',
+    background: 'dark',
+    variant: 'icon',
+  },
+];
+
+const siteOrigin = 'https://ionova.ai';
+---
+
+<Layout
+  title="Brand Logos — ioNova AI Press Kit"
+  description="Official ioNova AI wordmark and icon variants for press, partners, and media. Download light and dark logo assets with direct reference URLs."
+  keywords="ioNova logo, ioNova brand assets, ioNova press kit, ioNova wordmark, ioNova icon"
+  ogImage="/press-kit/logos/wordmark-large-with-bg.png"
+  ogImageAlt="ioNova AI brand logos"
+  canonicalOverride="https://ionova.ai/press-kit/logos"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ioNova AI Brand Logos",
+    "description": "Official ioNova AI wordmark and icon variants for press, partners, and media.",
+    "url": "https://ionova.ai/press-kit/logos",
+    "isPartOf": { "@id": "https://ionova.ai/#website" },
+    "publisher": { "@id": "https://ionova.ai/#organization" }
+  })} />
+
+  <div class="flex min-h-screen flex-col">
+    <Navbar client:idle />
+    <main class="flex-1">
+
+      <div class="ds-v5">
+        <section class="hero">
+          <div class="hero-orb"></div>
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span style="position: relative; z-index: 1;">Press Kit</span>
+          </div>
+          <h1>
+            Brand <span class="accent">Logos</span>
+          </h1>
+          <p class="hero-subtitle" style="max-width: 680px; margin-inline: auto;">
+            Official ioNova AI wordmark and icon variants. Use the direct URLs below to reference assets in press materials, partner pages, and documentation.
+          </p>
+        </section>
+      </div>
+
+      <section class="bg-background py-12 md:py-16">
+        <div class="container max-w-6xl">
+
+          <div class="mb-12">
+            <span class="text-teal-600 font-bold tracking-widest uppercase text-xs mb-2 block">Usage</span>
+            <div class="bg-white rounded-[6px] border border-slate-100 p-6 shadow-sm">
+              <ul class="m-0 pl-5 text-slate-600 leading-relaxed space-y-2">
+                <li>Use dark-text wordmarks on light backgrounds; white wordmarks on dark backgrounds.</li>
+                <li>Do not alter the gradient, proportions, or spacing of the mark.</li>
+                <li>Maintain clear space equal to the height of the icon dot around the logo.</li>
+                <li>Reference assets via the permanent URLs on this page (e.g. <code class="text-sm bg-slate-100 px-1.5 py-0.5 rounded">{siteOrigin}/press-kit/logos/wordmark-large-transparent.png</code>).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mb-16">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+              <div>
+                <span class="text-teal-600 font-bold tracking-widest uppercase text-xs mb-2 block">Wordmarks</span>
+                <h2 class="font-extrabold text-navy-950 tracking-tight m-0">Horizontal logos</h2>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {wordmarkAssets.map((asset) => (
+                <article class="bg-white rounded-[6px] border border-slate-100 shadow-sm overflow-hidden">
+                  <div
+                    class:list={[
+                      'flex items-center justify-center p-10 min-h-[180px]',
+                      asset.background === 'light' && 'bg-slate-50',
+                      asset.background === 'dark' && 'bg-navy-950',
+                      asset.background === 'checkered' && 'bg-[linear-gradient(45deg,#e2e8f0_25%,transparent_25%,transparent_75%,#e2e8f0_75%,#e2e8f0),linear-gradient(45deg,#e2e8f0_25%,transparent_25%,transparent_75%,#e2e8f0_75%,#e2e8f0)] bg-[length:16px_16px] bg-[position:0_0,8px_8px]',
+                    ]}
+                  >
+                    <img
+                      src={asset.href}
+                      alt={asset.name}
+                      class:list={[
+                        'max-h-16 w-auto object-contain',
+                        asset.variant === 'full' && 'max-h-20',
+                      ]}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="p-6 border-t border-slate-100">
+                    <h3 class="text-navy-950 font-bold text-lg m-0 mb-2">{asset.name}</h3>
+                    <p class="text-sm text-slate-500 m-0 mb-4">{asset.description}</p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                      <a
+                        href={asset.href}
+                        download
+                        class="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold text-white no-underline transition-colors"
+                        style="background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);"
+                      >
+                        Download PNG
+                      </a>
+                      <a
+                        href={`${siteOrigin}${asset.href}`}
+                        class="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-2.5 text-sm font-semibold text-navy-900 no-underline hover:bg-slate-50 transition-colors"
+                      >
+                        Copy URL
+                      </a>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-4 mb-0 break-all font-mono">{siteOrigin}{asset.href}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+              <div>
+                <span class="text-teal-600 font-bold tracking-widest uppercase text-xs mb-2 block">Icons</span>
+                <h2 class="font-extrabold text-navy-950 tracking-tight m-0">Square mark</h2>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {iconAssets.map((asset) => (
+                <article class="bg-white rounded-[6px] border border-slate-100 shadow-sm overflow-hidden">
+                  <div
+                    class:list={[
+                      'flex items-center justify-center p-10 min-h-[160px]',
+                      asset.background === 'light' && 'bg-slate-50',
+                      asset.background === 'dark' && 'bg-navy-950',
+                      asset.background === 'checkered' && 'bg-[linear-gradient(45deg,#e2e8f0_25%,transparent_25%,transparent_75%,#e2e8f0_75%,#e2e8f0),linear-gradient(45deg,#e2e8f0_25%,transparent_25%,transparent_75%,#e2e8f0_75%,#e2e8f0)] bg-[length:16px_16px] bg-[position:0_0,8px_8px]',
+                    ]}
+                  >
+                    <img
+                      src={asset.href}
+                      alt={asset.name}
+                      class="max-h-20 w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="p-6 border-t border-slate-100">
+                    <h3 class="text-navy-950 font-bold text-base m-0 mb-2">{asset.name}</h3>
+                    <p class="text-sm text-slate-500 m-0 mb-4">{asset.description}</p>
+                    <div class="flex flex-col gap-3">
+                      <a
+                        href={asset.href}
+                        download
+                        class="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold text-white no-underline transition-colors"
+                        style="background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);"
+                      >
+                        Download PNG
+                      </a>
+                      <a
+                        href={`${siteOrigin}${asset.href}`}
+                        class="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-2.5 text-sm font-semibold text-navy-900 no-underline hover:bg-slate-50 transition-colors"
+                      >
+                        Copy URL
+                      </a>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-4 mb-0 break-all font-mono">{siteOrigin}{asset.href}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+    <Footer />
+  </div>
+</Layout>
