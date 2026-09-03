@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
-import { Menu, X, FileCheck, Cpu, CheckCircle, BadgeCheck, Monitor, Shield, MapPin, DollarSign, Code, ChevronDown, LayoutGrid, Terminal, Plug, FileText, Video, Mic, Layers, Box, Route, Building2, ShieldCheck, BookOpenText, Scale } from "lucide-react";
+import { Menu, X, FileCheck, Cpu, CheckCircle, BadgeCheck, Monitor, Shield, MapPin, DollarSign, Code, ChevronDown, LayoutGrid, Terminal, Plug, FileText, Video, Mic, Layers, Box, Route, Building2, ShieldCheck, BookOpenText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -125,19 +125,16 @@ const addressIntelligenceSolutions = [
   },
 ];
 
-const arsPlatformItems = [
+const arsPlatformOverview = [
   {
     label: "Platform Overview",
     description: "The ARS platform \u2014 deterministic, four components",
     href: "/ionova-ars",
     icon: LayoutGrid,
   },
-  {
-    label: "Compare",
-    description: "ioNova ARS vs 10 alternatives \u2014 honest scorecards",
-    href: "/compare",
-    icon: Scale,
-  },
+];
+
+const arsPlatformComponents = [
   {
     label: "AI Engine",
     description: "Deterministic 7-step pipeline, sub-50ms P95",
@@ -252,9 +249,7 @@ export function Navbar() {
   const isAddressIntelligenceActive = location.pathname.startsWith(
     "/address-intelligence"
   );
-  const isArsPlatformActive =
-    location.pathname.startsWith("/ionova-ars") ||
-    location.pathname.startsWith("/compare");
+  const isArsPlatformActive = location.pathname.startsWith("/ionova-ars");
   // Derived from resourcesItems so new entries are automatically covered.
   // Also covers sub-paths (/press/*, /news/*, /newsletter/*) and legacy hash anchors.
   const isResourcesActive =
@@ -288,6 +283,16 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-1 min-[1100px]:gap-1 min-[1100px]:flex">
+          <Link
+            to="/"
+            data-astro-prefetch="viewport"
+            className={cn(
+              "text-base font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
+              isActive("/") && "text-blue-600 font-semibold bg-blue-50/50"
+            )}
+          >
+            Home
+          </Link>
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -406,31 +411,53 @@ export function Navbar() {
                   <div className="w-[300px] bg-white rounded-[6px] shadow-xl border border-border/50 p-3">
                     <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">ARS Platform</p>
                     <ul className="grid gap-0.5">
-                      {arsPlatformItems.map((item) => (
+                      {arsPlatformOverview.map((item) => (
                         <li key={item.href}>
                           <NavigationMenuLink asChild>
                             <Link
                               to={item.href}
                               className={cn(
                                 "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
-                                (item.href === "/compare"
-                                  ? location.pathname.startsWith("/compare")
-                                  : isActive(item.href)) && "bg-blue-50"
+                                isActive(item.href) && "bg-blue-50"
                               )}
                             >
                               <span className={cn(
                                 "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
-                                (item.href === "/compare"
-                                  ? location.pathname.startsWith("/compare")
-                                  : isActive(item.href)) && "bg-blue-100 text-blue-600"
+                                isActive(item.href) && "bg-blue-100 text-blue-600"
                               )}>
                                 <item.icon className="h-3.5 w-3.5" />
                               </span>
                               <span className={cn(
                                 "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
-                                (item.href === "/compare"
-                                  ? location.pathname.startsWith("/compare")
-                                  : isActive(item.href)) && "text-blue-700 font-semibold"
+                                isActive(item.href) && "text-blue-700 font-semibold"
+                              )}>{item.label}</span>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="border-t border-border/50 my-2" />
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Four Components</p>
+                    <ul className="grid gap-0.5">
+                      {arsPlatformComponents.map((item) => (
+                        <li key={item.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={item.href}
+                              className={cn(
+                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
+                                isActive(item.href) && "bg-blue-50"
+                              )}
+                            >
+                              <span className={cn(
+                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
+                                isActive(item.href) && "bg-blue-100 text-blue-600"
+                              )}>
+                                <item.icon className="h-3.5 w-3.5" />
+                              </span>
+                              <span className={cn(
+                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
+                                isActive(item.href) && "text-blue-700 font-semibold"
                               )}>{item.label}</span>
                             </Link>
                           </NavigationMenuLink>
@@ -659,6 +686,14 @@ export function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="pointer-events-auto absolute top-full left-4 right-4 mt-2 rounded-[6px] border border-border/50 bg-white/95 shadow-2xl backdrop-blur-xl p-6 min-[1100px]:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200 max-h-[80vh] overflow-y-auto">
+          <Link
+            to="/"
+            data-astro-prefetch="tap"
+            className="block text-base font-medium text-navy-900"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Home
+          </Link>
           <div className="space-y-2">
             <button
               onClick={() => toggleMobileSection('address')}
@@ -722,7 +757,21 @@ export function Navbar() {
             </button>
             {openMobileSections['ars'] && (
               <div className="pl-4 space-y-1 border-l-2 border-primary/10 ml-1 animate-in slide-in-from-top-2 fade-in duration-200">
-                {arsPlatformItems.map((item) => (
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-1 pb-0.5">Overview</p>
+                {arsPlatformOverview.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    data-astro-prefetch="tap"
+                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Four Components</p>
+                {arsPlatformComponents.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
