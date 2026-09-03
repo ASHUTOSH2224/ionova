@@ -1154,7 +1154,7 @@ function renderResults(){
       <p style="margin:0 0 14px;font-size:15px;color:var(--text-muted)">A 10,000-message sample of your own outbound traffic
       through the production ARS engine on EU-resident infrastructure, a 90-minute working session, and your scored report
       across these same six dimensions within five working days — decomposed into the concentration table that picks your
-      first sprint. Normally $5,000; complimentary for qualifying institutions booked before 31 August.</p>
+      first sprint. Normally $5,000; complimentary for qualifying institutions booked before 30 September.</p>
       <a class="btn btn-primary" href="/readiness-assessment">Book the Readiness Assessment →</a>
     </div>
 
@@ -1409,7 +1409,7 @@ async function buildPDF(){
   y += 4;
   need(30);
   doc.setFillColor(246,250,253); doc.setDrawColor(...PDF.BORDER); doc.setLineWidth(0.4);
-  const ctaLines = doc.splitTextToSize('A 10,000-message sample of your own outbound traffic through the production ARS engine on EU-resident infrastructure, a 90-minute working session, and your scored report across these same six dimensions within five working days — decomposed into the concentration table that picks your first sprint. Normally $5,000; complimentary for qualifying institutions booked before 31 August.', RIGHT - M - 10);
+  const ctaLines = doc.splitTextToSize('A 10,000-message sample of your own outbound traffic through the production ARS engine on EU-resident infrastructure, a 90-minute working session, and your scored report across these same six dimensions within five working days — decomposed into the concentration table that picks your first sprint. Normally $5,000; complimentary for qualifying institutions booked before 30 September.', RIGHT - M - 10);
   const ch = ctaLines.length*4.2 + 15;
   doc.roundedRect(M, y, RIGHT-M, ch, 2, 2, 'FD');
   setC(PDF.TEAL, true); doc.rect(M, y, 1.2, ch, 'F');

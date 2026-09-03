@@ -22,7 +22,7 @@ const volumeOptions = [
 ];
 
 const intentOptions = [
-  { value: "claim-newsletter-offer", label: "Claim the newsletter offer" },
+  { value: "claim-newsletter-offer", label: "Claim the newsletter offer (before 30 Sep)" },
   { value: "evaluate-readiness", label: "Evaluate readiness" },
   { value: "start-pilot", label: "Start a pilot" },
   { value: "partner", label: "Partner (TMS / ERP vendor)" },
