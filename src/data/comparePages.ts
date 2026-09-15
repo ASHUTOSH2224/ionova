@@ -11,7 +11,6 @@ export interface ComparePage {
 const linkRewrites: Record<string, string> = {
   "ionova-vs-alternatives-summary-v5.html": "/compare",
   "ionova-vs-loqate-v5.html": "/compare/loqate",
-  "ionova-vs-catalyst-di-v5.html": "/compare/catalyst-di",
   "ionova-vs-smarty-v5.html": "/compare/smarty",
   "ionova-vs-geopostcodes-v5.html": "/compare/geopostcodes",
   "ionova-vs-structx-v5.html": "/compare/structx",

@@ -57,6 +57,42 @@ export interface GhostPost {
   codeinjection_foot?: string | null;
 }
 
+function removeRemovedCompareReferences(value: string | null | undefined) {
+  if (!value) return value || '';
+
+  let sanitized = value;
+
+  sanitized = sanitized.replace(
+    /<tr\b[^>]*>[\s\S]*?(?:\/compare\/catalyst-di|Catalyst DI|IntellectEU)[\s\S]*?<\/tr>/gi,
+    '',
+  );
+  sanitized = sanitized.replace(
+    /(?:,\s*)?(?:and\s+|or\s+)?<a\b[^>]*href=["'][^"']*\/compare\/catalyst-di[^"']*["'][^>]*>[\s\S]*?<\/a>/gi,
+    '',
+  );
+  sanitized = sanitized.replace(/\s*,\s*Catalyst DI\b/gi, '');
+  sanitized = sanitized.replace(/\bCatalyst DI\s*,\s*/gi, '');
+  sanitized = sanitized.replace(/\s+(?:and|or)\s+Catalyst DI\b/gi, '');
+  sanitized = sanitized.replace(/\bIntellectEU\b/gi, '');
+
+  return sanitized
+    .replace(/\(\s*,\s*/g, '(')
+    .replace(/,\s*\)/g, ')')
+    .replace(/\s+,/g, ',')
+    .replace(/,\s*,/g, ',')
+    .replace(/\s+\./g, '.');
+}
+
+function sanitizeGhostPost(post: GhostPost): GhostPost {
+  return {
+    ...post,
+    html: removeRemovedCompareReferences(post.html),
+    excerpt: removeRemovedCompareReferences(post.excerpt),
+    codeinjection_head: removeRemovedCompareReferences(post.codeinjection_head),
+    codeinjection_foot: removeRemovedCompareReferences(post.codeinjection_foot),
+  };
+}
+
 export const ghostAPI = {
   async getPosts(options?: { limit?: number | string; include?: string; filter?: string }): Promise<GhostPost[]> {
     const api = getApi();
@@ -68,7 +104,7 @@ export const ghostAPI = {
         include: options?.include || 'tags,authors',
         filter: options?.filter || 'status:published',
       });
-      return posts as GhostPost[];
+      return (posts as GhostPost[]).map(sanitizeGhostPost);
     } catch (error) {
       console.error('Error fetching Ghost posts:', error);
       return [];
@@ -84,7 +120,7 @@ export const ghostAPI = {
         { slug },
         { include: 'tags,authors' }
       );
-      return post as GhostPost;
+      return sanitizeGhostPost(post as GhostPost);
     } catch (error) {
       console.error(`Error fetching Ghost post with slug ${slug}:`, error);
       return null;
@@ -101,7 +137,7 @@ export const ghostAPI = {
         filter: 'featured:true+status:published',
         include: 'tags,authors',
       });
-      return posts as GhostPost[];
+      return (posts as GhostPost[]).map(sanitizeGhostPost);
     } catch (error) {
       console.error('Error fetching featured Ghost posts:', error);
       return [];
