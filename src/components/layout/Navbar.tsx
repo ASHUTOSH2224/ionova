@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuIndicator,
 } from "@/components/ui/navigation-menu";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 type NavItem = {
@@ -487,10 +487,11 @@ export function Navbar() {
   const isAttached = isScrolled;
 
   return (
-    <header className={cn(
-      "fixed left-0 right-0 z-50 flex justify-center px-4 pointer-events-none transition-all duration-300",
-      isAttached ? "top-0" : "top-6"
-    )}>
+    <TooltipProvider>
+      <header className={cn(
+        "fixed left-0 right-0 z-50 flex justify-center px-4 pointer-events-none transition-all duration-300",
+        isAttached ? "top-0" : "top-6"
+      )}>
       <nav className="pointer-events-auto flex items-center justify-between w-full max-w-7xl h-16 lg:h-20 rounded-full border border-border/50 bg-white/80 shadow-2xl backdrop-blur-xl px-4 md:px-4 lg:px-8 transition-all">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 mr-2 md:mr-4 lg:mr-8 shrink-0">
@@ -740,6 +741,7 @@ export function Navbar() {
           </Button>
         </div>
       )}
-    </header>
+      </header>
+    </TooltipProvider>
   );
 }
