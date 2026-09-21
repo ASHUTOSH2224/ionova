@@ -44,6 +44,7 @@ aws s3 sync dist/ "s3://${BUCKET_NAME}/" \
 
 aws s3 sync dist/ "s3://${BUCKET_NAME}/" \
     --region "${REGION}" \
+    --delete \
     --cache-control "public, max-age=0, must-revalidate" \
     --content-type "text/html" \
     --exclude "*" \
@@ -51,6 +52,7 @@ aws s3 sync dist/ "s3://${BUCKET_NAME}/" \
 
 aws s3 sync dist/ "s3://${BUCKET_NAME}/" \
     --region "${REGION}" \
+    --delete \
     --cache-control "public, max-age=0, must-revalidate" \
     --content-type "application/json" \
     --exclude "*" \

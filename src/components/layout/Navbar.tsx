@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuIndicator,
 } from "@/components/ui/navigation-menu";
-import { compareFooterLinks } from "@/data/compareLinks";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 type NavItem = {
@@ -19,26 +19,13 @@ type NavItem = {
   description?: string;
   href: string;
   icon: LucideIcon;
-};
-
-type NavGroup = {
-  label?: string;
-  items: NavItem[];
+  suppressActive?: boolean;
 };
 
 type NavSection = {
   title: string;
-  groups: NavGroup[];
+  items: NavItem[];
 };
-
-const solutionsOverview = [
-  {
-    label: "Solutions Overview",
-    description: "One engine, seven ways to deploy it",
-    href: "/solutions",
-    icon: LayoutGrid,
-  },
-];
 
 const solutionsBuyers = [
   {
@@ -52,33 +39,6 @@ const solutionsBuyers = [
     description: "Fix once, every entity inherits",
     href: "/solutions/shared-service-centres",
     icon: Layers,
-  },
-];
-
-const solutionsBuilders = [
-  {
-    label: "TMS & ERP Vendors",
-    description: "Ship compliance as a billable feature",
-    href: "/solutions/tms-erp-vendors",
-    icon: Box,
-  },
-  {
-    label: "Banks & PSPs",
-    description: "Two businesses, one engine",
-    href: "/solutions/banks",
-    icon: Building2,
-  },
-  {
-    label: "Payment & Messaging Hubs",
-    description: "Enforce at the network edge",
-    href: "/solutions/payment-hubs",
-    icon: Route,
-  },
-  {
-    label: "API Providers (VOP / CoP)",
-    description: "One API, sub-100ms address verdict",
-    href: "/solutions/vop-cop-providers",
-    icon: CheckCircle,
   },
 ];
 
@@ -124,30 +84,6 @@ const addressIntelligencePillars = [
     description: "Pillar 4 \u2014 Postal \u2260 payment validation. 246 countries",
     href: "/address-intelligence/purpose-built-address-solution",
     icon: Shield,
-  },
-];
-
-const addressIntelligenceSolutions = [
-  {
-    label: "For Banks",
-    description: "Hit 98% STP before the Nov 2026 deadline",
-    href: "/address-intelligence/for-banks",
-    icon: Building2,
-  },
-  {
-    label: "For Corporates",
-    description: "Stop payment rejections before Nov 2026",
-    href: "/address-intelligence/for-corporates",
-    icon: BadgeCheck,
-  },
-];
-
-const arsPlatformOverview = [
-  {
-    label: "Platform Overview",
-    description: "The ARS platform \u2014 deterministic, four components",
-    href: "/ionova-ars",
-    icon: LayoutGrid,
   },
 ];
 
@@ -223,10 +159,101 @@ const resourcesItems = [
   },
 ];
 
-const compareItems: NavItem[] = compareFooterLinks.map((item) => ({
-  ...item,
-  icon: CheckCircle,
-}));
+const arsMenuItems: NavItem[] = [
+  {
+    label: "ARS Overview",
+    description: "The ARS platform — deterministic, four components",
+    href: "/ionova-ars",
+    icon: LayoutGrid,
+  },
+  ...arsPlatformComponents,
+  {
+    label: "Pricing",
+    description: "Plans and packaging for ioNova ARS",
+    href: "/pricing",
+    icon: DollarSign,
+  },
+];
+
+const solutionsMenuItems: NavItem[] = [
+  {
+    label: "Find Your Solution",
+    description: "One engine, seven ways to deploy it",
+    href: "/solutions",
+    icon: LayoutGrid,
+  },
+  ...solutionsBuyers,
+  {
+    label: "Banks & PSPs",
+    description: "Two businesses, one engine",
+    href: "/solutions/banks",
+    icon: Building2,
+  },
+  {
+    label: "TMS & ERP Vendors",
+    description: "Ship compliance as a billable feature",
+    href: "/solutions/tms-erp-vendors",
+    icon: Box,
+  },
+  {
+    label: "Payment & Messaging Hubs",
+    description: "Enforce at the network edge",
+    href: "/solutions/payment-hubs",
+    icon: Route,
+  },
+  {
+    label: "VOP / CoP Providers",
+    description: "One API, sub-100ms address verdict",
+    href: "/solutions/vop-cop-providers",
+    icon: CheckCircle,
+  },
+  ...solutionsBeneficiary,
+];
+
+const whyAddressIntelligenceItems: NavItem[] = [
+  ...addressIntelligenceOverview,
+  {
+    label: "ISO 20022 Address Requirements",
+    description: "Regulatory mandate and November 2026 requirements",
+    href: "/address-intelligence/structured-address-mandate",
+    icon: FileCheck,
+  },
+  ...addressIntelligencePillars.slice(1),
+];
+
+const compareItems: NavItem[] = [
+  {
+    label: "ioNova ARS vs Alternatives",
+    description: "Comparison hub for address-resolution alternatives",
+    href: "/compare",
+    icon: LayoutGrid,
+  },
+  {
+    label: "SWIFT AI Address Parser",
+    description: "Compare SWIFT's parser with ioNova ARS",
+    href: "/compare/swift-ai-address-model",
+    icon: CheckCircle,
+  },
+  {
+    label: "Loqate",
+    description: "Compare Loqate with ioNova ARS",
+    href: "/compare/loqate",
+    icon: CheckCircle,
+  },
+  {
+    label: "Melissa",
+    description: "Compare Melissa with ioNova ARS",
+    href: "/compare/melissa",
+    icon: CheckCircle,
+  },
+  {
+    label: "View All Comparisons →",
+    description: "Open the full comparison hub",
+    href: "/compare",
+    icon: CheckCircle,
+    suppressActive: true,
+  },
+];
 
 const entityIntelligenceItems: NavItem[] = [
   {
@@ -269,34 +296,20 @@ const entityIntelligenceItems: NavItem[] = [
 
 const addressMegaSections: NavSection[] = [
   {
-    title: "Platform",
-    groups: [
-      { label: "Overview", items: arsPlatformOverview },
-      { label: "Components", items: arsPlatformComponents },
-    ],
+    title: "ioNova ARS",
+    items: arsMenuItems,
   },
   {
-    title: "Solutions",
-    groups: [
-      { label: "Overview", items: solutionsOverview },
-      { label: "Buyers", items: solutionsBuyers },
-      { label: "Builders", items: solutionsBuilders },
-      { label: "Beneficiary", items: solutionsBeneficiary },
-    ],
+    title: "SOLUTIONS",
+    items: solutionsMenuItems,
   },
   {
-    title: "Product",
-    groups: [
-      { label: "Overview", items: addressIntelligenceOverview },
-      { label: "Four Pillars", items: addressIntelligencePillars },
-      { label: "Who We Serve", items: addressIntelligenceSolutions },
-    ],
+    title: "WHY ADDRESS INTELLIGENCE",
+    items: whyAddressIntelligenceItems,
   },
   {
-    title: "Compare",
-    groups: [
-      { items: compareItems },
-    ],
+    title: "COMPARE",
+    items: compareItems,
   },
 ];
 
@@ -308,41 +321,54 @@ function DesktopMenuLink({
   isActive: (path: string) => boolean;
 }) {
   const Icon = item.icon;
-
-  return (
+  const active = !item.suppressActive && isActive(item.href);
+  const link = (
     <NavigationMenuLink asChild>
       <Link
         to={item.href}
         className={cn(
-          "flex items-start gap-2.5 rounded-lg px-2 py-2 text-xs transition-all hover:bg-blue-50 group",
-          isActive(item.href) && "bg-blue-50"
+          "group relative flex h-[46px] items-center gap-2.5 rounded-lg px-2 text-xs transition-all hover:bg-blue-50 focus:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-200",
+          active && "bg-blue-50"
         )}
       >
         <span
           className={cn(
             "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 transition-colors group-hover:bg-blue-100",
-            isActive(item.href) && "bg-blue-100 text-blue-600"
+            active && "bg-blue-100 text-blue-600"
           )}
         >
           <Icon className="h-3.5 w-3.5" />
         </span>
-        <span className="min-w-0">
+        <span className="min-w-0 pr-1">
           <span
             className={cn(
-              "block font-medium text-navy-900 group-hover:text-blue-700 text-sm leading-snug",
-              isActive(item.href) && "text-blue-700 font-semibold"
+              "line-clamp-2 font-medium text-navy-900 group-hover:text-blue-700 text-sm leading-snug",
+              active && "text-blue-700 font-semibold"
             )}
           >
             {item.label}
           </span>
-          {item.description && (
-            <span className="mt-0.5 block text-[11px] leading-snug text-slate-500">
-              {item.description}
-            </span>
-          )}
         </span>
       </Link>
     </NavigationMenuLink>
+  );
+
+  if (!item.description) {
+    return link;
+  }
+
+  return (
+    <Tooltip delayDuration={120}>
+      <TooltipTrigger asChild>{link}</TooltipTrigger>
+      <TooltipContent
+        side="right"
+        align="center"
+        sideOffset={8}
+        className="max-w-60 border-slate-200 bg-white text-[11px] font-medium leading-snug text-slate-600 shadow-lg"
+      >
+        {item.description}
+      </TooltipContent>
+    </Tooltip>
   );
 }
 
@@ -355,27 +381,16 @@ function DesktopMegaSection({
 }) {
   return (
     <div className="min-w-0">
-      <p className="mb-2 px-1 text-xs font-semibold uppercase tracking-wider text-teal-500">
+      <p className="mb-2 px-1 text-xs font-semibold tracking-wider text-teal-500">
         {section.title}
       </p>
-      <div className="space-y-3">
-        {section.groups.map((group, groupIndex) => (
-          <div key={`${section.title}-${group.label ?? groupIndex}`}>
-            {group.label && (
-              <p className="px-1 pb-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                {group.label}
-              </p>
-            )}
-            <ul className="grid gap-0.5">
-              {group.items.map((item) => (
-                <li key={item.href}>
-                  <DesktopMenuLink item={item} isActive={isActive} />
-                </li>
-              ))}
-            </ul>
-          </div>
+      <ul className="grid gap-0.5">
+        {section.items.map((item) => (
+          <li key={`${item.href}-${item.label}`}>
+            <DesktopMenuLink item={item} isActive={isActive} />
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
@@ -389,34 +404,27 @@ function MobileMenuSection({
 }) {
   return (
     <div className="space-y-2">
-      <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">
+      <p className="text-[10px] font-semibold tracking-wider text-teal-500 pt-2 pb-0.5">
         {section.title}
       </p>
-      {section.groups.map((group, groupIndex) => (
-        <div key={`${section.title}-${group.label ?? groupIndex}`} className="space-y-1">
-          {group.label && (
-            <p className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase pt-1 pb-0.5">
-              {group.label}
-            </p>
-          )}
-          {group.items.map((item) => {
-            const Icon = item.icon;
+      <div className="space-y-1">
+        {section.items.map((item) => {
+          const Icon = item.icon;
 
-            return (
-              <Link
-                key={item.href}
-                to={item.href}
-                data-astro-prefetch="tap"
-                className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                onClick={onNavigate}
-              >
-                <Icon className="h-4 w-4 shrink-0" />
-                {item.label}
-              </Link>
-            );
-          })}
-        </div>
-      ))}
+          return (
+            <Link
+              key={`${item.href}-${item.label}`}
+              to={item.href}
+              data-astro-prefetch="tap"
+              className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+              onClick={onNavigate}
+            >
+              <Icon className="h-4 w-4 shrink-0" />
+              {item.label}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -464,7 +472,8 @@ export function Navbar() {
     location.pathname.startsWith("/address-intelligence") ||
     location.pathname.startsWith("/ionova-ars") ||
     location.pathname.startsWith("/solutions") ||
-    location.pathname.startsWith("/compare");
+    location.pathname.startsWith("/compare") ||
+    location.pathname.startsWith("/pricing");
   const isEntityIntelligenceActive = location.pathname.startsWith("/entity-intelligence");
   // Derived from resourcesItems so new entries are automatically covered.
   // Also covers sub-paths (/press/*, /news/*, /newsletter/*) and legacy hash anchors.
