@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@/lib/router-shim";
-import { Menu, X, FileCheck, Cpu, CheckCircle, BadgeCheck, Monitor, Shield, MapPin, DollarSign, Code, ChevronDown, LayoutGrid, Terminal, Plug, FileText, Video, Mic, Layers, Box, Route, Building2, ShieldCheck, BookOpenText } from "lucide-react";
+import { Menu, X, FileCheck, Cpu, CheckCircle, BadgeCheck, Monitor, Shield, MapPin, DollarSign, Code, ChevronDown, LayoutGrid, Terminal, Plug, FileText, Video, Mic, Layers, Box, Route, Building2, ShieldCheck, BookOpenText, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -10,9 +10,26 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   NavigationMenuIndicator,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { compareFooterLinks } from "@/data/compareLinks";
 import { cn } from "@/lib/utils";
+
+type NavItem = {
+  label: string;
+  description?: string;
+  href: string;
+  icon: LucideIcon;
+};
+
+type NavGroup = {
+  label?: string;
+  items: NavItem[];
+};
+
+type NavSection = {
+  title: string;
+  groups: NavGroup[];
+};
 
 const solutionsOverview = [
   {
@@ -206,6 +223,204 @@ const resourcesItems = [
   },
 ];
 
+const compareItems: NavItem[] = compareFooterLinks.map((item) => ({
+  ...item,
+  icon: CheckCircle,
+}));
+
+const entityIntelligenceItems: NavItem[] = [
+  {
+    label: "Overview",
+    description: "Governed entity resolution across regulated enterprises",
+    href: "/entity-intelligence",
+    icon: LayoutGrid,
+  },
+  {
+    label: "Cascade Engine",
+    description: "Multi-stage matching with production-grade economics",
+    href: "/entity-intelligence/cascade",
+    icon: Layers,
+  },
+  {
+    label: "Evidence-First AI",
+    description: "Cited copilots and audit-grade evidence packs",
+    href: "/entity-intelligence/evidence",
+    icon: FileCheck,
+  },
+  {
+    label: "Progressive Autonomy",
+    description: "Explain, recommend, prepare, and execute with controls",
+    href: "/entity-intelligence/autonomy",
+    icon: Route,
+  },
+  {
+    label: "Governance-by-Design",
+    description: "Model risk controls, drift monitoring, and replayability",
+    href: "/entity-intelligence/governance",
+    icon: ShieldCheck,
+  },
+  {
+    label: "Overlay Deployment",
+    description: "Layer intelligence over existing systems without rip-and-replace",
+    href: "/entity-intelligence/overlay",
+    icon: Plug,
+  },
+];
+
+const addressMegaSections: NavSection[] = [
+  {
+    title: "Platform",
+    groups: [
+      { label: "Overview", items: arsPlatformOverview },
+      { label: "Components", items: arsPlatformComponents },
+    ],
+  },
+  {
+    title: "Solutions",
+    groups: [
+      { label: "Overview", items: solutionsOverview },
+      { label: "Buyers", items: solutionsBuyers },
+      { label: "Builders", items: solutionsBuilders },
+      { label: "Beneficiary", items: solutionsBeneficiary },
+    ],
+  },
+  {
+    title: "Product",
+    groups: [
+      { label: "Overview", items: addressIntelligenceOverview },
+      { label: "Four Pillars", items: addressIntelligencePillars },
+      { label: "Who We Serve", items: addressIntelligenceSolutions },
+    ],
+  },
+  {
+    title: "Compare",
+    groups: [
+      { items: compareItems },
+    ],
+  },
+];
+
+function DesktopMenuLink({
+  item,
+  isActive,
+}: {
+  item: NavItem;
+  isActive: (path: string) => boolean;
+}) {
+  const Icon = item.icon;
+
+  return (
+    <NavigationMenuLink asChild>
+      <Link
+        to={item.href}
+        className={cn(
+          "flex items-start gap-2.5 rounded-lg px-2 py-2 text-xs transition-all hover:bg-blue-50 group",
+          isActive(item.href) && "bg-blue-50"
+        )}
+      >
+        <span
+          className={cn(
+            "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 transition-colors group-hover:bg-blue-100",
+            isActive(item.href) && "bg-blue-100 text-blue-600"
+          )}
+        >
+          <Icon className="h-3.5 w-3.5" />
+        </span>
+        <span className="min-w-0">
+          <span
+            className={cn(
+              "block font-medium text-navy-900 group-hover:text-blue-700 text-sm leading-snug",
+              isActive(item.href) && "text-blue-700 font-semibold"
+            )}
+          >
+            {item.label}
+          </span>
+          {item.description && (
+            <span className="mt-0.5 block text-[11px] leading-snug text-slate-500">
+              {item.description}
+            </span>
+          )}
+        </span>
+      </Link>
+    </NavigationMenuLink>
+  );
+}
+
+function DesktopMegaSection({
+  section,
+  isActive,
+}: {
+  section: NavSection;
+  isActive: (path: string) => boolean;
+}) {
+  return (
+    <div className="min-w-0">
+      <p className="mb-2 px-1 text-xs font-semibold uppercase tracking-wider text-teal-500">
+        {section.title}
+      </p>
+      <div className="space-y-3">
+        {section.groups.map((group, groupIndex) => (
+          <div key={`${section.title}-${group.label ?? groupIndex}`}>
+            {group.label && (
+              <p className="px-1 pb-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+                {group.label}
+              </p>
+            )}
+            <ul className="grid gap-0.5">
+              {group.items.map((item) => (
+                <li key={item.href}>
+                  <DesktopMenuLink item={item} isActive={isActive} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MobileMenuSection({
+  section,
+  onNavigate,
+}: {
+  section: NavSection;
+  onNavigate: () => void;
+}) {
+  return (
+    <div className="space-y-2">
+      <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">
+        {section.title}
+      </p>
+      {section.groups.map((group, groupIndex) => (
+        <div key={`${section.title}-${group.label ?? groupIndex}`} className="space-y-1">
+          {group.label && (
+            <p className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase pt-1 pb-0.5">
+              {group.label}
+            </p>
+          )}
+          {group.items.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <Link
+                key={item.href}
+                to={item.href}
+                data-astro-prefetch="tap"
+                className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
+                onClick={onNavigate}
+              >
+                <Icon className="h-4 w-4 shrink-0" />
+                {item.label}
+              </Link>
+            );
+          })}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMobileSections, setOpenMobileSections] = useState<Record<string, boolean>>({});
@@ -245,11 +460,12 @@ export function Navbar() {
     // For plain paths like /address-intelligence, only match if no hash is present
     return currentPath === targetPath && !location.hash;
   };
-  const isSolutionsActive = location.pathname.startsWith("/solutions");
-  const isAddressIntelligenceActive = location.pathname.startsWith(
-    "/address-intelligence"
-  );
-  const isArsPlatformActive = location.pathname.startsWith("/ionova-ars");
+  const isAddressIntelligenceActive =
+    location.pathname.startsWith("/address-intelligence") ||
+    location.pathname.startsWith("/ionova-ars") ||
+    location.pathname.startsWith("/solutions") ||
+    location.pathname.startsWith("/compare");
+  const isEntityIntelligenceActive = location.pathname.startsWith("/entity-intelligence");
   // Derived from resourcesItems so new entries are automatically covered.
   // Also covers sub-paths (/press/*, /news/*, /newsletter/*) and legacy hash anchors.
   const isResourcesActive =
@@ -283,16 +499,6 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-1 min-[1100px]:gap-1 min-[1100px]:flex">
-          <Link
-            to="/"
-            data-astro-prefetch="viewport"
-            className={cn(
-              "text-base font-medium text-navy-900 transition-colors hover:text-blue-600 px-2 md:px-2 lg:px-4 py-2 rounded-full hover:bg-slate-100/50",
-              isActive("/") && "text-blue-600 font-semibold bg-blue-50/50"
-            )}
-          >
-            Home
-          </Link>
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -305,90 +511,16 @@ export function Navbar() {
                   Address Intelligence
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[280px] bg-white rounded-[6px] shadow-xl border border-border/50 p-3">
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Address Intelligence</p>
-                    <ul className="grid gap-0.5">
-                      {addressIntelligenceOverview.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.href}
-                              className={cn(
-                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
-                                isActive(item.href) && "bg-blue-50"
-                              )}
-                            >
-                              <span className={cn(
-                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
-                                isActive(item.href) && "bg-blue-100 text-blue-600"
-                              )}>
-                                <item.icon className="h-3.5 w-3.5" />
-                              </span>
-                              <span className={cn(
-                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
-                                isActive(item.href) && "text-blue-700 font-semibold"
-                              )}>{item.label}</span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
+                  <div className="w-[860px] max-w-[calc(100vw-2rem)] rounded-[6px] border border-border/50 bg-white p-5 shadow-xl">
+                    <div className="grid grid-cols-4 gap-4">
+                      {addressMegaSections.map((section) => (
+                        <DesktopMegaSection
+                          key={section.title}
+                          section={section}
+                          isActive={isActive}
+                        />
                       ))}
-                    </ul>
-                    <div className="border-t border-border/50 my-2" />
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Four Pillars</p>
-                    <ul className="grid gap-0.5">
-                      {addressIntelligencePillars.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.href}
-                              className={cn(
-                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
-                                isActive(item.href) && "bg-blue-50"
-                              )}
-                            >
-                              <span className={cn(
-                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
-                                isActive(item.href) && "bg-blue-100 text-blue-600"
-                              )}>
-                                <item.icon className="h-3.5 w-3.5" />
-                              </span>
-                              <span className={cn(
-                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
-                                isActive(item.href) && "text-blue-700 font-semibold"
-                              )}>{item.label}</span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="border-t border-border/50 my-2" />
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Who We Serve</p>
-                    <ul className="grid gap-0.5">
-                      {addressIntelligenceSolutions.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.href}
-                              className={cn(
-                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
-                                isActive(item.href) && "bg-blue-50"
-                              )}
-                            >
-                              <span className={cn(
-                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
-                                isActive(item.href) && "bg-blue-100 text-blue-600"
-                              )}>
-                                <item.icon className="h-3.5 w-3.5" />
-                              </span>
-                              <span className={cn(
-                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
-                                isActive(item.href) && "text-blue-700 font-semibold"
-                              )}>{item.label}</span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
+                    </div>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -402,196 +534,20 @@ export function Navbar() {
                 <NavigationMenuTrigger
                   className={cn(
                     "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium text-base",
-                    isArsPlatformActive && "text-blue-600 font-semibold bg-blue-50/50"
+                    isEntityIntelligenceActive && "text-blue-600 font-semibold bg-blue-50/50"
                   )}
                 >
-                  ARS Platform
+                  Entity Intelligence
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[300px] bg-white rounded-[6px] shadow-xl border border-border/50 p-3">
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">ARS Platform</p>
+                  <div className="w-[340px] rounded-[6px] border border-border/50 bg-white p-3 shadow-xl">
+                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">
+                      Entity Intelligence
+                    </p>
                     <ul className="grid gap-0.5">
-                      {arsPlatformOverview.map((item) => (
+                      {entityIntelligenceItems.map((item) => (
                         <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.href}
-                              className={cn(
-                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
-                                isActive(item.href) && "bg-blue-50"
-                              )}
-                            >
-                              <span className={cn(
-                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
-                                isActive(item.href) && "bg-blue-100 text-blue-600"
-                              )}>
-                                <item.icon className="h-3.5 w-3.5" />
-                              </span>
-                              <span className={cn(
-                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
-                                isActive(item.href) && "text-blue-700 font-semibold"
-                              )}>{item.label}</span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="border-t border-border/50 my-2" />
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Four Components</p>
-                    <ul className="grid gap-0.5">
-                      {arsPlatformComponents.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.href}
-                              className={cn(
-                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
-                                isActive(item.href) && "bg-blue-50"
-                              )}
-                            >
-                              <span className={cn(
-                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
-                                isActive(item.href) && "bg-blue-100 text-blue-600"
-                              )}>
-                                <item.icon className="h-3.5 w-3.5" />
-                              </span>
-                              <span className={cn(
-                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
-                                isActive(item.href) && "text-blue-700 font-semibold"
-                              )}>{item.label}</span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuIndicator className="fill-white mt-3 lg:mt-5 scale-[1.5]" />
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  className={cn(
-                    "bg-transparent hover:bg-slate-100/50 focus:bg-slate-100/50 data-[active]:bg-blue-50/50 data-[state=open]:bg-slate-100/50 h-auto py-2 px-2 md:px-2 lg:px-4 rounded-full text-navy-900 hover:text-blue-600 font-medium text-base",
-                    isSolutionsActive && "text-blue-600 font-semibold bg-blue-50/50"
-                  )}
-                >
-                  Solutions
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[320px] bg-white rounded-[6px] shadow-xl border border-border/50 p-3">
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Overview</p>
-                    <ul className="grid gap-0.5">
-                      {solutionsOverview.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.href}
-                              className={cn(
-                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
-                                isActive(item.href) && "bg-blue-50"
-                              )}
-                            >
-                              <span className={cn(
-                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
-                                isActive(item.href) && "bg-blue-100 text-blue-600"
-                              )}>
-                                <item.icon className="h-3.5 w-3.5" />
-                              </span>
-                              <span className={cn(
-                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
-                                isActive(item.href) && "text-blue-700 font-semibold"
-                              )}>{item.label}</span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="border-t border-border/50 my-2" />
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Buyers</p>
-                    <ul className="grid gap-0.5">
-                      {solutionsBuyers.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.href}
-                              className={cn(
-                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
-                                isActive(item.href) && "bg-blue-50"
-                              )}
-                            >
-                              <span className={cn(
-                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
-                                isActive(item.href) && "bg-blue-100 text-blue-600"
-                              )}>
-                                <item.icon className="h-3.5 w-3.5" />
-                              </span>
-                              <span className={cn(
-                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
-                                isActive(item.href) && "text-blue-700 font-semibold"
-                              )}>{item.label}</span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="border-t border-border/50 my-2" />
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Builders &amp; Intermediaries</p>
-                    <ul className="grid gap-0.5">
-                      {solutionsBuilders.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.href}
-                              className={cn(
-                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
-                                isActive(item.href) && "bg-blue-50"
-                              )}
-                            >
-                              <span className={cn(
-                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
-                                isActive(item.href) && "bg-blue-100 text-blue-600"
-                              )}>
-                                <item.icon className="h-3.5 w-3.5" />
-                              </span>
-                              <span className={cn(
-                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
-                                isActive(item.href) && "text-blue-700 font-semibold"
-                              )}>{item.label}</span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="border-t border-border/50 my-2" />
-                    <p className="text-xs font-semibold tracking-wider text-teal-500 uppercase mb-1.5 px-1">Beneficiary</p>
-                    <ul className="grid gap-0.5">
-                      {solutionsBeneficiary.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.href}
-                              className={cn(
-                                "flex items-center gap-2.5 px-2 py-2 rounded-lg text-xs transition-all hover:bg-blue-50 group",
-                                isActive(item.href) && "bg-blue-50"
-                              )}
-                            >
-                              <span className={cn(
-                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-blue-500 group-hover:bg-blue-100 transition-colors",
-                                isActive(item.href) && "bg-blue-100 text-blue-600"
-                              )}>
-                                <item.icon className="h-3.5 w-3.5" />
-                              </span>
-                              <span className={cn(
-                                "font-medium text-navy-900 group-hover:text-blue-700 text-sm",
-                                isActive(item.href) && "text-blue-700 font-semibold"
-                              )}>{item.label}</span>
-                            </Link>
-                          </NavigationMenuLink>
+                          <DesktopMenuLink item={item} isActive={isActive} />
                         </li>
                       ))}
                     </ul>
@@ -686,14 +642,6 @@ export function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="pointer-events-auto absolute top-full left-4 right-4 mt-2 rounded-[6px] border border-border/50 bg-white/95 shadow-2xl backdrop-blur-xl p-6 min-[1100px]:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200 max-h-[80vh] overflow-y-auto">
-          <Link
-            to="/"
-            data-astro-prefetch="tap"
-            className="block text-base font-medium text-navy-900"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Home
-          </Link>
           <div className="space-y-2">
             <button
               onClick={() => toggleMobileSection('address')}
@@ -703,45 +651,13 @@ export function Navbar() {
               <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileSections['address'] ? "rotate-180" : "")} />
             </button>
             {openMobileSections['address'] && (
-              <div className="pl-4 space-y-1 border-l-2 border-primary/10 ml-1 animate-in slide-in-from-top-2 fade-in duration-200">
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-1 pb-0.5">Overview</p>
-                {addressIntelligenceOverview.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    data-astro-prefetch="tap"
-                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <item.icon className="h-4 w-4" />
-                    {item.label}
-                  </Link>
-                ))}
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Four Pillars</p>
-                {addressIntelligencePillars.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    data-astro-prefetch="tap"
-                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <item.icon className="h-4 w-4" />
-                    {item.label}
-                  </Link>
-                ))}
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Who We Serve</p>
-                {addressIntelligenceSolutions.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    data-astro-prefetch="tap"
-                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <item.icon className="h-4 w-4" />
-                    {item.label}
-                  </Link>
+              <div className="pl-4 space-y-4 border-l-2 border-primary/10 ml-1 animate-in slide-in-from-top-2 fade-in duration-200">
+                {addressMegaSections.map((section) => (
+                  <MobileMenuSection
+                    key={section.title}
+                    section={section}
+                    onNavigate={() => setMobileMenuOpen(false)}
+                  />
                 ))}
               </div>
             )}
@@ -749,95 +665,15 @@ export function Navbar() {
 
           <div className="space-y-2">
             <button
-              onClick={() => toggleMobileSection('ars')}
+              onClick={() => toggleMobileSection('entity')}
               className="flex w-full items-center justify-between text-base font-medium text-navy-900"
             >
-              ARS Platform
-              <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileSections['ars'] ? "rotate-180" : "")} />
+              Entity Intelligence
+              <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileSections['entity'] ? "rotate-180" : "")} />
             </button>
-            {openMobileSections['ars'] && (
+            {openMobileSections['entity'] && (
               <div className="pl-4 space-y-1 border-l-2 border-primary/10 ml-1 animate-in slide-in-from-top-2 fade-in duration-200">
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-1 pb-0.5">Overview</p>
-                {arsPlatformOverview.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    data-astro-prefetch="tap"
-                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <item.icon className="h-4 w-4" />
-                    {item.label}
-                  </Link>
-                ))}
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Four Components</p>
-                {arsPlatformComponents.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    data-astro-prefetch="tap"
-                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <item.icon className="h-4 w-4" />
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="space-y-2">
-            <button
-              onClick={() => toggleMobileSection('solutions')}
-              className="flex w-full items-center justify-between text-base font-medium text-navy-900"
-            >
-              Solutions
-              <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileSections['solutions'] ? "rotate-180" : "")} />
-            </button>
-            {openMobileSections['solutions'] && (
-              <div className="pl-4 space-y-1 border-l-2 border-primary/10 ml-1 animate-in slide-in-from-top-2 fade-in duration-200">
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-1 pb-0.5">Overview</p>
-                {solutionsOverview.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    data-astro-prefetch="tap"
-                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <item.icon className="h-4 w-4" />
-                    {item.label}
-                  </Link>
-                ))}
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Buyers</p>
-                {solutionsBuyers.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    data-astro-prefetch="tap"
-                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <item.icon className="h-4 w-4" />
-                    {item.label}
-                  </Link>
-                ))}
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Builders &amp; Intermediaries</p>
-                {solutionsBuilders.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    data-astro-prefetch="tap"
-                    className="flex items-center gap-3 text-sm font-medium text-navy-600 hover:text-blue-600 py-1"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <item.icon className="h-4 w-4" />
-                    {item.label}
-                  </Link>
-                ))}
-                <p className="text-[10px] font-semibold tracking-wider text-teal-500 uppercase pt-2 pb-0.5">Beneficiary</p>
-                {solutionsBeneficiary.map((item) => (
+                {entityIntelligenceItems.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
