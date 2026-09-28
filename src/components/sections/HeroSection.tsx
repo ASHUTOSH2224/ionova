@@ -65,7 +65,7 @@ export function HeroSection() {
               <h1 className="hero-page-heading mb-6 font-extrabold tracking-tight text-white">
                 <span className="block mb-2">Do it once.</span>
                 <span className="block mb-2">Do it fully.</span>
-                <span className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-white/15 pt-5 text-[0.48em] font-bold leading-tight tracking-tight lg:justify-start">
+                <span className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-white/15 pt-5 text-[0.32em] font-bold leading-tight tracking-tight md:text-[0.48em] lg:justify-start">
                   {resolutionStages.map((stage, index) => (
                     <span key={stage} className="flex items-center gap-3">
                       <span
