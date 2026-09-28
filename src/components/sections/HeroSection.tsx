@@ -41,12 +41,12 @@ export function HeroSection() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const timer = window.setInterval(() => {
+    const timer = window.setTimeout(() => {
       setActiveStage((current) => (current + 1) % resolutionStages.length);
-    }, 2400);
+    }, 3400);
 
-    return () => window.clearInterval(timer);
-  }, []);
+    return () => window.clearTimeout(timer);
+  }, [activeStage]);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-blue-900 to-navy-950 flex flex-col justify-center pt-32 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-28">
@@ -157,7 +157,7 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-blue-500/30 blur-[60px] lg:blur-[100px] rounded-full scale-75 animate-pulse-slow"></div>
 
               <div className="relative z-10">
-                <ArsCard />
+                <ArsCard activeStage={activeStage} onStageChange={setActiveStage} />
               </div>
             </div>
           </div>
