@@ -1,31 +1,16 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 
 export function CTABandSection() {
-  // Pre-compute at render time so SSR/SSG shows real countdown
-  // (Googlebot may not execute useEffect, so "0 DAYS LEFT" would hurt indexing)
-  const initialDays = Math.max(0, Math.floor((new Date("2026-11-01T00:00:00Z").getTime() - Date.now()) / 864e5));
-  const [days, setDays] = useState(initialDays);
   const containerRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    function update() {
-      const diff = new Date("2026-11-01T00:00:00Z").getTime() - Date.now();
-      if (diff <= 0) return;
-      setDays(Math.floor(diff / 864e5));
-    }
-    update();
-    const interval = setInterval(update, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         cardRef.current,
@@ -92,7 +77,7 @@ export function CTABandSection() {
                 color: "#E2E8F4",
               }}
             >
-              The November 2026 ISO 20022 Deadline Won't Wait<br />
+              The ISO 20022 Deadline Won't Wait<br />
               <span
                 style={{
                   background: "linear-gradient(135deg, #60A5FA, #3B82F6, #2563EB)",
@@ -118,38 +103,6 @@ export function CTABandSection() {
               Purpose-built address intelligence. 246 countries. 98% STP. <br className="hidden sm:block" />
               <span className="text-white/90 font-medium">2–4 weeks to production.</span>
             </p>
-          </div>
-
-          {/* Compact Countdown */}
-          <div className="mb-8">
-            <div
-              className="inline-flex items-baseline gap-2 rounded-[6px] border border-white/10 px-6 py-3"
-              style={{
-                background: "rgba(255,255,255,0.03)",
-                backdropFilter: "blur(10px)",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "'Figtree', system-ui, sans-serif",
-                  fontWeight: 700,
-                  fontSize: "32px",
-                  color: "#fff",
-                  lineHeight: 1,
-                  background: "linear-gradient(180deg, #FFFFFF 0%, #94A3B8 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                {days}
-              </span>
-              <span
-                className="text-xs font-bold tracking-widest text-slate-400"
-                style={{ fontFamily: "'Figtree', system-ui, sans-serif" }}
-              >
-                DAYS LEFT
-              </span>
-            </div>
           </div>
 
           {/* Buttons - Compact */}

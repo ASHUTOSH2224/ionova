@@ -1,13 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@/lib/router-shim";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { ArsCard } from "@/components/sections/ArsCard";
 import "@/styles/ars-card.css";
 
+const resolutionStages = ["Structured", "Verified", "Enriched"];
+
 export function HeroSection() {
   const leftColumnRef = useRef<HTMLDivElement>(null);
   const rightImageRef = useRef<HTMLDivElement>(null);
+  const [activeStage, setActiveStage] = useState(0);
 
   useEffect(() => {
     let ctx: any;
@@ -35,6 +38,16 @@ export function HeroSection() {
     return () => ctx?.revert();
   }, []);
 
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const timer = window.setInterval(() => {
+      setActiveStage((current) => (current + 1) % resolutionStages.length);
+    }, 2400);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-blue-900 to-navy-950 flex flex-col justify-center pt-32 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-28">
       {/* Background decoration */}
@@ -50,16 +63,34 @@ export function HeroSection() {
             <div ref={leftColumnRef} className="text-center lg:text-left w-full relative z-20">
               {/* Headline */}
               <h1 className="hero-page-heading mb-6 font-extrabold tracking-tight text-white">
-                <span className="block mb-2">Achieve ISO 20022</span>
-                <span className="block mb-2">compliance with</span>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-sky-200 to-white drop-shadow-sm block">
-                  Structured Addresses
+                <span className="block mb-2">Do it once.</span>
+                <span className="block mb-2">Do it fully.</span>
+                <span className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-white/15 pt-5 text-[0.48em] font-bold leading-tight tracking-tight lg:justify-start">
+                  {resolutionStages.map((stage, index) => (
+                    <span key={stage} className="flex items-center gap-3">
+                      <span
+                        className={`relative text-sky-200/70 transition-colors duration-500 ${
+                          activeStage === index ? "text-white drop-shadow-[0_0_18px_rgba(95,207,208,0.45)]" : ""
+                        }`}
+                      >
+                        {stage}
+                        <span
+                          className={`absolute -bottom-2 left-0 h-0.5 rounded-full bg-cyan-300 transition-all duration-500 ${
+                            activeStage === index ? "w-full opacity-100" : "w-4 opacity-0"
+                          }`}
+                        />
+                      </span>
+                      {index < resolutionStages.length - 1 && (
+                        <ArrowRight className="h-4 w-4 shrink-0 text-blue-300/50 md:h-5 md:w-5" />
+                      )}
+                    </span>
+                  ))}
                 </span>
               </h1>
 
               {/* Subtitle */}
               <p className="block max-w-xl mx-auto lg:mx-0 text-lg leading-relaxed text-blue-100/90 md:text-xl font-medium tracking-normal mb-8">
-                Hybrid addresses pass minimum compliance. Structured addresses pass every test. ioNova delivers AI-native structured and hybrid address resolution for SWIFT CBPR+ and SEPA
+                Hybrid addresses satisfy the rulebook. Structured, verified and enriched addresses also hold up in screening, settlement and reporting. ioNova ARS parses free text into its ISO 20022 elements, verifies each against an authoritative source and reason-codes every correction, for SWIFT CBPR+ and SEPA.
               </p>
 
               <p className="mb-8 max-w-xl mx-auto lg:mx-0 text-sm md:text-base font-semibold text-sky-200/90">
@@ -77,6 +108,15 @@ export function HeroSection() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
+                <Link
+                  to="/readiness-assessment"
+                  className="group inline-flex min-h-12 items-center justify-center gap-2 text-sm font-semibold text-blue-100/85 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 md:min-h-14 md:text-base"
+                >
+                  <span className="border-b border-blue-100/35 pb-0.5 transition-colors group-hover:border-white/80">
+                    ISO 20022 STP Readiness Assessment
+                  </span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
                 {/* <Button
                   className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg font-medium bg-white/5 hover:bg-white/10 text-white border border-white/20 backdrop-blur-md rounded-full transition-all duration-300 hover:-translate-y-1 w-auto sm:w-auto"
                   asChild
